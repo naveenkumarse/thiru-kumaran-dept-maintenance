@@ -18,7 +18,7 @@ function Navbar() {
                             <ul class="hidden md:flex px-4 mx-auto font-semibold font-heading space-x-12">
                               <Link to='/'>  <li><a class="hover:text-gray-200" href="#">Home</a></li> </Link>
                               <Link to='/lineboy'>  <li><a class="hover:text-gray-200" href="#">Line Boy</a></li> </Link> 
-                              <Link to='/lineboy'> <li><a class="hover:text-gray-200" href="#">Line create</a></li></Link> 
+                              <Link to='/linecreate'> <li><a class="hover:text-gray-200" href="#">Line create</a></li></Link> 
                                 <li><a class="hover:text-gray-200" href="#"> Thitam</a></li>
                             </ul>
 

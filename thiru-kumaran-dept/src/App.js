@@ -7,6 +7,7 @@ import Navbar from './components/navbar/navbar';
 import Home from './components/home/home';
 import Line from './components/line/line';
 import LineBoy from './components/line_boy/lineBoy';
+import LineCreate from './components/lineCreate/lineCreate';
 
 
 function App() {
@@ -31,9 +32,15 @@ function App() {
               <Line/>
             </div>
           } />
-          <Route path="/lineboy" element={
+           <Route path="/lineboy" element={
             <div>
              <LineBoy />
+            </div>
+          } />
+          <Route path="/linecreate" element={
+            <div>
+               <Navbar />
+             <LineCreate />
             </div>
           } />
 

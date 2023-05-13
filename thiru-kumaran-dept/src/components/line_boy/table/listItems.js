@@ -1,6 +1,6 @@
 import React from "react";
 
-const ListItems = () => {
+const LineBoyList = () => {
     return (
         <>
             <td class="p-2 whitespace-nowrap">
@@ -26,4 +26,4 @@ const ListItems = () => {
     )
 }
 
-export default ListItems;
+export default LineBoyList;

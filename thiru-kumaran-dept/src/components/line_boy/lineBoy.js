@@ -1,7 +1,7 @@
 import React from "react";
 import Navbar from "../navbar/navbar";
-import Form from "../forms/form";
-import Table from "../table/table";
+import LineBoyForm from "./forms/form";
+import LineBoyTable from "./table/table";
 
 const LineBoy = () => {
     return (
@@ -9,12 +9,12 @@ const LineBoy = () => {
             <Navbar />
             <div className="flex justify-center bg-red-400 ">
                 <div className="w-1/2 ">
-                <Form />
-                </div>  
-                <div className="w-1/2 ">
-                <Table />
+                    <LineBoyForm />
                 </div>
-               
+                <div className="w-1/2 ">
+                    <LineBoyTable />
+                </div>
+
             </div>
 
         </>

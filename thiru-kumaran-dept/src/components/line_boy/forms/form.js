@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const Form = () => {
+const LineBoyForm = () => {
     const [id,setId] = useState(0);
     const [firstName,setFirstName] = useState("");
     const [lastName,setLastName] = useState("");
@@ -45,4 +45,4 @@ const Form = () => {
     )
 }
 
-export default Form;
+export default LineBoyForm;
