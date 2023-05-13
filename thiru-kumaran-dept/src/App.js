@@ -8,6 +8,7 @@ import Home from './components/home/home';
 import Line from './components/line/line';
 import LineBoy from './components/line_boy/lineBoy';
 import LineCreate from './components/lineCreate/lineCreate';
+import Loan from './components/loan/loan';
 
 
 function App() {
@@ -41,6 +42,12 @@ function App() {
             <div>
                <Navbar />
              <LineCreate />
+            </div>
+          } />
+            <Route path="/loan" element={
+            <div>
+               <Navbar />
+             <Loan />
             </div>
           } />
 

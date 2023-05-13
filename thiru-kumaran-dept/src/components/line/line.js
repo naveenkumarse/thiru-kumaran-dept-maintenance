@@ -18,7 +18,7 @@ const categories = [
     {
         image: signing,
         name: 'category2',
-        path: './paper',
+        path: '/loan',
         title: "Loan",
         description: "Write Print Play",
     },
@@ -49,9 +49,7 @@ const Line = () => {
         </Link>
     ));
     return (
-        <div style={{justifyContent:"center"}}>
-
-
+        <div>
             <div className="categories-container mx-3 py-3 ">
                 <div className="container">
                     <div className="title-container">
