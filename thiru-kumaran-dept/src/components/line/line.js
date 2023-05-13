@@ -25,7 +25,7 @@ const categories = [
     {
         image: calendar,
         name: 'category3',
-        path: './sticker',
+        path: '/dateclose',
         title: "Date Close",
         description: "Beautiful Anime",
     },

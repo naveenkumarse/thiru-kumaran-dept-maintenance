@@ -31,7 +31,7 @@ const LoanTable = () =>{
                                             
                                         </tr>
                                     </thead>
-                                    <tbody class="text-sm text-gray-600 divide-y divide-gray-100">
+                                    <tbody class="text-sm text-gray-00 divide-y divide-gray-100">
                                         <tr>
                                             <ListLoan />
                                         </tr>

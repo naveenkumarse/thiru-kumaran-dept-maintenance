@@ -9,6 +9,7 @@ import Line from './components/line/line';
 import LineBoy from './components/line_boy/lineBoy';
 import LineCreate from './components/lineCreate/lineCreate';
 import Loan from './components/loan/loan';
+import DateClose from './components/dateclose/dateclose';
 
 
 function App() {
@@ -30,24 +31,30 @@ function App() {
           <Route path="/line" element={
             <div>
               <Navbar />
-              <Line/>
+              <Line />
             </div>
           } />
-           <Route path="/lineboy" element={
+          <Route path="/lineboy" element={
             <div>
-             <LineBoy />
+              <LineBoy />
             </div>
           } />
           <Route path="/linecreate" element={
             <div>
-               <Navbar />
-             <LineCreate />
+              <Navbar />
+              <LineCreate />
             </div>
           } />
-            <Route path="/loan" element={
+          <Route path="/loan" element={
             <div>
-               <Navbar />
-             <Loan />
+              <Navbar />
+              <Loan />
+            </div>
+          } />
+          <Route path="/dateclose" element={
+            <div>
+              <Navbar />
+              <DateClose />
             </div>
           } />
 
