@@ -9,31 +9,31 @@ import './line.css';
 
 const categories = [
     {
-        image: calendar,
+        image: money,
         name: 'category1',
         path: './card',
-        title: "Cards",
+        title: "Collection",
         description: "Grab your Cards",
     },
     {
-        image: money,
+        image: signing,
         name: 'category2',
         path: './paper',
-        title: "Paper",
+        title: "Loan",
         description: "Write Print Play",
     },
     {
-        image: report,
+        image: calendar,
         name: 'category3',
         path: './sticker',
-        title: "Sticker",
+        title: "Date Close",
         description: "Beautiful Anime",
     },
     {
-        image: signing,
+        image: report,
         name: 'category4',
         path: './cover',
-        title: "Cover",
+        title: "Report",
         description: "Protect with this",
     },
 
@@ -49,7 +49,7 @@ const Line = () => {
         </Link>
     ));
     return (
-        <div className=" justify-center">
+        <div style={{justifyContent:"center"}}>
 
 
             <div className="categories-container mx-3 py-3 ">

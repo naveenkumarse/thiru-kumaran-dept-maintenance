@@ -22,8 +22,6 @@
   .categories-container .container .title-container h2 {
     color: var(--dark-blue);
     font-size: 28px;
-    
-    
   }
   .categories-container .container .categories {
     display: grid;
