@@ -7,10 +7,16 @@ const TodayListTable = () => {
         <>
             <section class="antialiased bg-gray-100 text-gray-600 px-4 bg-red-400 my-20">
                 <div class="flex flex-col justify-center h-full">
-                    <div class="w-full  mx-auto bg-white shadow-lg rounded-sm border border-gray-200">
-                        <header class="px-5 py-4 border-b border-gray-100">
-                            <h2 class="font-semibold text-gray-800">Today List</h2>
-                        </header>
+                    <div class="w-full  mx-auto bg-white shadow-lg rounded-sm border border-gray-200 ">
+                        <div className="flex inline justify-around lg:justify-between">
+                            <header class="px-5 py-4 border-b border-gray-100 ">
+                                <h2 class="font-semibold text-gray-800">Today List</h2>
+                            </header>
+                            <div class="px-5 py-4 border-b border-gray-100 ">
+                                <h2 class="font-semibold text-gray-800">Total amount : 7000</h2>
+                            </div>
+                        </div>
+
                         <div class="p-3">
                             <div class="overflow-x-auto">
                                 <table class="table-auto w-full">
