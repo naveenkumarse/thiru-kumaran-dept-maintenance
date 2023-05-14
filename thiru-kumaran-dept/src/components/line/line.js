@@ -4,6 +4,8 @@ import calendar from '../../assets/line/calendar.png';
 import money from '../../assets/line/money.png';
 import report from '../../assets/line/report.png';
 import signing from '../../assets/line/signing.png';
+import cost from '../../assets/line/cost.png';
+
 import './line.css';
 
 
@@ -30,13 +32,19 @@ const categories = [
         description: "Beautiful Anime",
     },
     {
+        image: cost,
+        name: 'category4',
+        path: '/totalview',
+        title: "Total View",
+        description: "Protect with this",
+    },
+    {
         image: report,
         name: 'category4',
-        path: './cover',
+        path: '/report',
         title: "Report",
         description: "Protect with this",
     },
-
 ];
 const Line = () => {
     const links = categories.map(({ image, name, title, description, path }, index) => (
@@ -52,8 +60,9 @@ const Line = () => {
         <div>
             <div className="categories-container mx-3 py-3 ">
                 <div className="container">
-                    <div className="title-container">
-                        <h2>Categories</h2>
+
+                    <div className="title-container mt-14">
+                        <h2></h2>
                     </div>
                     <div style={{ textDecoration: "none" }} className="categories">
                         {links}

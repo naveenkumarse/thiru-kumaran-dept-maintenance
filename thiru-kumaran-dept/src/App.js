@@ -11,6 +11,7 @@ import LineCreate from './components/lineCreate/lineCreate';
 import Loan from './components/loan/loan';
 import DateClose from './components/dateclose/dateclose';
 import Collection from './components/collection/collection';
+import Report from './components/reports/reports';
 
 
 function App() {
@@ -58,12 +59,110 @@ function App() {
               <DateClose />
             </div>
           } />
-              <Route path="/collection" element={
+          <Route path="/collection" element={
             <div>
               <Navbar />
               <Collection />
             </div>
           } />
+          <Route path="/totalview" element={
+            <div>
+              <Navbar />
+              <Report />
+            </div>
+          } />
+
+          <Route path="/individualreport" element={
+            <div>
+              <Navbar />
+              <Report />
+            </div>
+          } />
+          <Route path="/totalledger" element={
+            <div>
+              <Navbar />
+              <Report />
+            </div>
+          } />
+          <Route path="/monthlybill" element={
+            <div>
+              <Navbar />
+              <Report />
+            </div>
+          } />
+           <Route path="/pastdatebill" element={
+            <div>
+              <Navbar />
+              <Report />
+            </div>
+          } />
+          <Route path="/monthlyloan" element={
+            <div>
+              <Navbar />
+              <Report />
+            </div>
+          } />
+          <Route path="/closedparty" element={
+            <div>
+              <Navbar />
+              <Report />
+            </div>
+          } />
+           <Route path="/billnotpaid" element={
+            <div>
+              <Navbar />
+              <Report />
+            </div>
+          } />
+          <Route path="/userpastloanlist" element={
+            <div>
+              <Navbar />
+              <Report />
+            </div>
+          } />
+          <Route path="/nipparty" element={
+            <div>
+              <Navbar />
+              <Report />
+            </div>
+          } />
+           <Route path="/excessamountpaid" element={
+            <div>
+              <Navbar />
+              <Report />
+            </div>
+          } />
+          <Route path="/ledgerview" element={
+            <div>
+              <Navbar />
+              <Report />
+            </div>
+          } />
+          <Route path="/bulkpaid" element={
+            <div>
+              <Navbar />
+              <Report />
+            </div>
+          } />
+           <Route path="/continuouslynotpaid" element={
+            <div>
+              <Navbar />
+              <Report />
+            </div>
+          } />
+          <Route path="/ordernumber" element={
+            <div>
+              <Navbar />
+              <Report />
+            </div>
+          } />
+          <Route path="/report" element={
+            <div>
+              <Navbar />
+              <Report />
+            </div>
+          } />
+
         </Routes>
       </HashRouter>
     </div>
