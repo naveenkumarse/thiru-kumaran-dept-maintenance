@@ -1,9 +1,14 @@
 import React from "react";
+import LedgerEntryTable from "./ledgerEntryTable";
 
 const LedgerEntry = () =>{
     return(
         <>
-        <h1>Ledger Entry</h1>
+             <div className="flex justify-center bg-red-400 w-full h-screen ">
+                <div className="w-full">
+                    <LedgerEntryTable />
+                </div>
+            </div>
         </>
     )
 }

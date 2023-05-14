@@ -5,11 +5,11 @@ import LineCreateTable from "./lineCreateTable/lineCreateTable";
 const LineCreate = () =>{
     return(
         <>
-            <div className="flex justify-center bg-red-400 ">
-                <div className="w-1/2 ">
+            <div className="flex justify-center bg-red-400 flex-col lg:flex-row ">
+                <div className="w-full lg:w-1/2  ">
                     <LineCreateForm />
                 </div>
-                <div className="w-1/2 ">
+                <div className="w-full lg:w-1/2  ">
                     <LineCreateTable />
                 </div>
 
