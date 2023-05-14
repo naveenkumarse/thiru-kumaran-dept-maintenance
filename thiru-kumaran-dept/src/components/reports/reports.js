@@ -103,7 +103,7 @@ const categories = [
     {
         image: pay,
         name: 'category3',
-        path: '/continouslynotpaid',
+        path: '/continuouslynotpaid',
         title: "Continuously Not Paid",
         description: "Beautiful Anime",
     },

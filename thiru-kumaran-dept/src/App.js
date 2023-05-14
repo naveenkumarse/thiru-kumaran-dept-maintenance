@@ -12,6 +12,10 @@ import Loan from './components/loan/loan';
 import DateClose from './components/dateclose/dateclose';
 import Collection from './components/collection/collection';
 import Report from './components/reports/reports';
+import ContinuouslyNotPaid from './components/reports/continuously_not_paid/ContinuouslyNotPaid';
+import ExcessAmount from './components/reports/excess_amount/excessAmount';
+import NipParty from './components/reports/nip_party/nipparty';
+import BillNotPaid from './components/reports/bill_not_paid/billNotPaid';
 
 
 function App() {
@@ -90,7 +94,7 @@ function App() {
               <Report />
             </div>
           } />
-           <Route path="/pastdatebill" element={
+          <Route path="/pastdatebill" element={
             <div>
               <Navbar />
               <Report />
@@ -108,10 +112,10 @@ function App() {
               <Report />
             </div>
           } />
-           <Route path="/billnotpaid" element={
+          <Route path="/billnotpaid" element={
             <div>
               <Navbar />
-              <Report />
+              <BillNotPaid />
             </div>
           } />
           <Route path="/userpastloanlist" element={
@@ -123,13 +127,13 @@ function App() {
           <Route path="/nipparty" element={
             <div>
               <Navbar />
-              <Report />
+              <NipParty />
             </div>
           } />
-           <Route path="/excessamountpaid" element={
+          <Route path="/excessamountpaid" element={
             <div>
               <Navbar />
-              <Report />
+              <ExcessAmount />
             </div>
           } />
           <Route path="/ledgerview" element={
@@ -144,10 +148,10 @@ function App() {
               <Report />
             </div>
           } />
-           <Route path="/continuouslynotpaid" element={
+          <Route path="/continuouslynotpaid" element={
             <div>
               <Navbar />
-              <Report />
+              <ContinuouslyNotPaid />
             </div>
           } />
           <Route path="/ordernumber" element={
