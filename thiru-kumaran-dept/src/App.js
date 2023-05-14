@@ -10,6 +10,7 @@ import LineBoy from './components/line_boy/lineBoy';
 import LineCreate from './components/lineCreate/lineCreate';
 import Loan from './components/loan/loan';
 import DateClose from './components/dateclose/dateclose';
+import Collection from './components/collection/collection';
 
 
 function App() {
@@ -57,7 +58,12 @@ function App() {
               <DateClose />
             </div>
           } />
-
+              <Route path="/collection" element={
+            <div>
+              <Navbar />
+              <Collection />
+            </div>
+          } />
         </Routes>
       </HashRouter>
     </div>

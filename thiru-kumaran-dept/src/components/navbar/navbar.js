@@ -19,7 +19,7 @@ function Navbar() {
                               <Link to='/'>  <li><a class="hover:text-gray-200" href="#">Home</a></li> </Link>
                               <Link to='/lineboy'>  <li><a class="hover:text-gray-200" href="#">Line Boy</a></li> </Link> 
                               <Link to='/linecreate'> <li><a class="hover:text-gray-200" href="#">Line create</a></li></Link> 
-                                <li><a class="hover:text-gray-200" href="#"> Thitam</a></li>
+                              <li><a class="hover:text-gray-200" href="#"> Thitam</a></li>
                             </ul>
 
                             <div class="hidden xl:flex items-center space-x-5 items-center">

@@ -11,7 +11,7 @@ const categories = [
     {
         image: money,
         name: 'category1',
-        path: './card',
+        path: '/collection',
         title: "Collection",
         description: "Grab your Cards",
     },

@@ -7,11 +7,11 @@ const LineBoy = () => {
     return (
         <>
             <Navbar />
-            <div className="flex justify-center bg-red-400 ">
-                <div className="w-1/2 ">
+            <div className="flex justify-center bg-red-400 flex-col lg:flex-row ">
+                <div className="w-full lg:w-1/2  ">
                     <LineBoyForm />
                 </div>
-                <div className="w-1/2 ">
+                <div className="w-full lg:w-1/2 ">
                     <LineBoyTable />
                 </div>
 
