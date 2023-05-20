@@ -17,13 +17,16 @@ const LoanTable = () =>{
                                     <thead class="text-xs font-bold uppercase text-black-400 bg-gray-50">
                                         <tr>
                                             <th class="p-2 whitespace-nowrap">
-                                                <div class="font-bold text-left">Loan Number</div>
+                                                <div class="font-bold text-left">Loan No.</div>
                                             </th>
                                             <th class="p-2 whitespace-nowrap">
                                                 <div class="font-bold text-left">Name</div>
                                             </th>
                                             <th class="p-2 whitespace-nowrap">
                                                 <div class="font-bold text-left">Loan Amount</div>
+                                            </th>
+                                            <th class="p-2 whitespace">
+                                                <div class="font-bold text">Mahimai</div>
                                             </th>
                                             <th class="p-2 whitespace-nowrap">
                                                 <div class="font-bold text-center">Action</div>

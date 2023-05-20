@@ -13,6 +13,9 @@ const ListLoan = () => {
                     <div class="font-medium text-lg text-gray-400">Naveenkumar</div>
                 </div>
             </td>
+            <td class="pl-8 p-2 float whitespace-nowrap">
+                <div class="text-lg text-center text-gray-400">20000</div>
+            </td>
             <td class="pl-8 p-2 float-left whitespace-nowrap">
                 <div class="text-lg text-center text-gray-400">20000</div>
             </td>

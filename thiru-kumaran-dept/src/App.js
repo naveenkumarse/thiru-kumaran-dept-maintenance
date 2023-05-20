@@ -16,6 +16,7 @@ import ContinuouslyNotPaid from './components/reports/continuously_not_paid/Cont
 import ExcessAmount from './components/reports/excess_amount/excessAmount';
 import NipParty from './components/reports/nip_party/nipparty';
 import BillNotPaid from './components/reports/bill_not_paid/billNotPaid';
+import MonthlyLoan from './components/reports/monthly_loan/monthlyLoan';
 
 
 function App() {
@@ -166,6 +167,13 @@ function App() {
               <Report />
             </div>
           } />
+            <Route path="/monthlybillpaid" element={
+            <div>
+              <Navbar />
+              <MonthlyLoan />
+            </div>
+          } />
+
 
         </Routes>
       </HashRouter>

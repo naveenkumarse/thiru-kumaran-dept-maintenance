@@ -12,9 +12,7 @@ const ListCreateItems = () => {
             <td class="pl-24 float-left whitespace-nowrap">
                 <div class="text-lg text-center">Line A</div>
             </td>
-            <td class="pl-8 whitespace-nowrap">
-                <div class="text-lg text-center"><button style={{ color: "green", fontSize: "14px" }}>Update</button> <button style={{ color: "red", fontSize: "14px", marginLeft: "20px" }}>Delete</button></div>
-            </td>
+
         </>
     )
 }

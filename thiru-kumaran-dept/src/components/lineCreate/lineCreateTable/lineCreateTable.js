@@ -22,11 +22,6 @@ const LineCreateTable = () => {
                                             <th class=" pl-24 whitespace-nowrap">
                                                 <div class="font-semibold text-left">Name</div>
                                             </th>
-
-
-                                            <th class="pl-8 whitespace-nowrap">
-                                                <div class="font-semibold text-center">Action</div>
-                                            </th>
                                         </tr>
                                     </thead>
                                     <tbody class="text-sm divide-y divide-gray-100">

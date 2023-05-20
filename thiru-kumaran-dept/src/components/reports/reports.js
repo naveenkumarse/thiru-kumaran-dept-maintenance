@@ -33,7 +33,7 @@ const categories = [
     {
         image: bill,
         name: 'category3',
-        path: '/monthlybill',
+        path: '/monthlybillpaid',
         title: "Monthly Bill",
         description: "Beautiful Anime",
     },
