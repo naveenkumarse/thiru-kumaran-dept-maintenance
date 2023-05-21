@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 
 import BalanceSheet from "./balanceSheet/balanceSheet";
+import IndividualHead from "./‌individualHead/individualHead";
 
 
 const Thitam = () => {
@@ -37,7 +38,7 @@ const Thitam = () => {
                 </div>
 
             </div>
-            <BalanceSheet />  
+            <IndividualHead />  
             {/* {pageId == 0 ? <BillEntry /> : pageId == 1 ? <DirectEntry /> : pageId == 2 ? <LedgerEntry /> : <TodayList />} */}
         </>
     )

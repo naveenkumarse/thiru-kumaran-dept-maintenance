@@ -1,7 +1,7 @@
 import React from "react";
 
 
-const BalanceSheetList = () => {
+const IndividualHeadList = () => {
     return (
         <>
             <td class="p-2 whitespace-nowrap">
@@ -18,10 +18,13 @@ const BalanceSheetList = () => {
                 <div class="text-left">philip.h@gmail.com</div>
             </td>
             <td class="p-2 whitespace-nowrap">
+                <div class="text-left">philip.h@gmail.com</div>
+            </td>
+            <td class="p-2 whitespace-nowrap">
                 <div class="text-left font-medium">$2,767.04</div>
             </td>
         </>
     )
 }
 
-export default BalanceSheetList;
+export default IndividualHeadList;

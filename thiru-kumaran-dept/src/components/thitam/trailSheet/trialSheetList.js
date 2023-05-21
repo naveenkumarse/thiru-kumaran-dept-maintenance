@@ -1,18 +1,31 @@
-import React from "react";
-import TrialSheetTable from "./trialSheetTable";
+import React, { useState } from "react";
 
 
-const TrialSheet = () => {
+const TrialSheetList = () => {
+    const [amount, setAmount] = useState(0);
     return (
         <>
-            <div className="flex justify-center bg-red-400 w-full h-screen ">
-
-                <div className="w-full">
-                    <TrialSheetTable />
+         <td class="p-2 whitespace-nowrap">
+                <div class="flex items-center">
+                    <div class="font-medium text-gray-800">1</div>
                 </div>
-            </div>
+            </td>
+            <td class="p-2 whitespace-nowrap">
+                <div class="flex items-center">
+                    <div class="font-medium text-gray-800">Philip Harbach</div>
+                </div>
+            </td>
+            <td class="p-2 whitespace-nowrap">
+                <div class="text-left">philip.h@gmail.com</div>
+            </td>
+            <td class="p-2 whitespace-nowrap">
+                <div class="text-left font-medium">$2,767.04</div>
+            </td>
+        
+          
+
         </>
     )
-
 }
-export default TrialSheet;
+
+export default TrialSheetList;

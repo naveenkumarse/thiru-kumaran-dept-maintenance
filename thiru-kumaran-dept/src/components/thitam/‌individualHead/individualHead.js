@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 
-import BalanceSheetTable from "./balanceSheetTable";
+import IndividualHeadTable from "./individualHeadTable";
 
 
-const BalanceSheet = () => {
+const IndividualHead = () => {
     const [todaydate, setTodayDate] = useState(new Date());
 
     return (
@@ -11,16 +11,18 @@ const BalanceSheet = () => {
             <div class="grid min-h-screen place-items-center bg-red-400">
                 <div class="w-11/12 p-12 bg-white sm:w-8/12 md:w-1/2 lg:w-10/12 bg-white">
                     <div className="flex justify-between">
-                        <h1 class="text-xl font-bold ">Ledger View <span class="font-normal"></span> </h1>
+                        <h1 class="text-xl font-bold ">Individual Head <span class="font-normal"></span> </h1>
                     </div>
                     <form class="mt-6">
                         <div className="flex justify-between">
+                            
                             <label for="id" class="block mt-2 text-xs font-semibold text-gray-600 uppercase">Start date</label>
                             <label for="id" class="block mt-2 text-xs font-semibold text-gray-600 uppercase">End date</label>
                         </div>
 
 
                         <div className=" flex inline justify-between">
+                            <input type="select" />
                             <input id="id" type="date" name="id" placeholder="id" autocomplete="id" class="block w-full p-3 mt-2 text-gray-700 bg-gray-200 appearance-none focus:outline-none focus:bg-gray-300 focus:shadow-inner mr-20" value={todaydate} onChange={(e) => setTodayDate(e.target.value)} required />
                             <input id="id" type="date" name="id" placeholder="id" autocomplete="id" class="block w-full p-3 mt-2 text-gray-700 bg-gray-200 appearance-none focus:outline-none focus:bg-gray-300 focus:shadow-inner" value={todaydate} onChange={(e) => setTodayDate(e.target.value)} required />
                         </div>
@@ -38,7 +40,7 @@ const BalanceSheet = () => {
 
 
                     <div className="pt-12">
-                        <BalanceSheetTable />
+                        <IndividualHeadTable />
                     </div>
 
                 </div>
@@ -47,4 +49,4 @@ const BalanceSheet = () => {
         </>
     )
 }
-export default BalanceSheet;
+export default IndividualHead;

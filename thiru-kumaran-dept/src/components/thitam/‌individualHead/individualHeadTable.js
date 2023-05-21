@@ -1,11 +1,11 @@
 import React from "react";
 
-import BalanceSheetList from "./balanceSheetList";
+import IndividualHeadList from "./individualHeadList";
 
 
 
 
-const BalanceSheetTable = () => {
+const IndividualHeadTable = () => {
     return (
         <>
 
@@ -42,7 +42,10 @@ const BalanceSheetTable = () => {
                                             <div class="font-bold text-left">SNo.</div>
                                         </th>
                                         <th class="p-2 whitespace-nowrap">
-                                            <div class="font-bold text-left">Head Name</div>
+                                            <div class="font-bold text-left">Date</div>
+                                        </th>
+                                        <th class="p-2 whitespace-nowrap">
+                                            <div class="font-bold text-left">Name</div>
                                         </th>
                                         <th class="p-2 whitespace-nowrap">
                                             <div class="font-bold text-left">Credit </div>
@@ -55,7 +58,7 @@ const BalanceSheetTable = () => {
                                 </thead>
                                 <tbody class="text-sm divide-y divide-gray-100">
                                     
-                                        <BalanceSheetList />
+                                        <IndividualHeadList />
                                 
                                 </tbody>
                             </table>
@@ -67,4 +70,4 @@ const BalanceSheetTable = () => {
     )
 }
 
-export default BalanceSheetTable;
+export default IndividualHeadTable;
