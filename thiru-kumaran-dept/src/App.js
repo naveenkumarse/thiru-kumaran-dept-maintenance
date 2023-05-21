@@ -28,6 +28,7 @@ import LoanList from './components/reports/individual_report/loan_list/loanList'
 import OrderNumber from './components/reports/order_number/orderNumber';
 import TotalLedger from './components/reports/total_ledger/totalLedger';
 import LedgerView from './components/reports/ledger_view/ledgerView';
+import Thitam from './components/thitam/thitam';
 
 
 function App() {
@@ -131,7 +132,7 @@ function App() {
               <Report />
             </div>
           } />
-      
+
           <Route path="/billnotpaid" element={
             <div>
               <Navbar />
@@ -205,20 +206,37 @@ function App() {
               <ClosedParty />
             </div>
           } />
-             <Route path="/pastloanview" element={
+          <Route path="/pastloanview" element={
             <div>
               <Navbar />
               <ViewPastLoan />
             </div>
           } />
-           <Route path="/individualloanview" element={
+          <Route path="/individualloanview" element={
             <div>
               <Navbar />
               <IndividualView />
             </div>
           } />
-          
 
+          <Route path="/thitam" element={
+            <div>
+              <Navbar />
+              <Thitam />
+            </div>
+          } />
+          {/* <Route path="/thitam" element={
+            <div>
+              <Navbar />
+              <IndividualView />
+            </div>
+          } />
+          <Route path="/thitam" element={
+            <div>
+              <Navbar />
+              <IndividualView />
+            </div>
+          } /> */}
         </Routes>
       </HashRouter>
     </div>
