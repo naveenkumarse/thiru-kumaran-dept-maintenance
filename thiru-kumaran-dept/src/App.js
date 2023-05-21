@@ -20,6 +20,12 @@ import BillNotPaid from './components/reports/bill_not_paid/billNotPaid';
 import MonthlyBill from './components/reports/monthly_bill/monthlyBill';
 import MonthlyLoan from './components/reports/monthly_loan/monthlyLoan';
 import BulkPaid from './components/reports/bulk_paid/bulkPaid';
+import ClosedParty from './components/reports/closed_party/closedParty';
+import UserList from './components/reports/user_past_loan_list/user_list/userList';
+import ViewPastLoan from './components/reports/user_past_loan_list/view_page/viewPastLoan';
+import IndividualView from './components/reports/individual_report/individual_view/individualView';
+import LoanList from './components/reports/individual_report/loan_list/loanList';
+import OrderNumber from './components/reports/order_number/orderNumber';
 
 
 function App() {
@@ -90,7 +96,7 @@ function App() {
           <Route path="/individualreport" element={
             <div>
               <Navbar />
-              <Report />
+              <LoanList />
             </div>
           } />
           <Route path="/totalledger" element={
@@ -123,12 +129,7 @@ function App() {
               <Report />
             </div>
           } />
-          <Route path="/closedparty" element={
-            <div>
-              <Navbar />
-              <Report />
-            </div>
-          } />
+      
           <Route path="/billnotpaid" element={
             <div>
               <Navbar />
@@ -138,7 +139,7 @@ function App() {
           <Route path="/userpastloanlist" element={
             <div>
               <Navbar />
-              <Report />
+              <UserList />
             </div>
           } />
           <Route path="/nipparty" element={
@@ -174,7 +175,7 @@ function App() {
           <Route path="/ordernumber" element={
             <div>
               <Navbar />
-              <Report />
+              <OrderNumber />
             </div>
           } />
           <Route path="/report" element={
@@ -183,20 +184,38 @@ function App() {
               <Report />
             </div>
           } />
-            <Route path="/monthlybillpaid" element={
+          <Route path="/monthlybillpaid" element={
             <div>
               <Navbar />
               <MonthlyBill />
             </div>
           } />
 
-            <Route path="/monthlyloanamount" element={
+          <Route path="/monthlyloanamount" element={
             <div>
               <Navbar />
               <MonthlyLoan />
             </div>
           } />
-
+          <Route path="/closedparty" element={
+            <div>
+              <Navbar />
+              <ClosedParty />
+            </div>
+          } />
+             <Route path="/pastloanview" element={
+            <div>
+              <Navbar />
+              <ViewPastLoan />
+            </div>
+          } />
+           <Route path="/individualloanview" element={
+            <div>
+              <Navbar />
+              <IndividualView />
+            </div>
+          } />
+          
 
         </Routes>
       </HashRouter>

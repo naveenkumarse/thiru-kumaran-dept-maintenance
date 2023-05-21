@@ -1,18 +1,19 @@
 import React from "react";
 
-import ClosedPartyTable from "./closedpartyTable";
 
-const ClosedParty = () => {
+import LoanListTable from "./loanListTable";
+
+const LoanList = () => {
     return (
         <>
             <div className="flex justify-center bg-red-400 w-full h-screen ">
 
                 <div className="w-full">
-                    <ClosedPartyTable />
+                    <LoanListTable />
                 </div>
             </div>
         </>
     )
 
 }
-export default ClosedParty;
+export default LoanList;

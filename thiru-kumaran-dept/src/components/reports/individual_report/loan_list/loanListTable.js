@@ -1,7 +1,8 @@
 import React from "react";
-import ClosedPartyList from "./closedPartyList";
 
-const ClosedPartyTable = () => {
+import LoanListView from "./loanListView";
+
+const LoanListTable = () => {
     return (
         <>
             <section class="antialiased bg-gray-100 text-gray-600 px-4 bg-red-400 my-20">
@@ -10,7 +11,7 @@ const ClosedPartyTable = () => {
 
                         <div className="flex inline lg:justify-between">
                             <header class="px-5 py-4 border-b border-gray-100 ">
-                                <h2 class="font-bold text-gray-800">Closed Party Details</h2>
+                                <h2 class="font-bold text-gray-800">Loan Details</h2>
                             </header>
                             <div class='max-w-md mr-5'>
                                 <div class="relative flex items-center w-full h-12 rounded-lg focus-within:shadow-lg bg-white overflow-hidden border border-black-600">
@@ -44,17 +45,27 @@ const ClosedPartyTable = () => {
                                                 <div class="font-bold text-left">Address</div>
                                             </th>
                                             <th class="p-2 whitespace-nowrap">
+                                                <div class="font-bold text-left">Phone No.</div>
+                                            </th>
+                                            <th class="p-2 whitespace-nowrap">
                                                 <div class="font-bold text-left">Loan Amount</div>
                                             </th>
+                                            <th class="p-2 whitespace-nowrap">
+                                                <div class="font-bold text-left">L.Date</div>
+                                            </th>
+                                            <th class="p-2 whitespace-nowrap">
+                                                <div class="font-bold text-left">C.Date</div>
+                                            </th>
+
                                             <th class="p-2  whitespace-nowrap">
                                                 <div class="font-bold text-left ">Action</div>
                                             </th>
-                                           
+
                                         </tr>
                                     </thead>
                                     <tbody class="text-sm divide-y divide-gray-100">
                                         <tr>
-                                            <ClosedPartyList />
+                                            <LoanListView />
                                         </tr>
                                     </tbody>
                                 </table>
@@ -67,4 +78,4 @@ const ClosedPartyTable = () => {
     )
 }
 
-export default ClosedPartyTable;
+export default LoanListTable;

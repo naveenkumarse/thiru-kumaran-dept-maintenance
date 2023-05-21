@@ -1,18 +1,18 @@
 import React from "react";
+import IndividualViewTable from "./individualViewTable";
 
-import ClosedPartyTable from "./closedpartyTable";
 
-const ClosedParty = () => {
+const IndividualView = () => {
     return (
         <>
             <div className="flex justify-center bg-red-400 w-full h-screen ">
 
                 <div className="w-full">
-                    <ClosedPartyTable />
+                    <IndividualViewTable />
                 </div>
             </div>
         </>
     )
 
 }
-export default ClosedParty;
+export default IndividualView;
