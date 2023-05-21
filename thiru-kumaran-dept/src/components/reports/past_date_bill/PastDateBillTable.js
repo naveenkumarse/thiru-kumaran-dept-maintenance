@@ -1,11 +1,12 @@
 import React from "react";
 
-const MonthlyLoanTable = () => {
+const PastDateBillTable = () => {
     return (
         <>
          <div className="flex inline lg:justify-between">
                             <header class="px-5 py-4 border-b border-gray-100 ">
-                                <h2 class="font-lighter text-2xl text-gray-800">Loan Details: </h2>
+                                <h2 class="font-lighter text-2xl text-gray-800">Entry Details: </h2>
+                                <h2 class="font-lighter text-3xl text-gray-800">Total: </h2>
                                 
                             </header>
                             
@@ -46,23 +47,15 @@ const MonthlyLoanTable = () => {
                                                 <div class="font-bold text-center"> DL No</div>
                                             </th>
                                             <th class="p-2 whitespace-nowrap">
-                                                <div class="font-bold text-center">Name</div>
+                                                <div class="font-bold text-center">Address</div>
                                             </th>
                                             <th class="p-2 whitespace-nowrap">
-                                                <div class="font-bold text-center"> Loan Amount</div>
+                                                <div class="font-bold text-center"> Paid Amount</div>
                                             </th>
                                             <th class="p-2 whitespace-nowrap">
-                                                <div class="font-bold text-center">Day Total</div>
+                                                <div class="font-bold text-center">Exces</div>
                                             </th>
-                                            <th class="p-2 whitespace-nowrap">
-                                                <div class="font-bold text-center"> Interest</div>
-                                            </th>
-                                            <th class="p-2 whitespace-nowrap">
-                                                <div class="font-bold text-center"> Day Total</div>
-                                            </th>
-                                            <th class="p-2 whitespace-nowrap">
-                                                <div class="font-bold text-center"> Cal</div>
-                                            </th>
+                                           
                                         
 
 
@@ -92,4 +85,4 @@ const MonthlyLoanTable = () => {
     )
 }
 
-export default MonthlyLoanTable;
+export default PastDateBillTable;

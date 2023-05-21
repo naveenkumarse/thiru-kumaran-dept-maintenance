@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-// import DateCloseTable from "./monthlyBillTable";
-import MonthlyLoanTable from "./monthlyLoanTable";
+import DateCloseTable from "./monthlyBillTable";
+import MonthlyBillTable from "./monthlyBillTable";
 
-const MonthlyLoan = () => {
+const MonthlyBill = () => {
     const [todaydate, setTodayDate] = useState(new Date());
 
     return (
@@ -29,7 +29,7 @@ const MonthlyLoan = () => {
 
                    
                     <div className="pt-12">
-                        <MonthlyLoanTable />
+                        <MonthlyBillTable />
                     </div>
 
                 </div>
@@ -38,4 +38,4 @@ const MonthlyLoan = () => {
         </>
     )
 }
-export default MonthlyLoan;
+export default MonthlyBill;

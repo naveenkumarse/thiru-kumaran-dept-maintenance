@@ -47,7 +47,7 @@ const categories = [
     {
         image: termloan,
         name: 'category1',
-        path: '/monthlyloan',
+        path: '/monthlyloanamount',
         title: "Monthly Loan",
         description: "Grab your Cards",
     },
@@ -96,7 +96,7 @@ const categories = [
     {
         image: bulkbuy,
         name: 'category4',
-        path: '/bulkpaid',
+        path: '/bulkpaidamount',
         title: "Bulk Paid",
         description: "Protect with this",
     },

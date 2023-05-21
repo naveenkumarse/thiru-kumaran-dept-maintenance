@@ -14,9 +14,12 @@ import Collection from './components/collection/collection';
 import Report from './components/reports/reports';
 import ContinuouslyNotPaid from './components/reports/continuously_not_paid/ContinuouslyNotPaid';
 import ExcessAmount from './components/reports/excess_amount/excessAmount';
+import PastDateBill from './components/reports/past_date_bill/PastDateBill';
 import NipParty from './components/reports/nip_party/nipparty';
 import BillNotPaid from './components/reports/bill_not_paid/billNotPaid';
+import MonthlyBill from './components/reports/monthly_bill/monthlyBill';
 import MonthlyLoan from './components/reports/monthly_loan/monthlyLoan';
+import BulkPaid from './components/reports/bulk_paid/bulkPaid';
 
 
 function App() {
@@ -77,6 +80,13 @@ function App() {
             </div>
           } />
 
+          <Route path="/pastdatebill" element={
+            <div>
+              <Navbar />
+              <PastDateBill />
+            </div>
+          } />
+
           <Route path="/individualreport" element={
             <div>
               <Navbar />
@@ -99,6 +109,12 @@ function App() {
             <div>
               <Navbar />
               <Report />
+            </div>
+          } />
+          <Route path="/bulkpaidamount" element={
+            <div>
+              <Navbar />
+              <BulkPaid />
             </div>
           } />
           <Route path="/monthlyloan" element={
@@ -168,6 +184,13 @@ function App() {
             </div>
           } />
             <Route path="/monthlybillpaid" element={
+            <div>
+              <Navbar />
+              <MonthlyBill />
+            </div>
+          } />
+
+            <Route path="/monthlyloanamount" element={
             <div>
               <Navbar />
               <MonthlyLoan />
