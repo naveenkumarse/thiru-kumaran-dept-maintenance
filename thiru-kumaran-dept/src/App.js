@@ -26,6 +26,8 @@ import ViewPastLoan from './components/reports/user_past_loan_list/view_page/vie
 import IndividualView from './components/reports/individual_report/individual_view/individualView';
 import LoanList from './components/reports/individual_report/loan_list/loanList';
 import OrderNumber from './components/reports/order_number/orderNumber';
+import TotalLedger from './components/reports/total_ledger/totalLedger';
+import LedgerView from './components/reports/ledger_view/ledgerView';
 
 
 function App() {
@@ -102,7 +104,7 @@ function App() {
           <Route path="/totalledger" element={
             <div>
               <Navbar />
-              <Report />
+              <TotalLedger />
             </div>
           } />
           <Route path="/monthlybill" element={
@@ -157,7 +159,7 @@ function App() {
           <Route path="/ledgerview" element={
             <div>
               <Navbar />
-              <Report />
+              <LedgerView />
             </div>
           } />
           <Route path="/bulkpaid" element={
