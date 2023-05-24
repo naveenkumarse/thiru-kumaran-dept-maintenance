@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useEffect } from "react";
 import BillEntryList from "./billEntryList";
 
 const BillEntryTable = () => {
+    
+ 
     return (
         <>
             <section class="antialiased bg-gray-100 text-gray-600 px-4 bg-red-400 my-20">
