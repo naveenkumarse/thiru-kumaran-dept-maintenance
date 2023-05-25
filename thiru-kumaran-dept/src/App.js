@@ -237,6 +237,7 @@ function App() {
               <IndividualView />
             </div>
           } /> */}
+          
         </Routes>
       </HashRouter>
     </div>

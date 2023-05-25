@@ -1,7 +1,20 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import ListLoan from "./loanList";
+import { getLoanByLineAllFE } from "../../../api";
 
 const LoanTable = () =>{
+    let objectDate = new Date();
+    let day = objectDate.getDate();
+    let month = objectDate.getMonth();
+    let year = objectDate.getFullYear();    
+    let date = `${year}-${month+1}-${day}`;
+    let loan_closed_date = !null;
+    let line_name= localStorage.getItem("line_name")
+    const body = {date,loan_closed_date,line_name}
+    const [loans,setLoans] = useState([]);
+    useEffect((body)=>{
+        getLoanByLineAllFE(body,setLoans)
+    },[])
     return(
         <>
              <section class="antialiased bg-gray-100 text-gray-600 px-4 bg-red-400 my-20">
@@ -36,7 +49,7 @@ const LoanTable = () =>{
                                     </thead>
                                     <tbody class="text-sm text-gray-00 divide-y divide-gray-100">
                                         <tr>
-                                            <ListLoan />
+                                           {loans?.map((loan)=><ListLoan key={loan.loan_no} loan={loan}/>)} 
                                         </tr>
                                     </tbody>
                                 </table>

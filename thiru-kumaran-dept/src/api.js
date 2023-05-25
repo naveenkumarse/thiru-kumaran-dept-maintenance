@@ -4,11 +4,11 @@ export const logout = (setUser) => {
     fetch('http://localhost:6001/user/', {
         method: "GET",
     })
-        .then((then) => response.json())
+        .then((response) => response.json())
         .then((userData) => setUser(userData));
 }
 
-export const logoutbydelete = async () => {
+export const logoutbydelete = async (body) => {
     console.log(body);
     const res = await fetch("http://localhost:6001/user/", {
         method: "DELETE",
@@ -51,7 +51,7 @@ export const updateUserByNo = async (body) => {
 
 export const register = async (body, setUser) => {
     console.log(body);
-
+    
     const res = await fetch("http://localhost:8080/user/register", {
         method: "POST",
         headers: { "content-Type": "application/json" },
@@ -65,12 +65,13 @@ export const register = async (body, setUser) => {
 
 // Account close api 
 
-export const getLastEntriesFE = (setlastEntries) => {
+export const getLastEntriesFE = (body,setLastEntries) => {
     fetch('http://localhost:6001/accountclose/', {
         method: "GET",
+        body: JSON.stringify(body)
     })
-        .then((then) => response.json())
-        .then((userData) => setlastEntries(userData));
+        .then((response) => response.json())
+        .then((userData) => setLastEntries(userData));
 }
 
 
@@ -86,7 +87,7 @@ export const deleteAccountCloseFE = async (body) => {
     return res;
 }
 
-export const createAccountCloseFE = async (body, setAccpuntClose) => {
+export const createAccountCloseFE = async (body) => {
     console.log(body);
     // line_name,date 
     const res = await fetch("http://localhost:6001/accountclose/", {
@@ -96,7 +97,7 @@ export const createAccountCloseFE = async (body, setAccpuntClose) => {
     });
     const jsonData = await res.json();
     console.log(jsonData)
-    return setAccpuntClose(jsonData);
+    return jsonData;
 }
 
 
@@ -141,10 +142,12 @@ export const getLoansByLineClosedFE = (setLoan) => {
 }
 
 
-//////////////////////doubt
-export const getLoanByConditionFE = (setLoan) => {
+
+export const getLoanByConditionFE = (body,setLoan) => {
     fetch('http://localhost:6001/loan/condition', {
         method: "GET",
+        body: JSON.stringify(body)
+
     })
         .then((response) => response.json())
         .then((loanData) => setLoan(loanData));
@@ -171,7 +174,7 @@ export const deleteLoan = async (body) => {
     return res;
 }
 
-export const createLoanFE = async (body, setLoan) => {
+export const createLoanFE = async (body) => {
     console.log(body);
     // loan_no,user_no,name,address,phone_no,order_no,date,created_on,updated_on,loan_amount,balance,pay_amount,
     //seetu_amount,interest,commission_amount,app_loan_close_date,loan_closed_date,excess,line_name
@@ -182,7 +185,7 @@ export const createLoanFE = async (body, setLoan) => {
     });
     const jsonData = await res.json();
     console.log(jsonData)
-    return setLoan(jsonData);
+    return jsonData;
 }
 
 
@@ -237,14 +240,14 @@ export const getAllDailyCollectionFE = (setCollection) => {
         .then((collectionData) => setCollection(collectionData));
 }
 
-export const getAllDailyCollectionByConditionFE = (body, setCollection) => {
+export const getAllDailyCollectionByConditionFE = (body, setIndividualReports) => {
     // line_name,date
     fetch('http://localhost:6001/dailycollection/condition', {
         method: "GET",
         body: JSON.stringify(body)
     })
         .then((response) => response.json())
-        .then((collectionData) => setCollection(collectionData));
+        .then((collectionData) => setIndividualReports(collectionData));
 }
 
 
@@ -507,7 +510,7 @@ export const createHeadFE = async (body, setHead) => {
     return setHead(jsonData);
 }
 
-export const getHead = (setHead) => {
+export const getHead = (body,setHead) => {
     console.log(body)
     //
     fetch('http://localhost:6001/thitam/head', {

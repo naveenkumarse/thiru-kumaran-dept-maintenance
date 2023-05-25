@@ -1,25 +1,48 @@
 import React, { useEffect, useState } from "react";
-    
+import { createLoanFE } from "../../../api";
+
 const LoanForm = () => {
-    const [loanNumber, setLoanNumber] = useState(0);
+    const [loan_no, setLoan_no] = useState(0);
+    const [user_no, setUser_no] = useState();
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
-    const [phoneNo, setPhoneNo] = useState("");
+    const [phone_no, setPhone_on] = useState("");
     const [address, setAddress] = useState("");
     const [loanAmount, setLoanAmount] = useState(0);
     const [interest, setInterest] = useState(10);
     const [userNumber, setUserNumber] = useState(10);
     const [commissionAmount, setCommissionAmount] = useState(0);
     const [seetuAmount, setSeetuAmount] = useState(0);
-    const [orderNumber, setOrderNumber] = useState(0);
-
-
+    const [order_no, setOrder_no] = useState(0);
+    const name = firstName + lastName;
+    const pay_amount = loanAmount/100;
+    let objectDate = new Date();
+    let approxdate = new Date();
+    approxdate.setDate(objectDate.getDate()+100);
+    let aday = approxdate.getDate();
+    let amonth = approxdate.getMonth();
+    let ayear = approxdate.getFullYear();
+    let adate = `${ayear}-${amonth+1}-${aday}`;
+    let day = objectDate.getDate();
+    let month = objectDate.getMonth();
+    let year = objectDate.getFullYear();    
+    let date = `${year}-${month+1}-${day}`;
+    console.log(date);
+    const line_name=localStorage.getItem("line_name");
     const calculateCommissionAmount = () => {
         setCommissionAmount(loanAmount * (interest / 100));
     }
     useEffect(() => {
         calculateCommissionAmount();
     }, [loanAmount, interest])
+    const body = { loan_no, user_no, name, address, phone_no, order_no, date,loan_amount:loanAmount,balance:loanAmount,pay_amount,seetu_amount:seetuAmount,interest:interest,commission_amount:commissionAmount,app_loan_close_date:adate,line_name:line_name}
+    const createLoan = () =>{
+        createLoanFE(body);
+    }
+    const onCancelCall = ()=>{
+        window.location.reload();
+    }
+
     return (
         <>
             <div class="grid min-h-screen place-items-center bg-red-400 ">
@@ -30,7 +53,7 @@ const LoanForm = () => {
                         <div class="flex justify-between gap-3 mt-2">
                             <span class="w-1/2">
                                 <label for="id" class="block mt-2 text-xs font-semibold text-gray-600 uppercase">Loan Number</label>
-                                <input id="id" type="number" name="id" placeholder="id" autocomplete="id" class="block w-full p-3 mt-2 text-gray-700 bg-gray-200 appearance-none focus:outline-none focus:bg-gray-300 focus:shadow-inner" value={loanNumber} onChange={(e) => setLoanNumber(e.target.value)} required />
+                                <input id="id" type="number" name="id" placeholder="id" autocomplete="id" class="block w-full p-3 mt-2 text-gray-700 bg-gray-200 appearance-none focus:outline-none focus:bg-gray-300 focus:shadow-inner" value={loan_no} onChange={(e) => setLoan_no(e.target.value)} required />
                             </span>
                             <span class="w-1/2">
                                 <label class="block mt-2 text-xs font-semibold text-gray-600 uppercase mt-2">User Number</label>
@@ -51,11 +74,11 @@ const LoanForm = () => {
                         <div class="flex justify-between gap-3 mt-2">
                             <span class="w-1/2">
                                 <label for="phoneno" class="block mt-2 text-xs font-semibold text-gray-600 uppercase ">Phone no</label>
-                                <input id="email" type="text" name="email" placeholder="9876543210" autocomplete="email" class="block w-full p-3 mt-2 text-gray-700 bg-gray-200 appearance-none focus:outline-none focus:bg-gray-300 focus:shadow-inner" value={phoneNo} onChange={(e) => setPhoneNo(e.target.value)} required />
+                                <input id="email" type="text" name="email" placeholder="9876543210" autocomplete="email" class="block w-full p-3 mt-2 text-gray-700 bg-gray-200 appearance-none focus:outline-none focus:bg-gray-300 focus:shadow-inner" value={phone_no} onChange={(e) => setPhone_on(e.target.value)} required />
                             </span>
                             <span class="w-1/2">
                                 <label for="id" class="block mt-2 text-xs font-semibold text-gray-600 uppercase">Order Number</label>
-                                <input id="id" type="number" name="id" placeholder="id" autocomplete="id" class="block w-full p-3 mt-2 text-gray-700 bg-gray-200 appearance-none focus:outline-none focus:bg-gray-300 focus:shadow-inner" value={orderNumber} onChange={(e) => setOrderNumber(e.target.value)} required />
+                                <input id="id" type="number" name="id" placeholder="id" autocomplete="id" class="block w-full p-3 mt-2 text-gray-700 bg-gray-200 appearance-none focus:outline-none focus:bg-gray-300 focus:shadow-inner" value={order_no} onChange={(e) => setOrder_no(e.target.value)} required />
                             </span>
                         </div>
 
@@ -82,13 +105,12 @@ const LoanForm = () => {
                         </div>
                         <label for="password" class="block mt-2 text-xs font-semibold text-gray-600 uppercase">Address</label>
                         <input id="password-confirm" type="textarea" name="password-confirm" placeholder="address" autocomplete="new-password" class="block w-full p-3 mt-2 text-gray-700 bg-gray-200 appearance-none focus:outline-none focus:bg-gray-300 focus:shadow-inner" value={address} onChange={(e) => setAddress(e.target.value)} required />
-                        <button type="submit" class="w-1/3 py-3 mt-6 font-medium tracking-widest text-white uppercase bg-black shadow-lg focus:outline-none hover:bg-gray-900 hover:shadow-none float-right">
+                        <button type="submit" class="w-1/3 py-3 mt-6 font-medium tracking-widest text-white uppercase bg-black shadow-lg focus:outline-none hover:bg-gray-900 hover:shadow-none float-right" onClick={createLoan}>
                             Save
                         </button>
-                        <button type="submit" class="w-1/3 mx-2 py-3 mt-6 font-medium tracking-widest text-white uppercase bg-black shadow-lg focus:outline-none hover:bg-gray-900 hover:shadow-none float-right">
+                        <button type="submit" class="w-1/3 mx-2 py-3 mt-6 font-medium tracking-widest text-white uppercase bg-black shadow-lg focus:outline-none hover:bg-gray-900 hover:shadow-none float-right" onClick={onCancelCall}>
                             Cancel
                         </button>
-
                     </form>
                 </div>
             </div>

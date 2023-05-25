@@ -1,31 +1,31 @@
 import React, { useState } from "react";
-import {useNavigate} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
-const LoanListView = () => {
+const LoanListView = ({ report }) => {
     const navigate = useNavigate();
-    const navigatetopastview = ()=>{
+    const navigatetopastview = () => {
         navigate("/individualloanview")
     }
     return (
         <>
             <td class="p-2 whitespace-nowrap">
                 <div class="flex items-center">
-                    <div class="font-medium text-gray-800">Philip Harbach</div>
+                    <div class="font-medium text-gray-800">{report.loan_no}</div>
                 </div>
             </td>
             <td class="p-2 whitespace-nowrap">
-                <div class="text-left">philip.h@gmail.com</div>
+                <div class="text-left">{report.name}</div>
             </td>
             <td class="p-2 whitespace-nowrap">
-                <div class="text-left">philip.h@gmail.com</div>
+                <div class="text-left">{report.address}</div>
             </td> <td class="p-2 whitespace-nowrap">
-                <div class="text-left">philip.h@gmail.com</div>
+                <div class="text-left">{report.phone_no}</div>
             </td> <td class="p-2 whitespace-nowrap">
-                <div class="text-left">philip.h@gmail.com</div>
+                <div class="text-left">{report.loan_amount}</div>
             </td> <td class="p-2 whitespace-nowrap">
-                <div class="text-left">philip.h@gmail.com</div>
+                <div class="text-left">{report.updated_on}</div>
             </td> <td class="p-2 whitespace-nowrap">
-                <div class="text-left">philip.h@gmail.com</div>
+                <div class="text-left">{report.loan_closed_date}</div>
             </td>
 
 
