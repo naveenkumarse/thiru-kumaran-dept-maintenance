@@ -4,7 +4,7 @@ import LoanListView from "./loanListView";
 import { getAllDailyCollectionByConditionFE } from "../../../../api";
 
 const LoanListTable = () => {
-    const [individualReports, setIndividualReports] = useState();
+    const [individualReports, setIndividualReports] = useState([]);
     const line_name = localStorage.getItem("line_name");
     const body = { line_name }
     useEffect(() => {
@@ -72,7 +72,7 @@ const LoanListTable = () => {
                                     </thead>
                                     <tbody class="text-sm divide-y divide-gray-100">
                                         <tr>
-                                           {individualReports?.map((report)=>{
+                                           {individualReports.map((report)=>{
                                             return <LoanListView key={report.loan_no} report={report}/>
                                            })} 
                                         </tr>
