@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 // import jwt from 'jsonwebtoken';
 
-const LoginPage = () => {
+const LineBoyLogin = () => {
     const navigate = useNavigate();
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -58,7 +58,7 @@ const LoginPage = () => {
                                 <input
                                     class="border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
                                     id="password" type="password" placeholder="Enter your password" value={password} onChange={(e) => setPassword(e.target.value)} />
-                                <Link to='/lineboylogin' style={{ color: "red" }}> Line boy login </Link>
+                                <Link to='/' style={{color:"red"}}> admin login </Link>
                             </div>
                             <div class="mb-6">
                                 <button
@@ -75,4 +75,4 @@ const LoginPage = () => {
     )
 }
 
-export default LoginPage;
+export default LineBoyLogin;

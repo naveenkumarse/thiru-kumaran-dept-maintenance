@@ -29,6 +29,7 @@ import OrderNumber from './components/reports/order_number/orderNumber';
 import TotalLedger from './components/reports/total_ledger/totalLedger';
 import LedgerView from './components/reports/ledger_view/ledgerView';
 import Thitam from './components/thitam/thitam';
+import LineBoyLogin from './components/login/lineBoyLogin';
 
 
 function App() {
@@ -36,12 +37,17 @@ function App() {
     <div className="App">
       <HashRouter>
         <Routes>
-          <Route path="/login" element={
+          <Route path="/" element={
             <div>
               <LoginPage />
             </div>
           } />
-          <Route path="/" element={
+          <Route path="/lineboylogin" element={
+            <div>
+              <LineBoyLogin />
+            </div>
+          } />
+          <Route path="/home" element={
             <div>
               <Navbar />
               <Home />

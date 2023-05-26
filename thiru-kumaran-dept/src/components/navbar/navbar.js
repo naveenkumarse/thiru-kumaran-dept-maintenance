@@ -2,6 +2,12 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 function Navbar() {
+    let objectDate = new Date();
+    let day = objectDate.getDate();
+    let month = objectDate.getMonth();
+    let year = objectDate.getFullYear();    
+    let date = `${year}-${month+1}-${day}`;
+    let line_name = localStorage.getItem("line_name")
     return (
         <>
 
@@ -20,6 +26,8 @@ function Navbar() {
                               <Link to='/lineboy'>  <li><a class="hover:text-gray-200" href="#">Line Boy</a></li> </Link> 
                               <Link to='/linecreate'> <li><a class="hover:text-gray-200" href="#">Line create</a></li></Link> 
                               <Link to='/thitam'> <li>Thitam</li></Link> 
+                              <p>Date : {date}</p>
+                              <p>Line name : {line_name} </p>
                             </ul>
 
                             <div class="hidden xl:flex items-center space-x-5 items-center">
