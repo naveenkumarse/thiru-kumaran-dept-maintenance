@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import Modal from '../modal/modal';
 // import jwt from 'jsonwebtoken';
 
 const LoginPage = () => {
     const navigate = useNavigate();
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [modalOpen, setModalOpen] = useState(false);
 
     // just uncomment when u r using this
     const validateJWT = (token) => {
@@ -24,13 +26,17 @@ const LoginPage = () => {
         //     console.log('Token is valid:', decoded);
         //     return true;
         // } catch (error) {
-
+         //   setModalOpen(true);
         //     console.error('Token is invalid:', error);
         //     return false;
         // }
+       
     };
     const onSubmit = (e) => {
+        console.log("error")
+       
         e.preventDefault();
+        
         // put the post call 
         const token = '';
         validateJWT(token);
@@ -63,14 +69,16 @@ const LoginPage = () => {
                             <div class="mb-6">
                                 <button
                                     class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-                                    type="button" >
+                                    type="submit" >
                                     Login
                                 </button>
                             </div>
                         </form>
                     </div>
+                    {modalOpen && <Modal setOpenModal={setModalOpen} />}
                 </div>
             </div>
+           
         </>
     )
 }

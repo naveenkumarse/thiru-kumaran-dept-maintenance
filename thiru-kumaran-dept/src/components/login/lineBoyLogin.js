@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import Modal from '../modal/modal';
 // import jwt from 'jsonwebtoken';
 
 const LineBoyLogin = () => {
     const navigate = useNavigate();
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-
+    const [modalOpen, setModalOpen] = useState(false);
     // just uncomment when u r using this
     const validateJWT = (token) => {
         // try {
@@ -24,7 +25,7 @@ const LineBoyLogin = () => {
         //     console.log('Token is valid:', decoded);
         //     return true;
         // } catch (error) {
-
+            //setModalOpen(true);
         //     console.error('Token is invalid:', error);
         //     return false;
         // }
@@ -69,6 +70,7 @@ const LineBoyLogin = () => {
                             </div>
                         </form>
                     </div>
+                    {modalOpen && <Modal setOpenModal={setModalOpen} />}
                 </div>
             </div>
         </>

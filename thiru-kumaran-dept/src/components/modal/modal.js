@@ -1,5 +1,5 @@
 import React from "react";
-import "./Modal.css";
+import "./modal.css";
 
 function Modal({ setOpenModal }) {
   return (
@@ -18,7 +18,7 @@ function Modal({ setOpenModal }) {
           <h1>Invalid Credentials</h1>
         </div>
         <div className="body">
-          <p>Please enter the valid username and password!</p>
+          <p>Please enter your valid username and password!</p>
         </div>
         <div className="footer">
           <button
@@ -27,7 +27,7 @@ function Modal({ setOpenModal }) {
             }}
             id="cancelBtn"
           >
-            Cancel
+            back
           </button>
         </div>
       </div>
