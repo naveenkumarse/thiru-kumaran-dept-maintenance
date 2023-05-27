@@ -1,7 +1,7 @@
 import React from "react";
 import Button from "../button/home_button";
 
-const Home = () => {
+const LineBoyHome = () => {
     return (
         <>
             <div class="flex flex-col mt-28">
@@ -35,7 +35,7 @@ const Home = () => {
                                             Otto
                                         </td>
                                         <td class="text-sm text-gray-900 font-light  py-4 whitespace-nowrap">
-                                            <Button path={'line'}/>
+                                            <Button path={'lineboypages'}/>
                                         </td>
                                     </tr>
                                    
@@ -49,4 +49,4 @@ const Home = () => {
     )
 }
 
-export default Home;
+export default LineBoyHome;
