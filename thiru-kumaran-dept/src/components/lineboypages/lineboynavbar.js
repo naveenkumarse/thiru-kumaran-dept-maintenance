@@ -1,16 +1,15 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
-function Navbar() {
+function LineBoyNavbar() {
     let objectDate = new Date();
     let day = objectDate.getDate();
     let month = objectDate.getMonth();
-    let year = objectDate.getFullYear();    
-    let date = `${year}-${month+1}-${day}`;
+    let year = objectDate.getFullYear();
+    let date = `${year}-${month + 1}-${day}`;
     let line_name = localStorage.getItem("line_name")
     return (
         <>
-
             <div class="flex flex-wrap place-items-center ">
                 <section class="relative mx-auto">
 
@@ -18,20 +17,20 @@ function Navbar() {
                         <div class="px-5 xl:px-12 py-6 flex w-full items-center">
                             <a class="text-3xl font-bold font-heading" href="#">
                                 {/* <!-- <img class="h-9" src="logo.png" alt="logo"> --> */}
-                                    Thiru-Kumaran-Finance
+                                Thiru-Kumaran-Finance
                             </a>
 
                             <ul class="hidden md:flex px-4 mx-auto font-semibold font-heading space-x-12">
-                              <Link to='/'>  <li><a class="hover:text-gray-200" href="#">Home</a></li> </Link>
-                              <Link to='/lineboy'>  <li><a class="hover:text-gray-200" href="#">Line Boy</a></li> </Link> 
+                                <Link to='/lineboyhome'>  <li><a class="hover:text-gray-200" href="#">Home</a></li> </Link>
+                                {/* <Link to='/lineboy'>  <li><a class="hover:text-gray-200" href="#">Line Boy</a></li> </Link> 
                               <Link to='/linecreate'> <li><a class="hover:text-gray-200" href="#">Line create</a></li></Link> 
-                              <Link to='/thitam'> <li>Thitam</li></Link> 
-                              <p>Date : {date}</p>
-                              <p>Line name : {line_name} </p>
+                              <Link to='/thitam'> <li>Thitam</li></Link>  */}
+                                <p>Date : {date}</p>
+                                <p>Line name : {line_name} </p>
                             </ul>
 
                             <div class="hidden xl:flex items-center space-x-5 items-center">
-                               
+
                                 <a class="flex items-center hover:text-gray-200" href="#">
                                     <span class="flex absolute -mt-5 ml-4">
                                         <span class="animate-ping absolute inline-flex h-3 w-3 rounded-full bg-pink-400 opacity-75"></span>
@@ -67,11 +66,9 @@ function Navbar() {
                     </nav>
                 </section>
             </div>
-
-        
         </>
 
     );
 }
 
-export default Navbar;
+export default LineBoyNavbar;

@@ -29,19 +29,56 @@ import OrderNumber from './components/reports/order_number/orderNumber';
 import TotalLedger from './components/reports/total_ledger/totalLedger';
 import LedgerView from './components/reports/ledger_view/ledgerView';
 import Thitam from './components/thitam/thitam';
+import LineBoyLogin from './components/login/lineBoyLogin';
+import LineBoyHome from './components/lineboypages/lineBoyHome';
+import LineBoyPages from './components/lineboypages/lineBoyPage';
+import TodayList from './components/collection/todayList/todayList';
+import DirectEntry from './components/collection/directEntry/directEntry';
+import LineBoyNavbar from './components/lineboypages/lineboynavbar';
 
 
 function App() {
   return (
+   
+    
+
     <div className="App">
       <HashRouter>
         <Routes>
-          <Route path="/login" element={
+         {/* line boy login  */}
+         <Route path="/lineboyhome" element={
+            <div>
+              <LineBoyNavbar />
+              <LineBoyHome />
+            </div>
+          } />
+          <Route path="/lineboypages" element={
+            <div>
+               <LineBoyNavbar />
+              <LineBoyPages />
+            </div>
+          } />
+          <Route path="/" element={
             <div>
               <LoginPage />
             </div>
           } />
           <Route path="/" element={
+            <div>
+              <LoginPage />
+            </div>
+          } />
+          <Route path="/" element={
+            <div>
+              <LoginPage />
+            </div>
+          } />
+          <Route path="/lineboylogin" element={
+            <div>
+              <LineBoyLogin />
+            </div>
+          } />
+          <Route path="/home" element={
             <div>
               <Navbar />
               <Home />
@@ -70,9 +107,21 @@ function App() {
               <Loan />
             </div>
           } />
+           <Route path="/lineboyloan" element={
+            <div>
+              <LineBoyNavbar />
+              <Loan />
+            </div>
+          } />
           <Route path="/dateclose" element={
             <div>
               <Navbar />
+              <DateClose />
+            </div>
+          } />
+           <Route path="/lineboydateclose" element={
+            <div>
+              <LineBoyNavbar />
               <DateClose />
             </div>
           } />
@@ -102,6 +151,14 @@ function App() {
               <LoanList />
             </div>
           } />
+          
+          <Route path="/lineboyindividualreport" element={
+            <div>
+              <LineBoyNavbar />
+              <LoanList />
+            </div>
+          } />
+
           <Route path="/totalledger" element={
             <div>
               <Navbar />
@@ -181,6 +238,12 @@ function App() {
               <OrderNumber />
             </div>
           } />
+          <Route path="/lineboyordernumber" element={
+            <div>
+              <LineBoyNavbar />
+              <OrderNumber />
+            </div>
+          } />
           <Route path="/report" element={
             <div>
               <Navbar />
@@ -206,6 +269,12 @@ function App() {
               <ClosedParty />
             </div>
           } />
+             <Route path="/lineboyclosedparty" element={
+            <div>
+              <LineBoyNavbar />
+              <ClosedParty />
+            </div>
+          } />
           <Route path="/pastloanview" element={
             <div>
               <Navbar />
@@ -225,19 +294,18 @@ function App() {
               <Thitam />
             </div>
           } />
-          {/* <Route path="/thitam" element={
+           <Route path="/todaylist" element={
             <div>
-              <Navbar />
-              <IndividualView />
+              <LineBoyNavbar />
+              <TodayList />
             </div>
           } />
-          <Route path="/thitam" element={
+           <Route path="/directentry" element={
             <div>
-              <Navbar />
-              <IndividualView />
+              <LineBoyNavbar />
+              <DirectEntry />
             </div>
-          } /> */}
-          
+          } />
         </Routes>
       </HashRouter>
     </div>
