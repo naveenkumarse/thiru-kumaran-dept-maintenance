@@ -1,0 +1,599 @@
+{
+	"info": {
+		"_postman_id": "4fb03c16-86f8-400d-816b-6936b00cd84d",
+		"name": "Finance-management",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27686423"
+	},
+	"item": [
+		{
+			"name": "Loan",
+			"item": [
+				{
+					"name": "Create Loan",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"loanNo\":\"Lon01\",\r\n    \"userNo\":\"Us01\",\r\n    \"name\":\"Dharani\",\r\n    \"address\":\"123,thangavel nagar\",\r\n    \"phoneNo\":\"123456\",\r\n    \"orderNo\":\"1\",\r\n    \"currentDate\":\"29-05-2023\",\r\n    \"loanAmount\":\"5000\",\r\n    \"seetuAmount\":\"20\",\r\n    \"commissionAmount\":\"500\",\r\n    \"interest\":\"10\",\r\n    \"lineId\":\"Ln03\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/restservices/loan/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"restservices",
+								"loan",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Loan",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"loanNo\":\"Lon02\",\r\n    \"userNo\":\"Us02\",\r\n    \"name\":\"SivaPrakash\",\r\n    \"address\":\"123,thangavel nagar\",\r\n    \"phoneNo\":\"123456345\",\r\n    \"orderNo\":\"2\",\r\n    \"currentDate\":\"29-05-2023\",\r\n    \"loanAmount\":\"500000\",\r\n    \"seetuAmount\":\"20\",\r\n    \"commissionAmount\":\"50000\",\r\n    \"interest\":\"10\",\r\n    \"lineId\":\"Ln03\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/restservices/loan/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"restservices",
+								"loan",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get active loan for particular date",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"date\":\"29-05-2023\",\r\n    \"lineId\":\"Ln03\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/restservices/loan/particular/date",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"restservices",
+								"loan",
+								"particular",
+								"date"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete Loan",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"loanNo\":\"Lon01\",\r\n    \"lineId\":\"Ln03\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/restservices/loan/delete",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"restservices",
+								"loan",
+								"delete"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get particular loan",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n{\r\n    \"loanNo\":\"Lon02\",\r\n    \"lineId\":\"Ln03\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/restservices/loan/particular/loanNo",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"restservices",
+								"loan",
+								"particular",
+								"loanNo"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Line",
+			"item": [
+				{
+					"name": "Get all line with date close",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/restservices/line/all/dateClose",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"restservices",
+								"line",
+								"all",
+								"dateClose"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Line",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"lineId\":\"Ln03\",\r\n    \"lineName\":\"Line 3\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/restservices/line/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"restservices",
+								"line",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all line",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/restservices/line/all",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"restservices",
+								"line",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Line",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"lineId\":\"Ln02\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/restservices/line/delete",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"restservices",
+								"line",
+								"delete"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get particular line",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"lineId\":\"Ln01\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/restservices/line/particular/line",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"restservices",
+								"line",
+								"particular",
+								"line"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update line",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"lineId\":\"Ln03\",\r\n    \"lineName\":\"Line 3 update\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/restservices/line/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"restservices",
+								"line",
+								"update"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Line Member",
+			"item": [
+				{
+					"name": "Create Line member",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"lineMemId\":\"LM02\",\r\n    \"memberName\":\"Indira\",\r\n    \"phoneNo\":\"1234567\",\r\n    \"address\":\"sagvahj123\",\r\n    \"password\":\"Indira\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/restservices/lineMember/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"restservices",
+								"lineMember",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all line member",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/restservices/lineMember/all",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"restservices",
+								"lineMember",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Line Member",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"lineMemId\":\"LM02\",\r\n    \"memberName\":\"Dharani\",\r\n    \"phoneNo\":\"1234567\",\r\n    \"address\":\"sagvahj123\",\r\n    \"password\":\"Indira\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/restservices/lineMember/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"restservices",
+								"lineMember",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Particular line member",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"lineMemId\":\"LM02\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/restservices/lineMember/particular/linemember",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"restservices",
+								"lineMember",
+								"particular",
+								"linemember"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete line Member",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"lineMemId\":\"LM02\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/restservices/lineMember/delete",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"restservices",
+								"lineMember",
+								"delete"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Date Close",
+			"item": [
+				{
+					"name": "Create Date close",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"lineId\":\"Ln03\",\r\n    \"date\":\"27-05-2023\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/restservices/dateClose/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"restservices",
+								"dateClose",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all date close particular to line",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"lineId\":\"Ln01\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/restservices/dateClose/all",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"restservices",
+								"dateClose",
+								"all"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

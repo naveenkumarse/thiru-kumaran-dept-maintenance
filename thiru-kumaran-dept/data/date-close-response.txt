@@ -1,0 +1,18 @@
+create Date Close:
+Date close  created Successfully
+
+Get All date close:( this is particular to line)
+[
+    {
+        "id": 5,
+        "date": "2023-05-29",
+        "lineId": "Ln01",
+        "createdOn": "2023-05-30"
+    },
+    {
+        "id": 6,
+        "date": "2023-05-30",
+        "lineId": "Ln01",
+        "createdOn": "2023-05-30"
+    }
+]

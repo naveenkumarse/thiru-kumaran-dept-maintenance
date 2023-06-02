@@ -3,14 +3,27 @@ import { getLastEntriesFE } from "../../api";
 
 const DateCloseTable = () => {
 
-    const [lastEntries, setLastEntries] = useState();
+    const [lastEntries, setLastEntries] = useState([
+        {
+            "id": 5,
+            "date": "2023-05-29",
+            "lineId": "Ln01",
+            "createdOn": "2023-05-30"
+        },
+        {
+            "id": 6,
+            "date": "2023-05-30",
+            "lineId": "Ln01",
+            "createdOn": "2023-05-30"
+        }
+    ]);
     const line_name = localStorage.getItem("line_name");
    // const line_name = "line A";
     
     const body = {line_name};
-    useEffect(() => {
-        getLastEntriesFE(body, setLastEntries)
-    }, [])
+    // useEffect(() => {
+    //     getLastEntriesFE(body, setLastEntries)
+    // }, [])
     return (
         <>
             <div class="antialiased bg-gray-100 text-gray-600 my-20">
@@ -18,7 +31,7 @@ const DateCloseTable = () => {
 
                     <div class="w-full mx-auto bg-white shadow-lg rounded-sm border border-gray-200">
                         <header class="px-5 py-4 border-b border-gray-100">
-                            <h2 class="font-semibold text-gray-800"></h2>
+                            <h2 class="font-semibold text-gray-800">Heading</h2>
                         </header>
                         <div class="p-3">
                             <div class="overflow-x-auto">
@@ -34,7 +47,7 @@ const DateCloseTable = () => {
 
                                         </tr>
                                     </thead>
-                                    {lastEntries?.map((lastEntry, i) => {
+                                    {lastEntries?.map((lastEntry, i) => (
                                         <tbody class="text-sm text-gray-600 divide-y divide-gray-100">
                                             <tr>
                                                 <td class="p-2 whitespace-nowrap ">
@@ -45,7 +58,7 @@ const DateCloseTable = () => {
                                                 </td>
                                             </tr>
                                         </tbody>
-                                    })}
+                                    ))}
                                 </table>
                             </div>
                         </div>

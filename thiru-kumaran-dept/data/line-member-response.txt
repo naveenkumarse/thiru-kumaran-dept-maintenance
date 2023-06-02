@@ -1,0 +1,36 @@
+Create Line Member:
+Line Member created Successfully
+
+UpdateLineMember:
+Line Member Updated Successfully
+
+Get Particular line Member:
+{
+    "id": 1,
+    "linMemId": "LM02",
+    "memberName": "Dharani",
+    "phoneNo": "1234567",
+    "address": "sagvahj123",
+    "password": "Indira",
+    "createdOn": "2023-05-30",
+    "updatedOn": "2023-05-30",
+    "role": "LineMan"
+}
+
+Get All Line Member:
+[
+    {
+        "id": 1,
+        "linMemId": "LM02",
+        "memberName": "Dharani",
+        "phoneNo": "1234567",
+        "address": "sagvahj123",
+        "password": "Indira",
+        "createdOn": "2023-05-30",
+        "updatedOn": "2023-05-30",
+        "role": "LineMan"
+    }
+]
+
+Delete Line Member:
+Line Member deleted Successfully

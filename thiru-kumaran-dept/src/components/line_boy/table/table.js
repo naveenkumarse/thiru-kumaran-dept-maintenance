@@ -1,7 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import ListItems from "./listItems";
 
 const LineBoyTable = () => {
+    const [lineboys, setLineboys] = useState([
+        {
+            "id": 1,
+            "linMemId": "LM02",
+            "memberName": "Dharani",
+            "phoneNo": "1234567",
+            "address": "sagvahj123",
+            "password": "Indira",
+            "createdOn": "2023-05-30",
+            "updatedOn": "2023-05-30",
+            "role": "LineMan"
+        }
+    ])
     return (
         <>
             <section class="antialiased bg-gray-100 text-gray-600 px-4 bg-red-400 my-20">
@@ -23,7 +36,7 @@ const LineBoyTable = () => {
                                                 <div class="font-semibold text-left">Name</div>
                                             </th>
                                             <th class="p-2 whitespace-nowrap">
-                                                <div class="font-semibold text-left">Email</div>
+                                                <div class="font-semibold text-left">Address</div>
                                             </th>
                                             <th class="p-2 whitespace-nowrap">
                                                 <div class="font-semibold text-center">Phone</div>
@@ -34,9 +47,7 @@ const LineBoyTable = () => {
                                         </tr>
                                     </thead>
                                     <tbody class="text-sm divide-y divide-gray-100">
-                                        <tr>
-                                            <ListItems />
-                                        </tr>
+                                            {lineboys.map((lineboy) => (<ListItems lineboy={lineboy} key={lineboy.id}/>))}
                                     </tbody>
                                 </table>
                             </div>

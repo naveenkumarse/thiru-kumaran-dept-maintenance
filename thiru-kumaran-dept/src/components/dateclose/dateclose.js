@@ -23,7 +23,7 @@ const DateClose = () => {
     return (
         <>
             <div class="grid min-h-screen place-items-center bg-red-400">
-                <div class="w-11/12 p-12 bg-white sm:w-8/12 md:w-1/2 lg:w-10/12 bg-white">
+                <div class="w-11/12 p-12 sm:w-8/12 md:w-1/2 lg:w-10/12 bg-white">
                     <div className="flex justify-between">
                         <h1 class="text-xl font-bold ">Closing Date <span class="font-normal"></span> </h1>
                         <h3 className="pt-4">Previous date of close :{prevdate}</h3>

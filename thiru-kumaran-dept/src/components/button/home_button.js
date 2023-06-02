@@ -2,9 +2,10 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 
 
-const Button = () => {
+const Button = (props) => {
     const navigate = useNavigate();
     const onNavi = () =>{
+        console.log(props)
         navigate('/line');
     }
     return (

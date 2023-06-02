@@ -1,7 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
 import ListCreateItems from "./listCreateItems";
 
 const LineCreateTable = () => {
+    const [lines, setLines] = useState([
+        {
+            "id": 1,
+            "lineId": "Ln03",
+            "lineName": "Line 3 update",
+            "createdOn": "2023-05-30",
+            "updatedOn": "2023-05-30"
+        },
+        {
+            "id": 101,
+            "lineId": "Ln01",
+            "lineName": "Line 1",
+            "createdOn": "2023-01-10",
+            "updatedOn": "2023-05-10"
+        }
+    ])
     return (
         <>
             <section class="antialiased bg-gray-100 text-gray-600 px-4 bg-red-400 my-52">
@@ -25,9 +41,7 @@ const LineCreateTable = () => {
                                         </tr>
                                     </thead>
                                     <tbody class="text-sm divide-y divide-gray-100">
-                                        <tr>
-                                            <ListCreateItems />
-                                        </tr>
+                                           {lines.map((line) => (<ListCreateItems key={line.id} line={line}/>))}
                                     </tbody>
                                 </table>
                             </div>

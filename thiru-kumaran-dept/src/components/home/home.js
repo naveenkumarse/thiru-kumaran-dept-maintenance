@@ -1,7 +1,24 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import Button from "../button/home_button";
-
+import { getLineFE } from "../../api";
 const Home = () => {
+    const [lines,setLines] = useState([
+        {
+            "date": "2023-05-10",
+            "lineId": "Ln03",
+            "lineName": "Line 3 update"
+        },
+        {
+            "date": null,
+            "lineId": "Ln01",
+            "lineName": "Line 1"
+        }
+    ]);
+    // useEffect(()=>{
+    //     const lineList = getLineFE();
+    //     setLines(lineList)
+    // },[])
+    
     return (
         <>
             <div class="flex flex-col mt-28">
@@ -26,18 +43,23 @@ const Home = () => {
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr class="bg-white border-b">
+                                {lines.map((line) => (
+                                        <tr class="bg-white border-b">
                                         <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">1</td>
                                         <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                                            Mark
+                                            {line.lineId}
                                         </td>
                                         <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                                            Otto
+                                            {line.lineName}
+                                        </td>
+                                        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                                            {line.date}
                                         </td>
                                         <td class="text-sm text-gray-900 font-light  py-4 whitespace-nowrap">
-                                            <Button />
+                                            <Button lineId={line.lineId} date={line.date}/>
                                         </td>
                                     </tr>
+                                    ))}
                                    
                                 </tbody>
                             </table>

@@ -1,0 +1,77 @@
+create Loan:
+Loan Created Successfully
+
+update Loan:
+Loan Updated Successfully
+
+get active loan for particular date:
+[
+    {
+        "id": 1,
+        "loanNo": "Lon01",
+        "userNo": "Us01",
+        "name": "Dharani",
+        "address": "123,thangavel nagar",
+        "phoneNo": "123456",
+        "orderNo": "1",
+        "currentLoanDate": "2023-05-29",
+        "loanAmount": "5000",
+        "seetuAmount": "20",
+        "commissionAmount": "500",
+        "interest": "10",
+        "appxLoanClosedDate": "2023-09-06",
+        "loanClosedDate": null,
+        "excessAmount": null,
+        "lineId": "Ln03",
+        "balance": "5000",
+        "dailyUpdate": false,
+        "loanActive": true
+    },
+    {
+        "id": 2,
+        "loanNo": "Lon02",
+        "userNo": "Us02",
+        "name": "SivaPrakash",
+        "address": "123,updated nagar",
+        "phoneNo": "123456345",
+        "orderNo": "2",
+        "currentLoanDate": "2023-05-29",
+        "loanAmount": "500000",
+        "seetuAmount": "20",
+        "commissionAmount": "50000",
+        "interest": "10",
+        "appxLoanClosedDate": "2023-09-06",
+        "loanClosedDate": null,
+        "excessAmount": null,
+        "lineId": "Ln03",
+        "balance": "500000",
+        "dailyUpdate": false,
+        "loanActive": true
+    }
+]
+
+delete loan:
+Loan deleted Successfully
+
+get particular loan:
+{
+    "id": 1,
+    "loanNo": "Lon02",
+    "userNo": "Us02",
+    "name": "SivaPrakash",
+    "address": "123,thangavel nagar",
+    "phoneNo": "123456345",
+    "orderNo": "2",
+    "currentLoanDate": "2023-05-29",
+    "loanAmount": "500000",
+    "seetuAmount": "20",
+    "commissionAmount": "50000",
+    "interest": "10",
+    "appxLoanClosedDate": "2023-09-06",
+    "loanClosedDate": null,
+    "excessAmount": null,
+    "lineId": "Ln03",
+    "balance": "500000",
+    "dailyUpdate": false,
+    "loanActive": true
+}

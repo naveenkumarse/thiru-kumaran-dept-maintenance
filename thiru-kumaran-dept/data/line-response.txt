@@ -1,0 +1,51 @@
+Response:
+
+Line Create:
+Line  created Successfully
+
+Update Line:
+Line Updated Successfully
+
+Delete Line:
+Line deleted Successfully
+
+Get Particular line:
+{
+    "id": 101,
+    "lineId": "Ln01",
+    "lineName": "Line 1",
+    "createdOn": "2023-01-10",
+    "updatedOn": "2023-05-10"
+}
+
+Get All Line:
+[
+    {
+        "id": 1,
+        "lineId": "Ln03",
+        "lineName": "Line 3 update",
+        "createdOn": "2023-05-30",
+        "updatedOn": "2023-05-30"
+    },
+    {
+        "id": 101,
+        "lineId": "Ln01",
+        "lineName": "Line 1",
+        "createdOn": "2023-01-10",
+        "updatedOn": "2023-05-10"
+    }
+]
+
+Get All line with date close: 
+[
+    {
+        "date": "2023-05-10",
+        "lineId": "Ln03",
+        "lineName": "Line 3 update"
+    },
+    {
+        "date": null,
+        "lineId": "Ln01",
+        "lineName": "Line 1"
+    }
+]
