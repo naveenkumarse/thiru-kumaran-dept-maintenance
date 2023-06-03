@@ -4,26 +4,24 @@ import { getLastEntriesFE } from "../../api";
 const DateCloseTable = () => {
 
     const [lastEntries, setLastEntries] = useState([
-        {
-            "id": 5,
-            "date": "2023-05-29",
-            "lineId": "Ln01",
-            "createdOn": "2023-05-30"
-        },
-        {
-            "id": 6,
-            "date": "2023-05-30",
-            "lineId": "Ln01",
-            "createdOn": "2023-05-30"
-        }
     ]);
-    const line_name = localStorage.getItem("line_name");
-   // const line_name = "line A";
-    
-    const body = {line_name};
-    // useEffect(() => {
-    //     getLastEntriesFE(body, setLastEntries)
-    // }, [])
+    const lineId = localStorage.getItem("lineId");
+    const body = {
+        "lineId":lineId,
+    }
+
+    useEffect(()=>{
+        const fetchData = async () => {
+            try {
+              await getLastEntriesFE(body, setLastEntries); // Assuming getLineFE is an asynchronous 
+              console.log(lastEntries);
+            } catch (error) {
+              console.error("Error fetching line data:", error);
+            }
+          };
+      
+          fetchData();
+    },[]);
     return (
         <>
             <div class="antialiased bg-gray-100 text-gray-600 my-20">
@@ -39,7 +37,7 @@ const DateCloseTable = () => {
                                     <thead class="text-xs font-bold uppercase text-black-400 bg-gray-50">
                                         <tr>
                                             <th class="p-2 whitespace-nowrap">
-                                                <div class="font-bold text-center"> A/C Number</div>
+                                                <div class="font-bold text-center"> S. No.</div>
                                             </th>
                                             <th class="p-2 whitespace-nowrap">
                                                 <div class="font-bold text-center">A/C Close Date</div>
@@ -47,18 +45,18 @@ const DateCloseTable = () => {
 
                                         </tr>
                                     </thead>
-                                    {lastEntries?.map((lastEntry, i) => (
-                                        <tbody class="text-sm text-gray-600 divide-y divide-gray-100">
+                                    <tbody class="text-sm text-gray-600 divide-y divide-gray-100">
+                                    {lastEntries.map((lastEntry, i) => (
                                             <tr>
                                                 <td class="p-2 whitespace-nowrap ">
-                                                    <div class="font-medium text-lg text-center text-gray-400">{i}</div>
+                                                    <div class="font-medium text-lg text-center text-gray-400">{i+1}</div>
                                                 </td>
                                                 <td class="p-2 whitespace-nowrap ">
                                                     <div class="font-medium text-lg text-center text-gray-400">{lastEntry.date}</div>
                                                 </td>
                                             </tr>
-                                        </tbody>
                                     ))}
+                                    </tbody>
                                 </table>
                             </div>
                         </div>

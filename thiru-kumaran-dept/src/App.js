@@ -113,6 +113,11 @@ function App() {
               <Loan />
             </div>
           } />
+          <Route path="/lineboyupdate" element={
+            <div>
+              <LineBoy />
+            </div>
+          } />
           <Route path="/dateclose" element={
             <div>
               <Navbar />
