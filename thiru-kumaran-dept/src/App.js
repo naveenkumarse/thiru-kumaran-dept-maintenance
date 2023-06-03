@@ -63,7 +63,7 @@ function App() {
               <LoginPage />
             </div>
           } />
-          <Route path="/" element={
+          {/* <Route path="/" element={
             <div>
               <LoginPage />
             </div>
@@ -72,7 +72,7 @@ function App() {
             <div>
               <LoginPage />
             </div>
-          } />
+          } /> */}
           <Route path="/lineboylogin" element={
             <div>
               <LineBoyLogin />

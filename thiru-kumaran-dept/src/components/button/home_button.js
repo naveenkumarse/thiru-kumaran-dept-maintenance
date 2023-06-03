@@ -2,10 +2,12 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 
 
-const Button = (path) => {
+const Button = ({path, lineId, date}) => {
     const navigate = useNavigate();
     const onNavi = ({path}) =>{
-        navigate(`/${path}`);
+        localStorage.setItem('lineId', lineId )
+        localStorage.setItem('date', date )
+        navigate(`/line`);
     }
     return (
         <>

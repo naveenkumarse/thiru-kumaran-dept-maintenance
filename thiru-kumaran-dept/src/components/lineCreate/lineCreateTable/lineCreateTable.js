@@ -1,23 +1,19 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import ListCreateItems from "./listCreateItems";
-
+import { getLineFE } from "../../../api";
 const LineCreateTable = () => {
-    const [lines, setLines] = useState([
-        {
-            "id": 1,
-            "lineId": "Ln03",
-            "lineName": "Line 3 update",
-            "createdOn": "2023-05-30",
-            "updatedOn": "2023-05-30"
-        },
-        {
-            "id": 101,
-            "lineId": "Ln01",
-            "lineName": "Line 1",
-            "createdOn": "2023-01-10",
-            "updatedOn": "2023-05-10"
-        }
-    ])
+    const [lines, setLines] = useState([]);
+    useEffect(()=>{
+        const fetchData = async () => {
+            try {
+              await getLineFE(setLines); // Assuming getLineFE is an asynchronous function that returns the line data
+            } catch (error) {
+              console.error("Error fetching line data:", error);
+            }
+          };
+      
+          fetchData();
+    },[])
     return (
         <>
             <section class="antialiased bg-gray-100 text-gray-600 px-4 bg-red-400 my-52">
@@ -41,7 +37,7 @@ const LineCreateTable = () => {
                                         </tr>
                                     </thead>
                                     <tbody class="text-sm divide-y divide-gray-100">
-                                           {lines.map((line) => (<ListCreateItems key={line.id} line={line}/>))}
+                                           {lines.map((line) => (<ListCreateItems key={line.lineId} line={line}/>))}
                                     </tbody>
                                 </table>
                             </div>

@@ -1,5 +1,5 @@
 // user api 
-
+let ENDPOINT_URL = 'http://localhost:8080'
 export const logout = (setUser) => {
     fetch('http://localhost:6001/user/', {
         method: "GET",
@@ -282,7 +282,7 @@ export const deleteDailyCollectionFE = async (body) => {
 export const createLineFE = async (body, setLine) => {
     console.log(body);
     // line_no,line_name
-    const res = await fetch("http://localhost:6001/line/", {
+    const res = await fetch( ENDPOINT_URL +"/restservices/line/create", {
         method: "POST",
         headers: { "content-Type": "application/json" },
         body: JSON.stringify(body)
@@ -292,20 +292,78 @@ export const createLineFE = async (body, setLine) => {
     return setLine(jsonData);
 }
 
-export const getLineFE = (setLine) => {
-
-    fetch('http://localhost:6001/line/', {
-        method: "GET",
-    })
-        .then((response) => response.json())
-        .then((lineData) => setLine(lineData));
+export const updateLineFE = async (body) => {
+    console.log(body);
+    //line_boy_no,member_name,address,phone_no,phone_number,password
+    const res = await fetch(ENDPOINT_URL + "/restservices/line/update", {
+        method: "PUT",
+        headers: { "content-Type": "application/json" },
+        body: JSON.stringify(body)
+    });
+    const jsonData = await res.json();
+    console.log(jsonData)
+    return jsonData;
 }
-
+// export const getLineFE = async (setLine) => {
+//     // setLine([
+//     //     {
+//     //         "date": "2023-05-10",
+//     //         "lineId": "Ln03",
+//     //         "lineName": "Line 3"
+//     //     },
+//     //     {
+//     //         "date": null,
+//     //         "lineId": "Ln01",
+//     //         "lineName": "Line 1"
+//     //     }
+//     // ])
+//     await fetch('http://localhost:8080/restservices/line/all/dateClose', {
+//         method: "GET",
+//         mode: 'no-cors'
+//     })
+//         .then((response) => response.json())
+//         .then((lineData) => setLine(lineData));
+// }
+export const getLineFE = async (setLines) => {
+    try {
+      const response = await fetch(ENDPOINT_URL + "/restservices/line/all/dateClose", {
+        method: "GET",
+      });
+  
+      if (!response.ok) {
+        throw new Error("Failed to fetch line data");
+      }
+  
+      const lineData = await response.json();
+      setLines(lineData)
+    } catch (error) {
+      console.error("Error fetching line data:", error);
+      throw error;
+    }
+  };
+  
+  export const getAllLineFE = async (setLines) => {
+    try {
+      const response = await fetch(ENDPOINT_URL + "/restservices/line/all", {
+        method: "GET",
+      });
+  
+      if (!response.ok) {
+        throw new Error("Failed to fetch line data");
+      }
+  
+      const lineData = await response.json();
+      setLines(lineData)
+    } catch (error) {
+      console.error("Error fetching line data:", error);
+      throw error;
+    }
+  };
+  
 
 export const deleteLineFE = async (body) => {
     console.log(body);
-    // body - line_name
-    const res = await fetch("http://localhost:6001/line/", {
+    const res = await fetch(ENDPOINT_URL + "/restservices/line/delete", {
         method: "DELETE",
         headers: { "content-Type": "application/json" },
         body: JSON.stringify(body)

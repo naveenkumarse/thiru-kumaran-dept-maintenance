@@ -3,21 +3,28 @@ import Button from "../button/home_button";
 import { getLineFE } from "../../api";
 const Home = () => {
     const [lines,setLines] = useState([
-        {
-            "date": "2023-05-10",
-            "lineId": "Ln03",
-            "lineName": "Line 3 update"
-        },
-        {
-            "date": null,
-            "lineId": "Ln01",
-            "lineName": "Line 1"
-        }
+        // {
+        //     "date": "2023-05-10",
+        //     "lineId": "Ln03",
+        //     "lineName": "Line 3"
+        // },
+        // {
+        //     "date": null,
+        //     "lineId": "Ln01",
+        //     "lineName": "Line 1"
+        // }
     ]);
-    // useEffect(()=>{
-    //     const lineList = getLineFE();
-    //     setLines(lineList)
-    // },[])
+    useEffect(()=>{
+        const fetchData = async () => {
+            try {
+              await getLineFE(setLines); // Assuming getLineFE is an asynchronous function that returns the line data
+            } catch (error) {
+              console.error("Error fetching line data:", error);
+            }
+          };
+      
+          fetchData();
+    },[])
     
     return (
         <>
@@ -56,7 +63,7 @@ const Home = () => {
                                             {line.date}
                                         </td>
                                         <td class="text-sm text-gray-900 font-light  py-4 whitespace-nowrap">
-                                            <Button lineId={line.lineId} date={line.date}/>
+                                            <Button lineId={line.lineId} date={line.date} path='line'/>
                                         </td>
                                     </tr>
                                     ))}

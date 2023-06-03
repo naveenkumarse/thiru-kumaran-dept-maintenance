@@ -15,7 +15,7 @@ const categories = [
         name: 'category1',
         path: '/collection',
         title: "Collection",
-        description: "Grab your Cards",
+        description: "சேகரிப்பு",
     },
     {
         image: signing,

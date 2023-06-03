@@ -1,11 +1,6 @@
 import React, { useState } from "react";
 
-const LineCreateForm =({mostRecent})=>{
-
-    const lineId = mostRecent.lineId;
-    
-    // Extracting the integer part using regular expression
-    const newLineId = parseInt(lineId.match(/\d+/)[0]) + 1;
+const updateLine =({line})=>{
 
     const [id,setId] = useState('Ln0' + String(newLineId));
     const [name,setName] = useState("");
@@ -17,7 +12,7 @@ const LineCreateForm =({mostRecent})=>{
         <>
          <div class="grid min-h-screen place-items-center bg-red-400">
                 <div class="w-11/12 p-12 bg-white sm:w-8/12 md:w-1/2 lg:w-10/12">
-                    <h1 class="text-xl font-bold ">Add Line Details <span class="font-normal"></span></h1>
+                    <h1 class="text-xl font-bold ">Edit Line Details <span class="font-normal"></span></h1>
                     <form class="mt-6">
                     <label for="id" class="block mt-2 text-xs font-semibold text-gray-600 uppercase">Id</label>
                     <input id="id" type="text" name="id" placeholder="id" autocomplete="id" class="block w-full p-3 mt-2 text-gray-700 bg-gray-200 appearance-none focus:outline-none focus:bg-gray-300 focus:shadow-inner" value={id} onChange={(e)=>setId(e.target.value)} required />
@@ -39,4 +34,4 @@ const LineCreateForm =({mostRecent})=>{
     )
 }
 
-export default LineCreateForm;
+export default updateLine;
