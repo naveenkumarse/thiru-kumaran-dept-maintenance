@@ -1,20 +1,18 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import ListItems from "./listItems";
-
+import { getAllLineMemberFE } from "../../../api";
 const LineBoyTable = () => {
-    const [lineboys, setLineboys] = useState([
-        {
-            "id": 1,
-            "linMemId": "LM02",
-            "memberName": "Dharani",
-            "phoneNo": "1234567",
-            "address": "sagvahj123",
-            "password": "Indira",
-            "createdOn": "2023-05-30",
-            "updatedOn": "2023-05-30",
-            "role": "LineMan"
-        }
-    ])
+    const [lineboys, setLineboys] = useState([])
+    useEffect(()=>{
+        const fetchData = async () => {
+            try {
+              await getAllLineMemberFE(setLineboys); // Assuming getLineFE is an asynchronous function 
+            } catch (error) {
+              console.error("Error fetching line data:", error);
+            }
+          };
+          fetchData();
+    },[])
     return (
         <>
             <section class="antialiased bg-gray-100 text-gray-600 px-4 bg-red-400 my-20">

@@ -48,7 +48,8 @@ const LineCreate = () =>{
         setId(line.lineId);
         setEditName(line.lineName);
     }
-    const handleLineEdit = () =>{
+    const handleLineEdit = (e) =>{
+        e.preventDefault()
         const body = {
             "lineId":id,
             "lineName":editName

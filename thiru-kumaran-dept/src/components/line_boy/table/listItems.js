@@ -1,6 +1,18 @@
-import React from "react";
+import React, {usestate} from "react";
+import { deleteLineMember } from "../../../api";
+import { useNavigate } from "react-router-dom";
 
 const LineBoyList = ({lineboy}) => {
+    const handleLineBoyDelete = (e) =>{
+        e.preventDefault();
+        deleteLineMember({"lineMemId":lineboy.linMemId});
+        window.location.reload();
+    }
+    const navigate = useNavigate();
+    const navigateToUpdate = (e) =>{
+        localStorage.setItem('currentLineMember',lineboy.linMemId)
+        navigate('/lineboyupdate')
+    }
     return (
         <tr>
             <td class="p-2 whitespace-nowrap">
@@ -18,7 +30,9 @@ const LineBoyList = ({lineboy}) => {
                 <div class="text-lg text-center">{lineboy.phoneNo}</div>
             </td>
             <td class="p-2 whitespace-nowrap">
-                <div class="text-lg text-center"><button style={{color:"green",fontSize:"14px"}}>Update</button> <button style={{color:"red",fontSize:"14px",marginLeft:"20px"}}>Delete</button></div>
+                <div class="text-lg text-center">
+                <button style={{color:"green",fontSize:"14px"}} onClick={(e) => navigateToUpdate(e)}>Update</button> 
+                <button style={{color:"red",fontSize:"14px",marginLeft:"20px"}} onClick={(e)=> handleLineBoyDelete(e)}>Delete</button></div>
             </td>     
         </tr>
     )
