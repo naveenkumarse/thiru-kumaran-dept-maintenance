@@ -226,17 +226,17 @@ export const updateLoanFE = async (body) => {
 }
 
 //daily collection 
-export const createDailyCollectionFE = async (body, setCollection) => {
+export const createDailyCollectionFE = async (body) => {
     console.log(body);
     // id,amount_paid,date,line_name,loan_no
-    const res = await fetch(ENDPOINT_URL + "/restservices/dailycollection/", {
+    const res = await fetch(ENDPOINT_URL + "/restservices/dailycollection/create", {
         method: "POST",
         headers: { "content-Type": "application/json" },
         body: JSON.stringify(body)
     });
     const jsonData = await res.json();
     console.log(jsonData)
-    return setCollection(jsonData);
+    // return setCollection(jsonData);
 }
 
 export const getActiveLoansDirectEntry = async (body, setCollection) => {

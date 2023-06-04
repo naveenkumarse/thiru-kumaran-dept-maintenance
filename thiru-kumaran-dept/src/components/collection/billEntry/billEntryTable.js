@@ -4,55 +4,56 @@ import { getBillEntry } from "../../../api";
 const BillEntryTable = () => {
     const [total, setTotal] = useState([]);
     const [billentries, SetBillentries] = useState([
-        {
-            "loanNo": "Lon02",
-            "name": "Siva",
-            "billAmount": 50,
-            "excess": 100,
-            "time": "22:02:06.182998"
-        },
-        {
-            "loanNo": "Lon01",
-            "name": "Dharani",
-            "billAmount": 50,
-            "excess": 0,
-            "time": "22:07:20.880552"
-        },
-        {
-            "loanNo": "Lon01",
-            "name": "Dharani",
-            "billAmount": 50,
-            "excess": 0,
-            "time": "22:07:20.880552"
-        },
-        {
-            "loanNo": "Lon01",
-            "name": "Dharani",
-            "billAmount": 50,
-            "excess": 100,
-            "time": "22:07:20.880552"
-        },
-        {
-            "loanNo": "Lon01",
-            "name": "Dharani",
-            "billAmount": 50,
-            "excess": 0,
-            "time": "22:07:20.880552"
-        }
+        // {
+        //     "loanNo": "Lon02",
+        //     "name": "Siva",
+        //     "billAmount": 50,
+        //     "excess": 100,
+        //     "time": "22:02:06.182998"
+        // },
+        // {
+        //     "loanNo": "Lon01",
+        //     "name": "Dharani",
+        //     "billAmount": 50,
+        //     "excess": 0,
+        //     "time": "22:07:20.880552"
+        // },
+        // {
+        //     "loanNo": "Lon01",
+        //     "name": "Dharani",
+        //     "billAmount": 50,
+        //     "excess": 0,
+        //     "time": "22:07:20.880552"
+        // },
+        // {
+        //     "loanNo": "Lon01",
+        //     "name": "Dharani",
+        //     "billAmount": 50,
+        //     "excess": 100,
+        //     "time": "22:07:20.880552"
+        // },
+        // {
+        //     "loanNo": "Lon01",
+        //     "name": "Dharani",
+        //     "billAmount": 50,
+        //     "excess": 0,
+        //     "time": "22:07:20.880552"
+        // }
     ]);
-    // useEffect(()=>{
-    //     const fetchData = async () => {
-    //         try {
-    //             const body = {
-
-    //             };
-    //           await getBillEntry(body, SetBillentries); // Assuming getLineFE is an asynchronous function 
-    //         } catch (error) {
-    //           console.error("Error fetching Bill Entry data:", error);
-    //         }
-    //       };
-    //       fetchData();
-    // },[])
+    useEffect(()=>{
+        const fetchData = async () => {
+            try {
+                const body = {
+                    "lineId":localStorage.getItem('lineId'),
+                    "date": localStorage.getItem('date')
+                };
+              await getBillEntry(body, SetBillentries); // Assuming getLineFE is an asynchronous function 
+            } catch (error) {
+              console.error("Error fetching Bill Entry data:", error);
+            }
+          };
+          fetchData();
+    },[])
     useEffect(()=>{
         const newTotal = [];
         for(let i = 0; i <billentries.length;i++){
@@ -113,7 +114,6 @@ const BillEntryTable = () => {
                                             <th class="p-2 whitespace-nowrap">
                                                 <div class="font-bold text-center">Total</div>
                                             </th>
-
                                             <th class="p-2 whitespace-nowrap">
                                                 <div class="font-bold text-center"> Time</div>
                                             </th>

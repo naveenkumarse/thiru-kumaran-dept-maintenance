@@ -1,7 +1,43 @@
-import React from "react";
+import React,{useEffect, useState} from "react";
 import DirectEntryList from "./directEntryList";
-
+import { getActiveLoansDirectEntry } from "../../../api";
 const DirectEntryTable = () => {
+    const [directentries, setDirectentries]=useState([
+        // {
+        //     "loanNo": "Lon02",
+        //     "name": "siva",
+        //     "address": "123,thangavel nagar",
+        //     "balance": "5000",
+        //     "payAmount": "50"
+        // },
+        // {
+        //     "loanNo": "Lon03",
+        //     "name": "indira",
+        //     "address": "123,thangavel nagar",
+        //     "balance": "5000",
+        //     "payAmount": "50"
+        // },
+        // {
+        //     "loanNo": "Lon04",
+        //     "name": "naveen",
+        //     "address": "123,thangavel nagar",
+        //     "balance": "5000",
+        //     "payAmount": "50"
+        // }
+    ]);
+    useEffect(()=>{
+        const fetchData = async () => {
+            try {
+                const body = {
+                    "lineId":localStorage.getItem('lineId')
+                };
+              await getActiveLoansDirectEntry(body, setDirectentries); // Assuming getLineFE is an asynchronous function 
+            } catch (error) {
+              console.error("Error fetching Bill Entry data:", error);
+            }
+          };
+          fetchData();
+    },[])
     return (
         <>
             <section class="antialiased bg-gray-100 text-gray-600 px-4 bg-red-400 my-20">
@@ -46,9 +82,6 @@ const DirectEntryTable = () => {
                                                 <div class="font-bold text-left">Address</div>
                                             </th>
                                             <th class="p-2 whitespace-nowrap">
-                                                <div class="font-bold text-center">Loan Amount</div>
-                                            </th>
-                                            <th class="p-2 whitespace-nowrap">
                                                 <div class="font-bold text-center">Bal</div>
                                             </th>
                                             <th class="p-2 whitespace-nowrap">
@@ -63,9 +96,7 @@ const DirectEntryTable = () => {
                                         </tr>
                                     </thead>
                                     <tbody class="text-sm divide-y divide-gray-100">
-                                        <tr>
-                                            <DirectEntryList />
-                                        </tr>
+                                      {directentries.map((directentry, i)=><DirectEntryList key={i} directentry={directentry}/>)}  
                                     </tbody>
                                 </table>
                             </div>
