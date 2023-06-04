@@ -1,66 +1,66 @@
 // user api 
 let ENDPOINT_URL = 'http://localhost:8080'
-export const logout = (setUser) => {
-    fetch(ENDPOINT_URL + '/user/', {
-        method: "GET",
-    })
-        .then((response) => response.json())
-        .then((userData) => setUser(userData));
-}
+// export const logout = (setUser) => {
+//     fetch(ENDPOINT_URL + '/user/', {
+//         method: "GET",
+//     })
+//         .then((response) => response.json())
+//         .then((userData) => setUser(userData));
+// }
 
-export const logoutbydelete = async (body) => {
-    console.log(body);
-    const res = await fetch(ENDPOINT_URL + "/user/", {
-        method: "DELETE",
-        headers: { "content-Type": "application/json" },
-        body: JSON.stringify(body)
-    });
-    // const jsonData = await res.json();
-    return res;
-}
+// export const logoutbydelete = async (body) => {
+//     console.log(body);
+//     const res = await fetch(ENDPOINT_URL + "/user/", {
+//         method: "DELETE",
+//         headers: { "content-Type": "application/json" },
+//         body: JSON.stringify(body)
+//     });
+//     // const jsonData = await res.json();
+//     return res;
+// }
 
-export const Login = async (body, setLogin) => {
-    console.log(body);
+// export const Login = async (body, setLogin) => {
+//     console.log(body);
 
-    const res = await fetch(ENDPOINT_URL + "/user/", {
-        method: "POST",
-        headers: { "content-Type": "application/json" },
-        body: JSON.stringify(body)
-    });
-    const jsonData = await res.json();
-    console.log(jsonData)
-    return setLogin(jsonData);
-}
+//     const res = await fetch(ENDPOINT_URL + "/user/", {
+//         method: "POST",
+//         headers: { "content-Type": "application/json" },
+//         body: JSON.stringify(body)
+//     });
+//     const jsonData = await res.json();
+//     console.log(jsonData)
+//     return setLogin(jsonData);
+// }
 
 // update user by phone number
-export const updateUserByNo = async (body) => {
-    console.log(body);
+// export const updateUserByNo = async (body) => {
+//     console.log(body);
 
-    const res = await fetch(ENDPOINT_URL + "/user/", {
-        method: "PUT",
-        headers: { "content-Type": "application/json" },
-        body: JSON.stringify(body)
-    });
-    const jsonData = await res.json();
-    console.log(jsonData)
-    return jsonData;
-}
-
-
+//     const res = await fetch(ENDPOINT_URL + "/user/", {
+//         method: "PUT",
+//         headers: { "content-Type": "application/json" },
+//         body: JSON.stringify(body)
+//     });
+//     const jsonData = await res.json();
+//     console.log(jsonData)
+//     return jsonData;
+// }
 
 
-export const register = async (body, setUser) => {
-    console.log(body);
+
+
+// export const register = async (body, setUser) => {
+//     console.log(body);
     
-    const res = await fetch("http://localhost:8080/user/register", {
-        method: "POST",
-        headers: { "content-Type": "application/json" },
-        body: JSON.stringify(body)
-    });
-    const jsonData = await res.json();
-    console.log(jsonData)
-    return setUser(jsonData);
-}
+//     const res = await fetch("http://localhost:8080/user/register", {
+//         method: "POST",
+//         headers: { "content-Type": "application/json" },
+//         body: JSON.stringify(body)
+//     });
+//     const jsonData = await res.json();
+//     console.log(jsonData)
+//     return setUser(jsonData);
+// }
 
 
 // Account close api 
@@ -76,17 +76,17 @@ export const getLastEntriesFE = async (body,setLastEntries) => {
 }
 
 
-export const deleteAccountCloseFE = async (body) => {
-    console.log(body);
-    // body - line_name,date
-    const res = await fetch(ENDPOINT_URL + "/accountclose/", {
-        method: "DELETE",
-        headers: { "content-Type": "application/json" },
-        body: JSON.stringify(body)
-    });
-    // const jsonData = await res.json();
-    return res;
-}
+// export const deleteAccountCloseFE = async (body) => {
+//     console.log(body);
+//     // body - line_name,date
+//     const res = await fetch(ENDPOINT_URL + "/accountclose/", {
+//         method: "DELETE",
+//         headers: { "content-Type": "application/json" },
+//         body: JSON.stringify(body)
+//     });
+//     // const jsonData = await res.json();
+//     return res;
+// }
 
 export const createAccountCloseFE = async (body) => {
     console.log("create Body", body);
@@ -101,18 +101,18 @@ export const createAccountCloseFE = async (body) => {
 }
 
 
-export const updateAccountCloseFE = async (body) => {
-    console.log(body);
+// export const updateAccountCloseFE = async (body) => {
+//     console.log(body);
 
-    const res = await fetch(ENDPOINT_URL + "/accountclose/", {
-        method: "PUT",
-        headers: { "content-Type": "application/json" },
-        body: JSON.stringify(body)
-    });
-    const jsonData = await res.json();
-    console.log(jsonData)
-    return jsonData;
-}
+//     const res = await fetch(ENDPOINT_URL + "/accountclose/", {
+//         method: "PUT",
+//         headers: { "content-Type": "application/json" },
+//         body: JSON.stringify(body)
+//     });
+//     const jsonData = await res.json();
+//     console.log(jsonData)
+//     return jsonData;
+// }
 
 
 
@@ -226,12 +226,10 @@ export const updateLoanFE = async (body) => {
 }
 
 //daily collection 
-
-
 export const createDailyCollectionFE = async (body, setCollection) => {
     console.log(body);
     // id,amount_paid,date,line_name,loan_no
-    const res = await fetch(ENDPOINT_URL + "/dailycollection/", {
+    const res = await fetch(ENDPOINT_URL + "/restservices/dailycollection/", {
         method: "POST",
         headers: { "content-Type": "application/json" },
         body: JSON.stringify(body)
@@ -241,30 +239,54 @@ export const createDailyCollectionFE = async (body, setCollection) => {
     return setCollection(jsonData);
 }
 
-export const getAllDailyCollectionFE = (setCollection) => {
+export const getActiveLoansDirectEntry = async (body, setCollection) => {
     // line_name,date
-    fetch(ENDPOINT_URL + '/dailycollection/', {
-        method: "GET",
+    await fetch(ENDPOINT_URL + '/restservices/dailycollection/all/activeloan', {
+        method: "POST",
+        headers: { "content-Type": "application/json" },
+        body: JSON.stringify(body)
     })
         .then((response) => response.json())
         .then((collectionData) => setCollection(collectionData));
 }
 
-export const getAllDailyCollectionByConditionFE = (body, setIndividualReports) => {
+export const getBillEntry = async (body, setCollection) => {
     // line_name,date
-    fetch(ENDPOINT_URL + '/dailycollection/condition', {
-        method: "GET",
+    await fetch(ENDPOINT_URL + '/restservices/dailycollection/billentry', {
+        method: "POST",
+        headers: { "content-Type": "application/json" },
         body: JSON.stringify(body)
     })
         .then((response) => response.json())
-        .then((collectionData) => setIndividualReports(collectionData));
+        .then((collectionData) => setCollection(collectionData));
 }
 
+export const getParticularCollection = async (body, setCollection) => {
+    // line_name,date
+    await fetch(ENDPOINT_URL + '/dailycollection/condition', {
+        method: "POST",
+        headers: { "content-Type": "application/json" },
+        body: JSON.stringify(body)
+    })
+        .then((response) => response.json())
+        .then((collectionData) => setCollection(collectionData));
+}
 
-export const updateDailyCollectionFE = async (body) => {
+export const getActiveLoansLedgerView = async (body, setCollection) => {
+    // line_name,date
+    await fetch(ENDPOINT_URL + '/restservices/dailycollection/all/activeloan/ledger', {
+        method: "POST",
+        headers: { "content-Type": "application/json" },
+        body: JSON.stringify(body)
+    })
+        .then((response) => response.json())
+        .then((collectionData) => setCollection(collectionData));
+}
+
+export const updateDailyCollection = async (body) => {
     console.log(body);
     //line_name,date,loan_no,amount_paid
-    const res = await fetch(ENDPOINT_URL + "/dailycollection/", {
+    const res = await fetch(ENDPOINT_URL + "/restservices/dailycollection/update", {
         method: "PUT",
         headers: { "content-Type": "application/json" },
         body: JSON.stringify(body)
@@ -274,17 +296,17 @@ export const updateDailyCollectionFE = async (body) => {
     return jsonData;
 }
 
-export const deleteDailyCollectionFE = async (body) => {
-    console.log(body);
-    // body - laon_no,line_name
-    const res = await fetch(ENDPOINT_URL + "/dailycollection/", {
-        method: "DELETE",
-        headers: { "content-Type": "application/json" },
-        body: JSON.stringify(body)
-    });
-    // const jsonData = await res.json();
-    return res;
-}
+// export const deleteDailyCollectionFE = async (body) => {
+//     console.log(body);
+//     // body - laon_no,line_name
+//     const res = await fetch(ENDPOINT_URL + "/dailycollection/", {
+//         method: "DELETE",
+//         headers: { "content-Type": "application/json" },
+//         body: JSON.stringify(body)
+//     });
+//     // const jsonData = await res.json();
+//     return res;
+// }
 
 
 // line router 

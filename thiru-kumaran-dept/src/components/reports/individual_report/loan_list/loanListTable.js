@@ -1,15 +1,13 @@
 import React, { useEffect, useState } from "react";
 
 import LoanListView from "./loanListView";
-import { getAllDailyCollectionByConditionFE } from "../../../../api";
+
 
 const LoanListTable = () => {
     const [individualReports, setIndividualReports] = useState([]);
     const line_name = localStorage.getItem("line_name");
     const body = { line_name }
-    useEffect(() => {
-        getAllDailyCollectionByConditionFE(body, setIndividualReports);
-    }, []);
+
     return (
         <>
             <section class="antialiased bg-gray-100 text-gray-600 px-4 bg-red-400 my-20">
