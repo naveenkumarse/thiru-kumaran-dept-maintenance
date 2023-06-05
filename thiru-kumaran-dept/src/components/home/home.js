@@ -63,7 +63,7 @@ const Home = () => {
                                             {line.date}
                                         </td>
                                         <td class="text-sm text-gray-900 font-light  py-4 whitespace-nowrap">
-                                            <Button lineId={line.lineId} date={line.date} path='line'/>
+                                            <Button lineId={line.lineId} date={line.date} path='line' lineName={line.lineName}/>
                                         </td>
                                     </tr>
                                     ))}

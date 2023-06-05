@@ -1,16 +1,11 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
-function Navbar() {
-    let objectDate = new Date();
-    let day = objectDate.getDate();
-    let month = objectDate.getMonth();
-    let year = objectDate.getFullYear();    
-    let date = `${year}-${month+1}-${day}`;
+function Navbar() {  
+    let date = localStorage.getItem('date');
     let line_name = localStorage.getItem("line_name")
     return (
         <>
-
             <div class="flex flex-wrap place-items-center ">
                 <section class="relative mx-auto">
 

@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
 import DateCloseTable from "./dateCloseTable";
 import { createAccountCloseFE } from "../../api";
-
+import { useNavigate } from "react-router-dom";
 const DateClose = () => {
     const [todaydate, setTodayDate] = useState(String(localStorage.getItem('date')));
     const lineId = localStorage.getItem("lineId");
+    const navigate = useNavigate();
 
     const saveDateClose = (e) =>{
         e.preventDefault();
@@ -18,7 +19,7 @@ const DateClose = () => {
             "date":formattedDate
         }
         createAccountCloseFE(body)
-        window.location.reload();
+        navigate('/line')
     }
 
     const onCancelCall = () =>{

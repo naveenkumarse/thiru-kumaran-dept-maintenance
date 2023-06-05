@@ -32,9 +32,9 @@ const LedgerEntryList = ({ledgerEntry}) => {
             <td class="p-2 whitespace">
                 <div class="text-lg text-center">{ledgerEntry.payAmount}</div>
             </td>
-            {ledgerEntry.date.length > 0 && ledgerEntry.date.map((arr)=> {
+            {ledgerEntry.date.length > 0 && ledgerEntry.dateValue.map((arr)=> {
              return (<th class="py-6 px-1 whitespace">
-             <div class="font-bold text-center">{arr[1]}</div>
+             <div class="font-bold text-center">{arr['amount']}</div>
             </th>)
             })}
             <td class="p-2 whitespace">

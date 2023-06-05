@@ -2,8 +2,7 @@ import React, { useState } from "react";
 
 import BalanceSheet from "./balanceSheet/balanceSheet";
 import IndividualHead from "./‌individualHead/individualHead";
-
-
+import TrialSheet from "./trailSheet/trialSheet";
 const Thitam = () => {
     const [pageId, setPageId] = useState(0);
     return (
@@ -38,7 +37,7 @@ const Thitam = () => {
                 </div>
 
             </div>
-            <IndividualHead />  
+            <IndividualHead />
             {/* {pageId == 0 ? <BillEntry /> : pageId == 1 ? <DirectEntry /> : pageId == 2 ? <LedgerEntry /> : <TodayList />} */}
         </>
     )

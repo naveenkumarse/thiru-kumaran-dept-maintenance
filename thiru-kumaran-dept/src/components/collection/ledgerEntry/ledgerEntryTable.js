@@ -56,7 +56,7 @@ const LedgerEntryTable = () => {
     // },[])
     useEffect(()=>{
         if (ledgerEntries.length !==0){
-            const dateList = ledgerEntries[0]["date"].map((arr)=> arr[0])
+            const dateList = ledgerEntries[0]["dateValue"].map((arr)=> arr['date'])
             setDates(dateList)
         }
     },[ledgerEntries])
