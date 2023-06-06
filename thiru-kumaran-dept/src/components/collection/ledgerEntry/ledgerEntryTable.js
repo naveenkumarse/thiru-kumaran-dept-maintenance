@@ -10,16 +10,16 @@ const LedgerEntryTable = () => {
             "address": "123,thangavel nagar",
             "balance": "4000",
             "payAmount": "50",
-            "date": [
-                ["2023-05-24", "50"],
-                ["2023-05-25", "50"],
-                ["2023-05-26", "50"],
-                ["2023-05-27", "50"],
-                ["2023-05-21", "50"],
-                ["2023-05-22", "50"],
-                ["2023-05-23", "50"],
-                ["2023-05-28", "50"],
-                ["2023-05-29", "50"]
+            "dateValue": [
+                {date:"2023-05-24", amount:"50"},
+                {date:"2023-05-25", amount:"50"},
+                {date:"2023-05-26", amount:"50"},
+                {date:"2023-05-27", amount:"50"},
+                {date:"2023-05-21", amount:"50"},
+                {date:"2023-05-22", amount:"50"},
+                {date:"2023-05-23", amount:"50"},
+                {date:"2023-05-28", amount:"50"},
+                {date:"2023-05-29", amount:"50"}
             ]
         },
         {
@@ -28,16 +28,16 @@ const LedgerEntryTable = () => {
             "address": "123,thangavel nagar",
             "balance": "4000",
             "payAmount": "50",
-            "date": [
-                ["2023-05-24", "50"],
-                ["2023-05-25", "50"],
-                ["2023-05-26", "50"],
-                ["2023-05-27", "50"],
-                ["2023-05-21", "50"],
-                ["2023-05-22", "50"],
-                ["2023-05-23", "50"],
-                ["2023-05-28", "50"],
-                ["2023-05-29", "50"]
+            "dateValue": [
+                {date:"2023-05-24", amount:"50"},
+                {date:"2023-05-25", amount:"50"},
+                {date:"2023-05-26", amount:"50"},
+                {date:"2023-05-27", amount:"50"},
+                {date:"2023-05-21", amount:"50"},
+                {date:"2023-05-22", amount:"50"},
+                {date:"2023-05-23", amount:"50"},
+                {date:"2023-05-28", amount:"50"},
+                {date:"2023-05-29", amount:"50"}
             ]
         },
     ]);
@@ -55,7 +55,8 @@ const LedgerEntryTable = () => {
     //       fetchData();
     // },[])
     useEffect(()=>{
-        if (ledgerEntries.length !==0){
+        console.log(ledgerEntries)
+        if (ledgerEntries && ledgerEntries.length !==0){
             const dateList = ledgerEntries[0]["dateValue"].map((arr)=> arr['date'])
             setDates(dateList)
         }
@@ -110,7 +111,7 @@ const LedgerEntryTable = () => {
                                             <th class="p-2 ">
                                                 <div class="font-bold text-center">Pay Amount</div>
                                             </th>
-                                            {dates.map((date)=> {
+                                            {dates && dates.length> 0 && dates.map((date)=> {
                                                 return (<th class="py-6 px-1 whitespace">
                                                     <div class="font-bold text-center rotate-45">{date}</div>
                                                 </th>)
@@ -121,7 +122,7 @@ const LedgerEntryTable = () => {
                                         </tr>
                                     </thead>
                                     <tbody class="text-sm divide-y divide-gray-100">
-                                           {ledgerEntries.length > 0 && ledgerEntries.map((ledgerEntry,i)=> <LedgerEntryList key={i} ledgerEntry={ledgerEntry} />)} 
+                                           {ledgerEntries && ledgerEntries.length > 0 && ledgerEntries.map((ledgerEntry,i)=> <LedgerEntryList key={i} ledgerEntry={ledgerEntry} />)} 
                                     </tbody>
                                 </table>
                             </div>

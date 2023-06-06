@@ -17,10 +17,10 @@ const ExcessAmountList = ({loan}) => {
                 <div class="text-left font-medium">{loan.billAmount}</div>
             </td>
             <td class="p-2 whitespace-nowrap">
-                <div class="text-left font-medium">{loan.date}</div>
+                <div class="text-left font-medium">{loan.excess}</div>
             </td>
             <td class="p-2 whitespace-nowrap">
-                <div class="text-left font-medium">{loan.excess}</div>
+                <div class="text-left font-medium">{loan.date}</div>
             </td>
         </tr>
     )

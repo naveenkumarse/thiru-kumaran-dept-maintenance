@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-
+import { getUserList } from "../../../../api";
 import LoanListView from "./loanListView";
 
 
@@ -7,7 +7,13 @@ const LoanListTable = () => {
     const [individualReports, setIndividualReports] = useState([]);
     const lineId = localStorage.getItem("lineId");
     const body = { lineId:lineId }
-    
+    useEffect(()=>{
+        try {
+            getUserList(body, setIndividualReports)
+        } catch (error) {
+            console.log("Individual Report fecth error", error)
+        }
+    }, [])
 
     return (
         <>
@@ -47,34 +53,12 @@ const LoanListTable = () => {
                                             <th class="p-2 whitespace-nowrap">
                                                 <div class="font-bold text-left">Name</div>
                                             </th>
-                                            <th class="p-2 whitespace-nowrap">
-                                                <div class="font-bold text-left">Address</div>
-                                            </th>
-                                            <th class="p-2 whitespace-nowrap">
-                                                <div class="font-bold text-left">Phone No.</div>
-                                            </th>
-                                            <th class="p-2 whitespace-nowrap">
-                                                <div class="font-bold text-left">Loan Amount</div>
-                                            </th>
-                                            <th class="p-2 whitespace-nowrap">
-                                                <div class="font-bold text-left">L.Date</div>
-                                            </th>
-                                            <th class="p-2 whitespace-nowrap">
-                                                <div class="font-bold text-left">C.Date</div>
-                                            </th>
-
-                                            <th class="p-2  whitespace-nowrap">
-                                                <div class="font-bold text-left ">Action</div>
-                                            </th>
-
                                         </tr>
                                     </thead>
                                     <tbody class="text-sm divide-y divide-gray-100">
-                                        <tr>
-                                           {individualReports.map((report)=>{
-                                            return <LoanListView key={report.loan_no} report={report}/>
+                                           {individualReports && individualReports.length > 0 && individualReports.map((report, i)=>{
+                                            return <LoanListView key={i} report={report}/>
                                            })} 
-                                        </tr>
                                     </tbody>
                                 </table>
                             </div>

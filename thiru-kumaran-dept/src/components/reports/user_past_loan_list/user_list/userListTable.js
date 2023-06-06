@@ -1,8 +1,18 @@
-import React from "react";
-
+import React, { useEffect, useState } from "react";
+import {getUserList} from "../../../../api"
 import UserListView from "./userListView";
 
 const UserListTable = () => {
+    const [userList, setUserList] = useState([]);
+    const lineId = localStorage.getItem("lineId");
+    const body = { lineId:lineId }
+    useEffect(()=>{
+        try {
+            getUserList(body, setUserList)
+        } catch (error) {
+            console.log("Individual Report fecth error", error)
+        }
+    }, [])
     return (
         <>
             <section class="antialiased bg-gray-100 text-gray-600 px-4 bg-red-400 my-20">
@@ -49,9 +59,7 @@ const UserListTable = () => {
                                         </tr>
                                     </thead>
                                     <tbody class="text-sm divide-y divide-gray-100">
-                                        <tr>
-                                            <UserListView />
-                                        </tr>
+                                    {userList && userList.length > 0 && userList.map((user, i)=> <UserListView key={i} user={user} />)}
                                     </tbody>
                                 </table>
                             </div>
