@@ -21,6 +21,7 @@ import MonthlyBill from './components/reports/monthly_bill/monthlyBill';
 import MonthlyLoan from './components/reports/monthly_loan/monthlyLoan';
 import BulkPaid from './components/reports/bulk_paid/bulkPaid';
 import ClosedParty from './components/reports/closed_party/closedParty';
+import AddLoan from './components/reports/closed_party/addLoan';
 import UserList from './components/reports/user_past_loan_list/user_list/userList';
 import ViewPastLoan from './components/reports/user_past_loan_list/view_page/viewPastLoan';
 import IndividualView from './components/reports/individual_report/individual_view/individualView';
@@ -290,6 +291,12 @@ function App() {
             <div>
               <Navbar />
               <ClosedParty />
+            </div>
+          } />
+          <Route path="/addloan" element={
+            <div>
+              <Navbar />
+              <AddLoan />
             </div>
           } />
              <Route path="/lineboyclosedparty" element={

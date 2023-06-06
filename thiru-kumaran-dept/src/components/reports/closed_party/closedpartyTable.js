@@ -1,7 +1,7 @@
 import React from "react";
 import ClosedPartyList from "./closedPartyList";
 
-const ClosedPartyTable = () => {
+const ClosedPartyTable = ({closedParties}) => {
     return (
         <>
             <section class="antialiased bg-gray-100 text-gray-600 px-4 bg-red-400 my-20">
@@ -54,7 +54,7 @@ const ClosedPartyTable = () => {
                                     </thead>
                                     <tbody class="text-sm divide-y divide-gray-100">
                                         <tr>
-                                            <ClosedPartyList />
+                                            {closedParties && closedParties.map((closedParty, i)=> <ClosedPartyList key={i} closedParty={closedParty} />)}
                                         </tr>
                                     </tbody>
                                 </table>
