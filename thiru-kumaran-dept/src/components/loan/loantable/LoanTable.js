@@ -127,7 +127,7 @@ const handleSort = () =>{ console.log("hi")}
                     </tr>
                   </thead>
                   <tbody className="text-sm text-gray-00 divide-y divide-gray-100">
-                    {loans?.map((loan) => (
+                    {loans.length >0 && loans.map((loan) => (
                       <ListLoan key={loan.loanNo} loan={loan} />
                     ))}
                   </tbody>

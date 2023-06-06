@@ -121,7 +121,7 @@ const LedgerEntryTable = () => {
                                         </tr>
                                     </thead>
                                     <tbody class="text-sm divide-y divide-gray-100">
-                                           {ledgerEntries.map((ledgerEntry,i)=> <LedgerEntryList key={i} ledgerEntry={ledgerEntry} />)} 
+                                           {ledgerEntries.length > 0 && ledgerEntries.map((ledgerEntry,i)=> <LedgerEntryList key={i} ledgerEntry={ledgerEntry} />)} 
                                     </tbody>
                                 </table>
                             </div>

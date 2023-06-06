@@ -6,13 +6,6 @@ import ListCreateItems from "./lineCreateTable/listCreateItems";
 
 const LineCreate = () =>{
     const [lines, setLines] = useState([
-        {
-            "id": 1,
-            "lineId": "Ln01",
-            "lineName": "Line 3",
-            "createdOn": "2023-06-03",
-            "updatedOn": "2023-06-03"
-        }
     ]);
     const [id,setId] = useState('');
     const [name,setName] = useState("");
@@ -31,8 +24,10 @@ const LineCreate = () =>{
     },[])
 
     useEffect(()=>{
-        const newlineId = (parseInt(lines[lines.length-1].lineId.match(/\d+/)[0]) + 1);
-        setId('Ln0' + String(newlineId))
+        if (lines.length > 0){
+            const newlineId = (parseInt(lines[lines.length-1].lineId.match(/\d+/)[0]) + 1);
+            setId('Ln0' + String(newlineId))
+        }
     }, [lines])
 
     const handleLineSave = (e) =>{
@@ -97,7 +92,7 @@ const LineCreate = () =>{
                                     <input id="name" type="text" name="text" placeholder="Name" class="block w-full p-3 mt-2 text-gray-700 bg-gray-200 appearance-none focus:outline-none focus:bg-gray-300 focus:shadow-inner" value={editName} onChange={(e)=>setEditName(e.target.value)} required />
                                     
                                     <button type="submit" class="w-1/3 py-3 mt-6 font-medium tracking-widest text-white uppercase bg-black shadow-lg focus:outline-none hover:bg-gray-900 hover:shadow-none float-right">
-                                        Save
+                                        Update
                                     </button>
                                     <button type="submit" class="w-1/3 mx-2 py-3 mt-6 font-medium tracking-widest text-white uppercase bg-black shadow-lg focus:outline-none hover:bg-gray-900 hover:shadow-none float-right">
                                         Cancel

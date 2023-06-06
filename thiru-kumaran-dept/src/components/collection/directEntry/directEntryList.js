@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { createDailyCollectionFE } from "../../../api";
+
 const DirectEntryList = ({directentry}) => {
     const [amount, setAmount] = useState(0);
     const handleEnter = (e) =>{
@@ -11,7 +12,7 @@ const DirectEntryList = ({directentry}) => {
             "lineId":localStorage.getItem('lineId')
         }
         createDailyCollectionFE(body)
-        // window.location.reload();
+        window.location.reload();
     }
     return (
         <tr>

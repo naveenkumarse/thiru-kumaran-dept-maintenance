@@ -121,7 +121,7 @@ const BillEntryTable = () => {
                                         </tr>
                                     </thead>
                                     <tbody class="text-sm divide-y divide-gray-100">
-                                        {billentries?.map((billentry, i) => <BillEntryList key={i} billentry={billentry} total={total[i]} />)}                                        
+                                        {billentries.length > 0 && billentries.map((billentry, i) => <BillEntryList key={i} billentry={billentry} total={total[i]} />)}                                        
                                     </tbody>
                                 </table>
                             </div>

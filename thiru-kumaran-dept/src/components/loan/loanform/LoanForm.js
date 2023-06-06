@@ -2,10 +2,7 @@ import React, { useEffect, useState } from "react";
 import { createLoanFE } from "../../../api";
 
 const LoanForm = () => {
-    const [loan_no, setLoan_no] = useState('');
-    const [user_no, setUser_no] = useState('');
     const [firstName, setFirstName] = useState("");
-    const [lastName, setLastName] = useState("");
     const [phone_no, setPhone_on] = useState("");
     const [address, setAddress] = useState("");
     const [loanAmount, setLoanAmount] = useState(0);
@@ -37,8 +34,8 @@ const LoanForm = () => {
         calculateCommissionAmount();
     }, [loanAmount, interest])
     const body = {
-        "loanNo":loan_no,
-        "userNo":user_no,
+        // "loanNo":loan_no,
+        // "userNo":user_no,
         "name":firstName,
         "address":address,
         "phoneNo":phone_no,
@@ -65,7 +62,7 @@ const LoanForm = () => {
                 <div class="w-11/12 p-12 bg-white sm:w-8/12 md:w-1/2 lg:w-10/12 bg-white">
                     <h1 class="text-xl font-bold ">Add Loan <span class="font-normal"></span></h1>
                     <form class="mt-6" onSubmit={(e)=>createLoan(e)}>
-
+{/* 
                         <div class="flex justify-between gap-3 mt-2">
                             <span class="w-1/2">
                                 <label for="id" class="block mt-2 text-xs font-semibold text-gray-600 uppercase">Loan Number</label>
@@ -75,7 +72,7 @@ const LoanForm = () => {
                                 <label class="block mt-2 text-xs font-semibold text-gray-600 uppercase mt-2">User Number</label>
                                 <input type="text" placeholder="usernumber" autoComplete="email" class="block w-full p-3 mt-2 text-gray-700 bg-gray-200 appearance-none focus:outline-none focus:bg-gray-300 focus:shadow-inner" value={userNumber} onChange={(e) => setUserNumber(e.target.value)} required />
                             </span>
-                        </div>
+                        </div> */}
                         <div class="flex justify-between gap-3 mt-2">
                             <span class="w-full">
                                 <label for="firstname" class="block text-xs font-semibold text-gray-600 uppercase">Firstname</label>

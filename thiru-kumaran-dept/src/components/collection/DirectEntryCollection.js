@@ -1,8 +1,8 @@
-import React, { useState } from "react";
-import BillEntry from "./billEntry/billEntry";
+import React from "react";
+import DirectEntry from "./directEntry/directEntry";
 import { useNavigate } from "react-router-dom";
 
-const Collection = () => {
+const DirectEntryCollection = () => {
     const navigate = useNavigate();
     return (
         <>
@@ -35,9 +35,9 @@ const Collection = () => {
 
                 </div>
             </div>
-            <BillEntry />
+            <DirectEntry />
         </>
     )
 }
 
-export default Collection;
+export default DirectEntryCollection;

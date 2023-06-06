@@ -11,7 +11,7 @@ const LedgerEntryList = ({ledgerEntry}) => {
             "lineId":localStorage.getItem('lineId')
         }
         createDailyCollectionFE(body)
-        // window.location.reload();
+        window.location.reload();
     }
     return (
         <tr>
@@ -32,11 +32,11 @@ const LedgerEntryList = ({ledgerEntry}) => {
             <td class="p-2 whitespace">
                 <div class="text-lg text-center">{ledgerEntry.payAmount}</div>
             </td>
-            {ledgerEntry.date.length > 0 && ledgerEntry.dateValue.map((arr)=> {
+            {ledgerEntry.hasOwnProperty('dateValue') ? ledgerEntry.dateValue.length > 0 && ledgerEntry.dateValue.map((arr)=> {
              return (<th class="py-6 px-1 whitespace">
              <div class="font-bold text-center">{arr['amount']}</div>
             </th>)
-            })}
+            }) : null}
             <td class="p-2 whitespace">
                 <div class="text-lg text-center"><input type="number" className="border border-slate-300 rounded-md px-4" min={0} value={amount} onChange={(e) => setAmount(e.target.value)} w-2 /></div>
             </td>

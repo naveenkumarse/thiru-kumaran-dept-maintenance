@@ -4,55 +4,57 @@ import ListRow from "./listRow";
 
 const TodayListTable = () => {
     const [total, setTotal] = useState([]);
-    const [todayEntries, setTodayEntries] = useState([        {
-        "loanNo": "Lon02",
-        "name": "Siva",
-        "billAmount": 50,
-        "excess": 100,
-        "time": "22:02:06.182998"
-    },
-    {
-        "loanNo": "Lon01",
-        "name": "Dharani",
-        "billAmount": 50,
-        "excess": 0,
-        "time": "22:07:20.880552"
-    },
-    {
-        "loanNo": "Lon01",
-        "name": "Dharani",
-        "billAmount": 50,
-        "excess": 0,
-        "time": "22:07:20.880552"
-    },
-    {
-        "loanNo": "Lon01",
-        "name": "Dharani",
-        "billAmount": 50,
-        "excess": 100,
-        "time": "22:07:20.880552"
-    },
-    {
-        "loanNo": "Lon01",
-        "name": "Dharani",
-        "billAmount": 50,
-        "excess": 0,
-        "time": "22:07:20.880552"
-    }]);
-    // useEffect(()=>{
-    //     const fetchData = async () => {
-    //         try {
-    //             const body = {
-    //                 "lineId":localStorage.getItem('lineId'),
-    //                 "date": localStorage.getItem('date')
-    //             };
-    //           await getBillEntry(body, setTodayEntries); // Assuming getLineFE is an asynchronous function 
-    //         } catch (error) {
-    //           console.error("Error fetching Bill Entry data:", error);
-    //         }
-    //       };
-    //       fetchData();
-    // },[])
+    const [todayEntries, setTodayEntries] = useState([        
+    // {
+    //     "loanNo": "Lon02",
+    //     "name": "Siva",
+    //     "billAmount": 50,
+    //     "excess": 100,
+    //     "time": "22:02:06.182998"
+    // },
+    // {
+    //     "loanNo": "Lon01",
+    //     "name": "Dharani",
+    //     "billAmount": 50,
+    //     "excess": 0,
+    //     "time": "22:07:20.880552"
+    // },
+    // {
+    //     "loanNo": "Lon01",
+    //     "name": "Dharani",
+    //     "billAmount": 50,
+    //     "excess": 0,
+    //     "time": "22:07:20.880552"
+    // },
+    // {
+    //     "loanNo": "Lon01",
+    //     "name": "Dharani",
+    //     "billAmount": 50,
+    //     "excess": 100,
+    //     "time": "22:07:20.880552"
+    // },
+    // {
+    //     "loanNo": "Lon01",
+    //     "name": "Dharani",
+    //     "billAmount": 50,
+    //     "excess": 0,
+    //     "time": "22:07:20.880552"
+    // }
+]);
+    useEffect(()=>{
+        const fetchData = async () => {
+            try {
+                const body = {
+                    "lineId":localStorage.getItem('lineId'),
+                    "date": localStorage.getItem('date')
+                };
+              await getBillEntry(body, setTodayEntries); // Assuming getLineFE is an asynchronous function 
+            } catch (error) {
+              console.error("Error fetching Bill Entry data:", error);
+            }
+          };
+          fetchData();
+    },[])
     useEffect(()=>{
         const newTotal = [];
         for(let i = 0; i <todayEntries.length;i++){
@@ -125,7 +127,7 @@ const TodayListTable = () => {
                                         </tr>
                                     </thead>
                                     <tbody class="text-sm divide-y divide-gray-100">
-                                            {todayEntries.map((todayEntry, i)=> <ListRow key={i} todayEntry={todayEntry} total={total[i]}/>)}
+                                            {todayEntries.length>0 && todayEntries.map((todayEntry, i)=> <ListRow key={i} todayEntry={todayEntry} total={total[i]}/>)}
                                     </tbody>
                                 </table>
                             </div>

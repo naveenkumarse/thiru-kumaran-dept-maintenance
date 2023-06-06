@@ -1,12 +1,11 @@
-import React, { useState } from "react";
-import BillEntry from "./billEntry/billEntry";
+import React from "react";
+import LedgerEntry from "./ledgerEntry/ledgerEntry";
 import { useNavigate } from "react-router-dom";
-
-const Collection = () => {
+const LedgerEntryCollection = () => {
     const navigate = useNavigate();
     return (
         <>
-            <div className="">
+             <div className="">
                 <div class="bg-white p-4 flex justify-evenly gap-2 flex-wrap ">
                     <button class="inline-flex items-center px-4 py-2 bg-gray-200 hover:bg-green-300 text-gray-800 text-sm font-medium rounded-md" onClick={()=> navigate('/collection')} >
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -35,9 +34,9 @@ const Collection = () => {
 
                 </div>
             </div>
-            <BillEntry />
+            <LedgerEntry />
         </>
     )
 }
 
-export default Collection;
+export default LedgerEntryCollection;

@@ -444,10 +444,21 @@ export const createLineMemberLoginFE = async (body, setLineMember) => {
     return setLineMember(jsonData);
 }
 
+export const getParticularLineMem = async (body, setCollection) => {
+    // line_name,date
+    await fetch(ENDPOINT_URL + '/restservices/lineMember/particular/linemember', {
+        method: "POST",
+        headers: { "content-Type": "application/json" },
+        body: JSON.stringify(body)
+    })
+        .then((response) => response.json())
+        .then((collectionData) => setCollection(collectionData));
+}
+
 export const updateLineMemberFE = async (body) => {
     console.log(body);
     //line_boy_no,member_name,address,phone_no,phone_number,password
-    const res = await fetch(ENDPOINT_URL + "/linemember/", {
+    const res = await fetch(ENDPOINT_URL + "/restservices/lineMember/update", {
         method: "PUT",
         headers: { "content-Type": "application/json" },
         body: JSON.stringify(body)
@@ -548,7 +559,194 @@ export const updateTotalCollectionFE = async (body) => {
 }
 
 
+// Reports
+export const getIndividualReport = async (body, setCollection) => {
+    // line_name,date
+    await fetch(ENDPOINT_URL + '/restservices/reports/individualReport/loan', {
+        method: "POST",
+        headers: { "content-Type": "application/json" },
+        body: JSON.stringify(body)
+    })
+        .then((response) => response.json())
+        .then((collectionData) => setCollection(collectionData));
+}
+export const getIndividualLoanReport = async (body, setCollection) => {
+    // line_name,date
+    await fetch(ENDPOINT_URL + '/restservices/reports/individualReport/dailycollection', {
+        method: "POST",
+        headers: { "content-Type": "application/json" },
+        body: JSON.stringify(body)
+    })
+        .then((response) => response.json())
+        .then((collectionData) => setCollection(collectionData));
+}
 
+export const getBillNotPaid = async (body, setCollection) => {
+    // line_name,date
+    await fetch(ENDPOINT_URL + '/restservices/reports/billNotPaid', {
+        method: "POST",
+        headers: { "content-Type": "application/json" },
+        body: JSON.stringify(body)
+    })
+        .then((response) => response.json())
+        .then((collectionData) => setCollection(collectionData));
+}
+
+export const getPastDateBill = async (body, setCollection) => {
+    // line_name,date
+    await fetch(ENDPOINT_URL + '/restservices/reports/pastDateBill', {
+        method: "POST",
+        headers: { "content-Type": "application/json" },
+        body: JSON.stringify(body)
+    })
+        .then((response) => response.json())
+        .then((collectionData) => setCollection(collectionData));
+}
+
+export const getExcess = async (body, setCollection) => {
+    // line_name,date
+    await fetch(ENDPOINT_URL + '/restservices/reports/excess', {
+        method: "POST",
+        headers: { "content-Type": "application/json" },
+        body: JSON.stringify(body)
+    })
+        .then((response) => response.json())
+        .then((collectionData) => setCollection(collectionData));
+}
+
+export const getMonthlyBill = async (body, setCollection) => {
+    // line_name,date
+    await fetch(ENDPOINT_URL + '/restservices/reports/monthlyBill', {
+        method: "POST",
+        headers: { "content-Type": "application/json" },
+        body: JSON.stringify(body)
+    })
+        .then((response) => response.json())
+        .then((collectionData) => setCollection(collectionData));
+}
+
+export const getClosedParty = async (body, setCollection) => {
+    // line_name,date
+    await fetch(ENDPOINT_URL + '/restservices/reports/closedParty', {
+        method: "POST",
+        headers: { "content-Type": "application/json" },
+        body: JSON.stringify(body)
+    })
+        .then((response) => response.json())
+        .then((collectionData) => setCollection(collectionData));
+}
+
+export const getContinouslyNotPaid = async (body, setCollection) => {
+    // line_name,date
+    await fetch(ENDPOINT_URL + '/restservices/reports/ContinouslyNotPaid', {
+        method: "POST",
+        headers: { "content-Type": "application/json" },
+        body: JSON.stringify(body)
+    })
+        .then((response) => response.json())
+        .then((collectionData) => setCollection(collectionData));
+}
+
+export const getLedgerReport = async (body, setCollection) => {
+    // line_name,date
+    await fetch(ENDPOINT_URL + '/restservices/reports/ledger', {
+        method: "POST",
+        headers: { "content-Type": "application/json" },
+        body: JSON.stringify(body)
+    })
+        .then((response) => response.json())
+        .then((collectionData) => setCollection(collectionData));
+}
+
+export const getNipParty = async (body, setCollection) => {
+    // line_name,date
+    await fetch(ENDPOINT_URL + '/restservices/reports/nipParty', {
+        method: "POST",
+        headers: { "content-Type": "application/json" },
+        body: JSON.stringify(body)
+    })
+        .then((response) => response.json())
+        .then((collectionData) => setCollection(collectionData));
+}
+
+export const getBulkPaid = async (body, setCollection) => {
+    // line_name,date
+    await fetch(ENDPOINT_URL + '/restservices/reports/bulkPaid', {
+        method: "POST",
+        headers: { "content-Type": "application/json" },
+        body: JSON.stringify(body)
+    })
+        .then((response) => response.json())
+        .then((collectionData) => setCollection(collectionData));
+}
+
+export const getMonthlyLoan = async (body, setCollection) => {
+    // line_name,date
+    await fetch(ENDPOINT_URL + '/restservices/reports/monthlyLoan', {
+        method: "POST",
+        headers: { "content-Type": "application/json" },
+        body: JSON.stringify(body)
+    })
+        .then((response) => response.json())
+        .then((collectionData) => setCollection(collectionData));
+}
+
+export const getTotalLedgerAll = async (body, setCollection) => {
+    // line_name,date
+    await fetch(ENDPOINT_URL + '/restservices/reports/totalLedger/all', {
+        method: "POST",
+        headers: { "content-Type": "application/json" },
+        body: JSON.stringify(body)
+    })
+        .then((response) => response.json())
+        .then((collectionData) => setCollection(collectionData));
+}
+
+export const getTotalLedgerBelow120 = async (body, setCollection) => {
+    // line_name,date
+    await fetch(ENDPOINT_URL + '/restservices/reports/totalLedger/dateRange', {
+        method: "POST",
+        headers: { "content-Type": "application/json" },
+        body: JSON.stringify(body)
+    })
+        .then((response) => response.json())
+        .then((collectionData) => setCollection(collectionData));
+}
+
+export const getUserList = async (body, setCollection) => {
+    // line_name,date
+    await fetch(ENDPOINT_URL + '/restservices/reports/userList', {
+        method: "POST",
+        headers: { "content-Type": "application/json" },
+        body: JSON.stringify(body)
+    })
+        .then((response) => response.json())
+        .then((collectionData) => setCollection(collectionData));
+}
+
+export const getPastLoan = async (body, setCollection) => {
+    // line_name,date
+    await fetch(ENDPOINT_URL + '/restservices/reports/user/pastLoan', {
+        method: "POST",
+        headers: { "content-Type": "application/json" },
+        body: JSON.stringify(body)
+    })
+        .then((response) => response.json())
+        .then((collectionData) => setCollection(collectionData));
+}
+
+export const updateOrderNo = async (body) => {
+    console.log(body);
+    //loan_no,line_name,paid_amount
+    const res = await fetch(ENDPOINT_URL + "/restservices/reports/update/orderNo", {
+        method: "PUT",
+        headers: { "content-Type": "application/json" },
+        body: JSON.stringify(body)
+    });
+    const jsonData = await res.json();
+    console.log(jsonData)
+    return jsonData;
+}
 
 // thitam 
 

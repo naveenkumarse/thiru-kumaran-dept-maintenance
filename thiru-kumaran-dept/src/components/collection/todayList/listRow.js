@@ -1,17 +1,23 @@
 import React, { useState } from "react";
 import { updateDailyCollection } from "../../../api";
+import { useNavigate } from 'react-router-dom';
+
 const ListRow = ({todayEntry, total}) => {
+    const navigate = useNavigate();
+    const pageId = 3;
     const [amount, setAmount] = useState(0);
     const handleEnter = (e) =>{
         e.preventDefault();
         const body = {
+
             "loanNo":todayEntry.loanNo,
-            "amountPaid":amount,
             "date":localStorage.getItem('date'),
-            "lineId":localStorage.getItem('lineId')
+            "lineId":localStorage.getItem('lineId'),
+            "newAmountPaid":amount,
+            "oldAmount":todayEntry.billAmount
         }
         updateDailyCollection(body)
-        // window.location.reload();
+        window.location.reload();
     }
     return (
         <tr>

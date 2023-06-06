@@ -5,8 +5,9 @@ import LoanListView from "./loanListView";
 
 const LoanListTable = () => {
     const [individualReports, setIndividualReports] = useState([]);
-    const line_name = localStorage.getItem("line_name");
-    const body = { line_name }
+    const lineId = localStorage.getItem("lineId");
+    const body = { lineId:lineId }
+    
 
     return (
         <>

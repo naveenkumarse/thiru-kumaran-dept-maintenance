@@ -33,10 +33,10 @@ import LineBoyLogin from './components/login/lineBoyLogin';
 import LineBoyHome from './components/lineboypages/lineBoyHome';
 import LineBoyPages from './components/lineboypages/lineBoyPage';
 import TodayList from './components/collection/todayList/todayList';
-import DirectEntry from './components/collection/directEntry/directEntry';
 import LineBoyNavbar from './components/lineboypages/lineboynavbar';
-
-
+import DirectEntryCollection from './components/collection/DirectEntryCollection';
+import TodayListCollection from './components/collection/TodayListCollection';
+import LedgerEntryCollection from './components/collection/LedgerEntryCollection';
 function App() {
   return (
    
@@ -134,6 +134,24 @@ function App() {
             <div>
               <Navbar />
               <Collection />
+            </div>
+          } />
+          <Route path="/collection/direct" element={
+            <div>
+              <Navbar />
+              <DirectEntryCollection />
+            </div>
+          } />
+          <Route path="/collection/ledger" element={
+            <div>
+              <Navbar />
+              <LedgerEntryCollection />
+            </div>
+          } />
+          <Route path="/collection/today" element={
+            <div>
+              <Navbar />
+              <TodayListCollection />
             </div>
           } />
           <Route path="/totalview" element={
@@ -303,12 +321,6 @@ function App() {
             <div>
               <LineBoyNavbar />
               <TodayList />
-            </div>
-          } />
-           <Route path="/directentry" element={
-            <div>
-              <LineBoyNavbar />
-              <DirectEntry />
             </div>
           } />
         </Routes>

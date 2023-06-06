@@ -1,8 +1,7 @@
-import React, { useState } from "react";
-import BillEntry from "./billEntry/billEntry";
+import React from "react";
+import TodayList from "./todayList/todayList";
 import { useNavigate } from "react-router-dom";
-
-const Collection = () => {
+const TodayListCollection = () => {
     const navigate = useNavigate();
     return (
         <>
@@ -35,9 +34,9 @@ const Collection = () => {
 
                 </div>
             </div>
-            <BillEntry />
+            <TodayList />
         </>
     )
 }
 
-export default Collection;
+export default TodayListCollection;
