@@ -15,7 +15,7 @@ const PastDateBill = () => {
         try {
             getPastDateBill(body, setPastDateBills)
         } catch (error) {
-            
+            console.log('Error in fetching Past date bill', error)
         }
     }
     return (
