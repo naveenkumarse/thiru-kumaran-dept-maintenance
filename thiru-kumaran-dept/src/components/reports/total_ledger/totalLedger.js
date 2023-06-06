@@ -3,43 +3,36 @@ import React, { useState } from "react";
 import TotalLedgerTable from "./totalLedgerTable";
 
 const TotalLedger = () => {
-    const [pageId, setPageId] = useState(0);
-    const all = 203;
-    const below120 = 23;
-    const days240 = 34;
-    const days365 =12;
-    const above365 = 0;
+const [value, setPageId] = useState("")
     return (
         <>
             <div className="">
                 <div class="bg-white p-4 flex justify-evenly gap-2 flex-wrap ">
-                    <button class="inline-flex items-center px-4 py-2 bg-gray-200 hover:bg-green-300 text-gray-800 text-sm font-medium rounded-md" onClick={() => setPageId(0)}>
-                        All(<span style={{color:"green"}}>{all}</span>)
+                    <button class="inline-flex items-center px-4 py-2 bg-gray-200 hover:bg-green-300 text-gray-800 text-sm font-medium rounded-md" onClick={() => setPageId("below1000")}>
+                        All(<span style={{color:"green"}}></span>)
                     </button>
-                    <button class="inline-flex items-center px-4 py-2 bg-gray-200 hover:bg-green-300 text-gray-800 text-sm font-medium rounded-md" onClick={() => setPageId(1)}>
+                    <button class="inline-flex items-center px-4 py-2 bg-gray-200 hover:bg-green-300 text-gray-800 text-sm font-medium rounded-md" onClick={() => setPageId("below120")}>
                       
-                        Below 120 days (<span style={{color:"blue"}}>{below120}</span>)
+                        Below 120 days (<span style={{color:"blue"}}></span>)
                     </button>
-                    <button class="inline-flex items-center px-4 py-2 bg-gray-200 hover:bg-green-300 text-gray-800 text-sm font-medium rounded-md" onClick={() => setPageId(2)}>
+                    <button class="inline-flex items-center px-4 py-2 bg-gray-200 hover:bg-green-300 text-gray-800 text-sm font-medium rounded-md" onClick={() => setPageId("120to240")}>
                         
-                        120-240 days(<span style={{color:"orange"}}>{days240}</span>)
+                        120-240 days(<span style={{color:"orange"}}></span>)
                     </button>
-                    <button class="inline-flex items-center px-4 py-2 bg-gray-200 hover:bg-green-300 text-gray-800 text-sm font-medium rounded-md" onClick={() => setPageId(3)}>
+                    <button class="inline-flex items-center px-4 py-2 bg-gray-200 hover:bg-green-300 text-gray-800 text-sm font-medium rounded-md" onClick={() => setPageId("240to365")}>
                         
-                        240-365 days(<span style={{color:"brown"}}>{days365}</span>)
+                        240-365 days(<span style={{color:"brown"}}></span>)
                     </button>
-                    <button class="inline-flex items-center px-4 py-2 bg-gray-200 hover:bg-green-300 text-gray-800 text-sm font-medium rounded-md" onClick={() => setPageId(3)}>
+                    <button class="inline-flex items-center px-4 py-2 bg-gray-200 hover:bg-green-300 text-gray-800 text-sm font-medium rounded-md" onClick={() => setPageId("365+")}>
                       
-                        above 365 days(<span style={{color:"red"}}>{above365}</span>)
+                        above 365 days(<span style={{color:"red"}}></span>)
                     </button>
 
                 </div>
-
             </div>
     
 
-            <TotalLedgerTable />
-            {/* {pageId == 0 ? <BillEntry/>: pageId == 1 ? <DirectEntry /> : pageId == 2 ? <LedgerEntry /> : <TodayList />} */}
+            <TotalLedgerTable value={value} />
         </>
     )
 }

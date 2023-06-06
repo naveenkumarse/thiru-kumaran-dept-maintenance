@@ -1,8 +1,19 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import TotalLedgerList from "./totalLedgerList";
-
+import {getTotalLedgerAll } from "../../../api";
 
 const TotalLedgerTable = () => {
+    const [list, setList] = useState({});
+    useEffect(()=>{
+        const body = {
+            "lineId": localStorage.getItem('lineId')
+        }
+        try {
+            getTotalLedgerAll(body, setList)
+        } catch (error) {
+            console.log("error in fetching ledger report data")
+        }
+    }, [])
     return (
         <>
             <section class="antialiased bg-gray-100 text-gray-600 px-4 bg-red-400 my-20">
@@ -11,7 +22,8 @@ const TotalLedgerTable = () => {
 
                         <div className="flex inline lg:justify-between">
                             <header class="px-5 py-4 border-b border-gray-100 ">
-                                <h2 class="font-bold text-gray-800">Total Ledger</h2>
+                                <h2 class="font-bold text-2xl text-gray-800">Total Ledger</h2>
+                                <h2 class="font-lighter  text-gray-800">Total Loans: {list.loanCount}</h2>
                             </header>
                             <div class='max-w-md mr-5'>
                                 <div class="relative flex items-center w-full h-12 rounded-lg focus-within:shadow-lg bg-white overflow-hidden border border-black-600">
@@ -68,9 +80,7 @@ const TotalLedgerTable = () => {
                                         </tr>
                                     </thead>
                                     <tbody class="text-sm divide-y divide-gray-100">
-                                        <tr>
-                                            <TotalLedgerList />
-                                        </tr>
+                                    {list["loanData"] && list["loanData"].map((loan,i)=> <TotalLedgerList loan={loan} key={i}/>)}
                                     </tbody>
                                 </table>
                             </div>
