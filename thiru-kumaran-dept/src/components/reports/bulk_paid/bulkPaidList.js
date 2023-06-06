@@ -1,7 +1,6 @@
 import React from "react";
 
-
-const ExcessAmountList = ({loan}) => {
+const BulkPaidList = ({loan}) => {
     return (
         <tr>
             <td class="p-2 whitespace-nowrap">
@@ -14,16 +13,16 @@ const ExcessAmountList = ({loan}) => {
                 <div class="text-left font-medium">{loan.address}</div>
             </td>
             <td class="p-2 whitespace-nowrap">
+                <div class="text-left font-medium">{loan.loanAmount}</div>
+            </td>
+            <td class="p-2 whitespace-nowrap">
                 <div class="text-left font-medium">{loan.billAmount}</div>
             </td>
             <td class="p-2 whitespace-nowrap">
                 <div class="text-left font-medium">{loan.date}</div>
             </td>
-            <td class="p-2 whitespace-nowrap">
-                <div class="text-left font-medium">{loan.excess}</div>
-            </td>
         </tr>
     )
 }
 
-export default ExcessAmountList;
+export default BulkPaidList;

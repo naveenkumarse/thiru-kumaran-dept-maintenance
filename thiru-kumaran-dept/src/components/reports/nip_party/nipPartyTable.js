@@ -1,9 +1,20 @@
-import React from "react";
-
-
+import React, { useState } from "react";
 import NipPartyList from "./nipPartyList";
-
+import {getNipParty } from "../../../api";
 const NipPartyTable = () => {
+    const [number, setNumber ]= useState(0);
+    const [values, setValues] = useState([])
+    const handleClick = (e) => {
+        try {
+            const body = {
+                lineId: localStorage.getItem('lineId'),
+                number: number
+            }
+            getNipParty(body, setValues)
+        } catch (error) {
+            console.log("Error in fetching NIP party", error)
+        }
+}
     return (
         <>
             <section class="antialiased bg-gray-100 text-gray-600 px-4 bg-red-400 my-20">
@@ -28,8 +39,10 @@ const NipPartyTable = () => {
                                     class="peer h-10 w-full outline-none text-sm text-gray-700 pr-10 mr-8"
                                     type="text"
                                     id="search"
-                                    placeholder="Search" />
-                                <button class="group relative h-10 w-48 overflow-hidden rounded-lg bg-white text-lg shadow ">
+                                    placeholder="Search" 
+                                    onChange={(e)=> setNumber(e.target.value)}
+                                    />
+                                <button class="group relative h-10 w-48 overflow-hidden rounded-lg bg-white text-lg shadow" onClick={(e)=> handleClick(e)} >
                                     <div class="absolute inset-0 w-3 bg-blue-400 transition-all duration-[250ms] ease-out group-hover:w-full"></div>
                                     <span class="relative text-black group-hover:text-white"> Go!</span>
                                 </button>
@@ -42,9 +55,6 @@ const NipPartyTable = () => {
                                         <tr>
                                             <th class="p-2 whitespace-nowrap">
                                                 <div class="font-bold text-left">Loan No.</div>
-                                            </th>
-                                            <th class="p-2 whitespace-nowrap">
-                                                <div class="font-bold text-left">Date</div>
                                             </th>
                                             <th class="p-2 whitespace-nowrap">
                                                 <div class="font-bold text-left">Name</div>
@@ -73,9 +83,7 @@ const NipPartyTable = () => {
                                         </tr>
                                     </thead>
                                     <tbody class="text-sm divide-y divide-gray-100">
-                                        <tr>
-                                            <NipPartyList />
-                                        </tr>
+                                          {values && values.length > 0 &&  values.map((loan, i)=> <NipPartyList key={i} loan={loan} /> )}  
                                     </tbody>
                                 </table>
                             </div>

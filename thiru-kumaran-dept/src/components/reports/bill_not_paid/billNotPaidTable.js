@@ -1,11 +1,23 @@
 import React, { useState } from "react";
-
-
 import BillNotPaidList from "./billNotPaidList";
+import { getBillNotPaid } from "../../../api";
 
 const BillNotPaidTable = () => {
     const [date,setDate] = useState(new Date());
+    const [list, setList] = useState([]);
+    const handleClick = (e)=>{
+        const body = {
+            "date": date,
+            "lineId": localStorage.getItem('lineId')
+        }
+        try {
+            getBillNotPaid(body, setList)
+        } catch (error) {
+            console.log("error in fetching Bill not paid report data")
+        }
+    };
     return (
+        
         <>
             <section class="antialiased bg-gray-100 text-gray-600 px-4 bg-red-400 my-20">
                 <div class="flex flex-col justify-center h-full">
@@ -26,7 +38,7 @@ const BillNotPaidTable = () => {
                                     type="date"
                                     id="search"
                                     placeholder="Search" value={date} onChange={(e)=>setDate(e.target.value)} />
-                                <button class="group relative h-10 w-48 overflow-hidden rounded-lg bg-white text-lg shadow ">
+                                <button class="group relative h-10 w-48 overflow-hidden rounded-lg bg-white text-lg shadow " onClick={(e)=>handleClick(e)} >
                                     <div class="absolute inset-0 w-3 bg-blue-400 transition-all duration-[250ms] ease-out group-hover:w-full"></div>
                                     <span class="relative text-black group-hover:text-white"> Go!</span>
                                 </button>
@@ -59,9 +71,7 @@ const BillNotPaidTable = () => {
                                         </tr>
                                     </thead>
                                     <tbody class="text-sm divide-y divide-gray-100">
-                                        <tr>
-                                            <BillNotPaidList />
-                                        </tr>
+                                    {list && list.length > 0  && list.map((loan, i)=> <BillNotPaidList key={i} loan={loan} />) }
                                     </tbody>
                                 </table>
                             </div>

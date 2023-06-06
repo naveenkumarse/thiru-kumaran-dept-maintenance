@@ -1,33 +1,28 @@
 import React, { useState } from "react";
 
 
-const ContinouslyNotPaidList = () => {
-    const [amount, setAmount] = useState(0);
+const ContinouslyNotPaidList = ({loan}) => {
     return (
-        <>
+        <tr>
             <td class="p-2 whitespace-nowrap">
-                <div class="flex items-center">
-                    <div class="font-medium text-gray-800">Philip Harbach</div>
-                </div>
+                <div class="text-left font-medium">{loan.loanId}</div>
             </td>
             <td class="p-2 whitespace-nowrap">
-                <div class="text-left">philip.h@gmail.com</div>
+                <div class="text-left font-medium">{loan.name}</div>
             </td>
             <td class="p-2 whitespace-nowrap">
-                <div class="text-left font-medium">$2,767.04</div>
+                <div class="text-left font-medium">{loan.address}</div>
             </td>
             <td class="p-2 whitespace-nowrap">
-                <div class="text-left font-medium">$2,344</div>
+                <div class="text-left font-medium">{loan.loanDate}</div>
             </td>
             <td class="p-2 whitespace-nowrap">
-                <div class="text-left font-medium">$2,767.04</div>
+                <div class="text-left font-medium">{loan.closeDate}</div>
             </td>
             <td class="p-2 whitespace-nowrap">
-                <div class="text-left font-medium">$2,344</div>
+                <div class="text-left font-medium"> what is loan date</div>
             </td>
-          
-
-        </>
+        </tr>
     )
 }
 
