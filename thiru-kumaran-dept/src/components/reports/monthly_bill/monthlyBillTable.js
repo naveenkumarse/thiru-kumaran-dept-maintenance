@@ -1,11 +1,10 @@
 import React from "react";
 
-const MonthlyBillTable = () => {
+const MonthlyBillTable = ({monthlyBills}) => {
     return (
         <>
          <div className="flex inline lg:justify-between">
                             <header class="px-5 py-4 border-b border-gray-100 ">
-                                <h2 class="font-lighter text-2xl text-gray-800">Entry Details: </h2>
                                 <h1 class="font-lighter text-3xl text-gray-800">Total: </h1> 
                             </header>
                             
@@ -41,38 +40,28 @@ const MonthlyBillTable = () => {
                                         <tr>
                                             
                                             <th class="p-2 whitespace-nowrap">
-                                                <div class="font-bold text-center"> DL No</div>
+                                                <div class="font-bold text-center"> Date</div>
                                             </th>
                                             <th class="p-2 whitespace-nowrap">
-                                                <div class="font-bold text-center">Name</div>
+                                                <div class="font-bold text-center">Bill Amount</div>
                                             </th>
-                                            <th class="p-2 whitespace-nowrap">
-                                                <div class="font-bold text-center"> Address</div>
-                                            </th>
-                                            <th class="p-2 whitespace-nowrap">
-                                                <div class="font-bold text-center">Paid Amount</div>
-                                            </th>
-                                            <th class="p-2 whitespace-nowrap">
-                                                <div class="font-bold text-center"> Excess</div>
-                                            </th>
-                                        
-
-
                                         </tr>
                                     </thead>
                                     <tbody class="text-sm text-gray-600 divide-y divide-gray-100">
-                                        <tr>
+                                    {monthlyBills && monthlyBills.length > 0 && monthlyBills.map((monthlyBill)=>{
+                                    return(<tr>
                                             <td class="p-2 whitespace-nowrap ">
                                                 
-                                                    <div class="font-medium text-lg text-center text-gray-400">1</div>
+                                                    <div class="font-medium text-lg text-center text-gray-400">{monthlyBill.date}</div>
                                               
                                             </td>
                                             <td class="p-2 whitespace-nowrap ">
                                               
-                                                    <div class="font-medium text-lg text-center text-gray-400">Naveenkumar</div>
+                                                    <div class="font-medium text-lg text-center text-gray-400">{monthlyBill.billAmount}</div>
                                               
                                             </td>
-                                        </tr>
+                                        </tr>) 
+                                    })}
                                     </tbody>
                                 </table>
                             </div>

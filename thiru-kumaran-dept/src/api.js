@@ -615,7 +615,7 @@ export const getExcess = async (body, setCollection) => {
 }
 
 export const getMonthlyBill = async (body, setCollection) => {
-    // line_name,date
+    console.log(body);
     await fetch(ENDPOINT_URL + '/restservices/reports/monthlyBill', {
         method: "POST",
         headers: { "content-Type": "application/json" },

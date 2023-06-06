@@ -19,7 +19,7 @@ const DateClose = () => {
             "date":formattedDate
         }
         createAccountCloseFE(body)
-        navigate('/line')
+        navigate('/home')
     }
 
     const onCancelCall = () =>{
