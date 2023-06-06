@@ -593,7 +593,7 @@ export const getBillNotPaid = async (body, setCollection) => {
 }
 
 export const getPastDateBill = async (body, setCollection) => {
-    // line_name,date
+    console.log(body);
     await fetch(ENDPOINT_URL + '/restservices/reports/pastDateBill', {
         method: "POST",
         headers: { "content-Type": "application/json" },
