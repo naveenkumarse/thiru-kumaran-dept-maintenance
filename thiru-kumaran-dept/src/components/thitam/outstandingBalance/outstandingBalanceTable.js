@@ -2,6 +2,21 @@ import React from "react";
 import OutstandingBalanceList from "./outstandingBalanceList";
 
 const OutstandingBalanceTable = () => {
+    const outstandingBalanceResponse = [
+        {
+            "id": 3,
+            "date": "2023-06-05",
+            "lineName": "Line 1",
+            "firstCount": 2,
+            "firstBalance": 10000,
+            "secondCount": 2,
+            "secondBalance": 10000,
+            "thirdCount": 2,
+            "thirdBalance": 10000,
+            "fourthCount": 4,
+            "fourthBalance": 20000
+        }
+    ]
     return (
         <>
 
@@ -21,29 +36,45 @@ const OutstandingBalanceTable = () => {
                                         <th class="p-2 whitespace-nowrap">
                                             <div class="font-bold text-left">DL No.</div>
                                         </th>
-                                     
-                                        <th class="p-2 whitespace-nowrap">
-                                            <div class="font-bold text-left">Name</div>
-                                        </th>
-                                        <th class="p-2 whitespace-nowrap">
-                                            <div class="font-bold text-left">Address</div>
-                                        </th>
-                                        <th class="p-2 whitespace-nowrap">
-                                            <div class="font-bold text-left">Paid Amount</div>
-                                        </th>
-                                        <th class="p-2 whitespace-nowrap">
-                                            <div class="font-bold text-left">Excess</div>
-                                        </th>
-                                        <th class="p-2 whitespace-nowrap">
-                                            <div class="font-bold text-left">#</div>
-                                        </th>
 
+                                        <th class="p-2 whitespace-nowrap">
+                                            <div class="font-bold text-left">Date</div>
+                                        </th>
+                                        <th class="p-2 whitespace-nowrap">
+                                            <div class="font-bold text-left">LineName</div>
+                                        </th>
+                                        <th class="p-2 whitespace-nowrap">
+                                            <div class="font-bold text-left">1st Count</div>
+                                        </th>
+                                        <th class="p-2 whitespace-nowrap">
+                                            <div class="font-bold text-left">1st Balance</div>
+                                        </th>
+                                        <th class="p-2 whitespace-nowrap">
+                                            <div class="font-bold text-left">2nd Count</div>
+                                        </th>
+                                        <th class="p-2 whitespace-nowrap">
+                                            <div class="font-bold text-left">2nd Balance</div>
+                                        </th>
+                                        <th class="p-2 whitespace-nowrap">
+                                            <div class="font-bold text-left">3rd Count</div>
+                                        </th>
+                                        <th class="p-2 whitespace-nowrap">
+                                            <div class="font-bold text-left">3rd Balance</div>
+                                        </th>
+                                        <th class="p-2 whitespace-nowrap">
+                                            <div class="font-bold text-left">4th Count</div>
+                                        </th>
+                                        <th class="p-2 whitespace-nowrap">
+                                            <div class="font-bold text-left">4th Balance</div>
+                                        </th>
                                     </tr>
                                 </thead>
                                 <tbody class="text-sm divide-y divide-gray-100">
-                                    
-                                        <OutstandingBalanceList />
-                                
+
+                                    {outstandingBalanceResponse.map((res) => {
+                                        return <OutstandingBalanceList key={res.id} res={res} />
+                                    })}
+
                                 </tbody>
                             </table>
                         </div>

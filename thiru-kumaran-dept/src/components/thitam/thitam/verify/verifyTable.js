@@ -1,11 +1,12 @@
 import React, { useState } from "react";
-
-import BalanceSheetList from "./balanceSheetList";
-
+import VerifyList from "./verifyList";
 
 
 
-const BalanceSheetTable = () => {
+
+
+
+const VerifyTable = () => {
     const [balanceList,setBalanceList] = useState(
         [
             {
@@ -78,19 +79,13 @@ const BalanceSheetTable = () => {
                                         <th class="p-2 whitespace-nowrap">
                                             <div class="font-bold text-left">Head Name</div>
                                         </th>
-                                        <th class="p-2 whitespace-nowrap">
-                                            <div class="font-bold text-left">Credit </div>
-                                        </th>
-                                        <th class="p-2 whitespace-nowrap">
-                                            <div class="font-bold text-left">Debit</div>
-                                        </th>
-
+                                    
                                     </tr>
                                 </thead>
                                 <tbody class="text-sm divide-y divide-gray-100">
                                     
                                       {balanceList.map((res)=>{
-                                        return  <BalanceSheetList key={res.id} res={res}/>
+                                        return  <VerifyList key={res.id} res={res}/>
                                       })} 
                                 
                                 </tbody>
@@ -103,4 +98,4 @@ const BalanceSheetTable = () => {
     )
 }
 
-export default BalanceSheetTable;
+export default VerifyTable;

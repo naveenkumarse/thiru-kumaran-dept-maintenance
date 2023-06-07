@@ -29,7 +29,6 @@ import LoanList from './components/reports/individual_report/loan_list/loanList'
 import OrderNumber from './components/reports/order_number/orderNumber';
 import TotalLedger from './components/reports/total_ledger/totalLedger';
 import LedgerView from './components/reports/ledger_view/ledgerView';
-import Thitam from './components/thitam/thitamNav';
 import LineBoyLogin from './components/login/lineBoyLogin';
 import LineBoyHome from './components/lineboypages/lineBoyHome';
 import LineBoyPages from './components/lineboypages/lineBoyPage';
@@ -48,6 +47,7 @@ import ThitamNav from './components/thitam/thitamNav';
 import IndividualHead from './components/thitam/individualHead/individualHead';
 import UpdateLoan from './components/loan/UpdateLoan';
 import UpdateLineBoy from './components/line_boy/UpdateLineBoy';
+import Thitam from './components/thitam/thitam/thitam';
 function App() {
   return (
    
@@ -338,6 +338,7 @@ function App() {
           <Route path="/thitam" element={
             <div>
               <Navbar />
+              <ThitamNav/>
               <Thitam />
             </div>
           } />

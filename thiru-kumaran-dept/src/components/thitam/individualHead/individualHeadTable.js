@@ -1,7 +1,31 @@
-import React from "react";
+import React, { useState } from "react";
 import IndividualHeadList from "./individualHeadList";
 
-const IndividualHeadTable = () => {
+const IndividualHeadTable = ({ res }) => {
+    const [individualHeadList, setIndividualHeadList] = useState(
+        [
+            {
+                "id": 1,
+                "name": "A LINE selavu",
+                "description": "",
+                "debit": 250,
+                "credit": 0,
+                "date": "2023-05-06",
+                "extraHead": true,
+                "balance": 0
+            },
+            {
+                "id": 2,
+                "name": "A LINE selavu",
+                "description": "",
+                "debit": 0,
+                "credit": 250,
+                "date": "2023-05-05",
+                "extraHead": true,
+                "balance": 0
+            }
+        ]
+    )
     return (
         <>
             <div class="flex flex-col justify-center h-full">
@@ -52,9 +76,11 @@ const IndividualHeadTable = () => {
                                     </tr>
                                 </thead>
                                 <tbody class="text-sm divide-y divide-gray-100">
-                                    
-                                        <IndividualHeadList />
-                                
+                                    {individualHeadList.map((res) => {
+                                        return <IndividualHeadList key={res.id} res={res} />
+                                    })}
+
+
                                 </tbody>
                             </table>
                         </div>

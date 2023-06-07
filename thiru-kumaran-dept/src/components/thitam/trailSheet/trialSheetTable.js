@@ -1,9 +1,41 @@
-import React from "react";
+import React, { useState } from "react";
 import TrialSheetList from "./trialSheetList";
 
 
 
 const TrialSheetTable = () => {
+    const [trailList, setTrailList] = useState([
+        {
+            "id": 23,
+            "name": "Line 1 BILL",
+            "description": null,
+            "debit": 0,
+            "credit": 6000,
+            "date": "2023-06-05",
+            "extraHead": false,
+            "balance": 0
+        },
+        {
+            "id": 24,
+            "name": "Line 1 LOAN",
+            "description": null,
+            "debit": 5000,
+            "credit": 0,
+            "date": "2023-06-05",
+            "extraHead": false,
+            "balance": 0
+        },
+        {
+            "id": 25,
+            "name": "Line 1 COMMISSION",
+            "description": null,
+            "debit": 0,
+            "credit": 500,
+            "date": "2023-06-05",
+            "extraHead": false,
+            "balance": 0
+        },
+    ])
     return (
         <>
             <section class="antialiased bg-gray-100 text-gray-600 px-4 bg-red-400 my-20">
@@ -36,7 +68,7 @@ const TrialSheetTable = () => {
                                 <table class="table-auto w-full">
                                     <thead class="text-xs font-semibold uppercase text-black-400 bg-gray-50">
                                         <tr>
-                                        <th class="p-2 whitespace-nowrap">
+                                            <th class="p-2 whitespace-nowrap">
                                                 <div class="font-bold text-left">SNo.</div>
                                             </th>
                                             <th class="p-2 whitespace-nowrap">
@@ -48,13 +80,16 @@ const TrialSheetTable = () => {
                                             <th class="p-2 whitespace-nowrap">
                                                 <div class="font-bold text-left">Debit</div>
                                             </th>
-                                          
+
                                         </tr>
                                     </thead>
                                     <tbody class="text-sm divide-y divide-gray-100">
-                                        <tr>
-                                            <TrialSheetList />
-                                        </tr>
+                                        
+                                            {trailList.map((res) => {
+                                                return <TrialSheetList key={res.id} res={res} />
+                                            })}
+
+                                     
                                     </tbody>
                                 </table>
                             </div>
