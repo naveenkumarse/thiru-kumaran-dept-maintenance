@@ -47,6 +47,7 @@ import BalanceSheet from './components/thitam/balanceSheet/balanceSheet';
 import ThitamNav from './components/thitam/thitamNav';
 import IndividualHead from './components/thitam/individualHead/individualHead';
 import UpdateLoan from './components/loan/UpdateLoan';
+import UpdateLineBoy from './components/line_boy/UpdateLineBoy';
 function App() {
   return (
    
@@ -131,7 +132,8 @@ function App() {
           } />
           <Route path="/lineboyupdate" element={
             <div>
-              <LineBoy />
+            <Navbar />
+            <UpdateLineBoy />
             </div>
           } />
           <Route path="/dateclose" element={

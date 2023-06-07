@@ -56,8 +56,8 @@ const LineBoyForm = () => {
                 <div class="m-2 w-full lg:w-1/2 p-12 bg-white">
                     <h1 class="text-xl font-bold ">Add Line Member Details <span class="font-normal"></span></h1>
                     <form class="mt-6" onSubmit={(e)=>handleLineBoyCreate(e)}>
-                        <label for="id" class="block mt-2 text-xs font-semibold text-gray-600 uppercase">Id</label>
-                        <input id="id" type="text" name="id" placeholder="id" autocomplete="id" class="block w-full p-3 mt-2 text-gray-700 bg-gray-200 appearance-none focus:outline-none focus:bg-gray-300 focus:shadow-inner" value={id} onChange={(e)=>setId(e.target.value)} required />
+                        {/* <label for="id" class="block mt-2 text-xs font-semibold text-gray-600 uppercase">Id</label>
+                        <input id="id" type="text" name="id" placeholder="id" autocomplete="id" class="block w-full p-3 mt-2 text-gray-700 bg-gray-200 appearance-none focus:outline-none focus:bg-gray-300 focus:shadow-inner" value={id} onChange={(e)=>setId(e.target.value)} required /> */}
                         <label for="firstname" class="block mt-2 text-xs font-semibold text-gray-600 uppercase">Firstname</label>
                         <input id="firstname" type="text" name="address" placeholder="Siva"  class="block w-full p-3 mt-2 text-gray-700 bg-gray-200 appearance-none focus:outline-none focus:bg-gray-300 focus:shadow-inner" value={firstName} onChange={(e)=>setFirstName(e.target.value)} required />
                         <label for="address" class="block mt-2 text-xs font-semibold text-gray-600 uppercase">Address</label>

@@ -1,0 +1,68 @@
+Line:
+All endpoints working properly
+Check whether you are sending the most latest acc close date + 1, or first ever acc close date + 1 (end point name: Get all line with date close)
+
+Line Boy
+validate line boy inputs
+update line endpoint not working in postman also (endpoint: Update Line Member)
+
+Loan
+All endpoints working properly
+
+Collection
+today list - when new amount is entered, the excess is not calculated correctly (endpoints: "getBillEntry" for fetching, "update Daily Collection" for updating in the page)
+Have to check ledger view with long list of dates
+
+Reports:
+1) Individual Report
+Done
+All endpoints working properly
+
+2) Total Ledger
+have to add strings for fetch call
+ 
+3) monthly bill
+date should be yyyy-mm-dd
+Test
+
+4) Past Date Bill
+date should be yyyy-mm-dd
+Test
+
+5) Monthly Loan
+date should be yyyy-mm-dd
+Test
+
+6) Closed party
+add phoneNo in response 
+in endpoint: closedParty, please include userNo also in the response, then only newonly added loan will have the same user number.
+
+7) Bill not paid
+date should be yyyy-mm-dd
+Test 
+
+8) User closed loan
+add loanDate, closeDate in response
+
+9) NIP party
+need data to test
+Test
+
+10) Excess Amount
+Working properly so far
+Test
+
+11) Ledger View/10 week
+date should be yyyy-mm-dd
+Done
+
+12) Bulk Paid 
+date should be yyyy-mm-dd
+Test
+
+13) Continously Not Paid
+Test
+
+14) Order No
+Working properly so far
+Done

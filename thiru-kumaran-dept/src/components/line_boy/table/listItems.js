@@ -3,6 +3,7 @@ import { deleteLineMember } from "../../../api";
 import { useNavigate } from "react-router-dom";
 
 const LineBoyList = ({lineboy}) => {
+    console.log(lineboy)
     const handleLineBoyDelete = (e) =>{
         e.preventDefault();
         deleteLineMember({"lineMemId":lineboy.linMemId});
@@ -10,8 +11,7 @@ const LineBoyList = ({lineboy}) => {
     }
     const navigate = useNavigate();
     const navigateToUpdate = (e) =>{
-        localStorage.setItem('currentLineMember',lineboy.linMemId)
-        navigate('/lineboyupdate')
+        navigate('/lineboyupdate', {state: {lineboy} })
     }
     return (
         <tr>

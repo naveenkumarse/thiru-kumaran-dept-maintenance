@@ -38,6 +38,7 @@ const AddLoan = () => {
       "interest":interest,
       "lineId":lineId
   }
+  console.log("body",body)
   const createLoan = (e) =>{
       e.preventDefault();
       createLoanFE(body);

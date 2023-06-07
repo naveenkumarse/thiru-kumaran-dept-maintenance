@@ -3,57 +3,59 @@ import LedgerEntryList from "./ledgerEntryList";
 import { getActiveLoansLedgerView } from "../../../api";
 const LedgerEntryTable = () => {
     const [dates, setDates] = useState([])
-    const [ledgerEntries, setLedgerEntries] = useState([
-        {
-            "loanNo": "Lon01",
-            "name": "Dharani",
-            "address": "123,thangavel nagar",
-            "balance": "4000",
-            "payAmount": "50",
-            "dateValue": [
-                {date:"2023-05-24", amount:"50"},
-                {date:"2023-05-25", amount:"50"},
-                {date:"2023-05-26", amount:"50"},
-                {date:"2023-05-27", amount:"50"},
-                {date:"2023-05-21", amount:"50"},
-                {date:"2023-05-22", amount:"50"},
-                {date:"2023-05-23", amount:"50"},
-                {date:"2023-05-28", amount:"50"},
-                {date:"2023-05-29", amount:"50"}
-            ]
-        },
-        {
-            "loanNo": "Lon01",
-            "name": "Dharani",
-            "address": "123,thangavel nagar",
-            "balance": "4000",
-            "payAmount": "50",
-            "dateValue": [
-                {date:"2023-05-24", amount:"50"},
-                {date:"2023-05-25", amount:"50"},
-                {date:"2023-05-26", amount:"50"},
-                {date:"2023-05-27", amount:"50"},
-                {date:"2023-05-21", amount:"50"},
-                {date:"2023-05-22", amount:"50"},
-                {date:"2023-05-23", amount:"50"},
-                {date:"2023-05-28", amount:"50"},
-                {date:"2023-05-29", amount:"50"}
-            ]
-        },
-    ]);
-    // useEffect(()=>{
-    //     const fetchData = async () => {
-    //         try {
-    //             const body = {
-    //                 "lineId":localStorage.getItem('lineId')
-    //             };
-    //           await getActiveLoansLedgerView(body, setLedgerEntries); // Assuming getLineFE is an asynchronous function 
-    //         } catch (error) {
-    //           console.error("Error fetching Bill Entry data:", error);
-    //         }
-    //       };
-    //       fetchData();
-    // },[])
+    const [ledgerEntries, setLedgerEntries] = useState(
+    //     [
+    //     {
+    //         "loanNo": "Lon01",
+    //         "name": "Dharani",
+    //         "address": "123,thangavel nagar",
+    //         "balance": "4000",
+    //         "payAmount": "50",
+    //         "dateValue": [
+    //             {date:"2023-05-24", amount:"50"},
+    //             {date:"2023-05-25", amount:"50"},
+    //             {date:"2023-05-26", amount:"50"},
+    //             {date:"2023-05-27", amount:"50"},
+    //             {date:"2023-05-21", amount:"50"},
+    //             {date:"2023-05-22", amount:"50"},
+    //             {date:"2023-05-23", amount:"50"},
+    //             {date:"2023-05-28", amount:"50"},
+    //             {date:"2023-05-29", amount:"50"}
+    //         ]
+    //     },
+    //     {
+    //         "loanNo": "Lon01",
+    //         "name": "Dharani",
+    //         "address": "123,thangavel nagar",
+    //         "balance": "4000",
+    //         "payAmount": "50",
+    //         "dateValue": [
+    //             {date:"2023-05-24", amount:"50"},
+    //             {date:"2023-05-25", amount:"50"},
+    //             {date:"2023-05-26", amount:"50"},
+    //             {date:"2023-05-27", amount:"50"},
+    //             {date:"2023-05-21", amount:"50"},
+    //             {date:"2023-05-22", amount:"50"},
+    //             {date:"2023-05-23", amount:"50"},
+    //             {date:"2023-05-28", amount:"50"},
+    //             {date:"2023-05-29", amount:"50"}
+    //         ]
+    //     },
+    // ]
+    );
+    useEffect(()=>{
+        const fetchData = async () => {
+            try {
+                const body = {
+                    "lineId":localStorage.getItem('lineId')
+                };
+              await getActiveLoansLedgerView(body, setLedgerEntries); // Assuming getLineFE is an asynchronous function 
+            } catch (error) {
+              console.error("Error fetching Bill Entry data:", error);
+            }
+          };
+          fetchData();
+    },[])
     useEffect(()=>{
         console.log(ledgerEntries)
         if (ledgerEntries && ledgerEntries.length !==0){
