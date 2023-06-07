@@ -1,20 +1,20 @@
 import React, { useState } from "react";
 import {useNavigate} from "react-router-dom";
 
-const UserListView = () => {
+const UserListView = ({user}) => {
     const navigate = useNavigate();
     const navigatetopastview = ()=>{
-        navigate("/pastloanview/")
+        navigate("/pastloanview/", { state: { user} })
     }
     return (
-        <>
+        <tr>
             <td class="p-2 whitespace-nowrap">
                 <div class="flex items-center">
-                    <div class="font-medium text-gray-800">Philip Harbach</div>
+                    <div class="font-medium text-gray-800">{user.userNo}</div>
                 </div>
             </td>
             <td class="p-2 whitespace-nowrap">
-                <div class="text-left">philip.h@gmail.com</div>
+                <div class="text-left">{user.name}</div>
             </td>
 
 
@@ -26,7 +26,7 @@ const UserListView = () => {
             </td>
 
 
-        </>
+        </tr>
     )
 }
 

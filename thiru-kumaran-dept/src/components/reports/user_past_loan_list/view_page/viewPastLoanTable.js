@@ -1,8 +1,20 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import ViewPastLoanList from "./viewPastLoanList";
+import {getPastLoan} from "../../../../api"
 
-
-const ViewPastLoanTable = () => {
+const ViewPastLoanTable = ({user}) => {
+    const [loans, setLoans] = useState([])
+    useEffect(()=>{
+        const body = {
+            "userNo":user.userNo,
+            "lineId":localStorage.getItem('lineId')
+        }
+        try {
+            getPastLoan(body, setLoans)
+        } catch (error) {
+            console.log("past loan fetch failed", error)
+        }
+    }, [])
     return (
         <>
             <section class="antialiased bg-gray-100 text-gray-600 px-4 bg-red-400 my-20">
@@ -50,16 +62,10 @@ const ViewPastLoanTable = () => {
                                             <th class="p-2 whitespace-nowrap">
                                                 <div class="font-bold text-left">Date</div>
                                             </th>
-                                            <th class="p-2  whitespace-nowrap">
-                                                <div class="font-bold text-left ">Action</div>
-                                            </th>
-                                           
                                         </tr>
                                     </thead>
                                     <tbody class="text-sm divide-y divide-gray-100">
-                                        <tr>
-                                            <ViewPastLoanList />
-                                        </tr>
+                                          {loans && loans.length > 0 && loans.map((loan, i) => <ViewPastLoanList key={i} loan={loan} />)}  
                                     </tbody>
                                 </table>
                             </div>

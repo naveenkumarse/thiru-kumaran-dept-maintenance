@@ -46,6 +46,7 @@ import BalanceSheet from './components/thitam/balanceSheet/balanceSheet';
 
 import ThitamNav from './components/thitam/thitamNav';
 import IndividualHead from './components/thitam/individualHead/individualHead';
+import UpdateLoan from './components/loan/UpdateLoan';
 function App() {
   return (
    
@@ -114,6 +115,12 @@ function App() {
             <div>
               <Navbar />
               <Loan />
+            </div>
+          } />
+          <Route path="/updateloan" element={
+            <div>
+              <Navbar />
+              <UpdateLoan />
             </div>
           } />
            <Route path="/lineboyloan" element={

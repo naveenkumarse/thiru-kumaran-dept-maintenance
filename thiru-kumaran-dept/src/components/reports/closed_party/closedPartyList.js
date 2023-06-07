@@ -8,11 +8,12 @@ const ClosedPartyList = ({closedParty}) => {
         e.preventDefault();
         navigate('/addLoan',  { state: { closedParty } })
     }
+    console.log(closedParty)
     return (
         <>
             <td class="p-2 whitespace-nowrap">
                 <div class="flex items-center">
-                    <div class="font-medium text-gray-800">{closedParty.loanId}</div>
+                    <div class="font-medium text-gray-800">{closedParty.loanNo}</div>
                 </div>
             </td>
             <td class="p-2 whitespace-nowrap">

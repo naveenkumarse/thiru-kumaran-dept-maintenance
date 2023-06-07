@@ -1,9 +1,21 @@
-import React from "react";
-
+import React, { useEffect, useState } from "react";
 import IndividualViewList from "./individualViewList";
+import { getIndividualLoanReport } from "../../../../api";
 
 
-const IndividualViewTable = () => {
+const IndividualViewTable = ({individual}) => {
+    const [list, setList] = useState([]);
+    useEffect(()=>{
+     try {
+         const body ={
+             loanNo:individual.loanNo,
+             lineId:localStorage.getItem('lineId')
+         }
+         getIndividualLoanReport(body, setList)
+     } catch (error) {
+         console.log("Individual Details Fetch failed")
+     }
+    }, [])
     return (
         <>
             <section class="antialiased bg-gray-100 text-gray-600 px-4 bg-red-400 my-20">
@@ -12,7 +24,7 @@ const IndividualViewTable = () => {
 
                         <div className="flex inline lg:justify-between">
                             <header class="px-5 py-4 border-b border-gray-100 ">
-                                <h2 class="font-bold text-gray-800">View Past Loan Details</h2>
+                                <h2 class="font-bold text-gray-800">Individual Loan History</h2>
                             </header>
                             <div class='max-w-md mr-5'>
                                 <div class="relative flex items-center w-full h-12 rounded-lg focus-within:shadow-lg bg-white overflow-hidden border border-black-600">
@@ -44,18 +56,13 @@ const IndividualViewTable = () => {
                                             </th>
                                             <th class="p-2 whitespace-nowrap">
                                                 <div class="font-bold text-left">Bill Amount</div>
-                                            </th>
-                                            <th class="p-2 whitespace-nowrap">
-                                                <div class="font-bold text-left">Balance</div>
-                                            </th>
-                                        
-                                           
+                                            </th> 
                                         </tr>
                                     </thead>
                                     <tbody class="text-sm divide-y divide-gray-100">
-                                        <tr>
-                                            <IndividualViewList />
-                                        </tr>
+                                    {list && list.length > 0 && list.map((user, i) => 
+                                        <IndividualViewList key={i} user={user} />
+                                    )}
                                     </tbody>
                                 </table>
                             </div>

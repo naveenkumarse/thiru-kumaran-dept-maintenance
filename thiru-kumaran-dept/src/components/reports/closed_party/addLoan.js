@@ -12,7 +12,7 @@ const AddLoan = () => {
   const [address, setAddress] = useState(closedParty.address);
   const [loanAmount, setLoanAmount] = useState(0);
   const [interest, setInterest] = useState(10);
-  const [userNumber, setUserNumber] = useState(closedParty.userNumber);
+  const [userNumber, setUserNumber] = useState(closedParty.userNo);
   const [commissionAmount, setCommissionAmount] = useState(0);
   const [seetuAmount, setSeetuAmount] = useState(0);
   const [order_no, setOrder_no] = useState(0);

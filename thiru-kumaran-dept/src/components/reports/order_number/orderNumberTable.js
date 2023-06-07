@@ -1,8 +1,20 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import OrderNumberList from "./orderNumberList";
+import { getIndividualReport} from "../../../api";
 
 
 const OrderNumberTable = () => {
+    const [list, setList] = useState({});
+    useEffect(()=>{
+        const body = {
+            "lineId": localStorage.getItem('lineId')
+        }
+        try {
+            getIndividualReport(body, setList)
+        } catch (error) {
+            console.log("error in fetching order no. report data", error)
+        }
+    }, [])
     return (
         <>
             <section class="antialiased bg-gray-100 text-gray-600 px-4 bg-red-400 my-20">
@@ -41,25 +53,33 @@ const OrderNumberTable = () => {
                                                 <div class="font-bold text-left">Name</div>
                                             </th>
                                             <th class="p-2 whitespace-nowrap">
+                                                <div class="font-bold text-left">Order No.</div>
+                                            </th>
+                                            <th class="p-2 whitespace-nowrap">
                                                 <div class="font-bold text-left">Address</div>
                                             </th>
                                             <th class="p-2 whitespace-nowrap">
-                                                <div class="font-bold text-center">Loan Amount</div>
+                                                <div class="font-bold text-left">L.Date</div>
                                             </th>
-
-
-                                            <th class="p-2 whitespace-nowrap">
-                                                <div class="font-bold text-center"> Order Number</div>
+                                            <th class="p-2  whitespace-nowrap">
+                                                <div class="font-bold text-left ">C.Date</div>
                                             </th>
                                             <th class="p-2 whitespace-nowrap">
-                                                <div class="font-bold text-center"> Enter </div>
+                                                <div class="font-bold text-left ">Loan</div>
+                                            </th>
+                                            {/* <th class="p-2 whitespace-nowrap">
+                                                <div class="font-bold text-left ">Balance</div>
+                                            </th> */}
+                                            <th class="p-2 whitespace-nowrap">
+                                                <div class="font-bold text-left ">New Order No.</div>
+                                            </th>
+                                            <th class="p-2 whitespace-nowrap">
+                                                <div class="font-bold text-left ">Action</div>
                                             </th>
                                         </tr>
                                     </thead>
                                     <tbody class="text-sm divide-y divide-gray-100">
-                                        <tr>
-                                            <OrderNumberList />
-                                        </tr>
+                                    {list && list.length > 0 && list.map((loan,i)=> <OrderNumberList loan={loan} key={i}/>)}
                                     </tbody>
                                 </table>
                             </div>

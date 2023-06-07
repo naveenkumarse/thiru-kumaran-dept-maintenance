@@ -1,10 +1,9 @@
 import React from "react";
+import BulkPaidList from "./bulkPaidList";
 
-const BulkPaidTable = () => {
+const BulkPaidTable = ({list}) => {
     return (
-        <>
-         
-                        
+        <>              
             <div class="antialiased bg-gray-100 text-gray-600 my-20">
                 <div class="flex flex-col justify-center h-full ">
 
@@ -37,24 +36,10 @@ const BulkPaidTable = () => {
                                             <th class="p-2 whitespace-nowrap">
                                                 <div class="font-bold text-center"> Date</div>
                                             </th>
-                                        
-
-
                                         </tr>
                                     </thead>
                                     <tbody class="text-sm text-gray-600 divide-y divide-gray-100">
-                                        <tr>
-                                            <td class="p-2 whitespace-nowrap ">
-                                                
-                                                    <div class="font-medium text-lg text-center text-gray-400">1</div>
-                                              
-                                            </td>
-                                            <td class="p-2 whitespace-nowrap ">
-                                              
-                                                    <div class="font-medium text-lg text-center text-gray-400">Naveenkumar</div>
-                                              
-                                            </td>
-                                        </tr>
+                                    {list && list.length > 0 && list.map((loan, i)=> <BulkPaidList key={i} loan={loan} /> ) }    
                                     </tbody>
                                 </table>
                             </div>

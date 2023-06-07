@@ -1,8 +1,19 @@
-import React from "react";
-
+import React, { useEffect, useState } from "react";
 import ExcessAmountList from "./excessAmountList";
+import { getExcess } from "../../../api";
 
 const ExcessAmountTable = () => {
+    const [list, setList] = useState([]);
+    useEffect(()=>{
+            const body = {
+                "lineId": localStorage.getItem('lineId')
+            }
+            try {
+               getExcess(body, setList)
+            } catch (error) {
+                console.log("error in fetching ledger report data")
+            }
+        }, [])
     return (
         <>
             <section class="antialiased bg-gray-100 text-gray-600 px-4 bg-red-400 my-20">
@@ -56,9 +67,7 @@ const ExcessAmountTable = () => {
                                         </tr>
                                     </thead>
                                     <tbody class="text-sm divide-y divide-gray-100">
-                                        <tr>
-                                            <ExcessAmountList />
-                                        </tr>
+                                        {list && list.length && list.map((loan, i)=> <ExcessAmountList key={i} loan={loan} />)}
                                     </tbody>
                                 </table>
                             </div>
