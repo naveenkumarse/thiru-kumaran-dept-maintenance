@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import BalanceSheetList from "./balanceSheetList";
 
@@ -6,6 +6,40 @@ import BalanceSheetList from "./balanceSheetList";
 
 
 const BalanceSheetTable = () => {
+    const [balanceList,setBalanceList] = useState(
+        [
+            {
+                "id": 23,
+                "name": "Line 1 BILL",
+                "description": null,
+                "debit": 0,
+                "credit": 6000,
+                "date": "2023-06-05",
+                "extraHead": false,
+                "balance": 0
+            },
+            {
+                "id": 24,
+                "name": "Line 1 LOAN",
+                "description": null,
+                "debit": 5000,
+                "credit": 0,
+                "date": "2023-06-05",
+                "extraHead": false,
+                "balance": 0
+            },
+            {
+                "id": 25,
+                "name": "Line 1 COMMISSION",
+                "description": null,
+                "debit": 0,
+                "credit": 500,
+                "date": "2023-06-05",
+                "extraHead": false,
+                "balance": 0
+            },
+        ]
+    ) 
     return (
         <>
 
@@ -55,7 +89,9 @@ const BalanceSheetTable = () => {
                                 </thead>
                                 <tbody class="text-sm divide-y divide-gray-100">
                                     
-                                        <BalanceSheetList />
+                                      {balanceList.map((res)=>{
+                                        return  <BalanceSheetList key={res.id} res={res}/>
+                                      })} 
                                 
                                 </tbody>
                             </table>

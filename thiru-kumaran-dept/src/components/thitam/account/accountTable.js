@@ -1,10 +1,115 @@
-import React from "react";
+import React, { useState } from "react";
 import AccountList from "./accountList";
 
 
 
 
 const AccountTable = () => {
+    const [accountlist,setAccountList] = useState(
+        [
+            {
+                "id": 23,
+                "name": "Line 1 BILL",
+                "description": null,
+                "debit": 0,
+                "credit": 6000,
+                "date": "2023-06-05",
+                "extraHead": false,
+                "balance": 0
+            },
+            {
+                "id": 24,
+                "name": "Line 1 LOAN",
+                "description": null,
+                "debit": 5000,
+                "credit": 0,
+                "date": "2023-06-05",
+                "extraHead": false,
+                "balance": 0
+            },
+            {
+                "id": 25,
+                "name": "Line 1 COMMISSION",
+                "description": null,
+                "debit": 0,
+                "credit": 500,
+                "date": "2023-06-05",
+                "extraHead": false,
+                "balance": 0
+            },
+            {
+                "id": 26,
+                "name": "Line 1 SEETU",
+                "description": null,
+                "debit": 0,
+                "credit": 20,
+                "date": "2023-06-05",
+                "extraHead": false,
+                "balance": 0
+            },
+            {
+                "id": 27,
+                "name": "Line 1EXCESS",
+                "description": null,
+                "debit": 0,
+                "credit": 0,
+                "date": "2023-06-05",
+                "extraHead": false,
+                "balance": 0
+            },
+            {
+                "id": 28,
+                "name": "Line 1 BILL",
+                "description": null,
+                "debit": 0,
+                "credit": 5000,
+                "date": "2023-06-06",
+                "extraHead": false,
+                "balance": 0
+            },
+            {
+                "id": 29,
+                "name": "Line 1 LOAN",
+                "description": null,
+                "debit": 5000,
+                "credit": 0,
+                "date": "2023-06-06",
+                "extraHead": false,
+                "balance": 0
+            },
+            {
+                "id": 30,
+                "name": "Line 1 COMMISSION",
+                "description": null,
+                "debit": 0,
+                "credit": 500,
+                "date": "2023-06-06",
+                "extraHead": false,
+                "balance": 0
+            },
+            {
+                "id": 31,
+                "name": "Line 1 SEETU",
+                "description": null,
+                "debit": 0,
+                "credit": 20,
+                "date": "2023-06-06",
+                "extraHead": false,
+                "balance": 0
+            },
+            {
+                "id": 32,
+                "name": "Line 1EXCESS",
+                "description": null,
+                "debit": 0,
+                "credit": 0,
+                "date": "2023-06-06",
+                "extraHead": false,
+                "balance": 0
+            }
+        ]
+        
+    )
     // use reduce function to calculate the total amount 
     const totalAmount = 4000;
     return (
@@ -60,9 +165,11 @@ const AccountTable = () => {
                                         </tr>
                                     </thead>
                                     <tbody class="text-sm divide-y divide-gray-100">
-                                        <tr>
-                                            <AccountList />
-                                        </tr>
+                                        
+                                           {accountlist.map((res)=>{
+                                            return <AccountList key={res.id} res={res}/>
+                                           })} 
+                                        
                                     </tbody>
                                 </table>
                             </div>

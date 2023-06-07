@@ -6,7 +6,7 @@ import IndividualHeadTable from "./individualHeadTable";
 
 const IndividualHead = () => {
     const [todaydate, setTodayDate] = useState(new Date());
-
+    
     return (
         <>
             <div class="grid min-h-screen place-items-center bg-red-400">
