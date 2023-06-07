@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-
 import IndividualHeadTable from "./individualHeadTable";
+
+
 
 
 const IndividualHead = () => {

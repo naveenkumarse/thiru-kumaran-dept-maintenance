@@ -1,11 +1,11 @@
 import React from "react";
 
-import IndividualHeadList from "./individualHeadList";
+import AddHeadList from "./addHeadList";
 
 
 
 
-const IndividualHeadTable = () => {
+const AddHeadTable = () => {
     return (
         <>
 
@@ -14,7 +14,7 @@ const IndividualHeadTable = () => {
 
                     <div className="flex inline lg:justify-between">
                         <header class="px-5 py-4 border-b border-gray-100 ">
-                            <h2 class="font-bold text-gray-800">Balance Sheet</h2>
+                            <h2 class="font-bold text-gray-800">Account Head List</h2>
                         </header>
                         {/* <div class='max-w-md mr-5'>
                                 <div class="relative flex items-center w-full h-12 rounded-lg focus-within:shadow-lg bg-white overflow-hidden border border-black-600">
@@ -41,25 +41,20 @@ const IndividualHeadTable = () => {
                                         <th class="p-2 whitespace-nowrap">
                                             <div class="font-bold text-left">SNo.</div>
                                         </th>
-                                        <th class="p-2 whitespace-nowrap">
-                                            <div class="font-bold text-left">Date</div>
-                                        </th>
+
                                         <th class="p-2 whitespace-nowrap">
                                             <div class="font-bold text-left">Name</div>
                                         </th>
-                                        <th class="p-2 whitespace-nowrap">
-                                            <div class="font-bold text-left">Credit </div>
-                                        </th>
-                                        <th class="p-2 whitespace-nowrap">
-                                            <div class="font-bold text-left">Debit</div>
-                                        </th>
 
+                                        <th class="p-2 whitespace-nowrap">
+                                            <div class="font-bold text-left ml-4">Action</div>
+                                        </th>
                                     </tr>
                                 </thead>
                                 <tbody class="text-sm divide-y divide-gray-100">
-                                    
-                                        <IndividualHeadList />
-                                
+
+                                    <AddHeadList />
+
                                 </tbody>
                             </table>
                         </div>
@@ -70,4 +65,4 @@ const IndividualHeadTable = () => {
     )
 }
 
-export default IndividualHeadTable;
+export default AddHeadTable;

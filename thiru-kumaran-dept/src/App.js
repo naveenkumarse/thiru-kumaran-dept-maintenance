@@ -29,7 +29,7 @@ import LoanList from './components/reports/individual_report/loan_list/loanList'
 import OrderNumber from './components/reports/order_number/orderNumber';
 import TotalLedger from './components/reports/total_ledger/totalLedger';
 import LedgerView from './components/reports/ledger_view/ledgerView';
-import Thitam from './components/thitam/thitam';
+import Thitam from './components/thitam/thitamNav';
 import LineBoyLogin from './components/login/lineBoyLogin';
 import LineBoyHome from './components/lineboypages/lineBoyHome';
 import LineBoyPages from './components/lineboypages/lineBoyPage';
@@ -38,6 +38,14 @@ import LineBoyNavbar from './components/lineboypages/lineboynavbar';
 import DirectEntryCollection from './components/collection/DirectEntryCollection';
 import TodayListCollection from './components/collection/TodayListCollection';
 import LedgerEntryCollection from './components/collection/LedgerEntryCollection';
+import Account from './components/thitam/account/account';
+import TrialSheet from './components/thitam/trailSheet/trialSheet';
+import OutstandingBalance from './components/thitam/outstandingBalance/outstandingBalance';
+import AddHead from './components/thitam/addHead/addHead'
+import BalanceSheet from './components/thitam/balanceSheet/balanceSheet';
+
+import ThitamNav from './components/thitam/thitamNav';
+import IndividualHead from './components/thitam/individualHead/individualHead';
 function App() {
   return (
    
@@ -322,6 +330,55 @@ function App() {
             <div>
               <Navbar />
               <Thitam />
+            </div>
+          } />
+          <Route path="/addhead" element={
+            <div>
+              <Navbar />
+              <ThitamNav/>
+              <AddHead />
+            </div>
+          } />
+          <Route path="/balancesheet" element={
+            <div>
+              <Navbar />
+              <ThitamNav/>
+              <BalanceSheet />
+            </div>
+          } />
+          <Route path="/individualhead" element={
+            <div>
+              <Navbar />
+              <ThitamNav/>
+              <IndividualHead />
+            </div>
+          } />
+          <Route path="/outstandingbalance" element={
+            <div>
+              <Navbar />
+              <ThitamNav/>
+              <OutstandingBalance />
+            </div>
+          } />
+          <Route path="/trailsheet" element={
+            <div>
+              <Navbar />
+              <ThitamNav/>
+              <TrialSheet />
+            </div>
+          } />
+          <Route path="/account" element={
+            <div>
+              <Navbar />
+              <ThitamNav/>
+              <Account />
+            </div>
+          } />
+             <Route path="/outstandingbalance" element={
+            <div>
+              <Navbar />
+              <ThitamNav/>
+              <OutstandingBalance />
             </div>
           } />
            <Route path="/todaylist" element={
