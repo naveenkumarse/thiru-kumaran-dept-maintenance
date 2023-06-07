@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { getUserList } from "../../../../api";
+import {getIndividualReport } from "../../../../api";
 import LoanListView from "./loanListView";
 
 
@@ -9,7 +9,7 @@ const LoanListTable = () => {
     const body = { lineId:lineId }
     useEffect(()=>{
         try {
-            getUserList(body, setIndividualReports)
+            getIndividualReport(body, setIndividualReports)
         } catch (error) {
             console.log("Individual Report fecth error", error)
         }
@@ -53,11 +53,29 @@ const LoanListTable = () => {
                                             <th class="p-2 whitespace-nowrap">
                                                 <div class="font-bold text-left">Name</div>
                                             </th>
+                                            <th class="p-2 whitespace-nowrap">
+                                                <div class="font-bold text-left">Loan Amount</div>
+                                            </th>
+                                            <th class="p-2 whitespace-nowrap">
+                                                <div class="font-bold text-left">L. date</div>
+                                            </th>
+                                            <th class="p-2 whitespace-nowrap">
+                                                <div class="font-bold text-left">C. Date</div>
+                                            </th>
+                                            <th class="p-2 whitespace-nowrap">
+                                                <div class="font-bold text-left">Address</div>
+                                            </th>
+                                            <th class="p-2 whitespace-nowrap">
+                                                <div class="font-bold text-left">Order No</div>
+                                            </th>
+                                            <th class="p-2 whitespace-nowrap">
+                                                <div class="font-bold text-left">Action</div>
+                                            </th>
                                         </tr>
                                     </thead>
                                     <tbody class="text-sm divide-y divide-gray-100">
-                                           {individualReports && individualReports.length > 0 && individualReports.map((report, i)=>{
-                                            return <LoanListView key={i} report={report}/>
+                                           {individualReports && individualReports.length > 0 && individualReports.map((loan, i)=>{
+                                            return <LoanListView key={i} loan={loan}/>
                                            })} 
                                     </tbody>
                                 </table>

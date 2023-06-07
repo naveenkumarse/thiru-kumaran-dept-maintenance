@@ -5,6 +5,7 @@ import { getIndividualLoanReport } from "../../../../api";
 
 const IndividualViewTable = ({individual}) => {
     const [list, setList] = useState([]);
+    const [total, setTotal ] = useState([]);
     useEffect(()=>{
      try {
          const body ={
@@ -16,6 +17,20 @@ const IndividualViewTable = ({individual}) => {
          console.log("Individual Details Fetch failed")
      }
     }, [])
+    useEffect(()=>{
+        const loanAmount = individual.loanAmount;
+        const newTotal = [];
+        for(let i = 0; i <list.length;i++){
+            if(i===0){
+                newTotal.push(loanAmount - list[i].billAmount);
+            }
+            else{
+            newTotal.push(newTotal[i-1] - list[i].billAmount);
+            }
+            console.log(newTotal);
+        }
+        setTotal(newTotal)
+    },[list])
     return (
         <>
             <section class="antialiased bg-gray-100 text-gray-600 px-4 bg-red-400 my-20">
@@ -44,6 +59,22 @@ const IndividualViewTable = ({individual}) => {
                         </div>
 
                         <div class="p-3">
+                        <div class="flex lg:justify">
+                        <div class="mr-5">
+                        <h4 class="p-2 text-gray-800"><b>Name:</b> {individual.name}</h4>
+                        <h4 class="p-2 text-gray-800"><b>Loan No:</b> {individual.loanNo}</h4>
+                        <h4 class="p-2 text-gray-800"><b>Loan Amount:</b> {individual.loanAmount}</h4>
+                        <h4 class="p-2 text-gray-800"><b>Address:</b> {individual.address}</h4>
+                        </div>
+                        <div class="mb-5">
+                        <h4 class="p-2 text-gray-800"><b>Loan date:</b> {individual.loanDate}</h4>
+                        <h4 class="p-2 text-gray-800"><b>Close date:</b> {individual.closeDate}</h4>
+                        <h4 class="p-2 text-gray-800"><b>Order No: </b>{individual.orderNo}</h4>
+                        </div>
+
+                        </div>
+   
+
                             <div class="overflow-x-auto">
                                 <table class="table-auto w-full">
                                     <thead class="text-xs font-semibold uppercase text-black-400 bg-gray-50">
@@ -57,11 +88,14 @@ const IndividualViewTable = ({individual}) => {
                                             <th class="p-2 whitespace-nowrap">
                                                 <div class="font-bold text-left">Bill Amount</div>
                                             </th> 
+                                            <th class="p-2 whitespace-nowrap">
+                                                <div class="font-bold text-left">Balance</div>
+                                            </th> 
                                         </tr>
                                     </thead>
                                     <tbody class="text-sm divide-y divide-gray-100">
                                     {list && list.length > 0 && list.map((user, i) => 
-                                        <IndividualViewList key={i} user={user} />
+                                        <IndividualViewList key={i} user={user} total={total[i]} />
                                     )}
                                     </tbody>
                                 </table>

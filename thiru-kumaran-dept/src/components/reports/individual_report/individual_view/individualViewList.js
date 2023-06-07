@@ -1,6 +1,6 @@
 import React from "react";
 
-const IndividualViewList = ({user}) => {
+const IndividualViewList = ({user, total}) => {
     return (
         <tr>
             <td class="p-2 whitespace-nowrap">
@@ -13,6 +13,9 @@ const IndividualViewList = ({user}) => {
             </td>
             <td class="p-2 whitespace-nowrap">
                 <div class="text-left font-medium">{user.billAmount}</div>
+            </td>
+            <td class="p-2 whitespace-nowrap">
+                <div class="text-left font-medium">{total}</div>
             </td>
         </tr>
     )

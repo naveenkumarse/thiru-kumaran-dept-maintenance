@@ -5,7 +5,7 @@ import { useLocation } from "react-router-dom";
 
 const IndividualView = () => {
     const location = useLocation();
-    const individual = location.state?.report;
+    const individual = location.state?.loan;
     return (
         <>
             <div className="flex justify-center bg-red-400 w-full h-screen ">
