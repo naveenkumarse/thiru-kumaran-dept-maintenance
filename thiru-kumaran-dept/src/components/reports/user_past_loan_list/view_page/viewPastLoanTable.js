@@ -62,6 +62,9 @@ const ViewPastLoanTable = ({user}) => {
                                             <th class="p-2 whitespace-nowrap">
                                                 <div class="font-bold text-left">Date</div>
                                             </th>
+                                            <th class="p-2 whitespace-nowrap">
+                                                <div class="font-bold text-left">Action</div>
+                                            </th>
                                         </tr>
                                     </thead>
                                     <tbody class="text-sm divide-y divide-gray-100">
