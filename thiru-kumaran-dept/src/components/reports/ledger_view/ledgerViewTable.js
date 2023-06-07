@@ -3,13 +3,12 @@ import DateList from "./dateList";
 import LedgerViewList from "./ledgerViewList";
 
 
-const LedgerViewTable = () => {
+const LedgerViewTable = ({list}) => {
     return (
         <>
          <div className="flex inline lg:justify-between">
                             <header class="px-5 py-4 border-b border-gray-100 ">
                                 <h2 class="font-lighter text-2xl text-gray-800">Entry Details: </h2>
-                                
                             </header>
                             
         <div class='max-w-md mr-5'>
@@ -54,20 +53,17 @@ const LedgerViewTable = () => {
                                             <th class="p-2 whitespace">
                                                 <div class="font-bold text-center">Pre Bal</div>
                                             </th>
-                                          <DateList date ={"20-3-4"}/>
+                                            {list[0]["dateValue"] && list[0]["dateValue"].length > 0 && list[0]["dateValue"].map((arr, i)=> <DateList key={i} date={arr["date"]} /> ) }
                                             <th class="p-2 whitespace-nowrap">
                                                 <div class="font-bold text-center">Total</div>
                                             </th>
                                             <th class="p-2 whitespace-nowrap">
                                                 <div class="font-bold text-center">Balance</div>
                                             </th>
-                                        
-
-
                                         </tr>
                                     </thead>
                                     <tbody class="text-sm text-gray-600 divide-y divide-gray-100">
-                                            <LedgerViewList />
+                                    {list && list.length>0 && list.map((loan, i)=> <LedgerViewList loan={loan} key={i} />)}
                                     </tbody>
                                 </table>
                             </div>
