@@ -38,6 +38,7 @@ import LineBoyNavbar from './components/lineboypages/lineboynavbar';
 import DirectEntryCollection from './components/collection/DirectEntryCollection';
 import TodayListCollection from './components/collection/TodayListCollection';
 import LedgerEntryCollection from './components/collection/LedgerEntryCollection';
+import UpdateLoan from './components/loan/UpdateLoan';
 function App() {
   return (
    
@@ -106,6 +107,12 @@ function App() {
             <div>
               <Navbar />
               <Loan />
+            </div>
+          } />
+          <Route path="/updateloan" element={
+            <div>
+              <Navbar />
+              <UpdateLoan />
             </div>
           } />
            <Route path="/lineboyloan" element={

@@ -214,8 +214,7 @@ export const updateBalanceFE = async (body) => {
 
 export const updateLoanFE = async (body) => {
     console.log(body);
-    //loan_no,line_name,paid_amount
-    const res = await fetch(ENDPOINT_URL + "/loan/", {
+    const res = await fetch(ENDPOINT_URL + "/restservices/loan/update", {
         method: "PUT",
         headers: { "content-Type": "application/json" },
         body: JSON.stringify(body)

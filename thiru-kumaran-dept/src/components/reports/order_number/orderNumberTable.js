@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import OrderNumberList from "./orderNumberList";
-import { getTotalLedgerAll } from "../../../api";
+import { getIndividualReport} from "../../../api";
 
 
 const OrderNumberTable = () => {
@@ -10,9 +10,9 @@ const OrderNumberTable = () => {
             "lineId": localStorage.getItem('lineId')
         }
         try {
-            getTotalLedgerAll(body, setList)
+            getIndividualReport(body, setList)
         } catch (error) {
-            console.log("error in fetching ledger report data")
+            console.log("error in fetching order no. report data", error)
         }
     }, [])
     return (
@@ -67,9 +67,9 @@ const OrderNumberTable = () => {
                                             <th class="p-2 whitespace-nowrap">
                                                 <div class="font-bold text-left ">Loan</div>
                                             </th>
-                                            <th class="p-2 whitespace-nowrap">
+                                            {/* <th class="p-2 whitespace-nowrap">
                                                 <div class="font-bold text-left ">Balance</div>
-                                            </th>
+                                            </th> */}
                                             <th class="p-2 whitespace-nowrap">
                                                 <div class="font-bold text-left ">New Order No.</div>
                                             </th>
@@ -79,7 +79,7 @@ const OrderNumberTable = () => {
                                         </tr>
                                     </thead>
                                     <tbody class="text-sm divide-y divide-gray-100">
-                                    {list["loanData"] && list["loanData"].map((loan,i)=> <OrderNumberList loan={loan} key={i}/>)}
+                                    {list && list.length > 0 && list.map((loan,i)=> <OrderNumberList loan={loan} key={i}/>)}
                                     </tbody>
                                 </table>
                             </div>

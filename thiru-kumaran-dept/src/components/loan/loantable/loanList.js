@@ -1,9 +1,11 @@
 import React from "react";
 import { deleteLoan } from "../../../api";
+import { useNavigate } from "react-router-dom";
 const ListLoan = ({loan} )=> {
-
-   const onLoanUpdate = ()=>{
-        return;
+    const navigate = useNavigate()
+   const onLoanUpdate = (e)=>{
+        e.preventDefault();
+        navigate('/updateloan',  { state: { loan } })
     }
     const deleteBody = {
         "loanNo":loan.loanNo,
@@ -33,7 +35,7 @@ const ListLoan = ({loan} )=> {
                 <div class="text-lg text-center text-gray-400">{loan.commissionAmount+loan.seetuAmount}</div>
             </td>
             <td class="pl-8 whitespace-nowrap">
-                <div class="text-lg text-center"><button style={{ color: "green", fontSize: "14px" }} onClick={onLoanUpdate}>Update</button> <button style={{ color: "red", fontSize: "14px", marginLeft: "20px" }} onClick={onLoanDelete}>Delete</button></div>
+                <div class="text-lg text-center"><button style={{ color: "green", fontSize: "14px" }} onClick={(e) => onLoanUpdate(e)}>Update</button> <button style={{ color: "red", fontSize: "14px", marginLeft: "20px" }} onClick={onLoanDelete}>Delete</button></div>
             </td>
         </tr>
     )
