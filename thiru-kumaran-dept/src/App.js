@@ -48,6 +48,7 @@ import IndividualHead from './components/thitam/individualHead/individualHead';
 import UpdateLoan from './components/loan/UpdateLoan';
 import UpdateLineBoy from './components/line_boy/UpdateLineBoy';
 import Thitam from './components/thitam/thitam/thitam';
+import DirectEntry from './components/collection/directEntry/directEntry';
 function App() {
   return (
    
@@ -395,6 +396,12 @@ function App() {
             <div>
               <LineBoyNavbar />
               <TodayList />
+            </div>
+          } />
+           <Route path="/directentry" element={
+            <div>
+              <LineBoyNavbar />
+              <DirectEntry />
             </div>
           } />
         </Routes>

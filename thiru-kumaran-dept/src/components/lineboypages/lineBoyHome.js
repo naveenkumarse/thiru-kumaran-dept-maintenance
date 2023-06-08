@@ -1,7 +1,14 @@
 import React from "react";
 import Button from "../button/home_button";
+import { useNavigate } from "react-router-dom";
 
 const LineBoyHome = () => {
+    const navigate = useNavigate()
+ 
+    const onLogin = () =>{
+       
+        navigate(`/lineboypages`);
+    }
     return (
         <>
             <div class="flex flex-col mt-28">
@@ -12,10 +19,10 @@ const LineBoyHome = () => {
                                 <thead class="bg-gray-100 border-b">
                                     <tr>
                                         <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
-                                        Line No.
+                                            Line No.
                                         </th>
                                         <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
-                                          Line Name
+                                            Line Name
                                         </th>
                                         <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
                                             A/C Date
@@ -35,16 +42,18 @@ const LineBoyHome = () => {
                                             Otto
                                         </td>
                                         <td class="text-sm text-gray-900 font-light  py-4 whitespace-nowrap">
-                                            <Button path={'lineboypages'}/>
+                                            <button class="group relative h-8 w-24 overflow-hidden rounded-lg bg-white text-lg shadow" onClick={() => onLogin()}>
+                                                <div class="absolute inset-0 w-3 bg-green-500 transition-all duration-[250ms] ease-out group-hover:w-full"></div>
+                                                <span class="relative text-black group-hover:text-white">Login</span>
+                                            </button>
                                         </td>
                                     </tr>
-                                   
                                 </tbody>
                             </table>
                         </div>
                     </div>
                 </div>
-            </div>  
+            </div>
         </>
     )
 }
