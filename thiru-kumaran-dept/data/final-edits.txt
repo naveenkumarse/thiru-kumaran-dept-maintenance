@@ -4,7 +4,7 @@ Check whether you are sending the most latest acc close date + 1, or first ever 
 
 Line Boy
 validate line boy inputs
-update line endpoint not working in postman also (endpoint: Update Line Member)
+update line endpoint not working in postman also (endpoint: Update Line Member) (resolved)
 
 Loan
 All endpoints working properly

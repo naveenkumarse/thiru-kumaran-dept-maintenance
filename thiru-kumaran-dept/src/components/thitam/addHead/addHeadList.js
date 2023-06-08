@@ -1,16 +1,14 @@
 import React from "react";
 
-const AddHeadList = ({ id, headName }) => {
+const AddHeadList = ({ id, headName, setEditHead, setHeadId }) => {
     const onEdit = () => {
         // call edit api
-        
-
+        setEditHead(headName);
+        setHeadId(id);
     }
     return (
         <>
         <tr>
-
-        
             <td class="p-2 whitespace-nowrap">
                 <div class="flex items-center">
                     <div class="font-medium text-gray-800">{id}</div>

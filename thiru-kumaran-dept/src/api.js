@@ -824,3 +824,29 @@ export const updateHead = async (body) => {
     return jsonData;
 }
 
+export const getAllAccount = async (body, setHead) => {
+    console.log(body);
+    // head_name
+    const res = await fetch(ENDPOINT_URL + "/restservices/thittam/account", {
+        method: "POST",
+        headers: { "content-Type": "application/json" },
+        body: JSON.stringify(body)
+    });
+    const jsonData = await res.json();
+    console.log(jsonData)
+    return setHead(jsonData);
+}
+
+export const createUpdateHead = async (body, setHead) => {
+    console.log(body);
+    // head_name
+    const res = await fetch(ENDPOINT_URL + "/restservices/thittam/create/head", {
+        method: "POST",
+        headers: { "content-Type": "application/json" },
+        body: JSON.stringify(body)
+    });
+    const jsonData = await res.json();
+    console.log(jsonData)
+    return setHead(jsonData);
+}
+

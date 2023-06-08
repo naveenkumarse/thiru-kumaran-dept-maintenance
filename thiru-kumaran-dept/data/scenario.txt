@@ -1,0 +1,12 @@
+1) date close 
+2) excess for loan closed
+3) closed party userNo, phoneNo
+4) user past loan - loanDate, closeDate
+5) change all date request as YYYY-MM-DD format eg. endDate:"2023-06-08"
+6) authentication (both admin and lineboy)
+
+Indira:
+1) Thittam API 
+2) validate inputs in line boy and loan
+3) add date param in /loancreate
+4) Thittam UI

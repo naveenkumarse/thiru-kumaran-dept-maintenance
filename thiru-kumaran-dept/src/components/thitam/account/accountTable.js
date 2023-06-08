@@ -1,10 +1,9 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import AccountList from "./accountList";
+import { getAllAccount } from "../../../api";
 
-
-
-
-const AccountTable = () => {
+const AccountTable = ({startDate, endDate}) => {
+    const [total, newTotal] = useState(0);
     const [accountlist,setAccountList] = useState(
         [
             {
@@ -110,8 +109,19 @@ const AccountTable = () => {
         ]
         
     )
+    // useEffect(()=>{
+    //     const body = {
+    //             "startDate":startDate,
+    //             "endDate":endDate
+    //         }
+    //     try {
+    //         getAllAccount(body, setAccountList)
+    //     } catch (error) {
+    //         console.log("error in fetching monthly bill")
+    //     }
+    // }, [])
     // use reduce function to calculate the total amount 
-    const totalAmount = 4000;
+
     return (
         <>
             <section class="antialiased bg-gray-100 text-gray-600 px-4 bg-red-400 my-20">
@@ -121,7 +131,7 @@ const AccountTable = () => {
                         <div className="flex inline lg:justify-between">
                             <header class="px-5 py-4 border-b border-gray-100 ">
                                 <h2 class="font-bold text-gray-800">Account</h2> <br/>
-                                <h2 class="font-bold text-gray-800">Total Amount : {totalAmount} </h2>
+                                <h2 class="font-bold text-gray-800">Total Amount : {total} </h2>
                             </header>
                             <div class='max-w-md mr-5'>
                                 <div class="relative flex items-center w-full h-12 rounded-lg focus-within:shadow-lg bg-white overflow-hidden border border-black-600">
@@ -166,7 +176,7 @@ const AccountTable = () => {
                                     </thead>
                                     <tbody class="text-sm divide-y divide-gray-100">
                                         
-                                           {accountlist.map((res)=>{
+                                           {accountlist && accountlist.length> 0 && accountlist.map((res)=>{
                                             return <AccountList key={res.id} res={res}/>
                                            })} 
                                         

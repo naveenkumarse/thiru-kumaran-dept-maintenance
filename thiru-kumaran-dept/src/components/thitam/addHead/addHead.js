@@ -1,11 +1,60 @@
 import React, { useState } from "react";
 
 import AddHeadTable from "./addHeadTable";
+import { createUpdateHead } from "../../../api";
 
 
 const AddHead = () => {
 
     const [addHead, setAddHead] = useState();
+    const [editHead, setEditHead] = useState();
+    const [headId, setHeadId] = useState();
+    const [addHeadList, setAddHeadList] = useState(
+        [
+            {
+                "id": 1,
+                "headName": "A LINE  ?????",
+                "extraHead": true
+            },
+            {
+                "id": 2,
+                "headName": "B LINE ????????",
+                "extraHead": true
+            },
+            {
+                "id": 3,
+                "headName": "C LINE ????????",
+                "extraHead": true
+            }
+        ]
+    )
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        const body = {
+            "name":addHead,
+            "update":false
+        }
+        console.log(body)
+        try {
+        createUpdateHead(body, setAddHeadList)
+        } catch (error) {
+            console.log("error in fetching head data", error)
+        }        
+    }
+    const handleEdit = (e) =>{
+        e.preventDefault();
+        const body = {
+            "id":headId,
+            "name":editHead,
+            "update":true
+        }
+        try {
+            createUpdateHead(body, setAddHeadList)
+            } catch (error) {
+                console.log("error in fetching head data", error)
+            }  
+        // window.location.reload();
+    }
     return (
         <>
             <div class="grid min-h-screen bg-red-400">
@@ -16,7 +65,7 @@ const AddHead = () => {
                             <h1 class="text-xl font-bold ">Edit Head <span class="font-normal"></span> </h1>
                         </div>
                         <div className="flex justify-between">
-                            <form class="mt-6">
+                            <form class="mt-6" onSubmit={(e)=> handleSubmit(e)}>
                                 <div className=" flex inline ">
                                     <div class="p-2 bg-white border shadow rounded w-96">
                                         <div class="flex justify-between items-center">
@@ -31,13 +80,13 @@ const AddHead = () => {
                                 </div>
                             </form>
 
-                            <form class="mt-6">
+                            <form class="mt-6" onSubmit={(e)=> handleEdit(e)}>
                                 <div className=" flex inline ">
                                     <div class="p-2 bg-white border shadow rounded w-96">
                                         <div class="flex justify-between items-center">
-                                            <input type="text" class="w-full bg-gray-100 rounded p-2 mr-4 border focus:outline-none focus:border-black" onChange={(e) => setAddHead(e.target.value)} placeholder="Enter head name" value={addHead} />
+                                            <input type="text" class="w-full bg-gray-100 rounded p-2 mr-4 border focus:outline-none focus:border-black" onChange={(e) => setEditHead(e.target.value)} placeholder="Enter head name" value={editHead} />
                                             <div class="flex justify-center items-center space-x-2">
-                                                <button type="button" class="btn bg-black hover:bg-black text-white px-4 py-2 font-medium rounded">
+                                                <button type="submit" class="btn bg-black hover:bg-black text-white px-4 py-2 font-medium rounded">
                                                     Edit
                                                 </button>
                                             </div>
@@ -49,7 +98,7 @@ const AddHead = () => {
                         <br />
                         <br />
                         <div className="pt-5">
-                            <AddHeadTable />
+                            <AddHeadTable headList={addHeadList} setEditHead={setEditHead} setHeadId={setHeadId} />
                         </div>
                     </div>
 
