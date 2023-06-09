@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import AddHeadTable from "./addHeadTable";
-import { createUpdateHead } from "../../../api";
+import { createUpdateHead, getAllHeads } from "../../../api";
 
 
 const AddHead = () => {
@@ -9,37 +9,27 @@ const AddHead = () => {
     const [addHead, setAddHead] = useState();
     const [editHead, setEditHead] = useState();
     const [headId, setHeadId] = useState();
-    const [addHeadList, setAddHeadList] = useState(
-        [
-            {
-                "id": 1,
-                "headName": "A LINE  ?????",
-                "extraHead": true
-            },
-            {
-                "id": 2,
-                "headName": "B LINE ????????",
-                "extraHead": true
-            },
-            {
-                "id": 3,
-                "headName": "C LINE ????????",
-                "extraHead": true
-            }
-        ]
-    )
+    const [addHeadList, setAddHeadList] = useState([])
+    useEffect(()=>{
+        try {
+            getAllHeads(setAddHeadList)
+        } catch (error) {
+            console.log("error in fetching ledger report data")
+        }
+    }, [])
     const handleSubmit = (e) => {
         e.preventDefault();
         const body = {
             "name":addHead,
             "update":false
         }
-        console.log(body)
         try {
         createUpdateHead(body, setAddHeadList)
         } catch (error) {
             console.log("error in fetching head data", error)
-        }        
+        }    
+        console.log(addHeadList)
+        window.location.reload();
     }
     const handleEdit = (e) =>{
         e.preventDefault();
@@ -53,7 +43,7 @@ const AddHead = () => {
             } catch (error) {
                 console.log("error in fetching head data", error)
             }  
-        // window.location.reload();
+        window.location.reload();
     }
     return (
         <>
@@ -71,7 +61,7 @@ const AddHead = () => {
                                         <div class="flex justify-between items-center">
                                             <input type="text" class="w-full bg-gray-100 rounded p-2 mr-4 border focus:outline-none focus:border-black" onChange={(e) => setAddHead(e.target.value)} placeholder="Enter head name" value={addHead} />
                                             <div class="flex justify-center items-center space-x-2">
-                                                <button type="button" class="btn bg-black hover:bg-black text-white px-4 py-2 font-medium rounded">
+                                                <button type="submit" class="btn bg-black hover:bg-black text-white px-4 py-2 font-medium rounded">
                                                     Add
                                                 </button>
                                             </div>
