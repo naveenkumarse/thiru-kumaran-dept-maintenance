@@ -6,7 +6,6 @@
 6) authentication (both admin and lineboy)
 
 Indira:
-1) Thittam API 
+1) Thittam main page UI, API
 2) validate inputs in line boy and loan
-3) add date param in /loancreate
-4) Thittam UI
+3) date in loan update?
