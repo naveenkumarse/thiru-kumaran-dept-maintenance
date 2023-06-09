@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import DateCloseTable from "./dateCloseTable";
 import { createAccountCloseFE } from "../../api";
 import { useNavigate } from "react-router-dom";
@@ -9,14 +9,9 @@ const DateClose = () => {
 
     const saveDateClose = (e) =>{
         e.preventDefault();
-        let dateParts = todaydate.split("-");
-        let year = dateParts[0];
-        let month = dateParts[1];
-        let day = dateParts[2];
-        const formattedDate = day + "-" + month + "-" + year;
         const body = {
             "lineId":lineId,
-            "date":formattedDate
+            "date":todaydate
         }
         createAccountCloseFE(body)
         navigate('/home')
