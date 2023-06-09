@@ -1,22 +1,8 @@
 import React from "react";
 import OutstandingBalanceList from "./outstandingBalanceList";
 
-const OutstandingBalanceTable = () => {
-    const outstandingBalanceResponse = [
-        {
-            "id": 3,
-            "date": "2023-06-05",
-            "lineName": "Line 1",
-            "firstCount": 2,
-            "firstBalance": 10000,
-            "secondCount": 2,
-            "secondBalance": 10000,
-            "thirdCount": 2,
-            "thirdBalance": 10000,
-            "fourthCount": 4,
-            "fourthBalance": 20000
-        }
-    ]
+const OutstandingBalanceTable = ({outstandingBalance }) => {
+
     return (
         <>
 
@@ -71,7 +57,7 @@ const OutstandingBalanceTable = () => {
                                 </thead>
                                 <tbody class="text-sm divide-y divide-gray-100">
 
-                                    {outstandingBalanceResponse.map((res) => {
+                                    {outstandingBalance && outstandingBalance.length>0 && outstandingBalance.map((res) => {
                                         return <OutstandingBalanceList key={res.id} res={res} />
                                     })}
 

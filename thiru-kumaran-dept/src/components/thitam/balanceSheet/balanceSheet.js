@@ -59,7 +59,7 @@ const BalanceSheet = () => {
             <div class="grid min-h-screen place-items-center bg-red-400">
                 <div class="w-11/12 p-12 bg-white sm:w-8/12 md:w-1/2 lg:w-10/12 bg-white">
                     <div className="flex justify-between">
-                        <h1 class="text-xl font-bold ">Ledger View <span class="font-normal"></span> </h1>
+                        <h1 class="text-xl font-bold ">Balance Sheet <span class="font-normal"></span> </h1>
                     </div>
                     <form class="mt-6" onSubmit={(e)=>handleSubmit(e)}>
                         <div className="flex justify-between">
