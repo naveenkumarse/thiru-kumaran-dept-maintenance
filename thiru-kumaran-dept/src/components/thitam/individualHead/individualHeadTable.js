@@ -1,31 +1,8 @@
 import React, { useState } from "react";
 import IndividualHeadList from "./individualHeadList";
 
-const IndividualHeadTable = ({ res }) => {
-    const [individualHeadList, setIndividualHeadList] = useState(
-        [
-            {
-                "id": 1,
-                "name": "A LINE selavu",
-                "description": "",
-                "debit": 250,
-                "credit": 0,
-                "date": "2023-05-06",
-                "extraHead": true,
-                "balance": 0
-            },
-            {
-                "id": 2,
-                "name": "A LINE selavu",
-                "description": "",
-                "debit": 0,
-                "credit": 250,
-                "date": "2023-05-05",
-                "extraHead": true,
-                "balance": 0
-            }
-        ]
-    )
+const IndividualHeadTable = ({ individualHeadList }) => {
+
     return (
         <>
             <div class="flex flex-col justify-center h-full">
