@@ -49,16 +49,17 @@ import UpdateLoan from './components/loan/UpdateLoan';
 import UpdateLineBoy from './components/line_boy/UpdateLineBoy';
 import Thitam from './components/thitam/thitam/thitam';
 import DirectEntry from './components/collection/directEntry/directEntry';
+import ProtectedRoutes from './components/protectedRoutes/protectedRoutes';
 function App() {
   return (
-   
-    
+
+
 
     <div className="App">
       <HashRouter>
         <Routes>
-         {/* line boy login  */}
-         <Route path="/lineboyhome" element={
+          {/* line boy login  */}
+          <Route path="/lineboyhome" element={
             <div>
               <LineBoyNavbar />
               <LineBoyHome />
@@ -66,7 +67,7 @@ function App() {
           } />
           <Route path="/lineboypages" element={
             <div>
-               <LineBoyNavbar />
+              <LineBoyNavbar />
               <LineBoyPages />
             </div>
           } />
@@ -90,12 +91,16 @@ function App() {
               <LineBoyLogin />
             </div>
           } />
-          <Route path="/home" element={
-            <div>
-              <Navbar />
-              <Home />
-            </div>
-          } />
+
+
+          <Route element={<ProtectedRoutes />}>
+            <Route path="/home" element={
+              <div>
+                <Navbar />
+                <Home />
+              </div>
+            } />
+          </Route>
           <Route path="/line" element={
             <div>
               <Navbar />
@@ -125,7 +130,7 @@ function App() {
               <UpdateLoan />
             </div>
           } />
-           <Route path="/lineboyloan" element={
+          <Route path="/lineboyloan" element={
             <div>
               <LineBoyNavbar />
               <Loan />
@@ -133,8 +138,8 @@ function App() {
           } />
           <Route path="/lineboyupdate" element={
             <div>
-            <Navbar />
-            <UpdateLineBoy />
+              <Navbar />
+              <UpdateLineBoy />
             </div>
           } />
           <Route path="/dateclose" element={
@@ -143,7 +148,7 @@ function App() {
               <DateClose />
             </div>
           } />
-           <Route path="/lineboydateclose" element={
+          <Route path="/lineboydateclose" element={
             <div>
               <LineBoyNavbar />
               <DateClose />
@@ -193,7 +198,7 @@ function App() {
               <LoanList />
             </div>
           } />
-          
+
           <Route path="/lineboyindividualreport" element={
             <div>
               <LineBoyNavbar />
@@ -317,7 +322,7 @@ function App() {
               <AddLoan />
             </div>
           } />
-             <Route path="/lineboyclosedparty" element={
+          <Route path="/lineboyclosedparty" element={
             <div>
               <LineBoyNavbar />
               <ClosedParty />
@@ -335,70 +340,69 @@ function App() {
               <IndividualView />
             </div>
           } />
-
           <Route path="/thitam" element={
             <div>
               <Navbar />
-              <ThitamNav/>
+              <ThitamNav />
               <Thitam />
             </div>
           } />
           <Route path="/addhead" element={
             <div>
               <Navbar />
-              <ThitamNav/>
+              <ThitamNav />
               <AddHead />
             </div>
           } />
           <Route path="/balancesheet" element={
             <div>
               <Navbar />
-              <ThitamNav/>
+              <ThitamNav />
               <BalanceSheet />
             </div>
           } />
           <Route path="/individualhead" element={
             <div>
               <Navbar />
-              <ThitamNav/>
+              <ThitamNav />
               <IndividualHead />
             </div>
           } />
           <Route path="/outstandingbalance" element={
             <div>
               <Navbar />
-              <ThitamNav/>
+              <ThitamNav />
               <OutstandingBalance />
             </div>
           } />
           <Route path="/trailsheet" element={
             <div>
               <Navbar />
-              <ThitamNav/>
+              <ThitamNav />
               <TrialSheet />
             </div>
           } />
           <Route path="/account" element={
             <div>
               <Navbar />
-              <ThitamNav/>
+              <ThitamNav />
               <Account />
             </div>
           } />
-             <Route path="/outstandingbalance" element={
+          <Route path="/outstandingbalance" element={
             <div>
               <Navbar />
-              <ThitamNav/>
+              <ThitamNav />
               <OutstandingBalance />
             </div>
           } />
-           <Route path="/todaylist" element={
+          <Route path="/todaylist" element={
             <div>
               <LineBoyNavbar />
               <TodayList />
             </div>
           } />
-           <Route path="/directentry" element={
+          <Route path="/directentry" element={
             <div>
               <LineBoyNavbar />
               <DirectEntry />
