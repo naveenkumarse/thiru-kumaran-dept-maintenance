@@ -14,8 +14,8 @@ const ProtectedRoutes = (children) => {
             setLogin(true);
         }
     }, [])
-    
-    return login? <Outlet/> : <div><LoginPage/></div>;
+    // if we dont want navbar remove it 
+    return login? <Outlet/> : <div><Navbar/><LoginPage/></div>;
 };
 
 export default ProtectedRoutes;
