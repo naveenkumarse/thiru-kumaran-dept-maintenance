@@ -1,15 +1,23 @@
 import React from "react";
+import { deleteParticularDataBelowTable } from "../../../api";
 
 const ThitamList = ({ res ,id}) => {
     const onDelete = () => {
         // call edit api
-    
+        try {
+        const body = {
+            "date":"2023-06-10",
+            "name":res.name
+        }
+        deleteParticularDataBelowTable(body)
+        } catch (error) {
+            console.log(error);
+        }
+        window.location.reload();
     }
     return (
         <>
         <tr>
-
-        
             <td class="p-2 whitespace-nowrap">
                 <div class="flex items-center">
                     <div class="font-medium text-gray-800">{id+1}</div>

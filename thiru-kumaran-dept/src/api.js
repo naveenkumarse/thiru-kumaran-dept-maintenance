@@ -19,18 +19,17 @@ let ENDPOINT_URL = 'http://localhost:8080'
 //     return res;
 // }
 
-// export const Login = async (body, setLogin) => {
-//     console.log(body);
+export const lineboyLogin = async (body, setToken) => {
+    console.log(body);
 
-//     const res = await fetch(ENDPOINT_URL + "/user/", {
-//         method: "POST",
-//         headers: { "content-Type": "application/json" },
-//         body: JSON.stringify(body)
-//     });
-//     const jsonData = await res.json();
-//     console.log(jsonData)
-//     return setLogin(jsonData);
-// }
+    const res = await fetch(ENDPOINT_URL + "/api/auth/login/lineboy", {
+        method: "POST",
+        headers: { "content-Type": "application/json" },
+        body: JSON.stringify(body)
+    });
+    const jsonData = await res.json();
+    return setToken(jsonData["Token"]);
+}
 
 // update user by phone number
 // export const updateUserByNo = async (body) => {
@@ -823,7 +822,7 @@ export const getExtraHeadWrtDate = async (body, setHead) => {
 export const deleteParticularDataBelowTable = async (body) => {
     console.log(body);
     //head_name
-    const res = await fetch(ENDPOINT_URL + "/restservices/thittam/thittamData/extraHead", {
+    const res = await fetch(ENDPOINT_URL + "/restservices/thittam/delete/headData", {
         method: "DELETE",
         headers: { "content-Type": "application/json" },
         body: JSON.stringify(body)

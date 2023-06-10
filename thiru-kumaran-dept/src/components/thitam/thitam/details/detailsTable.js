@@ -1,109 +1,33 @@
 import React, { useEffect, useState } from "react";
 import DetailsList from "./detailsList";
+import { getAllThittam } from "../../../../api";
 
 const DetailsTable = () => {
-    const list =[{
-        "openingBalance": 2000,
-        "date": "2023-05-30",
-        "thittamList": [
-            {
-                "name": "Line 1 BILL",
-                "description": null,
-                "credit": 1000,
-                "debit": 0,
-                "date": null
-            },
-            {
-                "name": "Line 1 LOAN",
-                "description": null,
-                "credit": 0,
-                "debit": 0,
-                "date": null
-            },
-            {
-                "name": "Line 1 COMMISSION",
-                "description": null,
-                "credit": 0,
-                "debit": 0,
-                "date": null
-            },
-            {
-                "name": "Line 1 SEETU",
-                "description": null,
-                "credit": 0,
-                "debit": 0,
-                "date": null
-            },
-            {
-                "name": "Line 1EXCESS",
-                "description": null,
-                "credit": 0,
-                "debit": 0,
-                "date": null
-            },
-            {
-                "name": "Line 2 BILL",
-                "description": null,
-                "credit": 5150,
-                "debit": 0,
-                "date": null
-            },
-            {
-                "name": "Line 2 LOAN",
-                "description": null,
-                "credit": 0,
-                "debit": 5000,
-                "date": null
-            },
-            {
-                "name": "Line 2 COMMISSION",
-                "description": null,
-                "credit": 500,
-                "debit": 0,
-                "date": null
-            },
-            {
-                "name": "Line 2 SEETU",
-                "description": null,
-                "credit": 20,
-                "debit": 0,
-                "date": null
-            },
-            {
-                "name": "Line 2EXCESS",
-                "description": null,
-                "credit": 0,
-                "debit": 0,
-                "date": null
-            },
-            {
-                "name": "A LINE profit",
-                "description": "",
-                "credit": 250,
-                "debit": 0,
-                "date": null
-            },
-            {
-                "name": "A LINE selavu",
-                "description": "",
-                "credit": 250,
-                "debit": 0,
-                "date": null
-            }]
-    }
-
-    ];
-    const thittamListArray = [];
-    thittamListArray.push.apply(thittamListArray,list[0].thittamList);
-    const [details, setDetails] = useState(thittamListArray)
-    const deleteCall = ()=>{
-
-    }
+    const [data, setData] = useState({})
+    const [list, setList] = useState([])
     useEffect(()=>{
-        console.log(thittamListArray);
-        console.log()
+        setList(data["thittamList"])
+    }, [data])
+
+    useEffect(()=>{
+        const fetchData = async () => {
+            try {
+                const body = {
+                    "date":"2023-06-10"
+                    // "date": localStorage.getItem('date')
+                };
+              await getAllThittam(body,setData); // Assuming getLineFE is an asynchronous function 
+
+            } catch (error) {
+              console.error("Error fetching Bill Entry data:", error);
+            }
+          };
+          fetchData();
     },[])
 
+    const deleteCall = (e) =>{
+        e.preventDefault();
+    }
     return (
         <>
 
@@ -137,21 +61,18 @@ const DetailsTable = () => {
                                 <thead class="text-xs font-semibold uppercase text-black-400 bg-gray-50">
                                     <tr>
                                         <th class="p-2 whitespace-nowrap">
-                                            <div class="font-bold text-lg text-left">Previous Date</div>
+                                            <div class="font-bold text-left">Previous Date:{data.prevDate} </div>
                                         </th>
                                         <th class="p-2 whitespace-nowrap">
-                                            <button class="group relative h-8 w-24 overflow-hidden rounded-lg bg-white text-lg shadow" onClick={() => deleteCall()}>
+                                            <button class="group relative h-8 w-24 overflow-hidden rounded-lg bg-white shadow" onClick={() => deleteCall()}>
                                                 <div class="absolute inset-0 w-3 bg-green-500 transition-all duration-[250ms] ease-out group-hover:w-full"></div>
                                                 <span class="relative text-black group-hover:text-white">Delete</span>
                                             </button>
                                         </th>
-                                        <th class="p-2 whitespace-nowrap">
-                                            <div class="font-bold text-lg  text-left">Head Name</div>
-                                        </th>
                                     </tr>
                                     <tr>
                                         <th class="p-2 whitespace-nowrap">
-                                            <div class="font-bold text-lg  text-left">Current Date</div>
+                                            <div class="font-bold text-left">Current Date : {data.date}</div>
                                         </th>
                                         <th class="p-2 whitespace-nowrap">
                                             <div class="font-bold  text-lg  text-left"></div>
@@ -179,10 +100,36 @@ const DetailsTable = () => {
                                     </tr>
                                 </thead>
                                 <tbody class="text-sm divide-y divide-gray-100">
-
-                                    {details.map((res,i) => {
+                                <tr>
+                                <td class="p-2 whitespace-nowrap">
+                                        <div class="flex items-center">
+                                            <div class="font-medium text-gray-800">Opening Balance </div>
+                                        </div>
+                                    </td>
+                                    <td class="p-2 whitespace-nowrap">
+                                        <div class="flex items-center">
+                                            <div class="font-medium text-gray-800"></div>
+                                        </div>
+                                    </td>
+                                    <td class="p-2 whitespace-nowrap">
+                                        <div class="flex items-center">
+                                            <div class="font-medium text-gray-800"></div>
+                                        </div>
+                                    </td>
+                                    <td class="p-2 whitespace-nowrap">
+                                        <div class="flex items-center">
+                                            <div class="font-medium text-gray-800"></div>
+                                        </div>
+                                    </td>
+                                    <td class="p-2 whitespace-nowrap">
+                                        <div class="flex items-center">
+                                            <div class="font-medium text-gray-800">{data.openingBalance}</div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                    {list && list.length>0 && list.map((res,i) => {
                                         
-                                        return <DetailsList res={res} />
+                                        return <DetailsList key={i} res={res} />
                                     })}
                                     <tr>
                                         <td></td>

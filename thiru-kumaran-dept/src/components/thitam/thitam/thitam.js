@@ -10,10 +10,10 @@ const Thitam = () => {
     const [options, setOptions] = useState([]);
     const [selectedValue, setSelectedValue] = useState('');
     const [date, setDate] = useState(new Date());
-    const [debit, setDebit] = useState();
-    const [description, setDescription ] = useState('');
-    const [credit, setCredit] = useState();
-    const [remarks, setRemarks] = useState();
+    const [debit, setDebit] = useState(0);
+    // const [description, setDescription ] = useState('');
+    const [credit, setCredit] = useState(0);
+    const [remarks, setRemarks] = useState('');
     // useEffect(()=>{
     //     getOpeningBalanceBool(setOpeningBalance)
     //     console.log(openingBalance)
@@ -41,7 +41,7 @@ const Thitam = () => {
       const handleHeadSubmit = (e) =>{
         e.preventDefault();
         const body ={
-            "name":description,
+            "name":selectedValue,
             "description":remarks,
             "credit":credit,
             "debit":debit,
@@ -50,7 +50,7 @@ const Thitam = () => {
         try {
             createHeadData(body)
         } catch (error) {
-            console.log(error)
+            console.log("create head data error" ,error)
         }
         window.location.reload();
       }
@@ -69,12 +69,13 @@ const Thitam = () => {
                                 <Verify />
                             </div>
 
-                            <form class="mt-6" onClick={(e)=>handleHeadSubmit}>
+                            <form class="mt-6" onSubmit={(e)=>handleHeadSubmit(e)}>
                                 <h4 class=" font-bold ">Date <span class="font-normal"></span> </h4>
                                 <div className=" ">
                                     <div class="p-2 bg-white border shadow rounded w-96">
                                         <div class="flex justify-between items-center">
-                                            <input type="date" class="w-full bg-gray-100 rounded p-2 mr-4 border focus:outline-none focus:border-black" onChange={(e) => setDate(e.target.value)} placeholder="Enter head name" value={date} />
+                                        
+                            <input id="id" type="date" name="id" placeholder="id" autocomplete="id" class="block w-1/3 p-3 mt-2 text-gray-700 bg-gray-200 appearance-none focus:outline-none focus:bg-gray-300 focus:shadow-inner mr-20 w-full" value={date} onChange={(e) => setDate(e.target.value)} required />
                                         </div>
                                     </div>
                                 </div>
@@ -93,7 +94,7 @@ const Thitam = () => {
                                             {options &&
                                             options.length > 0 &&
                                             options.map((option) => (
-                                                <option key={option.id} value={option.id} onChange={(e)=> setDescription(e.target.value)}>
+                                                <option key={option.id} value={option.headName}>
                                                 {option.headName}
                                                 </option>
                                             ))}

@@ -1,38 +1,19 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import ThitamList from "./thitamList";
-
-
-
-
-
+import { getExtraHeadWrtDate } from "../../../api";
 
 const ThitamTable = () => {
-    const [getAllData, setAllData] = useState(
-        [
-            {
-                "name": "A LINE ????????",
-                "description": "",
-                "credit": 0,
-                "debit": 250,
-                "date": "2023-06-02"
-            },
-            {
-                "name": "A LINE selavu",
-                "description": "",
-                "credit": 0,
-                "debit": 250,
-                "date": "2023-06-02"
-            },
-            {
-                "name": "A LINE athigam",
-                "description": "",
-                "credit": 0,
-                "debit": 250,
-                "date": "2023-06-02"
-            }
-        ]
-        
-    );
+    const [getAllData, setAllData] = useState([]);
+    useEffect(()=>{
+        const body = {
+            "date":"2023-06-10"
+        }
+        try {
+            getExtraHeadWrtDate(body, setAllData);
+          } catch (error) {
+            console.log(error);
+          }
+    }, [])
     return (
         <>
 
