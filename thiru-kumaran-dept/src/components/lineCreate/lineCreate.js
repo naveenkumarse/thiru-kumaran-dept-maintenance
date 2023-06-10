@@ -58,7 +58,7 @@ const LineCreate = () =>{
                 <div className="w-full lg:w-1/2  ">
                 <>
                     <div class="grid min-h-screen place-items-center bg-red-400">
-                            <div class="w-11/12 p-12 bg-white sm:w-8/12 md:w-1/2 lg:w-10/12">
+                            <div class="w-11/12 p-12 bg-white sm:w-8/12 md:w-1/2 lg:w-10/12 rounded-lg">
                                 <h1 class="text-xl font-bold ">Add Line Details <span class="font-normal"></span></h1>
                                 <form class="mt-6" onSubmit={(e)=> handleLineSave(e)}>
                                 <label for="id" class="block mt-2 text-xs font-semibold text-gray-600 uppercase">Id</label>
@@ -82,7 +82,7 @@ const LineCreate = () =>{
                 <div className="w-full lg:w-1/2  ">
                 <>
                     <div class="grid min-h-screen place-items-center bg-red-400">
-                            <div class="w-11/12 p-12 bg-white sm:w-8/12 md:w-1/2 lg:w-10/12">
+                            <div class="w-11/12 p-12 bg-white sm:w-8/12 md:w-1/2 lg:w-10/12 rounded-lg">
                                 <h1 class="text-xl font-bold ">Edit Line Details <span class="font-normal"></span></h1>
                                 <form class="mt-6" onSubmit={(e)=> handleLineEdit(e)}>
                                 <label for="id" class="block mt-2 text-xs font-semibold text-gray-600 uppercase">Id</label>
@@ -108,7 +108,7 @@ const LineCreate = () =>{
                     <section class="antialiased bg-gray-100 text-gray-600 px-4 bg-red-400 my-52">
                         <div class="flex flex-col justify-center h-full">
 
-                            <div class="w-full max-w-2xl mx-auto bg-white shadow-lg rounded-sm border border-gray-200">
+                            <div class="w-full max-w-2xl mx-auto bg-white shadow-lg rounded-lg border border-gray-200">
                                 <header class="px-5 py-4 border-b border-gray-100">
                                     <h2 class="font-semibold text-gray-800">Line Details</h2>
                                 </header>

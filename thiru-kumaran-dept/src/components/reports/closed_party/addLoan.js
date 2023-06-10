@@ -12,6 +12,7 @@ const AddLoan = () => {
   const [address, setAddress] = useState(closedParty.address);
   const [loanAmount, setLoanAmount] = useState(0);
   const [interest, setInterest] = useState(10);
+  const [date, setDate] = useState(new Date());
   const [userNumber, setUserNumber] = useState(closedParty.userNo);
   const [commissionAmount, setCommissionAmount] = useState(0);
   const [seetuAmount, setSeetuAmount] = useState(0);
@@ -31,6 +32,7 @@ const AddLoan = () => {
       "address":address,
       "phoneNo":phone_no,
       "orderNo":order_no,
+      "date":date,
       "currentDate":currentDate,
       "loanAmount":loanAmount,
       "seetuAmount":seetuAmount,
@@ -73,7 +75,12 @@ const AddLoan = () => {
                               <input id="firstname" type="text" name="firstname" placeholder="John" autoComplete="given-name" class="block w-full p-3 mt-2 text-gray-700 bg-gray-200 appearance-none focus:outline-none focus:bg-gray-300 focus:shadow-inner" value={firstName} onChange={(e) => setFirstName(e.target.value)} required />
                           </span>
                       </div>
-                      {console.log("rendering")}
+                      <div class="flex justify-between gap-3 mt-2">
+                            <span class="w-full">
+                                <label for="date" class="block text-xs font-semibold text-gray-600 uppercase">Date</label>
+                                <input id="date" type="date" name="date" placeholder="" autoComplete="date" class="block w-full p-3 mt-2 text-gray-700 bg-gray-200 appearance-none focus:outline-none focus:bg-gray-300 focus:shadow-inner" value={date} onChange={(e) => setDate(e.target.value)} required />
+                            </span>
+                        </div>
                       <div class="flex justify-between gap-3 mt-2">
                           <span class="w-1/2">
                               <label for="phoneno" class="block mt-2 text-xs font-semibold text-gray-600 uppercase ">Phone no</label>

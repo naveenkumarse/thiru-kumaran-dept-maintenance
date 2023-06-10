@@ -1,30 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 
 import AddHeadList from "./addHeadList";
 
 
-
-
-const AddHeadTable = () => {
-    const [addHeadList, setAddHeadList] = useState(
-        [
-            {
-                "id": 1,
-                "headName": "A LINE  ?????",
-                "extraHead": true
-            },
-            {
-                "id": 2,
-                "headName": "B LINE ????????",
-                "extraHead": true
-            },
-            {
-                "id": 3,
-                "headName": "C LINE ????????",
-                "extraHead": true
-            }
-        ]
-    )
+const AddHeadTable = ({headList, setHeadId, setEditHead}) => {
     return (
         <>
 
@@ -71,11 +50,9 @@ const AddHeadTable = () => {
                                     </tr>
                                 </thead>
                                 <tbody class="text-sm divide-y divide-gray-100">
-                                {addHeadList.map((res)=>{
-                                    return   <AddHeadList key={res.id} id={res.id} headName={res.headName} />
+                                {headList && headList.length>0 && headList.map((res)=>{
+                                    return   <AddHeadList key={res.id} id={res.id} headName={res.headName} setEditHead={setEditHead} setHeadId={setHeadId} />
                                 })}
-                                  
-
                                 </tbody>
                             </table>
                         </div>

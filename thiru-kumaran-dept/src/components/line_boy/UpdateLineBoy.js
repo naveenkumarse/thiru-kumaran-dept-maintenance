@@ -15,7 +15,7 @@ const UpdateLineBoy = () => {
     const handleLineBoyCreate = (e) =>{
         e.preventDefault();
         const body = {
-            "lineMemId":lineBoy.lineMemId,
+            "lineMemId":lineBoy.linMemId,
             "memberName":firstName,
             "phoneNo":phoneNo,
             "address":address,

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import logo from "../../assets/logo.png"
 
 function LineBoyNavbar() {
     let objectDate = new Date();
@@ -15,8 +16,8 @@ function LineBoyNavbar() {
 
                     <nav class="flex justify-between bg-gray-900 text-white w-screen">
                         <div class="px-5 xl:px-12 py-6 flex w-full items-center">
-                            <a class="text-3xl font-bold font-heading" href="#">
-                                {/* <!-- <img class="h-9" src="logo.png" alt="logo"> --> */}
+                            <a class="text-3xl font-bold font-heading flex" href="#">
+                                <img class="h-9" src={logo} alt="logo"></img> 
                                 Thiru-Kumaran-Finance
                             </a>
 

@@ -749,36 +749,10 @@ export const updateOrderNo = async (body) => {
 
 // thitam 
 
-export const createThitamFE = async (body, setThitam) => {
-    console.log(body);
-    // date
-    const res = await fetch(ENDPOINT_URL + "/thitam/", {
-        method: "POST",
-        headers: { "content-Type": "application/json" },
-        body: JSON.stringify(body)
-    });
-    const jsonData = await res.json();
-    console.log(jsonData)
-    return setThitam(jsonData);
-}
-
-// export const getThitam= (body,setThitam)=>{
-//     console.log(body)
-//     //line_name,start_date,end_date
-//     fetch(ENDPOINT_URL + '/thitam',{
-//         method:"GET",
-//         body: JSON.stringify(body)
-//     })
-//     .then((response)=> response.json())
-//     .then((TotalCollectionData)=>setThitam(TotalCollectionData));
-// }
-
-// thitam/head 
-
-export const createHeadFE = async (body, setHead) => {
+export const createUpdateHead = async (body, setHead) => {
     console.log(body);
     // head_name
-    const res = await fetch(ENDPOINT_URL + "/thitam/head", {
+    const res = await fetch(ENDPOINT_URL + "/restservices/thittam/create/head", {
         method: "POST",
         headers: { "content-Type": "application/json" },
         body: JSON.stringify(body)
@@ -788,21 +762,18 @@ export const createHeadFE = async (body, setHead) => {
     return setHead(jsonData);
 }
 
-export const getHead = (body,setHead) => {
-    console.log(body)
-    //
-    fetch(ENDPOINT_URL + '/thitam/head', {
+export const getAllHeads= (setData) => {
+    fetch(ENDPOINT_URL + '/restservices/thittam/all/head', {
         method: "GET",
-
     })
         .then((response) => response.json())
-        .then((headData) => setHead(headData));
+        .then((userData) => setData(userData));
 }
 
 export const deleteHead = async (body) => {
     console.log(body);
     //head_name
-    const res = await fetch(ENDPOINT_URL + "/thitam/head", {
+    const res = await fetch(ENDPOINT_URL + "/restservices/thittam/delete/head", {
         method: "DELETE",
         headers: { "content-Type": "application/json" },
         body: JSON.stringify(body)
@@ -824,3 +795,112 @@ export const updateHead = async (body) => {
     return jsonData;
 }
 
+export const createHeadData = async (body, setHead) => {
+    console.log(body);
+    // head_name
+    const res = await fetch(ENDPOINT_URL + "/restservices/thittam/create/headData", {
+        method: "POST",
+        headers: { "content-Type": "application/json" },
+        body: JSON.stringify(body)
+    });
+    const jsonData = await res.json();
+    console.log(jsonData)
+    return setHead(jsonData);
+}
+
+export const getExtraHeadWrtDate = async (body, setHead) => {
+    console.log(body);
+    // head_name
+    const res = await fetch(ENDPOINT_URL + "/restservices/thittam/thittamData/extraHead", {
+        method: "POST",
+        headers: { "content-Type": "application/json" },
+        body: JSON.stringify(body)
+    });
+    const jsonData = await res.json();
+    console.log(jsonData)
+    return setHead(jsonData);
+}
+
+export const deleteParticularDataBelowTable = async (body) => {
+    console.log(body);
+    //head_name
+    const res = await fetch(ENDPOINT_URL + "/restservices/thittam/thittamData/extraHead", {
+        method: "DELETE",
+        headers: { "content-Type": "application/json" },
+        body: JSON.stringify(body)
+    });
+    // const jsonData = await res.json();
+    return res;
+}
+
+export const createBalance = async (body, setHead) => {
+    console.log(body);
+    // head_name
+    const res = await fetch(ENDPOINT_URL + "/restservices/thittam/create/balance", {
+        method: "POST",
+        headers: { "content-Type": "application/json" },
+        body: JSON.stringify(body)
+    });
+    const jsonData = await res.json();
+    console.log(jsonData)
+    return setHead(jsonData);
+}
+
+export const deleteAllExtraHead = async (body) => {
+    console.log(body);
+    //head_name
+    const res = await fetch(ENDPOINT_URL + "/restservices/thittam/delete/all", {
+        method: "DELETE",
+        headers: { "content-Type": "application/json" },
+        body: JSON.stringify(body)
+    });
+    // const jsonData = await res.json();
+    return res;
+}
+
+export const getAllThittam = async (body, setHead) => {
+    console.log(body);
+    // head_name
+    const res = await fetch(ENDPOINT_URL + "/restservices/thittam/thittamData/all", {
+        method: "POST",
+        headers: { "content-Type": "application/json" },
+        body: JSON.stringify(body)
+    });
+    const jsonData = await res.json();
+    console.log(jsonData)
+    return setHead(jsonData);
+}
+
+export const getOutstandingBalance = async (body, setList) =>{
+    await fetch(ENDPOINT_URL + '/restservices/thittam/outStanding/balance', {
+        method: "POST",
+        headers: { "content-Type": "application/json" },
+        body: JSON.stringify(body)
+    })
+        .then((response) => response.json())
+        .then((collectionData) => setList(collectionData));
+}
+
+
+export const getAllAccount = async (body, setHead) => {
+    console.log(body);
+    // head_name
+    const res = await fetch(ENDPOINT_URL + "/restservices/thittam/account", {
+        method: "POST",
+        headers: { "content-Type": "application/json" },
+        body: JSON.stringify(body)
+    });
+    const jsonData = await res.json();
+    console.log(jsonData)
+    return setHead(jsonData);
+}
+
+export const getIndividualHead = async (body, setList) =>{
+    await fetch(ENDPOINT_URL + '/restservices/thittam/individualhead', {
+        method: "POST",
+        headers: { "content-Type": "application/json" },
+        body: JSON.stringify(body)
+    })
+        .then((response) => response.json())
+        .then((collectionData) => setList(collectionData));
+}

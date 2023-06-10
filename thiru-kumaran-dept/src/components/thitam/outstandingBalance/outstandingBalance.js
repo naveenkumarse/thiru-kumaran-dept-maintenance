@@ -1,10 +1,36 @@
 import React, { useState } from "react";
 import OutstandingBalanceTable from "./outstandingBalanceTable";
+import { getOutstandingBalance } from "../../../api";
 
 
 const OutstandingBalance = () => {
     const [todaydate, setTodayDate] = useState(new Date());
-
+    const [outstandingBalance, setoutstandingBalance] = useState([
+        // {
+        //     "id": 3,
+        //     "date": "2023-06-05",
+        //     "lineName": "Line 1",
+        //     "firstCount": 2,
+        //     "firstBalance": 10000,
+        //     "secondCount": 2,
+        //     "secondBalance": 10000,
+        //     "thirdCount": 2,
+        //     "thirdBalance": 10000,
+        //     "fourthCount": 4,
+        //     "fourthBalance": 20000
+        // }
+    ]);
+    const handleSubmit = (e) =>{
+        e.preventDefault();
+        const body = {
+                "date":todaydate,
+            }
+        try {
+            getOutstandingBalance(body,setoutstandingBalance )
+        } catch (error) {
+            console.log("error in fetching monthly bill")
+        }
+    }
     return (
         <>
             <div class="grid min-h-screen place-items-center bg-red-400">
@@ -12,7 +38,7 @@ const OutstandingBalance = () => {
                     <div className="flex justify-between">
                         <h1 class="text-xl font-bold ">Outstanding Balance <span class="font-normal"></span> </h1>
                     </div>
-                    <form class="mt-6">
+                    <form class="mt-6" onSubmit={(e)=> handleSubmit(e)}>
                         <div className="flex justify-between">
                             <label for="id" class="block mt-2 text-xs font-semibold text-gray-600 uppercase">Enter date</label>
                         </div>
@@ -34,7 +60,7 @@ const OutstandingBalance = () => {
 
 
                     <div className="pt-12">
-                        <OutstandingBalanceTable />
+                        <OutstandingBalanceTable outstandingBalance={outstandingBalance} />
                     </div>
 
                 </div>

@@ -34,12 +34,12 @@ const LineBoyHome = () => {
                                 </thead>
                                 <tbody>
                                     <tr class="bg-white border-b">
-                                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">1</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Ln01</td>
                                         <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                                            Mark
+                                            Line A
                                         </td>
                                         <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                                            Otto
+                                            08-06-2023
                                         </td>
                                         <td class="text-sm text-gray-900 font-light  py-4 whitespace-nowrap">
                                             <button class="group relative h-8 w-24 overflow-hidden rounded-lg bg-white text-lg shadow" onClick={() => onLogin()}>

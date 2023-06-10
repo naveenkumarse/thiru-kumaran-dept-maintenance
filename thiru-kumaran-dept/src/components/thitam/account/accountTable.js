@@ -1,117 +1,11 @@
 import React, { useState } from "react";
 import AccountList from "./accountList";
 
-
-
-
-const AccountTable = () => {
-    const [accountlist,setAccountList] = useState(
-        [
-            {
-                "id": 23,
-                "name": "Line 1 BILL",
-                "description": null,
-                "debit": 0,
-                "credit": 6000,
-                "date": "2023-06-05",
-                "extraHead": false,
-                "balance": 0
-            },
-            {
-                "id": 24,
-                "name": "Line 1 LOAN",
-                "description": null,
-                "debit": 5000,
-                "credit": 0,
-                "date": "2023-06-05",
-                "extraHead": false,
-                "balance": 0
-            },
-            {
-                "id": 25,
-                "name": "Line 1 COMMISSION",
-                "description": null,
-                "debit": 0,
-                "credit": 500,
-                "date": "2023-06-05",
-                "extraHead": false,
-                "balance": 0
-            },
-            {
-                "id": 26,
-                "name": "Line 1 SEETU",
-                "description": null,
-                "debit": 0,
-                "credit": 20,
-                "date": "2023-06-05",
-                "extraHead": false,
-                "balance": 0
-            },
-            {
-                "id": 27,
-                "name": "Line 1EXCESS",
-                "description": null,
-                "debit": 0,
-                "credit": 0,
-                "date": "2023-06-05",
-                "extraHead": false,
-                "balance": 0
-            },
-            {
-                "id": 28,
-                "name": "Line 1 BILL",
-                "description": null,
-                "debit": 0,
-                "credit": 5000,
-                "date": "2023-06-06",
-                "extraHead": false,
-                "balance": 0
-            },
-            {
-                "id": 29,
-                "name": "Line 1 LOAN",
-                "description": null,
-                "debit": 5000,
-                "credit": 0,
-                "date": "2023-06-06",
-                "extraHead": false,
-                "balance": 0
-            },
-            {
-                "id": 30,
-                "name": "Line 1 COMMISSION",
-                "description": null,
-                "debit": 0,
-                "credit": 500,
-                "date": "2023-06-06",
-                "extraHead": false,
-                "balance": 0
-            },
-            {
-                "id": 31,
-                "name": "Line 1 SEETU",
-                "description": null,
-                "debit": 0,
-                "credit": 20,
-                "date": "2023-06-06",
-                "extraHead": false,
-                "balance": 0
-            },
-            {
-                "id": 32,
-                "name": "Line 1EXCESS",
-                "description": null,
-                "debit": 0,
-                "credit": 0,
-                "date": "2023-06-06",
-                "extraHead": false,
-                "balance": 0
-            }
-        ]
-        
-    )
+const AccountTable = ({accountlist}) => {
+    const [total, newTotal] = useState(0);
+  
     // use reduce function to calculate the total amount 
-    const totalAmount = 4000;
+
     return (
         <>
             <section class="antialiased bg-gray-100 text-gray-600 px-4 bg-red-400 my-20">
@@ -121,7 +15,7 @@ const AccountTable = () => {
                         <div className="flex inline lg:justify-between">
                             <header class="px-5 py-4 border-b border-gray-100 ">
                                 <h2 class="font-bold text-gray-800">Account</h2> <br/>
-                                <h2 class="font-bold text-gray-800">Total Amount : {totalAmount} </h2>
+                                <h2 class="font-bold text-gray-800">Total Amount : {total} </h2>
                             </header>
                             <div class='max-w-md mr-5'>
                                 <div class="relative flex items-center w-full h-12 rounded-lg focus-within:shadow-lg bg-white overflow-hidden border border-black-600">
@@ -166,7 +60,7 @@ const AccountTable = () => {
                                     </thead>
                                     <tbody class="text-sm divide-y divide-gray-100">
                                         
-                                           {accountlist.map((res)=>{
+                                           {accountlist && accountlist.length> 0 && accountlist.map((res)=>{
                                             return <AccountList key={res.id} res={res}/>
                                            })} 
                                         

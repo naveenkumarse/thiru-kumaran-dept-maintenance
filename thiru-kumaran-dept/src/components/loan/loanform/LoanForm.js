@@ -11,18 +11,9 @@ const LoanForm = () => {
     const [commissionAmount, setCommissionAmount] = useState(0);
     const [seetuAmount, setSeetuAmount] = useState(0);
     const [order_no, setOrder_no] = useState(0);
+    const [date, setDate] = useState(new Date());
     const pay_amount = loanAmount/100;
-    let objectDate = new Date();
-    let approxdate = new Date();
-    approxdate.setDate(objectDate.getDate()+100);
-    let aday = approxdate.getDate();
-    let amonth = approxdate.getMonth();
-    let ayear = approxdate.getFullYear();
-    let adate = `${ayear}-${amonth+1}-${aday}`;
-    let day = objectDate.getDate();
-    let month = objectDate.getMonth();
-    let year = objectDate.getFullYear();    
-    let date = `${year}-${month+1}-${day}`;
+
     console.log(date);
     const line_name=localStorage.getItem("line_name");
     const currentDate = localStorage.getItem('date');
@@ -40,6 +31,7 @@ const LoanForm = () => {
         "address":address,
         "phoneNo":phone_no,
         "orderNo":order_no,
+        "date":date,
         "currentDate":currentDate,
         "loanAmount":loanAmount,
         "seetuAmount":seetuAmount,
@@ -79,7 +71,12 @@ const LoanForm = () => {
                                 <input id="firstname" type="text" name="firstname" placeholder="John" autoComplete="given-name" class="block w-full p-3 mt-2 text-gray-700 bg-gray-200 appearance-none focus:outline-none focus:bg-gray-300 focus:shadow-inner" value={firstName} onChange={(e) => setFirstName(e.target.value)} required />
                             </span>
                         </div>
-
+                        <div class="flex justify-between gap-3 mt-2">
+                            <span class="w-full">
+                                <label for="date" class="block text-xs font-semibold text-gray-600 uppercase">Date</label>
+                                <input id="date" type="date" name="date" placeholder="" autoComplete="date" class="block w-full p-3 mt-2 text-gray-700 bg-gray-200 appearance-none focus:outline-none focus:bg-gray-300 focus:shadow-inner" value={date} onChange={(e) => setDate(e.target.value)} required />
+                            </span>
+                        </div>
                         <div class="flex justify-between gap-3 mt-2">
                             <span class="w-1/2">
                                 <label for="phoneno" class="block mt-2 text-xs font-semibold text-gray-600 uppercase ">Phone no</label>
