@@ -50,6 +50,8 @@ import UpdateLineBoy from './components/line_boy/UpdateLineBoy';
 import Thitam from './components/thitam/thitam/thitam';
 import DirectEntry from './components/collection/directEntry/directEntry';
 import ProtectedRoutes from './components/protectedRoutes/protectedRoutes';
+import DirectEntryLB from './components/lineboypages/directEntry/directEntryLB';
+import TodayListLB from './components/lineboypages/todayList/todayListLB';
 function App() {
   return (
 
@@ -399,13 +401,13 @@ function App() {
           <Route path="/todaylist" element={
             <div>
               <LineBoyNavbar />
-              <TodayList />
+              <TodayListLB />
             </div>
           } />
           <Route path="/directentry" element={
             <div>
               <LineBoyNavbar />
-              <DirectEntry />
+              <DirectEntryLB />
             </div>
           } />
         </Routes>
