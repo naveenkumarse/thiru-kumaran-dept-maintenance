@@ -34,15 +34,15 @@ const ListRowLB = ({ todayEntry, total }) => {
                     <div class="text-left font-medium">{todayEntry.billAmount}</div>
                 </td>
                 <td class="p-2 whitespace-nowrap">
-                    <div class="text-left font-medium">{todayEntry.excess}</div>
+                    <div class="font-medium text-center">{total}</div>
                 </td>
             </tr>
             <tr>
-                <td class="p-2 whitespace-nowrap">
-                    <div class="font-medium text-center">{total}</div>
+            <td class="p-2 whitespace-nowrap">
+                    <div class="text-left font-medium">{todayEntry.excess}</div>
                 </td>
                 <td class="p-2 whitespace">
-                    <div class="text-lg text-center"><input type="number" className="border border-slate-300 rounded-md px-4" min={0} value={amount} onChange={(e) => setAmount(e.target.value)} w-2 /></div>
+                    <div class="text-lg text-center"><input type="number" className="border border-slate-300 rounded-md px-4 w-full text-md" min={0} value={amount} onChange={(e) => setAmount(e.target.value)} w-2 /></div>
                 </td>
                 <td class="p-2 whitespace">
                     <div class="text-lg text-left">     <button class="inline-flex items-center px-4 py-2 bg-gray-200 hover:bg-green-300 text-gray-800 text-sm font-medium rounded-md" onClick={(e) => handleEnter(e)} >

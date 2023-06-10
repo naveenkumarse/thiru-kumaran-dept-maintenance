@@ -71,31 +71,31 @@ const DirectEntryTableLB = () => {
                         <div class="p-3">
                             <div class="overflow-x-auto">
                                 <table class="table-auto w-full">
-                                    {/* <thead class="text-xs font-semibold uppercase text-black-400 bg-gray-50">
+                                    <thead class="text-xs font-semibold uppercase text-black-400 bg-gray-50">
                                         <tr>
                                             <th class="p-2 whitespace-nowrap">
                                                 <div class="font-bold text-left">Loan No.</div>
                                             </th>
                                             <th class="p-2 whitespace-nowrap">
-                                                <div class="font-bold text-left">Name</div>
+                                                <div class="font-bold text-left">Name-Address</div>
                                             </th>
-                                            <th class="p-2 whitespace-nowrap">
-                                                <div class="font-bold text-left">Address</div>
-                                            </th>
+                                            {/* <th class="p-2 whitespace-nowrap">
+                                                <div class="font-bold text-left"></div>
+                                            </th> */}
                                             <th class="p-2 whitespace-nowrap">
                                                 <div class="font-bold text-center">Bal</div>
                                             </th>
-                                            <th class="p-2 whitespace-nowrap">
+                                            {/* <th class="p-2 whitespace-nowrap">
                                                 <div class="font-bold text-center">Pay Amount</div>
-                                            </th>
-                                            <th class="p-2 whitespace-nowrap">
+                                            </th> */}
+                                            {/* <th class="p-2 whitespace-nowrap">
                                                 <div class="font-bold text-center"> Amount</div>
                                             </th>
                                             <th class="p-2 whitespace-nowrap">
                                                 <div class="font-bold text-center"> Enter </div>
-                                            </th>
+                                            </th> */}
                                         </tr>
-                                    </thead> */}
+                                    </thead>
                                     <tbody class="text-sm divide-y divide-gray-100">
                                       {directentries.map((directentry, i)=><DirectEntryListLB key={i} directentry={directentry}/>)}  
                                     </tbody>

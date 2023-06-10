@@ -23,11 +23,11 @@ const DirectEntryListLB = ({ directentry }) => {
                     </div>
                 </td>
                 <td class="p-2 whitespace-nowrap">
-                    <div class="text-left">{directentry.name}</div>
+                    <div class="text-left">{directentry.name}-{directentry.address}</div>
                 </td>
-                <td class="p-2 whitespace-nowrap">
+                {/* <td class="p-2 whitespace-nowrap">
                     <div class="text-left font-medium">{directentry.address}</div>
-                </td>
+                </td> */}
                 <td class="p-2 whitespace-nowrap">
                     <div class="text-lg text-center">{directentry.balance}</div>
                 </td>
@@ -37,7 +37,7 @@ const DirectEntryListLB = ({ directentry }) => {
                     <div class="text-lg text-center">{directentry.payAmount}</div>
                 </td>
                 <td class="p-2 whitespace-nowrap">
-                    <div class="text-lg text-center"><input type="number" className="border border-slate-300 rounded-md px-4" min={0} value={amount} onChange={(e) => setAmount(e.target.value)} /></div>
+                    <div class="text-lg text-center"><input type="number" className="border border-slate-300 rounded-md px-4 w-full text-md" min={0} value={amount} onChange={(e) => setAmount(e.target.value)} /></div>
                 </td>
                 <td class="p-2 whitespace-nowrap">
                     <div class="text-lg text-center">     <button class="inline-flex items-center px-4 py-2 bg-gray-200 hover:bg-green-300 text-gray-800 text-sm font-medium rounded-md" onClick={(e) => handleEnter(e)}>

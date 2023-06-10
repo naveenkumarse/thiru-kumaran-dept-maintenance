@@ -102,7 +102,7 @@ const TodayListTableLB = () => {
                         <div class="p-3">
                             <div class="overflow-x-auto">
                                 <table class="table-auto w-full">
-                                    {/* <thead class="text-xs font-semibold uppercase text-black-400 bg-gray-50">
+                                    <thead class="text-xs font-semibold uppercase text-black-400 bg-gray-50">
                                         <tr>
                                             <th class="p-2 whitespace-nowrap">
                                                 <div class="font-bold text-left">Loan No.</div>
@@ -114,19 +114,16 @@ const TodayListTableLB = () => {
                                                 <div class="font-bold text-left">Amount paid</div>
                                             </th>
                                             <th class="p-2 whitespace-nowrap">
-                                                <div class="font-bold text-left">Excess</div>
+                                                <div class="font-bold text-left">Total</div>
                                             </th>
-                                            <th class="p-2 whitespace-nowrap">
-                                                <div class="font-bold text-center">Total</div>
-                                            </th>
-                                            <th class="p-2  whitespace-nowrap">
+                                            {/* <th class="p-2  whitespace-nowrap">
                                                 <div class="font-bold text-center ml-7">New Amount</div>
                                             </th>
                                             <th class="p-2 whitespace-nowrap">
                                                 <div class="font-bold text-left ml-7">Update</div>
-                                            </th>
+                                            </th> */}
                                         </tr>
-                                    </thead> */}
+                                    </thead>
                                     <tbody class="text-sm divide-y divide-gray-100">
                                             {todayEntries.length>0 && todayEntries.map((todayEntry, i)=> <ListRowLB key={i} todayEntry={todayEntry} total={total[i]}/>)}
                                     </tbody>
