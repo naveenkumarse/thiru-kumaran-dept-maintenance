@@ -1,11 +1,6 @@
 import React, { useEffect, useState } from "react";
 import DetailsList from "./detailsList";
 
-
-
-
-
-
 const DetailsTable = () => {
    
     const [details, setDetails] = useState([{
