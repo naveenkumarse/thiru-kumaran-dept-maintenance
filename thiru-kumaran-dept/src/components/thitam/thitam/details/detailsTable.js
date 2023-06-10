@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import DetailsList from "./detailsList";
 
 
@@ -7,6 +7,7 @@ import DetailsList from "./detailsList";
 
 
 const DetailsTable = () => {
+   
     const [details, setDetails] = useState([{
         "openingBalance": 2000,
         "date": "2023-05-30",
@@ -101,6 +102,9 @@ const DetailsTable = () => {
     const deleteCall = ()=>{
 
     }
+    useEffect(()=>{
+        console.log(details[0].thittamList[0].name)
+    },[])
 
     return (
         <>
@@ -178,8 +182,8 @@ const DetailsTable = () => {
                                 </thead>
                                 <tbody class="text-sm divide-y divide-gray-100">
 
-                                    {details.map((res) => {
-                                        return <DetailsList res={res} />
+                                    {details.map((res,i) => {
+                                        return <DetailsList i={i} res={res} />
                                     })}
                                     <tr>
                                         <td></td>
