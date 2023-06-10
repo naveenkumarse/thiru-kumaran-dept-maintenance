@@ -1,7 +1,18 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Link} from "react-router-dom";
+import { getOpeningBalanceBool } from "../../api";
 
 const ThitamNav = () => {
+    const [openingbalance, setOpeningBalance] = useState(false);
+
+    useEffect(()=>{
+        try {
+            getOpeningBalanceBool(setOpeningBalance);
+            console.log(openingbalance);
+        } catch (error) {
+            console.log(error);
+        }
+    }, [])
     return (
         <>
             <div className="">
@@ -10,6 +21,11 @@ const ThitamNav = () => {
                         <button class="inline-flex items-center px-4 py-2 bg-gray-200 hover:bg-green-300 text-gray-800 text-sm font-medium rounded-md">
                             Thitam
                         </button></Link>
+                {openingbalance && 
+                    <Link to="/openingbalance">
+                        <button class="inline-flex items-center px-4 py-2 bg-gray-200 hover:bg-green-300 text-gray-800 text-sm font-medium rounded-md">
+                            Opening Balance
+                        </button></Link> }
                     <Link to="/account">
                         <button class="inline-flex items-center px-4 py-2 bg-gray-200 hover:bg-green-300 text-gray-800 text-sm font-medium rounded-md" >
                             Account

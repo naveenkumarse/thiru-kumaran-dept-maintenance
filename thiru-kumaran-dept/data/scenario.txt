@@ -6,6 +6,8 @@
 6) authentication (both admin and lineboy)
 
 Indira:
-1) Thittam main page UI, API
-2) validate inputs in line boy and loan
-3) date in loan update?
+1) Thittam API
+2) login API
+3) admin Page UI, API
+4) validate inputs in line boy and loan
+5) changes by Siva, randomly left small things

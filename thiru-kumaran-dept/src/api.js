@@ -795,7 +795,7 @@ export const updateHead = async (body) => {
     return jsonData;
 }
 
-export const createHeadData = async (body, setHead) => {
+export const createHeadData = async (body) => {
     console.log(body);
     // head_name
     const res = await fetch(ENDPOINT_URL + "/restservices/thittam/create/headData", {
@@ -805,7 +805,6 @@ export const createHeadData = async (body, setHead) => {
     });
     const jsonData = await res.json();
     console.log(jsonData)
-    return setHead(jsonData);
 }
 
 export const getExtraHeadWrtDate = async (body, setHead) => {
@@ -903,4 +902,12 @@ export const getIndividualHead = async (body, setList) =>{
     })
         .then((response) => response.json())
         .then((collectionData) => setList(collectionData));
+}
+
+export const getOpeningBalanceBool  = async (setBool) => {
+    await fetch(ENDPOINT_URL + '/restservices/thittam/openingbalance', {
+        method: "GET",
+    })
+        .then((response) => response.json())
+        .then((userData) => setBool(userData["message"]));
 }

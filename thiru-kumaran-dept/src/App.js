@@ -52,11 +52,9 @@ import DirectEntry from './components/collection/directEntry/directEntry';
 import ProtectedRoutes from './components/protectedRoutes/protectedRoutes';
 import DirectEntryLB from './components/lineboypages/directEntry/directEntryLB';
 import TodayListLB from './components/lineboypages/todayList/todayListLB';
+import OpeningBalance from './components/thitam/openingBalance/OpeningBalance';
 function App() {
   return (
-
-
-
     <div className="App">
       <HashRouter>
         <Routes>
@@ -342,6 +340,13 @@ function App() {
               <IndividualView />
             </div>
           } />
+          <Route path="/openingbalance" element={
+            <div>
+              <Navbar />
+              <ThitamNav />
+              <OpeningBalance />
+            </div>
+          } />         
           <Route path="/thitam" element={
             <div>
               <Navbar />
