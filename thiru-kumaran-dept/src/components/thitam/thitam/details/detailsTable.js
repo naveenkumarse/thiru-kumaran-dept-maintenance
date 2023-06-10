@@ -8,8 +8,6 @@ import DetailsList from "./detailsList";
 
 const DetailsTable = () => {
     const [details, setDetails] = useState([{
-
-
         "openingBalance": 2000,
         "date": "2023-05-30",
         "thittamList": [
@@ -100,7 +98,10 @@ const DetailsTable = () => {
     }
 
     ])
-    
+    const deleteCall = ()=>{
+
+    }
+
     return (
         <>
 
@@ -135,6 +136,12 @@ const DetailsTable = () => {
                                     <tr>
                                         <th class="p-2 whitespace-nowrap">
                                             <div class="font-bold text-lg text-left">Previous Date</div>
+                                        </th>
+                                        <th class="p-2 whitespace-nowrap">
+                                            <button class="group relative h-8 w-24 overflow-hidden rounded-lg bg-white text-lg shadow" onClick={() => deleteCall()}>
+                                                <div class="absolute inset-0 w-3 bg-green-500 transition-all duration-[250ms] ease-out group-hover:w-full"></div>
+                                                <span class="relative text-black group-hover:text-white">Delete</span>
+                                            </button>
                                         </th>
                                         <th class="p-2 whitespace-nowrap">
                                             <div class="font-bold text-lg  text-left">Head Name</div>
@@ -172,7 +179,7 @@ const DetailsTable = () => {
                                 <tbody class="text-sm divide-y divide-gray-100">
 
                                     {details.map((res) => {
-                                        return <DetailsList  res={res} />
+                                        return <DetailsList res={res} />
                                     })}
                                     <tr>
                                         <td></td>
@@ -189,14 +196,14 @@ const DetailsTable = () => {
                     </div>
                 </div>
                 <div className="inline-flex ">
-                <button type="submit" class="w-1/6 py-3 mt-6 font-medium tracking-widest text-white uppercase bg-black shadow-lg focus:outline-none hover:bg-gray-900 hover:shadow-none ">
-                    Save
-                </button>
-                <button type="submit" class="mx-20 w-1/6 py-3 mt-6 font-medium tracking-widest text-white uppercase bg-black shadow-lg focus:outline-none hover:bg-gray-900 hover:shadow-none ">
-                    Cancel
-                </button>
+                    <button type="submit" class="w-1/6 py-3 mt-6 font-medium tracking-widest text-white uppercase bg-black shadow-lg focus:outline-none hover:bg-gray-900 hover:shadow-none ">
+                        Save
+                    </button>
+                    <button type="submit" class="mx-20 w-1/6 py-3 mt-6 font-medium tracking-widest text-white uppercase bg-black shadow-lg focus:outline-none hover:bg-gray-900 hover:shadow-none ">
+                        Cancel
+                    </button>
                 </div>
-            
+
 
 
             </div>

@@ -16,7 +16,6 @@ const DirectEntryListLB = ({ directentry }) => {
     }
     return (
         <>
-
             <tr>
                 <td class="p-2 whitespace-nowrap">
                     <div class="flex items-center">

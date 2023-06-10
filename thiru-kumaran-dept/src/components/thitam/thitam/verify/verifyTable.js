@@ -44,10 +44,10 @@ const VerifyTable = () => {
     return (
         <>
 
-            <div class="flex flex-col justify-center h-full">
+            <div class="h-full">
                 <div class="w-full pt-5 mx-auto bg-white shadow-lg rounded-sm border border-gray-200 ">
 
-                    <div className="flex inline lg:justify-between">
+                    <div className="">
                         <header class="px-5 py-4 border-b border-gray-100 ">
                             <h2 class="font-bold text-gray-800">Balance Sheet</h2>
                         </header>
@@ -70,7 +70,7 @@ const VerifyTable = () => {
 
                     <div class="p-3">
                         <div class="overflow-x-auto">
-                            <table class="table-auto w-full">
+                            <table class="table w-full">
                                 <thead class="text-xs font-semibold uppercase text-black-400 bg-gray-50">
                                     <tr>
                                         <th class="p-2 whitespace-nowrap">
@@ -83,7 +83,6 @@ const VerifyTable = () => {
                                     </tr>
                                 </thead>
                                 <tbody class="text-sm divide-y divide-gray-100">
-                                    
                                       {balanceList.map((res)=>{
                                         return  <VerifyList key={res.id} res={res}/>
                                       })} 

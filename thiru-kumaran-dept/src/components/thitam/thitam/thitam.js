@@ -1,9 +1,7 @@
 import React, { useState } from "react";
-
 import ThitamTable from "./thitamTable";
 import Verify from "./verify/verify";
 import Details from "./details/details";
-
 
 const Thitam = () => {
 
@@ -18,10 +16,14 @@ const Thitam = () => {
                             <h1 class="text-xl font-bold ">Edit Head <span class="font-normal"></span> </h1>
                             <h1 class="text-xl font-bold ">Edit Head <span class="font-normal"></span> </h1> */}
                         </div>
-                        <div className="content-evenly inline-flex">
-                            <form class="mt-6 flex-wrap justify-between">
+                        <div className=" grid-cols-2">
+                            <div className="float-right px-48">
+                                <Verify />
+                            </div>
+
+                            <form class="mt-6">
                                 <h4 class=" font-bold ">Date <span class="font-normal"></span> </h4>
-                                <div className=" flex inline ">
+                                <div className=" ">
                                     <div class="p-2 bg-white border shadow rounded w-96">
                                         <div class="flex justify-between items-center">
                                             <input type="text" class="w-full bg-gray-100 rounded p-2 mr-4 border focus:outline-none focus:border-black" onChange={(e) => setAddHead(e.target.value)} placeholder="Enter head name" value={addHead} />
@@ -79,25 +81,21 @@ const Thitam = () => {
 
                                 </div>
                             </form>
-                            <div className="float-right">
-                                <Verify />
-                            </div>
                         </div>
-
                         <br />
                         <br />
                         <Details />
-                        <br/>
+                        <br />
                         <div className="pt-5">
                             <ThitamTable />
                         </div>
- 
-                        
+
+
 
                     </div>
-                   
+
                 </div>
-             
+
             </div>
         </>
     )
