@@ -16,6 +16,10 @@ const DetailsTable = () => {
 
     //useEffect for calculating balances
     useEffect(()=>{
+    balanceComputation(list)
+    }, [list])
+
+    const balanceComputation = async () =>{
         if (list && list.length>0){
             const balance = data.openingBalance;
             const newBalanceList = [];
@@ -24,7 +28,7 @@ const DetailsTable = () => {
                     newBalanceList.push(balance - list[i].debit + list[i].credit);
                 }
                 else{
-                    newBalanceList.push(balance - list[i].debit + list[i].credit);
+                    newBalanceList.push(newBalanceList[i-1] - list[i].debit + list[i].credit);
                 }
 
             }
@@ -38,10 +42,8 @@ const DetailsTable = () => {
               }, 0);
             setCredit(sumOfCredit)
             setDebit(sumOfDebit)
-            const finalBalance = data.openingBalance + credit - debit;
-            setBalance(finalBalance)
         }
-    }, [list])
+    }
     useEffect(()=>{
         const fetchData = async () => {
             try {
@@ -199,7 +201,7 @@ const DetailsTable = () => {
                                             <div class="font-bold text-left">{credit} </div>
                                         </th>
                                         <th class="p-2 whitespace-nowrap">
-                                            <div class="font-bold text-left">{balance} </div>
+                                            <div class="font-bold text-left">{balanceList[balanceList.length -1]} </div>
                                         </th>
                                     </tr>
                                 </tbody>
