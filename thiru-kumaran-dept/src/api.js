@@ -910,3 +910,66 @@ export const getOpeningBalanceBool  = async (setBool) => {
         .then((response) => response.json())
         .then((userData) => setBool(userData["message"]));
 }
+
+// Admin CRUD
+
+
+export const createAdmin = async (body) => {
+    console.log(body);
+    const res = await fetch(ENDPOINT_URL + "/restservices/admin/create", {
+        method: "POST",
+        headers: { "content-Type": "application/json" },
+        body: JSON.stringify(body)
+    });
+    const jsonData = await res.json();
+    console.log(jsonData)
+    return jsonData;
+}
+
+export const getParticularAdmin = async (body, setCollection) => {
+    // line_name,date
+    await fetch(ENDPOINT_URL + '/restservices/admin/particular/admin', {
+        method: "POST",
+        headers: { "content-Type": "application/json" },
+        body: JSON.stringify(body)
+    })
+        .then((response) => response.json())
+        .then((collectionData) => setCollection(collectionData));
+}
+
+export const getAllAdmin = async (setCollection) => {
+    // line_name,date
+    await fetch(ENDPOINT_URL + '/restservices/admin/all', {
+        method: "GET",
+        headers: { "content-Type": "application/json" },
+    })
+        .then((response) => response.json())
+        .then((collectionData) => setCollection(collectionData));
+}
+
+export const updateAdmin = async (body) => {
+    console.log(body);
+    //line_boy_no,member_name,address,phone_no,phone_number,password
+    const res = await fetch(ENDPOINT_URL + "/restservices/admin/update", {
+        method: "PUT",
+        headers: { "content-Type": "application/json" },
+        body: JSON.stringify(body)
+    });
+    const jsonData = await res.json();
+    console.log(jsonData)
+    return jsonData;
+}
+
+
+
+export const deleteAdmin = async (body) => {
+    console.log(body);
+
+    const res = await fetch(ENDPOINT_URL + "/restservices/admin/delete", {
+        method: "DELETE",
+        headers: { "content-Type": "application/json" },
+        body: JSON.stringify(body)
+    });
+    // const jsonData = await res.json();
+    return res;
+}
