@@ -1,15 +1,16 @@
 import React, { useEffect, useState } from "react";
 import TotalLedgerList from "./totalLedgerList";
-import {getTotalLedgerAll } from "../../../api";
+import {getTotalLedgerAll, getTotalLedgerBelow120 } from "../../../api";
 
-const TotalLedgerTable = () => {
+const TotalLedgerTable = ({value}) => {
     const [list, setList] = useState({});
     useEffect(()=>{
         const body = {
-            "lineId": localStorage.getItem('lineId')
+            "lineId": localStorage.getItem('lineId'),
+            "dateRange":value
         }
         try {
-            getTotalLedgerAll(body, setList)
+            getTotalLedgerBelow120(body, setList)
         } catch (error) {
             console.log("error in fetching ledger report data")
         }

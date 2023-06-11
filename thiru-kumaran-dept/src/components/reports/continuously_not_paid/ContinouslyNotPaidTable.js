@@ -1,47 +1,49 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import ContinouslyNotPaidList from "./continouslynotpaidlist";
 import { getContinouslyNotPaid } from "../../../api";
 
 const ContinuouslyNotPaidTable = () => {
     const [list, setList] = useState({});
-    useEffect(()=>{
+    const [number,  setNumber]= useState(5)
+    const handleSubmit = (e) =>{
+        e.preventDefault();
         const body = {
-            "lineId": localStorage.getItem('lineId')
+            "lineId":localStorage.getItem('lineId'),
+            "number":number
         }
         try {
             getContinouslyNotPaid(body, setList)
         } catch (error) {
-            console.log("error in fetching ledger report data")
+            console.log("error in fetching monthly bill")
         }
-    }, [])
+
+    }
     return (
         <>
             <section class="antialiased bg-gray-100 text-gray-600 px-4 bg-red-400 my-20">
                 <div class="flex flex-col justify-center h-full">
                     <div class="w-full pt-5 mx-auto bg-white shadow-lg rounded-sm border border-gray-200 ">
 
-                        <div className="flex inline lg:justify-between">
+                        <div className="flex lg:justify-between">
                             <header class="px-5 py-4 border-b border-gray-100 ">
                                 <h2 class="font-bold text-gray-800">Bill Continously Not Paid</h2>
                             </header>
-                            <div class='max-w-md mr-5'>
-                                <div class="relative flex items-center w-full h-12 rounded-lg focus-within:shadow-lg bg-white overflow-hidden border border-black-600">
-                                    <div class="grid place-items-center h-full w-12 text-gray-300">
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                                        </svg>
-                                    </div>
-
-                                    <input
-                                        class="peer h-full w-full outline-none text-sm text-gray-700 pr-10"
-                                        type="text"
-                                        id="search"
-                                        placeholder="Search" />
-                                </div>
+                            <div className="w-1/2 m-auto">
+                            <form class="mt-6 w-full" onSubmit={(e)=> handleSubmit(e)}>
+                                <label for="id" class="block mt-2 text-xs font-semibold text-gray-600 uppercase">Number of days:</label>
+                                <input id="id" type="number" min={1} max={5} name="id" placeholder="Enter the Number of days" autocomplete="id" class="block w-1/2 p-3 mt-2 text-gray-700 bg-gray-200 appearance-none focus:outline-none focus:bg-gray-300 focus:shadow-inner" value={number} onChange={(e) => setNumber(e.target.value)} required />
+                                <button type="submit" class="w-1/3 py-3 mt-6 font-medium tracking-widest text-white uppercase bg-black shadow-lg focus:outline-none hover:bg-gray-900 hover:shadow-none float-right">
+                                    Search
+                                </button>
+                                <button type="submit" class="w-1/3 mx-2 py-3 mt-6 font-medium tracking-widest text-white uppercase bg-black shadow-lg focus:outline-none hover:bg-gray-900 hover:shadow-none float-right">
+                                    Cancel
+                                </button>
+                            </form> <br></br><br></br> 
                             </div>
                         </div>
+ 
 
-                        <div class="p-3">
+                        <div class="p-3 pt-12">
                             <div class="overflow-x-auto">
                                 <table class="table-auto w-full">
                                     <thead class="text-xs font-semibold uppercase text-black-400 bg-gray-50">
