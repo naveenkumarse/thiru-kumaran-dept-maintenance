@@ -12,7 +12,6 @@ const UpdateLoan = () => {
     const [address, setAddress] = useState(loan.address);
     const [loanAmount, setLoanAmount] = useState(loan.loanAmount);
     const [interest, setInterest] = useState(10);
-    // const [userNumber, setUserNumber] = useState();
     const [commissionAmount, setCommissionAmount] = useState(loan.commissionAmount);
     const [seetuAmount, setSeetuAmount] = useState(loan.seetuAmount);
     const [order_no, setOrder_no] = useState(loan.orderNo);
@@ -27,7 +26,6 @@ const UpdateLoan = () => {
     }, [loanAmount, interest])
     const body = {
         "loanNo":loanNo,
-        // "userNo":user_no,
         "name":firstName,
         "address":address,
         "phoneNo":phone_no,

@@ -1,10 +1,33 @@
-import React from "react";
-import Button from "../button/home_button";
+import React, { useEffect, useState } from "react";
+import Button from "../button/linehome_button";
 import { useNavigate } from "react-router-dom";
+import { getLineFE } from "../../api";
 
 const LineBoyHome = () => {
     const navigate = useNavigate()
- 
+    const [lines,setLines] = useState([
+        // {
+        //     "date": "2023-05-10",
+        //     "lineId": "Ln03",
+        //     "lineName": "Line 3"
+        // },
+        // {
+        //     "date": null,
+        //     "lineId": "Ln01",
+        //     "lineName": "Line 1"
+        // }
+    ]);
+    useEffect(()=>{
+        const fetchData = async () => {
+            try {
+              await getLineFE(setLines); 
+            } catch (error) {
+              console.error("Error fetching line data:", error);
+            }
+          };
+      
+          fetchData();
+    },[])
     const onLogin = () =>{
        
         navigate(`/lineboypages`);
@@ -33,21 +56,24 @@ const LineBoyHome = () => {
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr class="bg-white border-b">
-                                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Ln01</td>
+                                {lines.map((line) => (
+                                        <tr class="bg-white border-b">
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">1</td>
                                         <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                                            Line A
+                                            {line.lineId}
                                         </td>
                                         <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                                            08-06-2023
+                                            {line.lineName}
+                                        </td>
+                                        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                                            {line.date}
                                         </td>
                                         <td class="text-sm text-gray-900 font-light  py-4 whitespace-nowrap">
-                                            <button class="group relative h-8 w-24 overflow-hidden rounded-lg bg-white text-lg shadow" onClick={() => onLogin()}>
-                                                <div class="absolute inset-0 w-3 bg-green-500 transition-all duration-[250ms] ease-out group-hover:w-full"></div>
-                                                <span class="relative text-black group-hover:text-white">Login</span>
-                                            </button>
+                                            <Button lineId={line.lineId} date={line.date} path='line' lineName={line.lineName}/>
                                         </td>
                                     </tr>
+                                    ))}
+                                   
                                 </tbody>
                             </table>
                         </div>

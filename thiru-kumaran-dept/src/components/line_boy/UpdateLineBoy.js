@@ -6,7 +6,6 @@ const UpdateLineBoy = () => {
     const navigate = useNavigate();
     const location = useLocation();
     const lineBoy= location.state?.lineboy;
-    // const [id,setId] = useState(lineBoy.lineMemId);
     const [firstName,setFirstName] = useState(lineBoy.memberName);
     const [address,setAddress] = useState(lineBoy.address);
     const [phoneNo,setPhoneNo] = useState(lineBoy.phoneNo);

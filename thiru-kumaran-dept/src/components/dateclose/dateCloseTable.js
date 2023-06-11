@@ -13,8 +13,7 @@ const DateCloseTable = () => {
     useEffect(()=>{
         const fetchData = async () => {
             try {
-              await getLastEntriesFE(body, setLastEntries); // Assuming getLineFE is an asynchronous 
-              console.log(lastEntries);
+              await getLastEntriesFE(body, setLastEntries); 
             } catch (error) {
               console.error("Error fetching line data:", error);
             }

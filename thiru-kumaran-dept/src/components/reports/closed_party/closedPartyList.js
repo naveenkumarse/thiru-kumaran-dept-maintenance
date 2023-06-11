@@ -8,7 +8,6 @@ const ClosedPartyList = ({closedParty}) => {
         e.preventDefault();
         navigate('/addLoan',  { state: { closedParty } })
     }
-    console.log(closedParty)
     return (
         <>
             <td class="p-2 whitespace-nowrap">

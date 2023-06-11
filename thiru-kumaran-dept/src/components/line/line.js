@@ -4,7 +4,6 @@ import calendar from '../../assets/line/calendar.png';
 import money from '../../assets/line/money.png';
 import report from '../../assets/line/report.png';
 import signing from '../../assets/line/signing.png';
-import cost from '../../assets/line/cost.png';
 
 import './line.css';
 

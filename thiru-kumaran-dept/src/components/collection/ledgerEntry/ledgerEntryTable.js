@@ -73,9 +73,6 @@ const LedgerEntryTable = () => {
                             <header class="px-5 py-4 border-b border-gray-100 ">
                                 <h2 class="font-semibold text-gray-800">Ledger Entry</h2>
                             </header>
-                            <div class="px-5 py-4 border-b border-gray-100 ">
-                                <h2 class="font-semibold text-gray-800">Total amount : 7000</h2>
-                            </div>
                             <div class='max-w-md '>
                                 <div class="relative flex items-center w-full h-12 rounded-lg focus-within:shadow-lg bg-white overflow-hidden border border-black-600">
                                     <div class="grid place-items-center h-full w-12 text-gray-300">

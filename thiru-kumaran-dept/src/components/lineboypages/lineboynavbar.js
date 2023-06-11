@@ -1,13 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import logo from "../../assets/logo.png"
 
 function LineBoyNavbar() {
-    let objectDate = new Date();
-    let day = objectDate.getDate();
-    let month = objectDate.getMonth();
-    let year = objectDate.getFullYear();
-    let date = `${year}-${month + 1}-${day}`;
+    let date = localStorage.getItem('date')
     let line_name = localStorage.getItem("line_name")
     return (
         <>
@@ -23,9 +19,6 @@ function LineBoyNavbar() {
 
                             <ul class="hidden md:flex px-4 mx-auto font-semibold font-heading space-x-12">
                                 <Link to='/lineboyhome'>  <li><a class="hover:text-gray-200" href="#">Home</a></li> </Link>
-                                {/* <Link to='/lineboy'>  <li><a class="hover:text-gray-200" href="#">Line Boy</a></li> </Link> 
-                              <Link to='/linecreate'> <li><a class="hover:text-gray-200" href="#">Line create</a></li></Link> 
-                              <Link to='/thitam'> <li>Thitam</li></Link>  */}
                                 <p>Date : {date}</p>
                                 <p>Line name : {line_name} </p>
                             </ul>

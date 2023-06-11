@@ -1,6 +1,4 @@
 import React, {useEffect, useState} from "react";
-// import LineCreateForm from "./lineCreateform/lineCreateForm";
-// import LineCreateTable from "./lineCreateTable/lineCreateTable";
 import { getAllLineFE, createLineFE, updateLineFE } from "../../api";
 import ListCreateItems from "./lineCreateTable/listCreateItems";
 
@@ -15,7 +13,7 @@ const LineCreate = () =>{
     useEffect(()=>{
         const fetchData = async () => {
             try {
-              await getAllLineFE(setLines); // Assuming getLineFE is an asynchronous function 
+              await getAllLineFE(setLines); 
             } catch (error) {
               console.error("Error fetching line data:", error);
             }

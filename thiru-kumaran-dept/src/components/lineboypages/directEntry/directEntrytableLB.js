@@ -32,7 +32,7 @@ const DirectEntryTableLB = () => {
                 const body = {
                     "lineId":localStorage.getItem('lineId')
                 };
-              await getActiveLoansDirectEntry(body, setDirectentries); // Assuming getLineFE is an asynchronous function 
+              await getActiveLoansDirectEntry(body, setDirectentries); 
             } catch (error) {
               console.error("Error fetching Bill Entry data:", error);
             }
@@ -49,9 +49,6 @@ const DirectEntryTableLB = () => {
                             <header class="px-5 py-4 border-b border-gray-100 ">
                                 <h2 class="font-semibold text-gray-800">Direct Entry List</h2>
                             </header>
-                            <div class="px-5 py-4 border-b border-gray-100 ">
-                                <h2 class="font-semibold text-gray-800">Total amount : 7000</h2>
-                            </div>
                             <div class='max-w-md '>
                                 <div class="relative flex items-center w-full h-12 rounded-lg focus-within:shadow-lg bg-white overflow-hidden border border-black-600">
                                     <div class="grid place-items-center h-full w-12 text-gray-300">
@@ -79,21 +76,9 @@ const DirectEntryTableLB = () => {
                                             <th class="p-2 whitespace-nowrap">
                                                 <div class="font-bold text-left">Name-Address</div>
                                             </th>
-                                            {/* <th class="p-2 whitespace-nowrap">
-                                                <div class="font-bold text-left"></div>
-                                            </th> */}
                                             <th class="p-2 whitespace-nowrap">
                                                 <div class="font-bold text-center">Bal</div>
                                             </th>
-                                            {/* <th class="p-2 whitespace-nowrap">
-                                                <div class="font-bold text-center">Pay Amount</div>
-                                            </th> */}
-                                            {/* <th class="p-2 whitespace-nowrap">
-                                                <div class="font-bold text-center"> Amount</div>
-                                            </th>
-                                            <th class="p-2 whitespace-nowrap">
-                                                <div class="font-bold text-center"> Enter </div>
-                                            </th> */}
                                         </tr>
                                     </thead>
                                     <tbody class="text-sm divide-y divide-gray-100">

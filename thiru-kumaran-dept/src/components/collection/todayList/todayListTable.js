@@ -48,7 +48,7 @@ const TodayListTable = () => {
                     "lineId":localStorage.getItem('lineId'),
                     "date": localStorage.getItem('date')
                 };
-              await getBillEntry(body, setTodayEntries); // Assuming getLineFE is an asynchronous function 
+              await getBillEntry(body, setTodayEntries); 
             } catch (error) {
               console.error("Error fetching Bill Entry data:", error);
             }
@@ -78,9 +78,6 @@ const TodayListTable = () => {
                             <header class="px-5 py-4 border-b border-gray-100 ">
                                 <h2 class="font-semibold text-gray-800">Today List</h2>
                             </header>
-                            <div class="px-5 py-4 border-b border-gray-100 ">
-                                <h2 class="font-semibold text-gray-800">Total amount : 7000</h2>
-                            </div>
                             <div class='max-w-md '>
                                 <div class="relative flex items-center w-full h-12 rounded-lg focus-within:shadow-lg bg-white overflow-hidden border border-black-600">
                                     <div class="grid place-items-center h-full w-12 text-gray-300">

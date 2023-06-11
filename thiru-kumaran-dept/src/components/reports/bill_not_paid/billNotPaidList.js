@@ -1,6 +1,4 @@
-import React, { useState } from "react";
-import BillNotPaid from "./billNotPaid";
-
+import React from "react";
 
 const BillNotPaidList = (loan) => {
     return (

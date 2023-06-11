@@ -1,9 +1,8 @@
-import React, {usestate} from "react";
+import React from "react";
 import { deleteLineMember } from "../../../api";
 import { useNavigate } from "react-router-dom";
 
 const LineBoyList = ({lineboy}) => {
-    console.log(lineboy)
     const handleLineBoyDelete = (e) =>{
         e.preventDefault();
         deleteLineMember({"lineMemId":lineboy.linMemId});

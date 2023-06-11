@@ -47,7 +47,7 @@ const BillEntryTable = () => {
                     "lineId":localStorage.getItem('lineId'),
                     "date": localStorage.getItem('date')
                 };
-              await getBillEntry(body, SetBillentries); // Assuming getLineFE is an asynchronous function 
+              await getBillEntry(body, SetBillentries); 
             } catch (error) {
               console.error("Error fetching Bill Entry data:", error);
             }

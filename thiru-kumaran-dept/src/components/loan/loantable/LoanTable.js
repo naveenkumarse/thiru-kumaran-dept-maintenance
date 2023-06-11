@@ -3,12 +3,7 @@ import ListLoan from "./loanList";
 import { getLoanByLineAllFE } from "../../../api";
 
 const LoanTable = () => {
-  // let objectDate = new Date();
-  // let day = objectDate.getDate();
-  // let month = objectDate.getMonth();
-  // let year = objectDate.getFullYear();
-  // let date = `${year}-${month + 1}-${day}`;
-  // let loan_closed_date = !null;
+
   let lineId = localStorage.getItem('lineId');
   let date = localStorage.getItem('date'); 
   const body = {
@@ -20,7 +15,6 @@ const LoanTable = () => {
     const fetchData = async () => {
         try {
           await getLoanByLineAllFE(body, setLoans); // Assuming getLineFE is an asynchronous 
-          console.log(loans);
         } catch (error) {
           console.error("Error fetching line data:", error);
         }
@@ -74,35 +68,6 @@ const handleSort = () =>{ console.log("hi")}
                     onClick={() => handleSort("loanNo")}>
                     <div className="flex items-center">
                     <div className="font-bold text-left">Loan No.</div>
-                    {/* <span className="ml-1">
-                            {(sortOrder === "asc" && sortColumn === "loanNo") ? (
-                                <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke-width="1.5"
-                        stroke="currentColor"
-                        class="h-8 w-8">
-                        <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        d="M15 11.25l-3-3m0 0l-3 3m3-3v7.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
-                            ) : (
-                                <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke-width="1.5"
-                        stroke="currentColor"
-                        class="h-8 w-8">
-                        <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        d="M9 12.75l3 3m0 0l3-3m-3 3v-7.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
-                            )}
-                        </span> */}
                     </div>
                     </th>
 

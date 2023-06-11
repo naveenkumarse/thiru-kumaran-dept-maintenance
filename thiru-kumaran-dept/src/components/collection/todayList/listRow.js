@@ -1,10 +1,7 @@
 import React, { useState } from "react";
 import { updateDailyCollection } from "../../../api";
-import { useNavigate } from 'react-router-dom';
 
 const ListRow = ({todayEntry, total}) => {
-    const navigate = useNavigate();
-    const pageId = 3;
     const [amount, setAmount] = useState(0);
     const handleEnter = (e) =>{
         e.preventDefault();

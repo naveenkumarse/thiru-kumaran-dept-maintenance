@@ -67,9 +67,6 @@ const OrderNumberTable = () => {
                                             <th class="p-2 whitespace-nowrap">
                                                 <div class="font-bold text-left ">Loan</div>
                                             </th>
-                                            {/* <th class="p-2 whitespace-nowrap">
-                                                <div class="font-bold text-left ">Balance</div>
-                                            </th> */}
                                             <th class="p-2 whitespace-nowrap">
                                                 <div class="font-bold text-left ">New Order No.</div>
                                             </th>

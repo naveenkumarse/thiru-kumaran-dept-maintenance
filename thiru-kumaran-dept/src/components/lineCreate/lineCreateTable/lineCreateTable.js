@@ -6,7 +6,7 @@ const LineCreateTable = () => {
     useEffect(()=>{
         const fetchData = async () => {
             try {
-              await getLineFE(setLines); // Assuming getLineFE is an asynchronous function that returns the line data
+              await getLineFE(setLines); 
             } catch (error) {
               console.error("Error fetching line data:", error);
             }

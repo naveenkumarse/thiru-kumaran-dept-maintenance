@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-// import DateCloseTable from "./monthlyBillTable";
 import PastDateBillTable from "./PastDateBillTable";
 import { getPastDateBill } from "../../../api";
 const PastDateBill = () => {
@@ -8,8 +7,7 @@ const PastDateBill = () => {
     const handleSubmit = (e) =>{
         e.preventDefault();
         const body ={
-            // "date":date,
-            "date":"07-06-2023",
+            "date":date,
             "lineId":localStorage.getItem('lineId')
         }
         try {
@@ -23,7 +21,7 @@ const PastDateBill = () => {
             <div class="grid min-h-screen place-items-center bg-red-400">
                 <div class="w-11/12 p-12 sm:w-8/12 md:w-1/2 lg:w-10/12 bg-white">
                     <div className="flex justify-between">
-                        <h1 class="text-xl font-bold ">Closing Date <span class="font-normal"></span> </h1>
+                        <h1 class="text-xl font-bold ">Past Date Bill Report <span class="font-normal"></span> </h1>
 
                     </div>
                     <form class="mt-6" onSubmit={(e)=> handleSubmit(e)}>

@@ -43,9 +43,6 @@ const OrderNumberList = ({loan}) => {
             <td class="p-2 whitespace-nowrap">
                 <div class="text-left font-medium">{loan.loanAmount}</div>
             </td>
-            {/* <td class="p-2 whitespace-nowrap">
-                <div class="text-left font-medium">{loan.balance}</div>
-            </td>         */}
             <td class="p-2 whitespace-nowrap">
                 <div class="text-lg text-center"><input type="number" className="border border-slate-300 rounded-md px-4" min={0} value={amount} onChange={(e) => setAmount(e.target.value)} /></div>
             </td>
