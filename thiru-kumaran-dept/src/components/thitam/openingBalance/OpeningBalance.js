@@ -6,21 +6,29 @@ const OpeningBalance = () => {
     const navigate = useNavigate();
     const [todaydate, setTodayDate] = useState(new Date());
     const [balance, setBalance] = useState(0);
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         const body = {
             "balance": balance,
             "name": "Opening Balance",
             "date":todaydate
         }
-        console.log(body)
         try {
-        createBalance(body)
+        await createBalance(body)
+
         } catch (error) {
             console.log("error in fetching head data", error)
         }
         navigate('/thitam')
     }
+    // const addOneDay = (dateString) => {
+    //     const date = new Date(dateString); // Create a Date object from the string
+    //     date.setDate(date.getDate() + 1); // Add one day to the date
+    //     const year = date.getFullYear();
+    //     const month = String(date.getMonth() + 1).padStart(2, '0');
+    //     const day = String(date.getDate()).padStart(2, '0');
+    //     return `${year}-${month}-${day}`; // Convert back to string format (YYYY-MM-DD)
+    //   };
     return (
         <>
             <div class="grid min-h-screen place-items-center bg-red-400">
@@ -30,7 +38,7 @@ const OpeningBalance = () => {
                     </div>
                     <form class="mt-6" onSubmit={(e)=>handleSubmit(e)}>
                         <div className="flex justify-between">
-                            <label for="id" class="block mt-2 text-xs font-semibold text-gray-600 uppercase">Start date</label>
+                            <label for="id" class="block mt-2 text-xs font-semibold text-gray-600 uppercase">Date</label>
                         </div>
 
                         <div className=" flex inline justify-between">

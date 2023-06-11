@@ -1,20 +1,52 @@
 import React, { useEffect, useState } from "react";
 import DetailsList from "./detailsList";
-import { getAllThittam } from "../../../../api";
+import { createBalance, deleteAllExtraHead, getAllThittam } from "../../../../api";
 
 const DetailsTable = () => {
     const [data, setData] = useState({})
     const [list, setList] = useState([])
+    const [balance, setBalance] = useState(0);
+    const [balanceList, setBalanceList] = useState([]);
+    const [credit, setCredit] = useState(0);
+    const [debit, setDebit] = useState(0);
+
     useEffect(()=>{
         setList(data["thittamList"])
     }, [data])
 
+    //useEffect for calculating balances
+    useEffect(()=>{
+        if (list && list.length>0){
+            const balance = data.openingBalance;
+            const newBalanceList = [];
+            for(let i = 0; i <list.length;i++){
+                if(i===0){
+                    newBalanceList.push(balance - list[i].debit + list[i].credit);
+                }
+                else{
+                    newBalanceList.push(balance - list[i].debit + list[i].credit);
+                }
+
+            }
+            setBalanceList(newBalanceList);
+
+            const sumOfCredit = list.reduce((accumulator, currentItem) => {
+                return accumulator + currentItem.credit;
+              }, 0);
+            const sumOfDebit = list.reduce((accumulator, currentItem) => {
+                return accumulator + currentItem.debit;
+              }, 0);
+            setCredit(sumOfCredit)
+            setDebit(sumOfDebit)
+            const finalBalance = data.openingBalance + credit - debit;
+            setBalance(finalBalance)
+        }
+    }, [list])
     useEffect(()=>{
         const fetchData = async () => {
             try {
                 const body = {
-                    "date":"2023-06-10"
-                    // "date": localStorage.getItem('date')
+                    "date": localStorage.getItem('thittamdate')
                 };
               await getAllThittam(body,setData); // Assuming getLineFE is an asynchronous function 
 
@@ -24,9 +56,33 @@ const DetailsTable = () => {
           };
           fetchData();
     },[])
-
+    const handleSubmit =(e) =>{
+        e.preventDefault();
+        localStorage.setItem('thittamdate', data.date)
+        const body ={
+            "balance": balance,
+            "name": "Closing Balance",
+            "date":data.date
+        }
+        try {
+            createBalance(body)
+        } catch (error) {
+            console.log("create head data error" ,error)
+        }
+        window.location.reload();
+    }
     const deleteCall = (e) =>{
         e.preventDefault();
+        localStorage.setItem('thittamdate', data.prevDate)
+        const body ={
+            "date":data.date
+        }
+        try {
+            deleteAllExtraHead(body)
+        } catch (error) {
+            console.log("create head data error" ,error)
+        }
+        window.location.reload();
     }
     return (
         <>
@@ -64,18 +120,18 @@ const DetailsTable = () => {
                                             <div class="font-bold text-left">Previous Date:{data.prevDate} </div>
                                         </th>
                                         <th class="p-2 whitespace-nowrap">
-                                            <button class="group relative h-8 w-24 overflow-hidden rounded-lg bg-white shadow" onClick={() => deleteCall()}>
-                                                <div class="absolute inset-0 w-3 bg-green-500 transition-all duration-[250ms] ease-out group-hover:w-full"></div>
-                                                <span class="relative text-black group-hover:text-white">Delete</span>
-                                            </button>
+                                            <div class="font-bold text-left"> Action</div>
                                         </th>
                                     </tr>
                                     <tr>
                                         <th class="p-2 whitespace-nowrap">
                                             <div class="font-bold text-left">Current Date : {data.date}</div>
                                         </th>
-                                        <th class="p-2 whitespace-nowrap">
-                                            <div class="font-bold  text-lg  text-left"></div>
+                                        <th class="p-2 whitespace-nowrap text-left">
+                                            <button class="group relative h-8 w-24 overflow-hidden rounded-lg bg-white shadow" onClick={(e) => deleteCall(e)}>
+                                                <div class="absolute inset-0 w-3 bg-green-500 transition-all duration-[250ms] ease-out group-hover:w-full"></div>
+                                                <span class="relative text-black group-hover:text-white">Delete</span>
+                                            </button>
                                         </th>
                                     </tr>
                                     <br />
@@ -129,7 +185,7 @@ const DetailsTable = () => {
                                 </tr>
                                     {list && list.length>0 && list.map((res,i) => {
                                         
-                                        return <DetailsList key={i} res={res} />
+                                        return <DetailsList key={i} res={res} balance={balanceList[i]}/>
                                     })}
                                     <tr>
                                         <td></td>
@@ -137,7 +193,13 @@ const DetailsTable = () => {
                                             <div class="font-bold text-left">Total </div>
                                         </th>
                                         <th class="p-2 whitespace-nowrap">
-                                            <div class="font-bold text-left">5000 </div>
+                                            <div class="font-bold text-left">{debit} </div>
+                                        </th>
+                                        <th class="p-2 whitespace-nowrap">
+                                            <div class="font-bold text-left">{credit} </div>
+                                        </th>
+                                        <th class="p-2 whitespace-nowrap">
+                                            <div class="font-bold text-left">{balance} </div>
                                         </th>
                                     </tr>
                                 </tbody>
@@ -146,12 +208,12 @@ const DetailsTable = () => {
                     </div>
                 </div>
                 <div className="inline-flex ">
-                    <button type="submit" class="w-1/6 py-3 mt-6 font-medium tracking-widest text-white uppercase bg-black shadow-lg focus:outline-none hover:bg-gray-900 hover:shadow-none ">
+                    <button onClick={(e) => handleSubmit(e)} type="submit" class="w-1/6 py-3 mt-6 font-medium tracking-widest text-white uppercase bg-black shadow-lg focus:outline-none hover:bg-gray-900 hover:shadow-none ">
                         Save
                     </button>
-                    <button type="submit" class="mx-20 w-1/6 py-3 mt-6 font-medium tracking-widest text-white uppercase bg-black shadow-lg focus:outline-none hover:bg-gray-900 hover:shadow-none ">
+                    {/* <button type="submit" class="mx-20 w-1/6 py-3 mt-6 font-medium tracking-widest text-white uppercase bg-black shadow-lg focus:outline-none hover:bg-gray-900 hover:shadow-none ">
                         Cancel
-                    </button>
+                    </button> */}
                 </div>
 
 

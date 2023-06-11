@@ -9,7 +9,7 @@ const Thitam = () => {
     // const [openingBalance, setOpeningBalance] = useState("false");
     const [options, setOptions] = useState([]);
     const [selectedValue, setSelectedValue] = useState('');
-    const [date, setDate] = useState(new Date());
+    const date = localStorage.getItem('thittamdate')
     const [debit, setDebit] = useState(0);
     // const [description, setDescription ] = useState('');
     const [credit, setCredit] = useState(0);
@@ -75,7 +75,7 @@ const Thitam = () => {
                                     <div class="p-2 bg-white border shadow rounded w-96">
                                         <div class="flex justify-between items-center">
                                         
-                            <input id="id" type="date" name="id" placeholder="id" autocomplete="id" class="block w-1/3 p-3 mt-2 text-gray-700 bg-gray-200 appearance-none focus:outline-none focus:bg-gray-300 focus:shadow-inner mr-20 w-full" value={date} onChange={(e) => setDate(e.target.value)} required />
+                            <input id="id" type="date" name="id" placeholder="id" autocomplete="id" class="block w-1/3 p-3 mt-2 text-gray-700 bg-gray-200 appearance-none focus:outline-none focus:bg-gray-300 focus:shadow-inner mr-20 w-full" value={date} disabled required />
                                         </div>
                                     </div>
                                 </div>

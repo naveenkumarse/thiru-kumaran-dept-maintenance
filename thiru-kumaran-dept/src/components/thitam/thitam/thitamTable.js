@@ -6,7 +6,7 @@ const ThitamTable = () => {
     const [getAllData, setAllData] = useState([]);
     useEffect(()=>{
         const body = {
-            "date":"2023-06-10"
+            "date":localStorage.getItem('thittamdate')
         }
         try {
             getExtraHeadWrtDate(body, setAllData);

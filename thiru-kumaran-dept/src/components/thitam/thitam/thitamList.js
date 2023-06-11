@@ -6,7 +6,7 @@ const ThitamList = ({ res ,id}) => {
         // call edit api
         try {
         const body = {
-            "date":"2023-06-10",
+            "date":localStorage.getItem('thittamdate'),
             "name":res.name
         }
         deleteParticularDataBelowTable(body)

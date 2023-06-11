@@ -831,8 +831,7 @@ export const deleteParticularDataBelowTable = async (body) => {
     return res;
 }
 
-export const createBalance = async (body, setHead) => {
-    console.log(body);
+export const createBalance = async (body) => {
     // head_name
     const res = await fetch(ENDPOINT_URL + "/restservices/thittam/create/balance", {
         method: "POST",
@@ -840,8 +839,9 @@ export const createBalance = async (body, setHead) => {
         body: JSON.stringify(body)
     });
     const jsonData = await res.json();
-    console.log(jsonData)
-    return setHead(jsonData);
+    console.log("current date", jsonData["currentDate"])
+    localStorage.setItem('thittamdate', jsonData["currentDate"])
+    return jsonData["currentDate"];
 }
 
 export const deleteAllExtraHead = async (body) => {

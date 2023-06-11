@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 
-const DetailsList = ({ res,i }) => {
+const DetailsList = ({ res, balance }) => {
 
     return (
         <>
@@ -25,7 +25,7 @@ const DetailsList = ({ res,i }) => {
                     <div class="text-left font-medium">{res.credit}</div>
                 </td>
                 <td class="p-2 whitespace-nowrap">
-                    <div class="text-left font-medium">{res.balance}</div>
+                    <div class="text-left font-medium">{balance}</div>
                 </td>
             </tr>
         </>
