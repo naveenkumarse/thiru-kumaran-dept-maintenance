@@ -3,7 +3,7 @@ import ThitamList from "./thitamList";
 import { getExtraHeadWrtDate } from "../../../api";
 
 const ThitamTable = () => {
-    const [getAllData, setAllData] = useState([]);
+    const [allData, setAllData] = useState([]);
     useEffect(()=>{
         const body = {
             "date":localStorage.getItem('thittamdate')
@@ -76,7 +76,7 @@ const ThitamTable = () => {
                                     </tr>
                                 </thead>
                                 <tbody class="text-sm divide-y divide-gray-100">
-                                    {getAllData.map((res,id) => {
+                                    {allData && allData > 0 && allData.map((res,id) => {
                                         return <ThitamList key={id} id={id} res={res}  />
                                     })}
 

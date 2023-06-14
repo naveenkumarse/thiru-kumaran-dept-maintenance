@@ -49,7 +49,7 @@ const LedgerEntryTable = () => {
                 const body = {
                     "lineId":localStorage.getItem('lineId')
                 };
-              await getActiveLoansLedgerView(body, setLedgerEntries); // Assuming getLineFE is an asynchronous function 
+              await getActiveLoansLedgerView(body, setLedgerEntries); 
             } catch (error) {
               console.error("Error fetching Bill Entry data:", error);
             }
@@ -57,7 +57,6 @@ const LedgerEntryTable = () => {
           fetchData();
     },[])
     useEffect(()=>{
-        console.log(ledgerEntries)
         if (ledgerEntries && ledgerEntries.length !==0){
             const dateList = ledgerEntries[0]["dateValue"].map((arr)=> arr['date'])
             setDates(dateList)
