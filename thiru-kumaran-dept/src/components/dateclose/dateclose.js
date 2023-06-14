@@ -4,6 +4,7 @@ import { createAccountCloseFE } from "../../api";
 import { useNavigate } from "react-router-dom";
 const DateClose = () => {
     const [todaydate, setTodayDate] = useState(String(localStorage.getItem('date')));
+    const [filteredList, setFilteredList] =new  useState([]);
     const lineId = localStorage.getItem("lineId");
     const navigate = useNavigate();
     
@@ -20,9 +21,22 @@ const DateClose = () => {
     const onCancelCall = () =>{
         window.location.reload();
     }  
+    const filterBySearch = (event) => {
+        // Access input value
+        const query = event.target.value;
+        // Create copy of item list
+        var updatedList = [...getuserdata];
+        // Include all elements which includes the search query
+        updatedList = updatedList.filter((item) => {
+          return item.loc.toLowerCase().indexOf(query.toLowerCase()) !== -1;
+        });
+        // Trigger render with updated values
+        setFilteredList(updatedList);
+      };
 
     return (
         <>
+        
             <div class="grid min-h-screen place-items-center bg-red-400">
                 <div class="w-11/12 p-12 sm:w-8/12 md:w-1/2 lg:w-10/12 bg-white">
                     <div className="flex justify-between">
