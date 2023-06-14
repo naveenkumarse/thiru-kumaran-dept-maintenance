@@ -79,8 +79,6 @@ const ThitamTable = () => {
                                     {getAllData.map((res,id) => {
                                         return <ThitamList key={id} id={id} res={res}  />
                                     })}
-
-
                                 </tbody>
                             </table>
                         </div>

@@ -6,7 +6,7 @@ const DateClose = () => {
     const [todaydate, setTodayDate] = useState(String(localStorage.getItem('date')));
     const lineId = localStorage.getItem("lineId");
     const navigate = useNavigate();
-
+    
     const saveDateClose = (e) =>{
         e.preventDefault();
         const body = {

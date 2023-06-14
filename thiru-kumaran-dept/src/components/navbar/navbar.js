@@ -23,7 +23,8 @@ function Navbar() {
                               <Link to='/linecreate'> <li><a class="hover:text-gray-200" href="#">Line create</a></li></Link> 
                               <Link to='/thitam'> <li>Thitam</li></Link> 
                               <p>Date : {date}</p>
-                              <p>Line name : {line_name} </p>
+                              {line_name!=null?<p>Line name : {line_name} </p>:<></>}
+                              
                             </ul>
 
                             <div class=" xl:flex items-center space-x-5 items-center md:ml-5 sm:ml-5">

@@ -10,6 +10,7 @@ const LineBoyList = ({lineboy}) => {
     }
     const navigate = useNavigate();
     const navigateToUpdate = (e) =>{
+        
         navigate('/lineboyupdate', {state: {lineboy} })
     }
     return (

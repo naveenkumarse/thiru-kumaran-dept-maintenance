@@ -53,9 +53,9 @@ const ClosedPartyTable = ({closedParties}) => {
                                         </tr>
                                     </thead>
                                     <tbody class="text-sm divide-y divide-gray-100">
-                                        <tr>
+                                        
                                             {closedParties && closedParties.map((closedParty, i)=> <ClosedPartyList key={i} closedParty={closedParty} />)}
-                                        </tr>
+                                        
                                     </tbody>
                                 </table>
                             </div>
