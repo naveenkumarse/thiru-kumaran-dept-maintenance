@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { getMonthlyBill } from "../../../api";
 import MonthlyBillTable from "./monthlyBillTable";
 
@@ -14,12 +14,13 @@ const MonthlyBill = () => {
             "endDate": enddate
         }
         try {
-            getMonthlyBill(body, setMonthlyBills)
+            getMonthlyBill(body, setMonthlyBills);
+            console.log(monthlyBills);
         } catch (error) {
             console.log("error in fetching monthly bill")
         }
-
     }
+   
     return (
         <>
             <div class="grid min-h-screen place-items-center bg-red-400">

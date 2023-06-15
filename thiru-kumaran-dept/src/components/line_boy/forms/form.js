@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { createLineMemberFE} from "../../../api";
 import LineBoyTable from "../table/table";
 
@@ -21,7 +21,6 @@ const LineBoyForm = () => {
         createLineMemberFE(body);
         window.location.reload()
     }
-    
     
   
     return (

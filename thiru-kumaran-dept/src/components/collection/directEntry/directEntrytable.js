@@ -107,7 +107,7 @@ const DirectEntryTable = () => {
                                         </tr>
                                     </thead>
                                     <tbody class="text-sm divide-y divide-gray-100">
-                                      {filteredList.map((directentry, i)=><DirectEntryList key={i} directentry={directentry}/>)}  
+                                      {directentries.map((directentry, i)=><DirectEntryList key={i} directentry={directentry}/>)}  
                                     </tbody>
                                 </table>
                             </div>

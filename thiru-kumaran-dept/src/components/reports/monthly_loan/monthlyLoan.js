@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { getMonthlyLoan } from "../../../api";
 import MonthlyLoanTable from "./monthlyLoanTable";
 
@@ -18,8 +18,8 @@ const MonthlyLoan = () => {
         } catch (error) {
             console.log("error in fetching monthly Loan")
         }
-
     }
+
     return (
         <>
             <div class="grid min-h-screen place-items-center bg-red-400">
@@ -40,7 +40,7 @@ const MonthlyLoan = () => {
                         </button>
                     </form><br></br><br></br>                   
                     <div className="pt-12">
-                    <MonthlyLoanTable monthlyLoans={monthlyLoans} />
+                <MonthlyLoanTable monthlyLoans={monthlyLoans} />
                     </div>
 
                 </div>

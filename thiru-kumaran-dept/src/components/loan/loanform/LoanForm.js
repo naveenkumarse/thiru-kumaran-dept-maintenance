@@ -28,7 +28,7 @@ const LoanForm = () => {
         "phoneNo":phone_no,
         "orderNo":order_no,
         "date":date,
-        "currentDate":currentDate,
+        "currentDate":date,
         "loanAmount":loanAmount,
         "seetuAmount":seetuAmount,
         "commissionAmount":commissionAmount,

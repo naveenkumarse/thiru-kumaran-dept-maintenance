@@ -21,7 +21,7 @@ const LoanTable = () => {
       };
   
       fetchData();
-},[]);
+},[loans]);
   // const [sortColumn, setSortColumn] = useState(""); // Track the currently sorted column
   // const [sortOrder, setSortOrder] = useState("asc"); // Track the sorting order (asc/desc)
 const handleSort = () =>{ console.log("hi")}

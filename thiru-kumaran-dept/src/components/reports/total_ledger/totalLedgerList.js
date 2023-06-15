@@ -10,14 +10,11 @@ const TotalLedgerList = ({loan}) => {
                 </div>
             </td>
             <td class="p-2 whitespace-nowrap">
-                <div class="text-left">{loan.loanNo}</div>
+                <div class="text-left">{loan.name}</div>
             </td>
-            <td class="p-2 whitespace-nowrap">
-                <div class="text-left font-medium">{loan.name}</div>
-            </td>
-            <td class="p-2 whitespace-nowrap">
-                <div class="text-left font-medium">{loan.name}</div>
-            </td>
+            {/* <td class="p-2 whitespace-nowrap">
+                <div class="text-left font-medium">{loan.orderNo}</div>
+            </td> */}
             <td class="p-2 whitespace-nowrap">
                 <div class="text-left font-medium">{loan.address}</div>
             </td>
@@ -32,6 +29,9 @@ const TotalLedgerList = ({loan}) => {
             </td>
             <td class="p-2 whitespace-nowrap">
                 <div class="text-left font-medium">{loan.balance}</div>
+            </td>
+            <td class="p-2 whitespace-nowrap">
+                <div class="text-left font-medium">{loan.paidAmount}</div>
             </td>
             <td class="p-2 whitespace-nowrap">
                 <div class="text-left font-medium">{loan.paydayss}</div>

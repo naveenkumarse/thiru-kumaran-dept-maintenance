@@ -2,19 +2,23 @@ import React, { useEffect, useState } from "react";
 import TotalLedgerList from "./totalLedgerList";
 import {getTotalLedgerAll, getTotalLedgerBelow120 } from "../../../api";
 
-const TotalLedgerTable = ({value}) => {
+const TotalLedgerTable = ({value,settotalCount}) => {
     const [list, setList] = useState({});
+   
     useEffect(()=>{
         const body = {
             "lineId": localStorage.getItem('lineId'),
             "dateRange":value
         }
         try {
-            getTotalLedgerBelow120(body, setList)
+            getTotalLedgerAll(body, setList)
+            console.log(list);
+            settotalCount(list.loanCount);
         } catch (error) {
             console.log("error in fetching ledger report data")
         }
-    }, [])
+    }, [list.loanCount])
+  
     return (
         <>
             <section class="antialiased bg-gray-100 text-gray-600 px-4 bg-red-400 my-20">
@@ -54,9 +58,9 @@ const TotalLedgerTable = ({value}) => {
                                             <th class="p-2 whitespace-nowrap">
                                                 <div class="font-bold text-left">Name</div>
                                             </th>
-                                            <th class="p-2 whitespace-nowrap">
+                                            {/* <th class="p-2 whitespace-nowrap">
                                                 <div class="font-bold text-left">Order No.</div>
-                                            </th>
+                                            </th> */}
                                             <th class="p-2 whitespace-nowrap">
                                                 <div class="font-bold text-left">Address</div>
                                             </th>

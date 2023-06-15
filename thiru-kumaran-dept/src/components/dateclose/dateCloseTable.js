@@ -1,26 +1,33 @@
 import React, { useEffect, useState } from "react";
 import { getLastEntriesFE } from "../../api";
 
-const DateCloseTable = () => {
+const DateCloseTable = (setPreviousDate) => {
 
     const [lastEntries, setLastEntries] = useState([
     ]);
+    // const entries = [];
     const lineId = localStorage.getItem("lineId");
     const body = {
-        "lineId":lineId,
+        "lineId": lineId,
     }
 
-    useEffect(()=>{
+    useEffect(() => {
         const fetchData = async () => {
             try {
-              await getLastEntriesFE(body, setLastEntries); 
+                await getLastEntriesFE(body, setLastEntries);
+                // setPreviousDate(lastEntries[0].date);
+                
             } catch (error) {
-              console.error("Error fetching line data:", error);
+                console.error("Error fetching line data:", error);
             }
-          };
-      
-          fetchData();
-    },[]);
+        };
+
+        fetchData();
+    }, []);
+    const setDate =()=>{
+        console.log(lastEntries[0].date);
+        setPreviousDate(lastEntries[0].date);
+    }
     return (
         <>
             <div class="antialiased bg-gray-100 text-gray-600 my-20">
@@ -45,16 +52,17 @@ const DateCloseTable = () => {
                                         </tr>
                                     </thead>
                                     <tbody class="text-sm text-gray-600 divide-y divide-gray-100">
-                                    {lastEntries.map((lastEntry, i) => (
+                                        {lastEntries.map((lastEntry, i) => (
+
                                             <tr>
                                                 <td class="p-2 whitespace-nowrap ">
-                                                    <div class="font-medium text-lg text-center text-gray-400">{i+1}</div>
+                                                    <div class="font-medium text-lg text-center text-gray-400">{i + 1}</div>
                                                 </td>
                                                 <td class="p-2 whitespace-nowrap ">
                                                     <div class="font-medium text-lg text-center text-gray-400">{lastEntry.date}</div>
                                                 </td>
                                             </tr>
-                                    ))}
+                                        ))}
                                     </tbody>
                                 </table>
                             </div>
