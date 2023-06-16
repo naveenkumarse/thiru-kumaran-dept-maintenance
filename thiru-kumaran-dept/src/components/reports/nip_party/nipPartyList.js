@@ -11,28 +11,28 @@ const NipPartyList = ({loan}) => {
             </td>
        
             <td class="p-2 whitespace-nowrap">
-                <div class="text-left font-medium">{loan.name}</div>
+                <div class="text-left">{loan.name}</div>
             </td>
             <td class="p-2 whitespace-nowrap">
-                <div class="text-left font-medium">{loan.address}</div>
+                <div class="text-left">{loan.address}</div>
             </td>
             <td class="p-2 whitespace-nowrap">
-                <div class="text-left font-medium">{loan.loanDate}</div>
+                <div class="text-left">{loan.loanDate}</div>
             </td>
             <td class="p-2 whitespace-nowrap">
-                <div class="text-left font-medium">{loan.closeDate}</div>
+                <div class="text-left">{loan.closeDate}</div>
             </td>
             <td class="p-2 whitespace-nowrap">
-                <div class="text-left font-medium">{loan.loanAmount}</div>
+                <div class="text-left">{loan.loanAmount}</div>
             </td>
             <td class="p-2 whitespace-nowrap">
                 <div class="text-left">{loan.paidAmount}</div>
             </td>
             <td class="p-2 whitespace-nowrap">
-                <div class="text-left font-medium">{loan.balance}</div>
+                <div class="text-left">{loan.balance}</div>
             </td>
             <td class="p-2 whitespace-nowrap">
-                <div class="text-left font-medium">{loan.payDayss}</div>
+                <div class="text-left">{loan.payDayss}</div>
             </td>
         </tr>
     )

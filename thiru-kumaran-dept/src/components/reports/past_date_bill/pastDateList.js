@@ -13,13 +13,13 @@ const PastDateBillList = ({pastDateBill}) =>{
                 <div class="text-left">{pastDateBill.name}</div>
             </td>
             <td class="p-2 whitespace-nowrap">
-                <div class="text-lg text-center">{pastDateBill.address}</div>
+                <div class="text-left">{pastDateBill.address}</div>
             </td>   
             <td class="p-2 whitespace-nowrap">
-                <div class="text-left font-medium">{pastDateBill.billAmount}</div>
+                <div class="text-left">{pastDateBill.billAmount}</div>
             </td>
             <td class="p-2 whitespace-nowrap">
-                <div class="text-lg text-center">{pastDateBill.excess ? pastDateBill.excess : 0 }</div>
+                <div class="text-left">{pastDateBill.excess ? pastDateBill.excess : 0 }</div>
             </td>         
         </tr>
     )

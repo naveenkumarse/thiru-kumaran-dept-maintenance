@@ -22,8 +22,8 @@ const MonthlyLoanTable = ({ monthlyLoans }) => {
     <>
       <div className="flex inline lg:justify-between">
         <header class="px-5 py-4 border-b border-gray-100">
-          <h2 class="font-lighter text-gray-800"> Loan Amount Total: {monthlyLoans["loanAmountTotal"]}</h2>
-          <h2 class="font-lighter text-gray-800 mt-2"> Interest Amount Total: {monthlyLoans["interestTotal"]}</h2>
+          <h2 class="font-semibold text-gray-800"> Loan Amount Total: {monthlyLoans["loanAmountTotal"]}</h2>
+          <h2 class="font-semibold text-gray-800 mt-2"> Interest Amount Total: {monthlyLoans["interestTotal"]}</h2>
         </header>
 
         <div class="max-w-md mr-5">
@@ -95,7 +95,7 @@ const MonthlyLoanTable = ({ monthlyLoans }) => {
                       </th>
                       <th class="p-2 whitespace-nowrap">
                         <div
-                          class="font-bold text-center cursor-pointer"
+                          class="font-bold text-left cursor-pointer"
                           onClick={() => handleSort("address")}
                         >
                           Address
@@ -121,7 +121,7 @@ const MonthlyLoanTable = ({ monthlyLoans }) => {
                       </th>
                       <th class="p-2 whitespace-nowrap">
                         <div
-                          class="font-bold text-center cursor-pointer"
+                          class="font-bold text-left cursor-pointer"
                           onClick={() => handleSort("excess")}
                         >
                           Excess

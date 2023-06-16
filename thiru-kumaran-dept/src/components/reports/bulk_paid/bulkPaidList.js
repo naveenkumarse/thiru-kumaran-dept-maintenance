@@ -7,19 +7,19 @@ const BulkPaidList = ({loan}) => {
                 <div class="text-left">{loan.loanNo}</div>
             </td>
             <td class="p-2 whitespace-nowrap">
-                <div class="text-left font-medium">{loan.name}</div>
+                <div class="text-left">{loan.name}</div>
             </td>
             <td class="p-2 whitespace-nowrap">
-                <div class="text-left font-medium">{loan.address}</div>
+                <div class="text-left">{loan.address}</div>
             </td>
             <td class="p-2 whitespace-nowrap">
-                <div class="text-left font-medium">{loan.loanAmount}</div>
+                <div class="text-left">{loan.loanAmount}</div>
             </td>
             <td class="p-2 whitespace-nowrap">
-                <div class="text-left font-medium">{loan.billAmount}</div>
+                <div class="text-left">{loan.billAmount}</div>
             </td>
             <td class="p-2 whitespace-nowrap">
-                <div class="text-left font-medium">{loan.date}</div>
+                <div class="text-left">{loan.date}</div>
             </td>
         </tr>
     )

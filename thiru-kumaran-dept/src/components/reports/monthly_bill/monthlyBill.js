@@ -56,10 +56,10 @@ const MonthlyBill = () => {
                                                     <tr>
 
                                                         <th class="p-2 whitespace-nowrap">
-                                                            <div class="font-bold text-center"> Date</div>
+                                                            <div class="font-bold text-left"> Date</div>
                                                         </th>
                                                         <th class="p-2 whitespace-nowrap">
-                                                            <div class="font-bold text-center">Bill Amount</div>
+                                                            <div class="font-bold text-left">Bill Amount</div>
                                                         </th>
                                                     </tr>
                                                 </thead>
@@ -68,12 +68,12 @@ const MonthlyBill = () => {
                                                         return (<tr>
                                                             <td class="p-2 whitespace-nowrap ">
 
-                                                                <div class="font-medium text-lg text-center text-gray-400">{monthlyBill.date}</div>
+                                                                <div class="text-left">{monthlyBill.date}</div>
 
                                                             </td>
                                                             <td class="p-2 whitespace-nowrap ">
 
-                                                                <div class="font-medium text-lg text-center text-gray-400">{monthlyBill.billAmount}</div>
+                                                                <div class="text-left">{monthlyBill.billAmount}</div>
 
                                                             </td>
                                                         </tr>)

@@ -12,13 +12,13 @@ const MonthlyLoanList = ({monthlyLoan}) =>{
                 <div class="text-left">{monthlyLoan.name}</div>
             </td>
             <td class="p-2 whitespace-nowrap">
-                <div class="text-lg text-center">{monthlyLoan.loanAmount}</div>
+                <div class="text-left">{monthlyLoan.loanAmount}</div>
             </td>   
             <td class="p-2 whitespace-nowrap">
-                <div class="text-left font-medium">{monthlyLoan.interest}</div>
+                <div class="text-left">{monthlyLoan.interest}</div>
             </td>
             <td class="p-2 whitespace-nowrap">
-                <div class="text-lg text-center">{monthlyLoan.date}</div>
+                <div class="text-left">{monthlyLoan.date}</div>
             </td>         
         </tr>
     )

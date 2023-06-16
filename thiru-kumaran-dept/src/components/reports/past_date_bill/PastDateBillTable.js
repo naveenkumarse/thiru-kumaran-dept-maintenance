@@ -45,7 +45,7 @@ const PastDateBillTable = ({ pastDateBills }) => {
     <>
       <div className="flex inline lg:justify-between">
         <header class="px-5 py-4 border-b border-gray-100">
-          <h2 class="font-lighter text-2xl text-gray-800">Total: {total}</h2>
+          <h2 class="font-bold text-gray-800">Total: {total}</h2>
         </header>
       </div>
 
@@ -89,7 +89,7 @@ const PastDateBillTable = ({ pastDateBills }) => {
                       </th>
                       <th class="p-2 whitespace-nowrap">
                         <div
-                          class="font-bold text-center cursor-pointer"
+                          class="font-bold text-left cursor-pointer"
                           onClick={() => handleSort("address")}
                         >
                           Address
@@ -115,7 +115,7 @@ const PastDateBillTable = ({ pastDateBills }) => {
                       </th>
                       <th class="p-2 whitespace-nowrap">
                         <div
-                          class="font-bold text-center cursor-pointer"
+                          class="font-bold text-left cursor-pointer"
                           onClick={() => handleSort("excess")}
                         >
                           Excess
