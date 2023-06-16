@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import MonthlyLoanList from "./monthlyLoanList";
 
 const MonthlyLoanTable = ({ monthlyLoans }) => {
+  const [mLoan,setMLoan] = useState(monthlyLoans)
   const [sortColumn, setSortColumn] = useState(null);
   const [sortDirection, setSortDirection] = useState(null);
 

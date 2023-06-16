@@ -33,7 +33,7 @@ const DirectEntryTable = () => {
         var updatedList = [...directentries];
         // Include all elements which includes the search query
         updatedList = updatedList.filter((item) => {
-          return item.loc.toLowerCase().indexOf(query.toLowerCase()) !== -1; 
+          return item.name.toLowerCase().indexOf(query.toLowerCase()) !== -1; 
         });
         // Trigger render with updated values
         setFilteredList(updatedList);
@@ -107,7 +107,7 @@ const DirectEntryTable = () => {
                                         </tr>
                                     </thead>
                                     <tbody class="text-sm divide-y divide-gray-100">
-                                      {directentries.map((directentry, i)=><DirectEntryList key={i} directentry={directentry}/>)}  
+                                      {filteredList.map((directentry, i)=><DirectEntryList key={i} directentry={directentry}/>)}  
                                     </tbody>
                                 </table>
                             </div>
