@@ -69,16 +69,16 @@ const DirectEntryTable = () => {
                                                 <div class="font-bold text-left">Address</div>
                                             </th>
                                             <th class="p-2 whitespace-nowrap">
-                                                <div class="font-bold text-center">Bal</div>
+                                                <div class="font-bold text-left">Bal</div>
                                             </th>
                                             <th class="p-2 whitespace-nowrap">
-                                                <div class="font-bold text-center">Pay Amount</div>
+                                                <div class="font-bold text-left">Pay Amount</div>
                                             </th>
                                             <th class="p-2 whitespace-nowrap">
-                                                <div class="font-bold text-center"> Amount</div>
+                                                <div class="font-bold text-left"> Amount</div>
                                             </th>
                                             <th class="p-2 whitespace-nowrap">
-                                                <div class="font-bold text-center"> Enter </div>
+                                                <div class="font-bold text-left"> Enter </div>
                                             </th>
                                         </tr>
                                     </thead>

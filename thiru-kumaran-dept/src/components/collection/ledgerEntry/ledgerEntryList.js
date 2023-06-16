@@ -24,24 +24,24 @@ const LedgerEntryList = ({ledgerEntry}) => {
                 <div class="text-left">{ledgerEntry.name}</div>
             </td>
             <td class="p-2 whitespace">
-                <div class="text-left font-medium">{ledgerEntry.address}</div>
+                <div class="text-left">{ledgerEntry.address}</div>
             </td>
             <td class="p-2 whitespace">
-                <div class="text-lg text-center">{ledgerEntry.balance}</div>
+                <div class="text-left">{ledgerEntry.balance}</div>
             </td>
             <td class="p-2 whitespace">
-                <div class="text-lg text-center">{ledgerEntry.payAmount}</div>
+                <div class="text-left">{ledgerEntry.payAmount}</div>
             </td>
             {ledgerEntry.hasOwnProperty('dateValue') ? ledgerEntry.dateValue.length > 0 && ledgerEntry.dateValue.map((arr)=> {
              return (<th class="py-6 px-1 whitespace">
-             <div class="font-bold text-center">{arr['amount']}</div>
+             <div class="text-left">{arr['amount']}</div>
             </th>)
             }) : null}
             <td class="p-2 whitespace">
-                <div class="text-lg text-center"><input type="number" className="border border-slate-300 rounded-md px-4" min={0} value={amount} onChange={(e) => setAmount(e.target.value)} w-2 /></div>
+                <div class="text-left"><input type="number" className="border border-slate-300 rounded-md px-4" min={0} value={amount} onChange={(e) => setAmount(e.target.value)} w-2 /></div>
             </td>
             <td class="p-2 whitespace">
-                <div class="text-lg text-center">     <button class="inline-flex items-center px-4 py-2 bg-gray-200 hover:bg-green-300 text-gray-800 text-sm font-medium rounded-md" onClick={(e)=> handleEnter(e)} >
+                <div class="text-left">     <button class="inline-flex items-center px-4 py-2 bg-gray-200 hover:bg-green-300 text-gray-800 text-sm font-medium rounded-md" onClick={(e)=> handleEnter(e)} >
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h10a8 8 0 018 8v2M3 10l6 6m-6-6l6-6" />
                     </svg>

@@ -114,10 +114,10 @@ const TodayListTable = () => {
                                                 <div class="font-bold text-left">Excess</div>
                                             </th>
                                             <th class="p-2 whitespace-nowrap">
-                                                <div class="font-bold text-center">Total</div>
+                                                <div class="font-bold text-left">Total</div>
                                             </th>
                                             <th class="p-2  whitespace-nowrap">
-                                                <div class="font-bold text-center ml-7">New Amount</div>
+                                                <div class="font-bold text-left ml-7">New Amount</div>
                                             </th>
                                             <th class="p-2 whitespace-nowrap">
                                                 <div class="font-bold text-left ml-7">Update</div>

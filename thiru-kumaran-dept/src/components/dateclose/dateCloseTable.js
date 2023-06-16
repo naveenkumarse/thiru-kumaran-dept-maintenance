@@ -43,10 +43,10 @@ const DateCloseTable = (setPreviousDate) => {
                                     <thead class="text-xs font-bold uppercase text-black-400 bg-gray-50">
                                         <tr>
                                             <th class="p-2 whitespace-nowrap">
-                                                <div class="font-bold text-center"> S. No.</div>
+                                                <div class="font-bold text-left"> S. No.</div>
                                             </th>
                                             <th class="p-2 whitespace-nowrap">
-                                                <div class="font-bold text-center">A/C Close Date</div>
+                                                <div class="font-bold text-left">A/C Close Date</div>
                                             </th>
 
                                         </tr>
@@ -56,10 +56,10 @@ const DateCloseTable = (setPreviousDate) => {
 
                                             <tr>
                                                 <td class="p-2 whitespace-nowrap ">
-                                                    <div class="font-medium text-lg text-center text-gray-400">{i + 1}</div>
+                                                    <div class="text-left">{i + 1}</div>
                                                 </td>
                                                 <td class="p-2 whitespace-nowrap ">
-                                                    <div class="font-medium text-lg text-center text-gray-400">{lastEntry.date}</div>
+                                                    <div class="text-left">{lastEntry.date}</div>
                                                 </td>
                                             </tr>
                                         ))}

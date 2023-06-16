@@ -12,16 +12,16 @@ const BillNotPaidList = ({loan}) => {
                 <div class="text-left">{loan.name}</div>
             </td>
             <td class="p-2 whitespace-nowrap">
-                <div class="text-left font-medium">{loan.address}</div>
+                <div class="text-left">{loan.address}</div>
             </td>
             <td class="p-2 whitespace-nowrap">
-                <div class="text-left font-medium">{loan.payAmount}</div>
+                <div class="text-left">{loan.payAmount}</div>
             </td>
             <td class="p-2 whitespace-nowrap">
-                <div class="text-left font-medium">{loan.billAmount}</div>
+                <div class="text-left">{loan.billAmount}</div>
             </td>
             <td class="p-2 whitespace-nowrap">
-                <div class="text-left font-medium">{loan.date}</div>
+                <div class="text-left">{loan.date}</div>
             </td>
 
 

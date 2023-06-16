@@ -84,10 +84,10 @@ const handleSort = () =>{ console.log("hi")}
                         <div className="font-bold text-left">Loan Amount</div>
                       </th>
                       <th className="p-2 whitespace">
-                        <div className="font-bold text">Mahimai</div>
+                        <div className="font-bold text-left">Mahimai</div>
                       </th>
                       <th className="p-2 whitespace-nowrap">
-                        <div className="font-bold text-center">Action</div>
+                        <div className="font-bold text-left">Action</div>
                       </th>
                     </tr>
                   </thead>

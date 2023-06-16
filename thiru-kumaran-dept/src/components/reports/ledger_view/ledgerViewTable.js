@@ -21,23 +21,23 @@ LedgerViewTable = ({list}) => {
                                     <thead class="text-xs font-bold uppercase text-black-400 bg-gray-50">
                                         <tr>
                                         <th class="p-2 whitespace-nowrap">
-                                                <div class="font-bold text-center">Loan No.</div>
+                                                <div class="font-bold text-left">Loan No.</div>
                                             </th>
                                             <th class="p-2 whitespace-nowrap">
-                                                <div class="font-bold text-center">Name</div>
+                                                <div class="font-bold text-left">Name</div>
                                             </th>
                                             <th class="p-2 whitespace-nowrap">
-                                                <div class="font-bold text-center">Address</div>
+                                                <div class="font-bold text-left">Address</div>
                                             </th>
                                             <th class="p-2 whitespace">
-                                                <div class="font-bold text-center">Pre Bal</div>
+                                                <div class="font-bold text-left">Pre Bal</div>
                                             </th>
                                             {list[0]["dateValue"] && list[0]["dateValue"].length > 0 && list[0]["dateValue"].map((arr, i)=> <DateList key={i} date={arr["date"]} /> ) }
                                             <th class="p-2 whitespace-nowrap">
-                                                <div class="font-bold text-center">Total</div>
+                                                <div class="font-bold text-left">Total</div>
                                             </th>
                                             <th class="p-2 whitespace-nowrap">
-                                                <div class="font-bold text-center">Balance</div>
+                                                <div class="font-bold text-left">Balance</div>
                                             </th>
                                         </tr>
                                     </thead>

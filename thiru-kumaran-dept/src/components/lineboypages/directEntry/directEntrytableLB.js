@@ -77,7 +77,7 @@ const DirectEntryTableLB = () => {
                                                 <div class="font-bold text-left">Name-Address</div>
                                             </th>
                                             <th class="p-2 whitespace-nowrap">
-                                                <div class="font-bold text-center">Bal</div>
+                                                <div class="font-bold text-left">Bal</div>
                                             </th>
                                         </tr>
                                     </thead>

@@ -91,18 +91,18 @@ const LedgerEntryTable = () => {
                                                 <div class="font-bold text-left">Address</div>
                                             </th>
                                             <th class="p-2 whitespace">
-                                                <div class="font-bold text-center">Bal</div>
+                                                <div class="font-bold text-left">Bal</div>
                                             </th>
                                             <th class="p-2 ">
-                                                <div class="font-bold text-center">Pay Amount</div>
+                                                <div class="font-bold text-left">Pay Amount</div>
                                             </th>
                                             {dates && dates.length> 0 && dates.map((date)=> {
                                                 return (<th class="py-6 px-1 whitespace">
-                                                    <div class="font-bold text-center rotate-45">{date}</div>
+                                                    <div class="font-bold text-left rotate-45">{date}</div>
                                                 </th>)
                                             })}
                                             <th class="p-2 whitespace">
-                                                <div class="font-bold text-center"> Amount </div>
+                                                <div class="font-bold text-left"> Amount </div>
                                             </th>
                                         </tr>
                                     </thead>

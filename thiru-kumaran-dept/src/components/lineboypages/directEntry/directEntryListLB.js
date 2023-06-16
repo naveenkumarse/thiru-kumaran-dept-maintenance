@@ -29,18 +29,18 @@ const DirectEntryListLB = ({ directentry }) => {
                     <div class="text-left font-medium">{directentry.address}</div>
                 </td> */}
                 <td class="p-2 whitespace-nowrap">
-                    <div class="text-lg text-center">{directentry.balance}</div>
+                    <div class="text-left">{directentry.balance}</div>
                 </td>
             </tr>
             <tr>
                 <td class="p-2 whitespace-nowrap">
-                    <div class="text-lg text-center">{directentry.payAmount}</div>
+                    <div class="text-left">{directentry.payAmount}</div>
                 </td>
                 <td class="p-2 whitespace-nowrap">
-                    <div class="text-lg text-center"><input type="number" className="border border-slate-300 rounded-md px-4 w-full text-md" min={0} value={amount} onChange={(e) => setAmount(e.target.value)} /></div>
+                    <div class="text-left"><input type="number" className="border border-slate-300 rounded-md px-4 w-full text-md" min={0} value={amount} onChange={(e) => setAmount(e.target.value)} /></div>
                 </td>
                 <td class="p-2 whitespace-nowrap">
-                    <div class="text-lg text-center">     <button class="inline-flex items-center px-4 py-2 bg-gray-200 hover:bg-green-300 text-gray-800 text-sm font-medium rounded-md" onClick={(e) => handleEnter(e)}>
+                    <div class="text-left">     <button class="inline-flex items-center px-4 py-2 bg-gray-200 hover:bg-green-300 text-gray-800 text-sm font-medium rounded-md" onClick={(e) => handleEnter(e)}>
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h10a8 8 0 018 8v2M3 10l6 6m-6-6l6-6" />
                         </svg>

@@ -37,10 +37,10 @@ const LineBoyTable = () => {
                                                 <div class="font-semibold text-left">Address</div>
                                             </th>
                                             <th class="p-2 whitespace-nowrap">
-                                                <div class="font-semibold text-center">Phone</div>
+                                                <div class="font-semibold text-left">Phone</div>
                                             </th>
                                             <th class="p-2 whitespace-nowrap">
-                                                <div class="font-semibold text-center">Action</div>
+                                                <div class="font-semibold text-left">Action</div>
                                             </th>
                                         </tr>
                                     </thead>

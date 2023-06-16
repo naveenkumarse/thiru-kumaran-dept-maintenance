@@ -24,10 +24,10 @@ const AdminList = ({Admin}) => {
                 <div class="text-left">{Admin.userName}</div>
             </td>
             <td class="p-2 whitespace-nowrap">
-                <div class="text-lg text-center">{Admin.phoneNo}</div>
+                <div class="text-left">{Admin.phoneNo}</div>
             </td>
             <td class="p-2 whitespace-nowrap">
-                <div class="text-lg text-center">
+                <div class="text-left">
                 <button style={{color:"green",fontSize:"14px"}} onClick={(e) => navigateToUpdate(e)}>Update</button> 
                 <button style={{color:"red",fontSize:"14px",marginLeft:"20px"}} onClick={(e)=> handleAdminDelete(e)}>Delete</button></div>
             </td>     

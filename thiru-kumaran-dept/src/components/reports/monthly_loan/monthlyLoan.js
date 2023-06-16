@@ -130,7 +130,7 @@ const MonthlyLoan = () => {
                                                         </th>
                                                         <th class="p-2 whitespace-nowrap">
                                                             <div
-                                                                class="font-bold text-center cursor-pointer"
+                                                                class="font-bold text-left cursor-pointer"
                                                                 onClick={() => handleSort("address")}
                                                             >
                                                                 Loan Amount
@@ -156,7 +156,7 @@ const MonthlyLoan = () => {
                                                         </th>
                                                         <th class="p-2 whitespace-nowrap">
                                                             <div
-                                                                class="font-bold text-center cursor-pointer"
+                                                                class="font-bold text-left cursor-pointer"
                                                                 onClick={() => handleSort("excess")}
                                                             >
                                                                 Date

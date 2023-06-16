@@ -12,17 +12,17 @@ const BillEntryList = ({billentry, total}) =>{
                 <div class="text-left">{billentry.name}</div>
             </td>
             <td class="p-2 whitespace-nowrap">
-                <div class="text-left font-medium">{billentry.billAmount}</div>
+                <div class="text-left">{billentry.billAmount}</div>
             </td>
             <td class="p-2 whitespace-nowrap">
-                <div class="text-lg text-center">{billentry.excess ? billentry.excess : 0 }</div>
+                <div class="text-left">{billentry.excess ? billentry.excess : 0 }</div>
             </td>
             <td class="p-2 whitespace-nowrap">
-                <div class="text-lg text-center">{total}</div>
+                <div class="text-left">{total}</div>
             </td>
          
             <td class="p-2 whitespace-nowrap">
-                <div class="text-lg text-center">{billentry.time.substring(0,5)}</div>
+                <div class="text-left">{billentry.time.substring(0,5)}</div>
             </td>
          
         </tr>
