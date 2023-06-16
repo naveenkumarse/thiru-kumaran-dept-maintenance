@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 
 const ViewPastLoanList = ({loan}) => {   
     const navigate = useNavigate();
+   
     const navigatetopastview = () => {
+        console.log(loan);
         navigate("/individualloanview", { state: { loan} })
     }
     return (

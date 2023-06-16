@@ -1,6 +1,6 @@
 import React from "react";
 
-const BillNotPaidList = (loan) => {
+const BillNotPaidList = ({loan}) => {
     return (
         <tr>
                         <td class="p-2 whitespace-nowrap">
@@ -15,13 +15,13 @@ const BillNotPaidList = (loan) => {
                 <div class="text-left font-medium">{loan.address}</div>
             </td>
             <td class="p-2 whitespace-nowrap">
-                <div class="text-left font-medium">{loan.loanAmount*loan.interest/100}</div>
+                <div class="text-left font-medium">{loan.payAmount}</div>
             </td>
             <td class="p-2 whitespace-nowrap">
-                <div class="text-left font-medium">{loan.paidAmount}</div>
+                <div class="text-left font-medium">{loan.billAmount}</div>
             </td>
             <td class="p-2 whitespace-nowrap">
-                <div class="text-left font-medium">{loan.loanDate}</div>
+                <div class="text-left font-medium">{loan.date}</div>
             </td>
 
 

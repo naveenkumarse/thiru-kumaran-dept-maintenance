@@ -7,6 +7,7 @@ const BulkPaid = () => {
     const [enddate, setEnddate] = useState(new Date())
     const [list, setList] = useState([])
     const handleSubmit = (e) =>{
+        e.preventDefault();
         const body = {
             "lineId":localStorage.getItem('lineId'),
             "startDate":todaydate,
@@ -27,8 +28,9 @@ const BulkPaid = () => {
 
                     </div>
                     <form class="mt-6" onSubmit={(e)=> handleSubmit(e)}>
-                        <label for="id" class="block mt-2 text-xs font-semibold text-gray-600 uppercase">Date of Close</label>
+                        <label for="id" class="block mt-2 text-xs font-semibold text-gray-600 uppercase"> Start Date  </label>
                         <input id="id" type="date" name="id" placeholder="id" autocomplete="id" class="block w-full p-3 mt-2 text-gray-700 bg-gray-200 appearance-none focus:outline-none focus:bg-gray-300 focus:shadow-inner" value={todaydate} onChange={(e) => setTodayDate(e.target.value)} required />
+                        <label for="id" class="block mt-2 text-xs font-semibold text-gray-600 uppercase"> End Date  </label>
                         <input id="id" type="date" name="id" placeholder="id" autocomplete="id" class="block w-full p-3 mt-2 text-gray-700 bg-gray-200 appearance-none focus:outline-none focus:bg-gray-300 focus:shadow-inner" value={enddate} onChange={(e) => setEnddate(e.target.value)} required />
                         <button type="submit" class="w-1/3 py-3 mt-6 font-medium tracking-widest text-white uppercase bg-black shadow-lg focus:outline-none hover:bg-gray-900 hover:shadow-none float-right">
                             Search

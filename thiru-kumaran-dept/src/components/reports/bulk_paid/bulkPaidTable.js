@@ -19,22 +19,22 @@ const BulkPaidTable = ({list}) => {
                                         <tr>
                                             
                                             <th class="p-2 whitespace-nowrap">
-                                                <div class="font-bold text-center"> DL No</div>
+                                                <div class="text-left font-bold"> Loan No</div>
                                             </th>
                                             <th class="p-2 whitespace-nowrap">
-                                                <div class="font-bold text-center">Name</div>
+                                                <div class="text-left font-bold ">Name</div>
                                             </th>
                                             <th class="p-2 whitespace-nowrap">
-                                                <div class="font-bold text-center"> Address</div>
+                                                <div class="text-left font-bold "> Address</div>
                                             </th>
                                             <th class="p-2 whitespace-nowrap">
-                                                <div class="font-bold text-center">Load Amount</div>
+                                                <div class="text-left font-bold ">Load Amount</div>
                                             </th>
                                             <th class="p-2 whitespace-nowrap">
-                                                <div class="font-bold text-center"> Bill Amount</div>
+                                                <div class="text-left font-bold "> Bill Amount</div>
                                             </th>
                                             <th class="p-2 whitespace-nowrap">
-                                                <div class="font-bold text-center"> Date</div>
+                                                <div class="text-left font-bold"> Date</div>
                                             </th>
                                         </tr>
                                     </thead>

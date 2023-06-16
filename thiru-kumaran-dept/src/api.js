@@ -636,6 +636,7 @@ export const getClosedParty = async (body, setCollection) => {
 
 export const getContinouslyNotPaid = async (body, setCollection) => {
     // line_name,date
+    
     await fetch(ENDPOINT_URL + '/restservices/reports/ContinouslyNotPaid', {
         method: "POST",
         headers: { "content-Type": "application/json" },
@@ -648,7 +649,7 @@ export const getContinouslyNotPaid = async (body, setCollection) => {
 export const getLedgerReport = async (body, setCollection) => {
     // line_name,date
     await fetch(ENDPOINT_URL + '/restservices/reports/ledger', {
-        method: "POST",
+        method: "POST", 
         headers: { "content-Type": "application/json" },
         body: JSON.stringify(body)
     })

@@ -3,7 +3,8 @@ import DateList from "./dateList";
 import LedgerViewList from "./ledgerViewList";
 
 
-const LedgerViewTable = ({list}) => {
+const 
+LedgerViewTable = ({list}) => {
     return (
         <>              
             <div class="antialiased bg-gray-100 text-gray-600 my-20">

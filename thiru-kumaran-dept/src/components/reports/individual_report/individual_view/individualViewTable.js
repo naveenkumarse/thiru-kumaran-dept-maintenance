@@ -6,6 +6,7 @@ import { getIndividualLoanReport } from "../../../../api";
 const IndividualViewTable = ({individual}) => {
     const [list, setList] = useState([]);
     const [total, setTotal ] = useState([]);
+    const [excess,setExcess] = useState([]);
     useEffect(()=>{
      try {
          const body ={
@@ -20,16 +21,33 @@ const IndividualViewTable = ({individual}) => {
     useEffect(()=>{
         const loanAmount = individual.loanAmount;
         const newTotal = [];
+        const newExcess = [];
+
         for(let i = 0; i <list.length;i++){
+            newExcess[i]=0;
             if(i===0){
-                newTotal.push(loanAmount - list[i].billAmount);
+                let a = loanAmount - list[i].billAmount;
+                if(a<0){
+                    newExcess[i]=-a;
+                    a=0;
+                }
+                newTotal.push(a);
             }
             else{
-            newTotal.push(newTotal[i-1] - list[i].billAmount);
+            let a = newTotal[i-1] - list[i].billAmount;
+            if(a<0){
+                newExcess[i]=-a;
+                a=0;
             }
+            newTotal.push(0);
+            }
+            // if(newTotal<0){
+            //     newTotal=0;
+            // }
             console.log(newTotal);
         }
         setTotal(newTotal)
+        setExcess(newExcess)
     },[list])
     return (
         <>
@@ -67,9 +85,9 @@ const IndividualViewTable = ({individual}) => {
                         <h4 class="p-2 text-gray-800"><b>Address:</b> {individual.address}</h4>
                         </div>
                         <div class="mb-5">
-                        <h4 class="p-2 text-gray-800"><b>Loan date:</b> {individual.loanDate}</h4>
-                        <h4 class="p-2 text-gray-800"><b>Close date:</b> {individual.closeDate}</h4>
-                        <h4 class="p-2 text-gray-800"><b>Order No: </b>{individual.orderNo}</h4>
+                        <h4 class="p-2 text-gray-800"><b>Loan date:</b> {individual.date?individual.date:individual.loanDate}</h4>
+                        { individual.closeDate?<h4 class="p-2 text-gray-800"><b>Close date:</b> {individual.closeDate}</h4>:<></>}
+                        {individual.orderNo? <h4 class="p-2 text-gray-800"><b>Order No: </b>{individual.orderNo}</h4>:<></>}
                         </div>
 
                         </div>
@@ -90,12 +108,15 @@ const IndividualViewTable = ({individual}) => {
                                             </th> 
                                             <th class="p-2 whitespace-nowrap">
                                                 <div class="font-bold text-left">Balance</div>
-                                            </th> 
+                                            </th>
+                                            <th class="p-2 whitespace-nowrap">
+                                                <div class="font-bold text-left">Excess</div>
+                                            </th>  
                                         </tr>
                                     </thead>
                                     <tbody class="text-sm divide-y divide-gray-100">
                                     {list && list.length > 0 && list.map((user, i) => 
-                                        <IndividualViewList key={i} user={user} total={total[i]} />
+                                        <IndividualViewList key={i} index={i} user={user} total={total[i]} excess={excess[i]} />
                                     )}
                                     </tbody>
                                 </table>

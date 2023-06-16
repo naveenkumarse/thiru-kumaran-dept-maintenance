@@ -6,6 +6,7 @@ import MonthlyLoanList from "./monthlyLoanList";
 const MonthlyLoan = () => {
     const [sortColumn, setSortColumn] = useState(null);
     const [sortDirection, setSortDirection] = useState(null);
+    const [query, setQuery] = useState("");
 
     const handleSort = (column) => {
         if (sortColumn === column) {
@@ -16,7 +17,7 @@ const MonthlyLoan = () => {
         }
     };
 
-   
+
     const [startdate, setStartDate] = useState();
     const [enddate, setEndDate] = useState();
     const [monthlyLoans, setMonthlyLoans] = useState({});
@@ -83,7 +84,7 @@ const MonthlyLoan = () => {
                                         class="peer h-full w-full outline-none text-sm text-gray-700 pr-10"
                                         type="text"
                                         id="search"
-                                        placeholder="Search"
+                                        placeholder="Search" onChange={event => setQuery(event.target.value)} 
                                     />
                                 </div>
                             </div>
@@ -93,7 +94,7 @@ const MonthlyLoan = () => {
                             <div class="flex flex-col justify-center h-full">
                                 <div class="w-full mx-auto bg-white shadow-lg rounded-sm border border-gray-200">
                                     <header class="px-5 py-4 border-b border-gray-100">
-                                        <h2 class="font-semibold text-gray-800">Past Date Loan Report</h2>
+                                        <h2 class="font-semibold text-gray-800">Monthly Loan</h2>
                                     </header>
 
                                     <div class="p-3">
@@ -132,7 +133,7 @@ const MonthlyLoan = () => {
                                                                 class="font-bold text-center cursor-pointer"
                                                                 onClick={() => handleSort("address")}
                                                             >
-                                                                Address
+                                                                Loan Amount
                                                                 {sortColumn === "address" && (
                                                                     <span class="ml-1">
                                                                         {sortDirection === "asc" ? "▲" : "▼"}
@@ -145,7 +146,7 @@ const MonthlyLoan = () => {
                                                                 class="font-bold text-left cursor-pointer"
                                                                 onClick={() => handleSort("LoanAmount")}
                                                             >
-                                                                Paid Amount
+                                                                Interest
                                                                 {sortColumn === "LoanAmount" && (
                                                                     <span class="ml-1">
                                                                         {sortDirection === "asc" ? "▲" : "▼"}
@@ -158,7 +159,7 @@ const MonthlyLoan = () => {
                                                                 class="font-bold text-center cursor-pointer"
                                                                 onClick={() => handleSort("excess")}
                                                             >
-                                                                Excess
+                                                                Date
                                                                 {sortColumn === "excess" && (
                                                                     <span class="ml-1">
                                                                         {sortDirection === "asc" ? "▲" : "▼"}
@@ -169,7 +170,13 @@ const MonthlyLoan = () => {
                                                     </tr>
                                                 </thead>
                                                 <tbody class="text-sm text-gray-600 divide-y divide-gray-100">
-                                                    {monthlyLoans["loanData"] && monthlyLoans["loanData"].map((monthlyLoan, i) => (
+                                                    {monthlyLoans["loanData"] && monthlyLoans["loanData"].filter(post => {
+                                                        if (query === '') {
+                                                            return post;
+                                                        } else if (post.name.toLowerCase().includes(query.toLowerCase())) {
+                                                            return post;
+                                                        }
+                                                    }).map((monthlyLoan, i) => (
                                                         <MonthlyLoanList
                                                             key={i}
                                                             monthlyLoan={monthlyLoan}
@@ -184,7 +191,6 @@ const MonthlyLoan = () => {
                         </div>
                     </div>
                 </div>
-
             </div>
         </>
     )

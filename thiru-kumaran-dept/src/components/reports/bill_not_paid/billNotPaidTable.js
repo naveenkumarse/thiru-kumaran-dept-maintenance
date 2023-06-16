@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import BillNotPaidList from "./billNotPaidList";
 import { getBillNotPaid } from "../../../api";
 
@@ -16,6 +16,10 @@ const BillNotPaidTable = () => {
             console.log("error in fetching Bill not paid report data")
         }
     };
+    useEffect(()=>{
+        console.log(list);
+            },[list])
+
     return (
         
         <>

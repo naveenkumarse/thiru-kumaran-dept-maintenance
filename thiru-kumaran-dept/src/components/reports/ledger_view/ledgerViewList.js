@@ -14,13 +14,14 @@ const LedgerViewList = ({loan}) => {
                 </td><td class="p-2 whitespace-nowrap ">
                     <div class="font-medium text-lg text-center text-gray-400">{loan.preBalance}</div>
                 </td>
-                {loan["dateValue"] && loan["dateValue"].length > 0 && loan["dateValue"].map((arr, i)=> <LedgerViewAmountList key={i} amount={arr["amount"]}/>)}
                 <td class="p-2 whitespace-nowrap ">
                     <div class="font-medium text-lg text-center text-gray-400">{loan.total}</div>
                 </td>
-                <td class="p-2 whitespace-nowrap ">
+                <td class="p-2 whitespace-nowrap  ">
                     <div class="font-medium text-lg text-center text-gray-400">{loan.balance}</div>
                 </td>
+                {loan["dateValue"]&&loan["dateValue"].map((arr, i)=> <LedgerViewAmountList key={i} amount={arr["amount"]}/>)}
+               
             </tr>
     )
 }

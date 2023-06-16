@@ -1,11 +1,16 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 
-const ContinouslyNotPaidList = ({loan}) => {
+const ContinouslyNotPaidList = ({ loan }) => {
+    const navigate = useNavigate();
+    const navigatetoindividualreport = ()=>{
+        navigate("/individualloanview", { state: { loan} })
+    }
     return (
         <tr>
             <td class="p-2 whitespace-nowrap">
-                <div class="text-left font-medium">{loan.loanId}</div>
+                <div class="text-left font-medium">{loan.loanNo}</div>
             </td>
             <td class="p-2 whitespace-nowrap">
                 <div class="text-left font-medium">{loan.name}</div>
@@ -14,13 +19,16 @@ const ContinouslyNotPaidList = ({loan}) => {
                 <div class="text-left font-medium">{loan.address}</div>
             </td>
             <td class="p-2 whitespace-nowrap">
-                <div class="text-left font-medium">{loan.loanDate}</div>
+                <div class="text-left font-medium">{loan.date}</div>
             </td>
             <td class="p-2 whitespace-nowrap">
-                <div class="text-left font-medium">{loan.closeDate}</div>
+                <div class="text-left font-medium">{loan.loanAmount}</div>
             </td>
             <td class="p-2 whitespace-nowrap">
-                <div class="text-left font-medium"> what is loan date</div>
+                <div class="text-left font-medium">   <div class="text-left font-medium"><button class="group relative h-8 w-24 overflow-hidden rounded-lg bg-white text-lg shadow" onClick={() => navigatetoindividualreport()}>
+                    <div class="absolute inset-0 w-3 bg-green-500 transition-all duration-[250ms] ease-out group-hover:w-full"></div>
+                    <span class="relative text-black text-sm group-hover:text-white">See details</span>
+                </button></div></div>
             </td>
         </tr>
     )

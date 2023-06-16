@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from "react";
 import TotalLedgerList from "./totalLedgerList";
-import {getTotalLedgerAll, getTotalLedgerBelow120 } from "../../../api";
+import { getTotalLedgerAll, getTotalLedgerBelow120 } from "../../../api";
 
-const TotalLedgerTable = ({value,settotalCount}) => {
+const TotalLedgerTable = ({ value, settotalCount }) => {
     const [list, setList] = useState({});
-   
-    useEffect(()=>{
+    const [query, setQuery] = useState("");
+
+    useEffect(() => {
         const body = {
             "lineId": localStorage.getItem('lineId'),
-            "dateRange":value
+            "dateRange": value
         }
         try {
             getTotalLedgerAll(body, setList)
@@ -18,7 +19,7 @@ const TotalLedgerTable = ({value,settotalCount}) => {
             console.log("error in fetching ledger report data")
         }
     }, [list.loanCount])
-  
+
     return (
         <>
             <section class="antialiased bg-gray-100 text-gray-600 px-4 bg-red-400 my-20">
@@ -42,7 +43,7 @@ const TotalLedgerTable = ({value,settotalCount}) => {
                                         class="peer h-full w-full outline-none text-sm text-gray-700 pr-10"
                                         type="text"
                                         id="search"
-                                        placeholder="Search" />
+                                        placeholder="Search" onChange={event => setQuery(event.target.value)} />
                                 </div>
                             </div>
                         </div>
@@ -85,7 +86,13 @@ const TotalLedgerTable = ({value,settotalCount}) => {
                                         </tr>
                                     </thead>
                                     <tbody class="text-sm divide-y divide-gray-100">
-                                    {list["loanData"] && list["loanData"].map((loan,i)=> <TotalLedgerList loan={loan} key={i}/>)}
+                                        {list["loanData"] && list["loanData"].filter(post => {
+                                            if (query === '') {
+                                                return post;
+                                            } else if (post.name.toLowerCase().includes(query.toLowerCase())) {
+                                                return post;
+                                            }
+                                        }).map((loan, i) => <TotalLedgerList loan={loan} key={i} />)}
                                     </tbody>
                                 </table>
                             </div>

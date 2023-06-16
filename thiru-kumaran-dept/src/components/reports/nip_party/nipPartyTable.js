@@ -15,6 +15,7 @@ const NipPartyTable = () => {
             console.log("Error in fetching NIP party", error)
         }
 }
+
     return (
         <>
             <section class="antialiased bg-gray-100 text-gray-600 px-4 bg-red-400 my-20">
@@ -69,13 +70,13 @@ const NipPartyTable = () => {
                                                 <div class="font-bold text-left ">Close Date</div>
                                             </th>
                                             <th class="p-2 whitespace-nowrap">
-                                                <div class="font-bold text-left "> Loan</div>
+                                                <div class="font-bold text-left "> Loan Amount</div>
                                             </th>
                                             <th class="p-2  whitespace-nowrap">
                                                 <div class="font-bold text-left ">Paid Amount</div>
                                             </th>
                                             <th class="p-2 whitespace-nowrap">
-                                                <div class="font-bold text-left "> Bal</div>
+                                                <div class="font-bold text-left "> Balance</div>
                                             </th>
                                             <th class="p-2 whitespace-nowrap">
                                                 <div class="font-bold text-left "> Pay Days</div>

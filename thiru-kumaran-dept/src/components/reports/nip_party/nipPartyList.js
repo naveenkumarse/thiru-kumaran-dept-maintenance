@@ -9,9 +9,7 @@ const NipPartyList = ({loan}) => {
                     <div class="font-medium text-gray-800">{loan.loanNo}</div>
                 </div>
             </td>
-            <td class="p-2 whitespace-nowrap">
-                <div class="text-left">{loan.loanNo}</div>
-            </td>
+       
             <td class="p-2 whitespace-nowrap">
                 <div class="text-left font-medium">{loan.name}</div>
             </td>
@@ -28,10 +26,13 @@ const NipPartyList = ({loan}) => {
                 <div class="text-left font-medium">{loan.loanAmount}</div>
             </td>
             <td class="p-2 whitespace-nowrap">
+                <div class="text-left">{loan.paidAmount}</div>
+            </td>
+            <td class="p-2 whitespace-nowrap">
                 <div class="text-left font-medium">{loan.balance}</div>
             </td>
             <td class="p-2 whitespace-nowrap">
-                <div class="text-left font-medium">{loan.paydayss}</div>
+                <div class="text-left font-medium">{loan.payDayss}</div>
             </td>
         </tr>
     )

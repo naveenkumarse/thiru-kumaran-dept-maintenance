@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from "react";
-import {getIndividualReport } from "../../../../api";
+import { getIndividualReport } from "../../../../api";
 import LoanListView from "./loanListView";
 
 
 const LoanListTable = () => {
     const [individualReports, setIndividualReports] = useState([]);
+    const [query, setQuery] = useState(""); 
     const lineId = localStorage.getItem("lineId");
-    const body = { lineId:lineId }
-    useEffect(()=>{
+    const body = { lineId: lineId }
+    useEffect(() => {
         try {
             getIndividualReport(body, setIndividualReports)
         } catch (error) {
@@ -37,7 +38,7 @@ const LoanListTable = () => {
                                         class="peer h-full w-full outline-none text-sm text-gray-700 pr-10"
                                         type="text"
                                         id="search"
-                                        placeholder="Search" />
+                                        placeholder="Search"  onChange={event => setQuery(event.target.value)} />
                                 </div>
                             </div>
                         </div>
@@ -74,9 +75,15 @@ const LoanListTable = () => {
                                         </tr>
                                     </thead>
                                     <tbody class="text-sm divide-y divide-gray-100">
-                                           {individualReports && individualReports.length > 0 && individualReports.map((loan, i)=>{
-                                            return <LoanListView key={i} loan={loan}/>
-                                           })} 
+                                        {individualReports && individualReports.length > 0 && individualReports.filter(post => {
+                                            if (query === '') {
+                                                return post;
+                                            } else if (post.name.toLowerCase().includes(query.toLowerCase())) {
+                                                return post;
+                                            }
+                                        }).map((loan, i) => {
+                                            return <LoanListView key={i} loan={loan} />
+                                        })}
                                     </tbody>
                                 </table>
                             </div>
