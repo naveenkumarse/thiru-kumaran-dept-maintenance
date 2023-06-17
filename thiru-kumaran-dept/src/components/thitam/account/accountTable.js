@@ -48,10 +48,10 @@ const AccountTable = ({accountlist}) => {
                                                 <div class="font-bold text-left">Name</div>
                                             </th>
                                             <th class="p-2 whitespace-nowrap">
-                                                <div class="font-bold text-left">Credit </div>
+                                                <div class="font-bold text-left">Debit </div>
                                             </th>
                                             <th class="p-2 whitespace-nowrap">
-                                                <div class="font-bold text-left">Debit</div>
+                                                <div class="font-bold text-left">Credit</div>
                                             </th>
                                             <th class="p-2 whitespace-nowrap">
                                                 <div class="font-bold text-left">Balance</div>
