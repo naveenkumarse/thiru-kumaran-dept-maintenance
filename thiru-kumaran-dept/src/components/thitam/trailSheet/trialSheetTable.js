@@ -1,41 +1,21 @@
-import React, { useState } from "react";
 import TrialSheetList from "./trialSheetList";
-
+import { getTrialSheet } from "../../../api";
+import React, { useEffect, useState } from "react";
 
 
 const TrialSheetTable = () => {
-    const [trailList, setTrailList] = useState([
-        {
-            "id": 23,
-            "name": "Line 1 BILL",
-            "description": null,
-            "debit": 0,
-            "credit": 6000,
-            "date": "2023-06-05",
-            "extraHead": false,
-            "balance": 0
-        },
-        {
-            "id": 24,
-            "name": "Line 1 LOAN",
-            "description": null,
-            "debit": 5000,
-            "credit": 0,
-            "date": "2023-06-05",
-            "extraHead": false,
-            "balance": 0
-        },
-        {
-            "id": 25,
-            "name": "Line 1 COMMISSION",
-            "description": null,
-            "debit": 0,
-            "credit": 500,
-            "date": "2023-06-05",
-            "extraHead": false,
-            "balance": 0
-        },
-    ])
+    const [trailList, setTrailList] = useState([]);
+    useEffect(()=>{
+        const fetchData = async () => {
+            try {
+              await getTrialSheet(setTrailList); // Assuming getLineFE is an asynchronous 
+            } catch (error) {
+              console.error("Error fetching Trial sheet data:", error);
+            }
+          };
+      
+          fetchData();
+    },[trailList]);
     return (
         <>
             <section class="antialiased bg-gray-100 text-gray-600 px-4 bg-red-400 my-20">
@@ -85,8 +65,8 @@ const TrialSheetTable = () => {
                                     </thead>
                                     <tbody class="text-sm divide-y divide-gray-100">
                                         
-                                            {trailList.map((res) => {
-                                                return <TrialSheetList key={res.id} res={res} />
+                                            {trailList.map((res,i) => {
+                                                return <TrialSheetList key={res.id} index={i} res={res} />
                                             })}
 
                                      

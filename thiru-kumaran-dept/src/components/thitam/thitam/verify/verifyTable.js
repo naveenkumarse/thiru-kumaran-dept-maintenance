@@ -46,7 +46,7 @@ const VerifyTable = ({ verifiedTable }) => {
                                         </th>
                                         <td class="p-2 whitespace-nowrap">
                                             <div class="flex items-center">
-                                                <div class="font-medium text-gray-800">{balanceList.debit}</div>
+                                                <div class="text-left">{balanceList.debit}</div>
                                             </div>
                                         </td>
                                       
@@ -65,7 +65,7 @@ const VerifyTable = ({ verifiedTable }) => {
                                      
                                         <td class="p-2 whitespace-nowrap">
                                             <div class="flex items-center">
-                                                <div class="font-medium text-gray-800">{balanceList.credit}</div>
+                                                <div class="text-left">{balanceList.credit}</div>
                                             </div>
                                         </td>
                                         
@@ -78,7 +78,7 @@ const VerifyTable = ({ verifiedTable }) => {
                                         </th>
                                     <td class="p-2 whitespace-nowrap">
                                             <div class="flex items-center">
-                                                <div class="font-medium text-gray-800">{balanceList.balance}</div>
+                                                <div class="text-left">{balanceList.balance}</div>
                                             </div>
                                         </td>
                                     </tr>

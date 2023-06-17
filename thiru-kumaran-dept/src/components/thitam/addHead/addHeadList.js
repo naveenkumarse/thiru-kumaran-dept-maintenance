@@ -24,12 +24,12 @@ const AddHeadList = ({ id, headName, setEditHead, setHeadId ,index}) => {
         <tr>
             <td class="p-2 whitespace-nowrap">
                 <div class="flex items-center">
-                    <div class="font-medium text-gray-800">{index+1}</div>
+                    <div class="text-left">{index+1}</div>
                 </div>
             </td>
             <td class="p-2 whitespace-nowrap">
                 <div class="flex items-center">
-                    <div class="font-medium text-gray-800">{headName}</div>
+                    <div class="text-left">{headName}</div>
                 </div>
             </td>
             <td class=" whitespace-nowrap pt-2">
