@@ -2,7 +2,7 @@ import React from "react";
 import { deleteLineMember } from "../../../api";
 import { useNavigate } from "react-router-dom";
 
-const LineBoyList = ({lineboy}) => {
+const LineBoyList = ({lineboy,index}) => {
     const handleLineBoyDelete = (e) =>{
         e.preventDefault();
         deleteLineMember({"lineMemId":lineboy.linMemId});
@@ -17,7 +17,7 @@ const LineBoyList = ({lineboy}) => {
         <tr>
             <td class="p-2 whitespace-nowrap">
                 <div class="flex items-center">
-                    <div class="font-medium text-gray-800">{lineboy.id}</div>
+                    <div class="font-medium text-gray-800">{index+1}</div>
                 </div>
             </td>
             <td class="p-2 whitespace-nowrap">

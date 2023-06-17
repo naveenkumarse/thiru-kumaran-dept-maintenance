@@ -45,13 +45,13 @@ const AddHeadTable = ({headList, setHeadId, setEditHead}) => {
                                         </th>
 
                                         <th class="p-2 whitespace-nowrap">
-                                            <div class="font-bold text-left ml-4">Action</div>
+                                            <div class="font-bold text-left ml-16">Action</div>
                                         </th>
                                     </tr>
                                 </thead>
                                 <tbody class="text-sm divide-y divide-gray-100">
-                                {headList && headList.length>0 && headList.map((res)=>{
-                                    return   <AddHeadList key={res.id} id={res.id} headName={res.headName} setEditHead={setEditHead} setHeadId={setHeadId} />
+                                {headList && headList.length>0 && headList.map((res,i)=>{
+                                    return   <AddHeadList key={res.id} index={i} id={res.id} headName={res.headName} setEditHead={setEditHead} setHeadId={setHeadId} />
                                 })}
                                 </tbody>
                             </table>

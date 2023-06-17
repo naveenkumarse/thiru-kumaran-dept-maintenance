@@ -14,6 +14,7 @@ const Thitam = () => {
     // const [description, setDescription ] = useState('');
     const [credit, setCredit] = useState(0);
     const [remarks, setRemarks] = useState('');
+    const [verifiedTable,setVerifiedTable] =useState({});
     // useEffect(()=>{
     //     getOpeningBalanceBool(setOpeningBalance)
     //     console.log(openingBalance)
@@ -54,6 +55,9 @@ const Thitam = () => {
         }
         window.location.reload();
       }
+      useEffect(()=>{
+        console.log(verifiedTable)
+      },[verifiedTable])
     return (
         <>
             <div class="grid min-h-screen bg-red-400">
@@ -66,7 +70,7 @@ const Thitam = () => {
                         </div>
                         <div className=" grid-cols-2">
                             <div className="float-right px-48">
-                                <Verify />
+                                <Verify verifiedTable={verifiedTable}/>
                             </div>
 
                             <form class="mt-6" onSubmit={(e)=>handleHeadSubmit(e)}>
@@ -135,7 +139,7 @@ const Thitam = () => {
                         </div>
                         <br />
                         <br />
-                        <Details />
+                        <Details setVerifiedTable={setVerifiedTable}/>
                         <br />
                         <div className="pt-5">
                             <ThitamTable />

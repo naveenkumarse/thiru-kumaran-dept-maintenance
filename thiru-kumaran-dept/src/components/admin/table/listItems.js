@@ -2,7 +2,7 @@ import React from "react";
 import { deleteAdmin } from "../../../api";
 import { useNavigate } from "react-router-dom";
 
-const AdminList = ({Admin}) => {
+const AdminList = ({Admin,index}) => {
     console.log(Admin)
     const handleAdminDelete = (e) =>{
         e.preventDefault();
@@ -17,7 +17,7 @@ const AdminList = ({Admin}) => {
         <tr>
             <td class="p-2 whitespace-nowrap">
                 <div class="flex items-center">
-                    <div class="font-medium text-gray-800">{Admin.id}</div>
+                    <div class="font-medium text-gray-800">{index+1}</div>
                 </div>
             </td>
             <td class="p-2 whitespace-nowrap">

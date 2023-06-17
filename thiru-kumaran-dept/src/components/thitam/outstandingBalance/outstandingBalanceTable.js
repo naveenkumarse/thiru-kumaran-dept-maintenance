@@ -20,7 +20,7 @@ const OutstandingBalanceTable = ({outstandingBalance }) => {
                                 <thead class="text-xs font-semibold uppercase text-black-400 bg-gray-50">
                                     <tr>
                                         <th class="p-2 whitespace-nowrap">
-                                            <div class="font-bold text-left">DL No.</div>
+                                            <div class="font-bold text-left">SNo.</div>
                                         </th>
 
                                         <th class="p-2 whitespace-nowrap">
@@ -30,35 +30,35 @@ const OutstandingBalanceTable = ({outstandingBalance }) => {
                                             <div class="font-bold text-left">LineName</div>
                                         </th>
                                         <th class="p-2 whitespace-nowrap">
-                                            <div class="font-bold text-left">1st Count</div>
+                                            <div class="font-bold text-left">{"<"} 120 Count</div>
                                         </th>
                                         <th class="p-2 whitespace-nowrap">
-                                            <div class="font-bold text-left">1st Balance</div>
+                                            <div class="font-bold text-left">{"<"} 120 Balance</div>
                                         </th>
                                         <th class="p-2 whitespace-nowrap">
-                                            <div class="font-bold text-left">2nd Count</div>
+                                            <div class="font-bold text-left">120-240 Count</div>
                                         </th>
                                         <th class="p-2 whitespace-nowrap">
-                                            <div class="font-bold text-left">2nd Balance</div>
+                                            <div class="font-bold text-left">120-240 Balance</div>
                                         </th>
                                         <th class="p-2 whitespace-nowrap">
-                                            <div class="font-bold text-left">3rd Count</div>
+                                            <div class="font-bold text-left">240-365 Count</div>
                                         </th>
                                         <th class="p-2 whitespace-nowrap">
-                                            <div class="font-bold text-left">3rd Balance</div>
+                                            <div class="font-bold text-left">240-365 Balance</div>
                                         </th>
                                         <th class="p-2 whitespace-nowrap">
-                                            <div class="font-bold text-left">4th Count</div>
+                                            <div class="font-bold text-left">  {">"}365 Count</div>
                                         </th>
                                         <th class="p-2 whitespace-nowrap">
-                                            <div class="font-bold text-left">4th Balance</div>
+                                            <div class="font-bold text-left">{">"}365 Balance</div>
                                         </th>
                                     </tr>
                                 </thead>
                                 <tbody class="text-sm divide-y divide-gray-100">
 
-                                    {outstandingBalance && outstandingBalance.length>0 && outstandingBalance.map((res) => {
-                                        return <OutstandingBalanceList key={res.id} res={res} />
+                                    {outstandingBalance && outstandingBalance.length>0 && outstandingBalance.map((res,i) => {
+                                        return <OutstandingBalanceList key={res.id} res={res} index={i}/>
                                     })}
 
                                 </tbody>

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 
 import AddHeadTable from "./addHeadTable";
-import { createUpdateHead, getAllHeads } from "../../../api";
+import { createUpdateHead, deleteHead, getAllHeads } from "../../../api";
 
 
 const AddHead = () => {
@@ -40,6 +40,20 @@ const AddHead = () => {
         }
         try {
             createUpdateHead(body, setAddHeadList)
+            } catch (error) {
+                console.log("error in fetching head data", error)
+            }  
+        window.location.reload();
+    }
+    const handleDelete = (e) =>{
+        e.preventDefault();
+        const body = {
+            "id":headId,
+            "name":editHead,
+            "update":true
+        }
+        try {
+            deleteHead(body)
             } catch (error) {
                 console.log("error in fetching head data", error)
             }  
@@ -84,6 +98,7 @@ const AddHead = () => {
                                     </div>
                                 </div>
                             </form>
+                            
                         </div>
                         <br />
                         <br />

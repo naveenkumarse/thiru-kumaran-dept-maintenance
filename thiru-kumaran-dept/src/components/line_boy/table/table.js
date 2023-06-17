@@ -45,7 +45,7 @@ const LineBoyTable = () => {
                                         </tr>
                                     </thead>
                                     <tbody class="text-sm divide-y divide-gray-100">
-                                            {lineboys.map((lineboy) => (<ListItems lineboy={lineboy} key={lineboy.id}/>))}
+                                            {lineboys.map((lineboy,i) => (<ListItems lineboy={lineboy} key={lineboy.id} index={i}/>))}
                                     </tbody>
                                 </table>
                             </div>

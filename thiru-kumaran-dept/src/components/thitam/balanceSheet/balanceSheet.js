@@ -9,36 +9,36 @@ const BalanceSheet = () => {
     const [enddate, setEndDate] = useState(new Date());
     const [balanceList,setBalanceList] = useState(
         [
-            {
-                "id": 23,
-                "name": "Line 1 BILL",
-                "description": null,
-                "debit": 0,
-                "credit": 6000,
-                "date": "2023-06-05",
-                "extraHead": false,
-                "balance": 0
-            },
-            {
-                "id": 24,
-                "name": "Line 1 LOAN",
-                "description": null,
-                "debit": 5000,
-                "credit": 0,
-                "date": "2023-06-05",
-                "extraHead": false,
-                "balance": 0
-            },
-            {
-                "id": 25,
-                "name": "Line 1 COMMISSION",
-                "description": null,
-                "debit": 0,
-                "credit": 500,
-                "date": "2023-06-05",
-                "extraHead": false,
-                "balance": 0
-            },
+            // {
+            //     "id": 23,
+            //     "name": "Line 1 BILL",
+            //     "description": null,
+            //     "debit": 0,
+            //     "credit": 6000,
+            //     "date": "2023-06-05",
+            //     "extraHead": false,
+            //     "balance": 0
+            // },
+            // {
+            //     "id": 24,
+            //     "name": "Line 1 LOAN",
+            //     "description": null,
+            //     "debit": 5000,
+            //     "credit": 0,
+            //     "date": "2023-06-05",
+            //     "extraHead": false,
+            //     "balance": 0
+            // },
+            // {
+            //     "id": 25,
+            //     "name": "Line 1 COMMISSION",
+            //     "description": null,
+            //     "debit": 0,
+            //     "credit": 500,
+            //     "date": "2023-06-05",
+            //     "extraHead": false,
+            //     "balance": 0
+            // },
         ]
     ) 
     const handleSubmit = (e) => {
@@ -54,6 +54,7 @@ const BalanceSheet = () => {
             console.log("error in fetching head data", error)
         }        
     }
+    
     return (
         <>
             <div class="grid min-h-screen place-items-center bg-red-400">

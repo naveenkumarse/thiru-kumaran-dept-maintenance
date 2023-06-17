@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { getLastEntriesFE } from "../../api";
 
-const DateCloseTable = (setPreviousDate) => {
+const DateCloseTable = ({setPreviousDate}) => {
 
     const [lastEntries, setLastEntries] = useState([
     ]);
@@ -21,8 +21,9 @@ const DateCloseTable = (setPreviousDate) => {
                 console.error("Error fetching line data:", error);
             }
         };
-
+        
         fetchData();
+        setDate();
     }, []);
     const setDate =()=>{
         console.log(lastEntries[0].date);

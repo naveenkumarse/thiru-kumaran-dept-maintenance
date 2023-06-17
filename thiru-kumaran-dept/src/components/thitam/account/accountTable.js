@@ -15,7 +15,7 @@ const AccountTable = ({accountlist}) => {
                         <div className="flex inline lg:justify-between">
                             <header class="px-5 py-4 border-b border-gray-100 ">
                                 <h2 class="font-bold text-gray-800">Account</h2> <br/>
-                                <h2 class="font-bold text-gray-800">Total Amount : {total} </h2>
+                                {/* <h2 class="font-bold text-gray-800">Total Amount : {total} </h2> */}
                             </header>
                             <div class='max-w-md mr-5'>
                                 <div class="relative flex items-center w-full h-12 rounded-lg focus-within:shadow-lg bg-white overflow-hidden border border-black-600">
@@ -60,8 +60,8 @@ const AccountTable = ({accountlist}) => {
                                     </thead>
                                     <tbody class="text-sm divide-y divide-gray-100">
                                         
-                                           {accountlist && accountlist.length> 0 && accountlist.map((res)=>{
-                                            return <AccountList key={res.id} res={res}/>
+                                           {accountlist && accountlist.length> 0 && accountlist.map((res,i)=>{
+                                            return <AccountList key={res.id} index={i}res={res}/>
                                            })} 
                                         
                                     </tbody>

@@ -4,7 +4,7 @@ import VerifyTable from "./verifyTable";
 
 
 
-const Verify = () => {
+const Verify = ({verifiedTable}) => {
     const [todaydate, setTodayDate] = useState(new Date());
 
     return (
@@ -12,7 +12,7 @@ const Verify = () => {
            
 
                     <div className="pt-12">
-                        <VerifyTable />
+                        <VerifyTable verifiedTable={verifiedTable} />
                     </div>
 
                 

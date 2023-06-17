@@ -42,7 +42,7 @@ const AdminTable = () => {
                                         </tr>
                                     </thead>
                                     <tbody class="text-sm divide-y divide-gray-100">
-                                            {Admins.map((Admin) => (<ListItems Admin={Admin} key={Admin.id}/>))}
+                                            {Admins.map((Admin,i) => (<ListItems Admin={Admin} index={i} key={Admin.id}/>))}
                                     </tbody>
                                 </table>
                             </div>

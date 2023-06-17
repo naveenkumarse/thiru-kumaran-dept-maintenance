@@ -2,22 +2,21 @@ import React, { useEffect, useState } from "react";
 import DetailsList from "./detailsList";
 import { createBalance, deleteAllExtraHead, getAllThittam } from "../../../../api";
 
-const DetailsTable = () => {
+const DetailsTable = ({setVerifiedTable}) => {
     const [data, setData] = useState({})
     const [list, setList] = useState([])
     const [balance, setBalance] = useState(0);
     const [balanceList, setBalanceList] = useState([]);
     const [credit, setCredit] = useState(0);
     const [debit, setDebit] = useState(0);
+    const [verify,setVerify] = useState([]);
 
     useEffect(()=>{
         setList(data["thittamList"])
     }, [data])
 
     //useEffect for calculating balances
-    useEffect(()=>{
-    balanceComputation(list)
-    }, [list])
+    
 
     const balanceComputation = async () =>{
         if (list && list.length>0){
@@ -33,7 +32,7 @@ const DetailsTable = () => {
 
             }
             setBalanceList(newBalanceList);
-
+            setBalance(newBalanceList[newBalanceList.length-1]);
             const sumOfCredit = list.reduce((accumulator, currentItem) => {
                 return accumulator + currentItem.credit;
               }, 0);
@@ -42,8 +41,17 @@ const DetailsTable = () => {
               }, 0);
             setCredit(sumOfCredit)
             setDebit(sumOfDebit)
+            const v = {
+                "credit":sumOfCredit,
+                "debit":sumOfDebit,
+                "balance":newBalanceList[newBalanceList.length-1]
+              };
+            //   console.log(v);
+              setVerifiedTable(v)
         }
+       
     }
+   
     useEffect(()=>{
         const fetchData = async () => {
             try {
@@ -57,6 +65,8 @@ const DetailsTable = () => {
             }
           };
           fetchData();
+          
+        
     },[])
     const handleSubmit =(e) =>{
         e.preventDefault();
@@ -86,6 +96,11 @@ const DetailsTable = () => {
         }
         window.location.reload();
     }
+    useEffect(()=>{
+        balanceComputation(list)
+       
+        //   console.log(v);
+        }, [list])
     return (
         <>
 

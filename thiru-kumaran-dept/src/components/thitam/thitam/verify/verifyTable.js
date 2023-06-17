@@ -1,46 +1,14 @@
-import React, { useState } from "react";
-import VerifyList from "./verifyList";
+import React, { useEffect, useState } from "react";
 
+const VerifyTable = ({ verifiedTable }) => {
 
-
-
-
-
-const VerifyTable = () => {
-    const [balanceList,setBalanceList] = useState(
-        [
-            {
-                "id": 23,
-                "name": "Line 1 BILL",
-                "description": null,
-                "debit": 0,
-                "credit": 6000,
-                "date": "2023-06-05",
-                "extraHead": false,
-                "balance": 0
-            },
-            {
-                "id": 24,
-                "name": "Line 1 LOAN",
-                "description": null,
-                "debit": 5000,
-                "credit": 0,
-                "date": "2023-06-05",
-                "extraHead": false,
-                "balance": 0
-            },
-            {
-                "id": 25,
-                "name": "Line 1 COMMISSION",
-                "description": null,
-                "debit": 0,
-                "credit": 500,
-                "date": "2023-06-05",
-                "extraHead": false,
-                "balance": 0
-            },
-        ]
-    ) 
+    const [balanceList, setBalanceList] = useState(
+        {}
+    )
+    useEffect(() => {
+        console.log("v" + verifiedTable);
+        setBalanceList(verifiedTable)
+    }, [verifiedTable])
     return (
         <>
 
@@ -49,7 +17,7 @@ const VerifyTable = () => {
 
                     <div className="">
                         <header class="px-5 py-4 border-b border-gray-100 ">
-                            <h2 class="font-bold text-gray-800">Balance Sheet</h2>
+                            <h2 class="font-bold text-gray-800">Verify Thitam</h2>
                         </header>
                         {/* <div class='max-w-md mr-5'>
                                 <div class="relative flex items-center w-full h-12 rounded-lg focus-within:shadow-lg bg-white overflow-hidden border border-black-600">
@@ -74,19 +42,47 @@ const VerifyTable = () => {
                                 <thead class="text-xs font-semibold uppercase text-black-400 bg-gray-50">
                                     <tr>
                                         <th class="p-2 whitespace-nowrap">
-                                            <div class="font-bold text-left">SNo.</div>
+                                            <div class="font-bold text-left">Debit Total</div>
                                         </th>
-                                        <th class="p-2 whitespace-nowrap">
-                                            <div class="font-bold text-left">Head Name</div>
-                                        </th>
-                                    
+                                        <td class="p-2 whitespace-nowrap">
+                                            <div class="flex items-center">
+                                                <div class="font-medium text-gray-800">{balanceList.debit}</div>
+                                            </div>
+                                        </td>
+                                      
+
                                     </tr>
                                 </thead>
                                 <tbody class="text-sm divide-y divide-gray-100">
-                                      {balanceList.map((res)=>{
+                                    {/* {balanceList && balanceList.length>0 && balanceList.map((res)=>{
                                         return  <VerifyList key={res.id} res={res}/>
-                                      })} 
-                                
+                                      })}  */}
+                                    <tr>
+
+                                    <th class="p-2 whitespace-nowrap">
+                                            <div class="font-bold text-left">Credit Total</div>
+                                        </th>
+                                     
+                                        <td class="p-2 whitespace-nowrap">
+                                            <div class="flex items-center">
+                                                <div class="font-medium text-gray-800">{balanceList.credit}</div>
+                                            </div>
+                                        </td>
+                                        
+
+                                    </tr>
+                                    <tr>
+                                         
+                                    <th class="p-2 whitespace-nowrap">
+                                            <div class="font-bold text-left">Closing Balance</div>
+                                        </th>
+                                    <td class="p-2 whitespace-nowrap">
+                                            <div class="flex items-center">
+                                                <div class="font-medium text-gray-800">{balanceList.balance}</div>
+                                            </div>
+                                        </td>
+                                    </tr>
+
                                 </tbody>
                             </table>
                         </div>

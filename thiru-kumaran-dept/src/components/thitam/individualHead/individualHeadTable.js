@@ -53,8 +53,8 @@ const IndividualHeadTable = ({ individualHeadList }) => {
                                     </tr>
                                 </thead>
                                 <tbody class="text-sm divide-y divide-gray-100">
-                                    {individualHeadList.map((res) => {
-                                        return <IndividualHeadList key={res.id} res={res} />
+                                    {individualHeadList.map((res,i) => {
+                                        return <IndividualHeadList key={res.id} res={res} index={i}/>
                                     })}
 
 

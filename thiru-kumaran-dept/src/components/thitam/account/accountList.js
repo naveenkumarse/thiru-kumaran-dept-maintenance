@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 
 
-const AccountList = ({ res }) => {
+const AccountList = ({ res,index }) => {
     const [amount, setAmount] = useState(0);
     return (
         <>
             <tr>
                 <td class="p-2 whitespace-nowrap">
                     <div class="flex items-center">
-                        <div class="font-medium text-gray-800">{res.id}</div>
+                        <div class="font-medium text-gray-800">{index+1}</div>
                     </div>
                 </td>
                 <td class="p-2 whitespace-nowrap">

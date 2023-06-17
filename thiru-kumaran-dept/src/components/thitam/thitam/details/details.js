@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import DetailsTable from "./detailsTable";
 
-const Details = () => {
+const Details = ({setVerifiedTable}) => {
     const [todaydate, setTodayDate] = useState(new Date());
 
     return (
@@ -9,7 +9,7 @@ const Details = () => {
            
 
                     <div className="pt-12">
-                        <DetailsTable />
+                        <DetailsTable setVerifiedTable={setVerifiedTable} />
                     </div>
 
               

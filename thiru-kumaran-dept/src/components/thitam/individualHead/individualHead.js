@@ -61,7 +61,7 @@ const IndividualHead = () => {
             console.log("error in fetching head data", error)
         }    
         console.log(individualHeadList)
-        window.location.reload();
+        // window.location.reload();
     }
     return (
         <>

@@ -10,6 +10,7 @@ const ThitamTable = () => {
         }
         try {
             getExtraHeadWrtDate(body, setAllData);
+            console.log("this is my data" + allData)
           } catch (error) {
             console.log(error);
           }
@@ -55,7 +56,7 @@ const ThitamTable = () => {
                                         </th>
 
                                         <th class="p-2 whitespace-nowrap">
-                                            <div class="font-bold text-left ml-4">Debit</div>
+                                            <div class="font-bold text-left ">Debit</div>
                                         </th>
                                         
                                         <th class="p-2 whitespace-nowrap">
@@ -63,7 +64,7 @@ const ThitamTable = () => {
                                         </th>
 
                                         <th class="p-2 whitespace-nowrap">
-                                            <div class="font-bold text-left ml-4">Description</div>
+                                            <div class="font-bold text-left ">Description</div>
                                         </th>
                                         
                                         <th class="p-2 whitespace-nowrap">
@@ -76,7 +77,7 @@ const ThitamTable = () => {
                                     </tr>
                                 </thead>
                                 <tbody class="text-sm divide-y divide-gray-100">
-                                    {allData && allData > 0 && allData.map((res,id) => {
+                                    {allData && allData.length > 0 && allData.map((res,id) => {
                                         return <ThitamList key={id} id={id} res={res}  />
                                     })}
                                 </tbody>
