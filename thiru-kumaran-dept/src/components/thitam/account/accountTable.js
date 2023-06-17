@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import AccountList from "./accountList";
 
-const AccountTable = ({accountlist}) => {
+const AccountTable = ({ accountlist }) => {
     const [total, newTotal] = useState(0);
-  
+    const [query, setQuery] = useState("")
     // use reduce function to calculate the total amount 
 
     return (
@@ -14,7 +14,7 @@ const AccountTable = ({accountlist}) => {
 
                         <div className="flex inline lg:justify-between">
                             <header class="px-5 py-4 border-b border-gray-100 ">
-                                <h2 class="font-bold text-gray-800">Account</h2> <br/>
+                                <h2 class="font-bold text-gray-800">Account</h2> <br />
                                 {/* <h2 class="font-bold text-gray-800">Total Amount : {total} </h2> */}
                             </header>
                             <div class='max-w-md mr-5'>
@@ -29,7 +29,7 @@ const AccountTable = ({accountlist}) => {
                                         class="peer h-full w-full outline-none text-sm text-gray-700 pr-10"
                                         type="text"
                                         id="search"
-                                        placeholder="Search" />
+                                        placeholder="Search" onChange={event => setQuery(event.target.value)} />
                                 </div>
                             </div>
                         </div>
@@ -38,7 +38,7 @@ const AccountTable = ({accountlist}) => {
                                 <table class="table-auto w-full">
                                     <thead class="text-xs font-semibold uppercase text-black-400 bg-gray-50">
                                         <tr>
-                                        <th class="p-2 whitespace-nowrap">
+                                            <th class="p-2 whitespace-nowrap">
                                                 <div class="font-bold text-left">SNo.</div>
                                             </th>
                                             <th class="p-2 whitespace-nowrap">
@@ -59,11 +59,17 @@ const AccountTable = ({accountlist}) => {
                                         </tr>
                                     </thead>
                                     <tbody class="text-sm divide-y divide-gray-100">
-                                        
-                                           {accountlist && accountlist.length> 0 && accountlist.map((res,i)=>{
-                                            return <AccountList key={res.id} index={i}res={res}/>
-                                           })} 
-                                        
+
+                                        {accountlist && accountlist.length > 0 && accountlist.filter(post => {
+                                            if (query === '') {
+                                                return post;
+                                            } else if (post.name.toLowerCase().includes(query.toLowerCase())) {
+                                                return post;
+                                            }
+                                        }).map((res, i) => {
+                                            return <AccountList key={res.id} index={i} res={res} />
+                                        })}
+
                                     </tbody>
                                 </table>
                             </div>
