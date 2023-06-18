@@ -67,6 +67,8 @@ function App() {
               <LineBoyHome />
             </div>
           } />
+
+
           <Route path="/lineboypages" element={
             <div>
               <LineBoyNavbar />
@@ -95,23 +97,23 @@ function App() {
           } />
 
 
-          <Route element={<ProtectedRoutes />}>
+          {/* <Route element={<ProtectedRoutes />}> */}
             <Route path="/home" element={
               <div>
                 <Navbar />
                 <Home />
               </div>
             } />
-          </Route>
+          {/* </Route> */}
 
-          <Route element={<ProtectedRoutes />}>
+          {/* <Route element={<ProtectedRoutes />}> */}
           <Route path="/line" element={
             <div>
               <Navbar />
               <Line />
             </div>
           } />
-          </Route>
+          {/* </Route> */}
           
           <Route path="/admin" element={
               <div>

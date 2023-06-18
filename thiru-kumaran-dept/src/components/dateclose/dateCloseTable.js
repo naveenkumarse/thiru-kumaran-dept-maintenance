@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { getLastEntriesFE } from "../../api";
 
 const DateCloseTable = ({setPreviousDate}) => {
-
+ 
     const [lastEntries, setLastEntries] = useState([
     ]);
     // const entries = [];
@@ -26,8 +26,13 @@ const DateCloseTable = ({setPreviousDate}) => {
         setDate();
     }, []);
     const setDate =()=>{
-        console.log(lastEntries[0].date);
-        setPreviousDate(lastEntries[0].date);
+        // console.log(lastEntries[0].date);
+        if(lastEntries[0].date){
+            setPreviousDate(lastEntries[0].date);
+        }else{
+            setPreviousDate("send date");
+        }
+      
     }
     return (
         <>

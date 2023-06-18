@@ -22,9 +22,10 @@ function Navbar() {
                               <Link to='/lineboy'>  <li><a class="hover:text-gray-200" href="#">Line Boy</a></li> </Link> 
                               <Link to='/linecreate'> <li><a class="hover:text-gray-200" href="#">Line create</a></li></Link> 
                               <Link to='/thitam'> <li>Thitam</li></Link> 
+                            
                               <p>Date : {date}</p>
                               {line_name!=null?<p>Line name : {line_name} </p>:<></>}
-                              
+                              <li ><Link onClick={()=>localStorage.setItem("phoneNo",' ')}>Log out</Link></li>
                             </ul>
 
                             <div class=" xl:flex items-center space-x-5 items-center md:ml-5 sm:ml-5">

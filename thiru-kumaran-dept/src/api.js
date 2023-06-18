@@ -31,6 +31,20 @@ export const lineboyLogin = async (body, setToken) => {
     return setToken(jsonData["Token"]);
 }
 
+export const adminLogin = async (body, setToken) => {
+    console.log(body);
+
+    const res = await fetch(ENDPOINT_URL + "/api/auth/login/admin", {
+        method: "POST",
+        headers: { "content-Type": "application/json" },
+        body: JSON.stringify(body)
+    });
+    const jsonData = await res.json();
+   
+    return setToken(jsonData["Token"]);
+}
+
+
 // update user by phone number
 // export const updateUserByNo = async (body) => {
 //     console.log(body);

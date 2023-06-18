@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import Modal from '../modal/modal';
 import { lineboyLogin } from '../../api';
-import jwtDecode from 'jwt-decode';
+import jwt_decode from 'jwt-decode';
 const LineBoyLogin = () => {
     const navigate = useNavigate();
     const [token, setToken] = useState('')
@@ -13,11 +13,12 @@ const LineBoyLogin = () => {
 
     const validateJWT = (token) => {
         try {
-            const { decodedToken, isExpired } = jwtDecode(token);
-            console.log("decoded",decodedToken)
-            if (decodedToken.sub === email) {
-                navigate('/home');
-                localStorage.setItem("phoneNo",decodedToken.phoneNo);
+            const decodedToken = jwt_decode(token);
+
+            console.log("decoded", decodedToken)
+            if (decodedToken.sub == email) {
+                navigate('/lineboyhome');
+                localStorage.setItem("phoneNo", decodedToken.phoneNo);
             }
             console.log('Token is valid:', decodedToken);
             return true;
@@ -27,16 +28,21 @@ const LineBoyLogin = () => {
             return false;
         }
     };
-    const onSubmit = (e) => {
+ 
+    
+    const onSubmit = async (e) => {
         e.preventDefault();
         // put the post call
         const body = {
-            "phoneNo":email,
-            "password":password
-        } 
+            "phoneNo": email,
+            "password": password
+        }
         try {
-        lineboyLogin(body, setToken);
-            validateJWT(token)
+            await lineboyLogin(body, setToken);
+            setTimeout(() => {
+                console.log('This will run after 1 second!')
+              }, 1000);
+            validateJWT(token);
         } catch (error) {
             console.log(error)
         }
@@ -48,7 +54,7 @@ const LineBoyLogin = () => {
                 <div class="h-screen flex justify-center items-center">
                     <div class="bg-white mx-4 p-8 rounded shadow-md w-full md:w-1/2 lg:w-1/3">
                         <h1 class="text-3xl font-bold mb-8 text-center">Login</h1>
-                        <form onSubmit={(e)=>onSubmit(e)}>
+                        <form onSubmit={(e) => onSubmit(e)}>
                             <div class="mb-4">
                                 <label class="block font-semibold text-gray-700 mb-2" for="email">
                                     Phone Number
@@ -64,7 +70,7 @@ const LineBoyLogin = () => {
                                 <input
                                     class="border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
                                     id="password" type="password" placeholder="Enter your password" value={password} onChange={(e) => setPassword(e.target.value)} />
-                                <Link to='/' style={{color:"red"}}> admin login </Link>
+                                <Link to='/' style={{ color: "red" }}> admin login </Link>
                             </div>
                             <div class="mb-6">
                                 <button

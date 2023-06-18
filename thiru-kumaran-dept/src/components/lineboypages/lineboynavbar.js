@@ -21,6 +21,7 @@ function LineBoyNavbar() {
                                 <Link to='/lineboyhome'>  <li><a class="hover:text-gray-200" href="#">Home</a></li> </Link>
                                 <p>Date : {date}</p>
                                 <p>Line name : {line_name} </p>
+                                <li ><Link onClick={()=>localStorage.setItem("phoneNo",' ')}>Log out</Link></li>
                             </ul>
 
                             <div class="hidden xl:flex items-center space-x-5 items-center">

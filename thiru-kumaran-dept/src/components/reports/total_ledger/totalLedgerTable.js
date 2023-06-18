@@ -11,8 +11,8 @@ const TotalLedgerTable = ({ value, settotalCount }) => {
             "lineId": localStorage.getItem('lineId'),
             "dateRange": value
         }
-        try {
-            getTotalLedgerAll(body, setList)
+        try {   
+            getTotalLedgerBelow120(body, setList)
             console.log(list);
             settotalCount(list.loanCount);
         } catch (error) {

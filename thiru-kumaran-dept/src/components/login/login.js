@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import Modal from '../modal/modal';
+// import jwtDecode from 'jwt-decode';
+import jwt_decode from "jwt-decode";
+import { adminLogin } from '../../api';
 // import jwt from 'jsonwebtoken';
 
 const LoginPage = () => {
@@ -8,38 +11,47 @@ const LoginPage = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [modalOpen, setModalOpen] = useState(false);
+    const [token, setToken] = useState("")
 
     // just uncomment when u r using this
     const validateJWT = (token) => {
-        // try {
-        //     const decoded = jwt.verify(token, 'your-secret-key');
-        //     // the format of decoded is similar to {
-        //     //   sub: "1234567890",
-        //     //   username: "John Doe",
-        //     //   iat: 1622055264
-        //     // } so use the below condition according to u
 
-        //     if (decoded.username == 'adminusername') {
-        //         navigate('/home');
-        //         localStorage.setItem("username",decoded.username);
-        //     }
-        //     console.log('Token is valid:', decoded);
-        //     return true;
-        // } catch (error) {
-         //   setModalOpen(true);
-        //     console.error('Token is invalid:', error);
-        //     return false;
-        // }
-       
+
+        try {
+
+            const decodedToken = jwt_decode(token);
+
+            console.log("decoded", decodedToken.sub)
+            if (decodedToken.sub == email) {
+                navigate('/home');
+                localStorage.setItem("phoneNo", decodedToken.phoneNo);
+            }
+            console.log('Token is valid:', decodedToken);
+            return true;
+        } catch (error) {
+            setModalOpen(true);
+            console.error('Token is invalid:', error);
+            return false;
+        }
     };
     const onSubmit = (e) => {
-        console.log("error")
-       
+        // console.log("error")
         e.preventDefault();
-        
-        // put the post call 
-        const token = '';
-        validateJWT(token);
+        // put the post call
+        const body = {
+            "phoneNo": email,
+            "password": password
+        }
+        try {
+            adminLogin(body, setToken)
+
+            validateJWT(token)
+        } catch (error) {
+            console.log(error)
+        }
+
+        // e.preventDefault();
+
     }
 
     return (
@@ -51,7 +63,7 @@ const LoginPage = () => {
                         <form onSubmit={onSubmit}>
                             <div class="mb-4">
                                 <label class="block font-semibold text-gray-700 mb-2" for="email">
-                                    Username
+                                    Phone Number
                                 </label>
                                 <input
                                     class="border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
@@ -78,7 +90,7 @@ const LoginPage = () => {
                     {modalOpen && <Modal setOpenModal={setModalOpen} />}
                 </div>
             </div>
-           
+
         </>
     )
 }

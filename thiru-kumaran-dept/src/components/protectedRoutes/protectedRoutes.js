@@ -5,10 +5,10 @@ import LoginPage from "../login/login";
 
 const ProtectedRoutes = (children) => {
     const [login, setLogin] = useState(false);
-    const val = localStorage.getItem("uid");
+    const val = localStorage.getItem("phoneNo");
     // here set the value from cookie 
     useEffect(() => {
-        if (val !== '') {
+        if (val !== ' ') {
             setLogin(true);
         }
     }, [])
