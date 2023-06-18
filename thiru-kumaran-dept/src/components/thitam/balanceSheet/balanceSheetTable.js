@@ -52,8 +52,8 @@ const BalanceSheetTable = ({balanceList}) => {
                                 </thead>
                                 <tbody class="text-sm divide-y divide-gray-100">
                                     
-                                      {balanceList && balanceList.length>0 && balanceList.map((res)=>{
-                                        return  <BalanceSheetList key={res.id} res={res}/>
+                                      {balanceList && balanceList.length>0 && balanceList.map((res, i)=>{
+                                        return  <BalanceSheetList key={res.id} index={i} res={res}/>
                                       })} 
                                 
                                 </tbody>

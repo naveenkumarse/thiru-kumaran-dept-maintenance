@@ -9,12 +9,12 @@ const VerifyList = ({res}) => {
       
             <td class="p-2 whitespace-nowrap">
                 <div class="flex items-center">
-                    <div class="font-medium text-gray-800">{res.debit}</div>
+                    <div class="text-left">{res.debit}</div>
                 </div>
             </td>
             <td class="p-2 whitespace-nowrap">
                 <div class="flex items-center">
-                    <div class="font-medium text-gray-800">{res.credit}</div>
+                    <div class="text-left">{res.credit}</div>
                 </div>
             </td>
       

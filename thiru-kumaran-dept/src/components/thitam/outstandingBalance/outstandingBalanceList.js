@@ -6,12 +6,12 @@ const OutstandingBalanceList = ({res,index}) => {
         <>
             <td class="p-2 whitespace-nowrap">
                 <div class="flex items-center">
-                    <div class="font-medium text-gray-800">{index+1}</div>
+                    <div class="text-left">{index+1}</div>
                 </div>
             </td>
             <td class="p-2 whitespace-nowrap">
                 <div class="flex items-center">
-                    <div class="font-medium text-gray-800">{res.date}</div>
+                    <div class="text-left">{res.date}</div>
                 </div>
             </td>
             <td class="p-2 whitespace-nowrap">
@@ -21,10 +21,10 @@ const OutstandingBalanceList = ({res,index}) => {
                 <div class="text-left">{res.firstCount}</div>
             </td>
             <td class="p-2 whitespace-nowrap">
-                <div class="text-left font-medium">{res.firstBalance}</div>
+                <div class="text-left">{res.firstBalance}</div>
             </td>
             <td class="p-2 whitespace-nowrap">
-                <div class="text-left font-medium">{res.secondCount}</div>
+                <div class="text-left">{res.secondCount}</div>
             </td>
             <td class="p-2 whitespace-nowrap">
                 <div class="text-left">{res.secondBalance}</div>
@@ -33,13 +33,13 @@ const OutstandingBalanceList = ({res,index}) => {
                 <div class="text-left">{res.thirdCount}</div>
             </td>
             <td class="p-2 whitespace-nowrap">
-                <div class="text-left font-medium">{res.thirdBalance}</div>
+                <div class="text-left">{res.thirdBalance}</div>
             </td>
             <td class="p-2 whitespace-nowrap">
-                <div class="text-left font-medium">{res.fourthCount}</div>
+                <div class="text-left">{res.fourthCount}</div>
             </td>
             <td class="p-2 whitespace-nowrap">
-                <div class="text-left font-medium">{res.fourthBalance}</div>
+                <div class="text-left">{res.fourthBalance}</div>
             </td>
         </>
     )

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 import BalanceSheetTable from "./balanceSheetTable";
-import { createUpdateHead } from "../../../api";
+import { getBalanceSheet } from "../../../api";
 
 
 const BalanceSheet = () => {
@@ -49,7 +49,7 @@ const BalanceSheet = () => {
         }
         console.log(body)
         try {
-        createUpdateHead(body, setBalanceList)
+            getBalanceSheet(body, setBalanceList)
         } catch (error) {
             console.log("error in fetching head data", error)
         }        

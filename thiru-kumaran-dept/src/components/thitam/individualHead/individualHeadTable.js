@@ -10,7 +10,7 @@ const IndividualHeadTable = ({ individualHeadList }) => {
 
                     <div className="flex inline lg:justify-between">
                         <header class="px-5 py-4 border-b border-gray-100 ">
-                            <h2 class="font-bold text-gray-800">Balance Sheet</h2>
+                            <h2 class="font-bold text-gray-800">Individual Head Data</h2>
                         </header>
                         {/* <div class='max-w-md mr-5'>
                                 <div class="relative flex items-center w-full h-12 rounded-lg focus-within:shadow-lg bg-white overflow-hidden border border-black-600">

@@ -908,6 +908,28 @@ export const getAllAccount = async (body, setHead) => {
     return setHead(jsonData);
 }
 
+export const getBalanceSheet = async (body, setHead) => {
+    console.log(body);
+    // head_name
+    const res = await fetch(ENDPOINT_URL + "/restservices/thittam/balanceSheet", {
+        method: "POST",
+        headers: { "content-Type": "application/json" },
+        body: JSON.stringify(body)
+    });
+    const jsonData = await res.json();
+    console.log(jsonData)
+    return setHead(jsonData);
+}
+
+export const getTrialSheet = async (setTrailList) => {
+    // head_name
+    const res = await fetch(ENDPOINT_URL + "/restservices/thittam/trialSheet", {
+        method: "GET",
+    })
+        .then((response) => response.json())
+        .then((collectionData) => setTrailList(collectionData));
+}
+
 export const getIndividualHead = async (body, setList) =>{
     await fetch(ENDPOINT_URL + '/restservices/thittam/individualhead', {
         method: "POST",
