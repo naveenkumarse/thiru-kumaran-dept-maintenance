@@ -704,17 +704,6 @@ export const getMonthlyLoan = async (body, setCollection) => {
         .then((collectionData) => setCollection(collectionData));
 }
 
-export const getTotalLedgerAll = async (body, setCollection) => {
-    // line_name,date
-    await fetch(ENDPOINT_URL + '/restservices/reports/totalLedger/all', {
-        method: "POST",
-        headers: { "content-Type": "application/json" },
-        body: JSON.stringify(body)
-    })
-        .then((response) => response.json())
-        .then((collectionData) => setCollection(collectionData));
-}
-
 export const getTotalLedgerBelow120 = async (body, setCollection) => {
     // line_name,date
     await fetch(ENDPOINT_URL + '/restservices/reports/totalLedger/dateRange', {
