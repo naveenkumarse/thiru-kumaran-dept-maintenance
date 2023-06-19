@@ -61,379 +61,524 @@ function App() {
       <HashRouter>
         <Routes>
           {/* line boy login  */}
-          <Route path="/lineboyhome" element={
-            <div>
-              <LineBoyNavbar />
-              <LineBoyHome />
-            </div>
-          } />
+          <Route element={<ProtectedRoutes />}>
+            <Route path="/lineboyhome" element={
+              <div>
+                <LineBoyNavbar />
+                <LineBoyHome />
+              </div>
+            } />
+          </Route>
 
+          <Route element={<ProtectedRoutes />}>
+            <Route path="/lineboypages" element={
+              <div>
+                <LineBoyNavbar />
+                <LineBoyPages />
+              </div>
+            } />
+          </Route>
 
-          <Route path="/lineboypages" element={
-            <div>
-              <LineBoyNavbar />
-              <LineBoyPages />
-            </div>
-          } />
-          <Route path="/" element={
-            <div>
-              <LoginPage />
-            </div>
-          } />
-          {/* <Route path="/" element={
-            <div>
-              <LoginPage />
-            </div>
-          } />
-          <Route path="/" element={
-            <div>
-              <LoginPage />
-            </div>
-          } /> */}
-          <Route path="/lineboylogin" element={
-            <div>
-              <LineBoyLogin />
-            </div>
-          } />
+          <Route element={<ProtectedRoutes />}>
+            <Route path="/" element={
+              <div>
+                <LoginPage />
+              </div>
+            } />
+          </Route>
 
+          <Route element={<ProtectedRoutes />}>
+            <Route path="/lineboylogin" element={
+              <div>
+                <LineBoyLogin />
+              </div>
+            } />
+          </Route>
 
-          {/* <Route element={<ProtectedRoutes />}> */}
+          <Route element={<ProtectedRoutes />}>
             <Route path="/home" element={
               <div>
                 <Navbar />
                 <Home />
               </div>
             } />
-          {/* </Route> */}
+          </Route>
 
-          {/* <Route element={<ProtectedRoutes />}> */}
-          <Route path="/line" element={
-            <div>
-              <Navbar />
-              <Line />
-            </div>
-          } />
-          {/* </Route> */}
-          
-          <Route path="/admin" element={
+          <Route element={<ProtectedRoutes />}>
+            <Route path="/line" element={
+              <div>
+                <Navbar />
+                <Line />
+              </div>
+            } />
+          </Route>
+
+          <Route element={<ProtectedRoutes />}>
+            <Route path="/admin" element={
               <div>
                 <Admin />
               </div>
             } />
-          <Route path="/updateadmin" element={
+          </Route>
+
+          <Route element={<ProtectedRoutes />}>
+            <Route path="/updateadmin" element={
               <div>
                 <Navbar />
                 <UpdateAdmin />
               </div>
             } />
-          <Route path="/lineboy" element={
-            <div>
-              <LineBoy />
-            </div>
-          } />
-          <Route path="/linecreate" element={
-            <div>
-              <Navbar />
-              <LineCreate />
-            </div>
-          } />
-          <Route path="/loan" element={
-            <div>
-              <Navbar />
-              <Loan />
-            </div>
-          } />
-          <Route path="/updateloan" element={
-            <div>
-              <Navbar />
-              <UpdateLoan />
-            </div>
-          } />
-          <Route path="/lineboyloan" element={
-            <div>
-              <LineBoyNavbar />
-              <Loan />
-            </div>
-          } />
-          <Route path="/lineboyupdate" element={
-            <div>
-              <Navbar />
-              <UpdateLineBoy />
-            </div>
-          } />
-          <Route path="/dateclose" element={
-            <div>
-              <Navbar />
-              <DateClose />
-            </div>
-          } />
-          <Route path="/lineboydateclose" element={
-            <div>
-              <LineBoyNavbar />
-              <DateClose />
-            </div>
-          } />
-          <Route path="/collection" element={
-            <div>
-              <Navbar />
-              <Collection />
-            </div>
-          } />
-          <Route path="/collection/direct" element={
-            <div>
-              <Navbar />
-              <DirectEntryCollection />
-            </div>
-          } />
-          <Route path="/collection/ledger" element={
-            <div>
-              <Navbar />
-              <LedgerEntryCollection />
-            </div>
-          } />
-          <Route path="/collection/today" element={
-            <div>
-              <Navbar />
-              <TodayListCollection />
-            </div>
-          } />
-          <Route path="/totalview" element={
-            <div>
-              <Navbar />
-              <Report />
-            </div>
-          } />
+          </Route>
 
-          <Route path="/pastdatebill" element={
-            <div>
-              <Navbar />
-              <PastDateBill />
-            </div>
-          } />
+          <Route element={<ProtectedRoutes />}>
+            <Route path="/lineboy" element={
+              <div>
+                <LineBoy />
+              </div>
+            } />
+          </Route>
 
-          <Route path="/individualreport" element={
-            <div>
-              <Navbar />
-              <LoanList />
-            </div>
-          } />
+          <Route element={<ProtectedRoutes />}>
+            <Route path="/linecreate" element={
+              <div>
+                <Navbar />
+                <LineCreate />
+              </div>
+            } />
+          </Route>
 
-          <Route path="/lineboyindividualreport" element={
-            <div>
-              <LineBoyNavbar />
-              <LoanList />
-            </div>
-          } />
+          <Route element={<ProtectedRoutes />}>
+            <Route path="/loan" element={
+              <div>
+                <Navbar />
+                <Loan />
+              </div>
+            } />
+          </Route>
 
-          <Route path="/totalledger" element={
-            <div>
-              <Navbar />
-              <TotalLedger />
-            </div>
-          } />
-          <Route path="/monthlybill" element={
-            <div>
-              <Navbar />
-              <Report />
-            </div>
-          } />
-          <Route path="/pastdatebill" element={
-            <div>
-              <Navbar />
-              <Report />
-            </div>
-          } />
-          <Route path="/bulkpaidamount" element={
-            <div>
-              <Navbar />
-              <BulkPaid />
-            </div>
-          } />
-          <Route path="/monthlyloan" element={
-            <div>
-              <Navbar />
-              <Report />
-            </div>
-          } />
+          <Route element={<ProtectedRoutes />}>
+            <Route path="/updateloan" element={
+              <div>
+                <Navbar />
+                <UpdateLoan />
+              </div>
+            } />
+          </Route>
 
-          <Route path="/billnotpaid" element={
-            <div>
-              <Navbar />
-              <BillNotPaid />
-            </div>
-          } />
-          <Route path="/userpastloanlist" element={
-            <div>
-              <Navbar />
-              <UserList />
-            </div>
-          } />
-          <Route path="/nipparty" element={
-            <div>
-              <Navbar />
-              <NipParty />
-            </div>
-          } />
-          <Route path="/excessamountpaid" element={
-            <div>
-              <Navbar />
-              <ExcessAmount />
-            </div>
-          } />
-          <Route path="/ledgerview" element={
-            <div>
-              <Navbar />
-              <LedgerView />
-            </div>
-          } />
-          <Route path="/bulkpaid" element={
-            <div>
-              <Navbar />
-              <Report />
-            </div>
-          } />
-          <Route path="/continuouslynotpaid" element={
-            <div>
-              <Navbar />
-              <ContinuouslyNotPaid />
-            </div>
-          } />
-          <Route path="/ordernumber" element={
-            <div>
-              <Navbar />
-              <OrderNumber />
-            </div>
-          } />
-          <Route path="/lineboyordernumber" element={
-            <div>
-              <LineBoyNavbar />
-              <OrderNumber />
-            </div>
-          } />
-          <Route path="/report" element={
-            <div>
-              <Navbar />
-              <Report />
-            </div>
-          } />
-          <Route path="/monthlybillpaid" element={
-            <div>
-              <Navbar />
-              <MonthlyBill />
-            </div>
-          } />
+          <Route element={<ProtectedRoutes />}>
+            <Route path="/lineboyloan" element={
+              <div>
+                <LineBoyNavbar />
+                <Loan />
+              </div>
+            } />
+          </Route>
 
-          <Route path="/monthlyloanamount" element={
-            <div>
-              <Navbar />
-              <MonthlyLoan />
-            </div>
-          } />
-          <Route path="/closedparty" element={
-            <div>
-              <Navbar />
-              <ClosedParty />
-            </div>
-          } />
-          <Route path="/addloan" element={
-            <div>
-              <Navbar />
-              <AddLoan />
-            </div>
-          } />
-          <Route path="/lineboyclosedparty" element={
-            <div>
-              <LineBoyNavbar />
-              <ClosedParty />
-            </div>
-          } />
-          <Route path="/pastloanview" element={
-            <div>
-              <Navbar />
-              <ViewPastLoan />
-            </div>
-          } />
-          <Route path="/individualloanview" element={
-            <div>
-              <Navbar />
-              <IndividualView />
-            </div>
-          } />
-          <Route path="/openingbalance" element={
-            <div>
-              <Navbar />
-              <ThitamNav />
-              <OpeningBalance />
-            </div>
-          } />         
-          <Route path="/thitam" element={
-            <div>
-              <Navbar />
-              <ThitamNav />
-              <Thitam />
-            </div>
-          } />
-          <Route path="/addhead" element={
-            <div>
-              <Navbar />
-              <ThitamNav />
-              <AddHead />
-            </div>
-          } />
-          <Route path="/balancesheet" element={
-            <div>
-              <Navbar />
-              <ThitamNav />
-              <BalanceSheet />
-            </div>
-          } />
-          <Route path="/individualhead" element={
-            <div>
-              <Navbar />
-              <ThitamNav />
-              <IndividualHead />
-            </div>
-          } />
-          <Route path="/outstandingbalance" element={
-            <div>
-              <Navbar />
-              <ThitamNav />
-              <OutstandingBalance />
-            </div>
-          } />
-          <Route path="/trailsheet" element={
-            <div>
-              <Navbar />
-              <ThitamNav />
-              <TrialSheet />
-            </div>
-          } />
-          <Route path="/account" element={
-            <div>
-              <Navbar />
-              <ThitamNav />
-              <Account />
-            </div>
-          } />
-          <Route path="/outstandingbalance" element={
-            <div>
-              <Navbar />
-              <ThitamNav />
-              <OutstandingBalance />
-            </div>
-          } />
-          <Route path="/todaylist" element={
-            <div>
-              <LineBoyNavbar />
-              <TodayListLB />
-            </div>
-          } />
-          <Route path="/directentry" element={
-            <div>
-              <LineBoyNavbar />
-              <DirectEntryLB />
-            </div>
-          } />
+          <Route element={<ProtectedRoutes />}>
+            <Route path="/lineboyupdate" element={
+              <div>
+                <Navbar />
+                <UpdateLineBoy />
+              </div>
+            } />
+          </Route>
+
+          <Route element={<ProtectedRoutes />}>
+            <Route path="/dateclose" element={
+              <div>
+                <Navbar />
+                <DateClose />
+              </div>
+            } />
+          </Route>
+
+          <Route element={<ProtectedRoutes />}>
+            <Route path="/lineboydateclose" element={
+              <div>
+                <LineBoyNavbar />
+                <DateClose />
+              </div>
+            } />
+          </Route>
+
+          <Route element={<ProtectedRoutes />}>
+            <Route path="/collection" element={
+              <div>
+                <Navbar />
+                <Collection />
+              </div>
+            } />
+          </Route>
+
+          <Route element={<ProtectedRoutes />}>
+            <Route path="/collection/direct" element={
+              <div>
+                <Navbar />
+                <DirectEntryCollection />
+              </div>
+            } />
+          </Route>
+
+          <Route element={<ProtectedRoutes />}>
+            <Route path="/collection/ledger" element={
+              <div>
+                <Navbar />
+                <LedgerEntryCollection />
+              </div>
+            } />
+          </Route>
+
+          <Route element={<ProtectedRoutes />}>
+            <Route path="/collection/today" element={
+              <div>
+                <Navbar />
+                <TodayListCollection />
+              </div>
+            } />
+          </Route>
+
+          <Route element={<ProtectedRoutes />}>
+            <Route path="/totalview" element={
+              <div>
+                <Navbar />
+                <Report />
+              </div>
+            } />
+          </Route>
+
+          <Route element={<ProtectedRoutes />}>
+            <Route path="/pastdatebill" element={
+              <div>
+                <Navbar />
+                <PastDateBill />
+              </div>
+            } />
+          </Route>
+
+          <Route element={<ProtectedRoutes />}>
+            <Route path="/individualreport" element={
+              <div>
+                <Navbar />
+                <LoanList />
+              </div>
+            } />
+          </Route>
+
+          <Route element={<ProtectedRoutes />}>
+            <Route path="/lineboyindividualreport" element={
+              <div>
+                <LineBoyNavbar />
+                <LoanList />
+              </div>
+            } />
+          </Route>
+
+          <Route element={<ProtectedRoutes />}>
+            <Route path="/totalledger" element={
+              <div>
+                <Navbar />
+                <TotalLedger />
+              </div>
+            } />
+          </Route>
+
+          <Route element={<ProtectedRoutes />}>
+            <Route path="/monthlybill" element={
+              <div>
+                <Navbar />
+                <Report />
+              </div>
+            } />
+          </Route>
+
+          <Route element={<ProtectedRoutes />}>
+            <Route path="/pastdatebill" element={
+              <div>
+                <Navbar />
+                <Report />
+              </div>
+            } />
+          </Route>
+
+          <Route element={<ProtectedRoutes />}>
+            <Route path="/bulkpaidamount" element={
+              <div>
+                <Navbar />
+                <BulkPaid />
+              </div>
+            } />
+          </Route>
+
+          <Route element={<ProtectedRoutes />}>
+            <Route path="/monthlyloan" element={
+              <div>
+                <Navbar />
+                <Report />
+              </div>
+            } />
+          </Route>
+
+          <Route element={<ProtectedRoutes />}>
+            <Route path="/billnotpaid" element={
+              <div>
+                <Navbar />
+                <BillNotPaid />
+              </div>
+            } />
+          </Route>
+
+          <Route element={<ProtectedRoutes />}>
+            <Route path="/userpastloanlist" element={
+              <div>
+                <Navbar />
+                <UserList />
+              </div>
+            } />
+          </Route>
+
+          <Route element={<ProtectedRoutes />}>
+            <Route path="/nipparty" element={
+              <div>
+                <Navbar />
+                <NipParty />
+              </div>
+            } />
+          </Route>
+
+          <Route element={<ProtectedRoutes />}>
+            <Route path="/excessamountpaid" element={
+              <div>
+                <Navbar />
+                <ExcessAmount />
+              </div>
+            } />
+          </Route>
+
+          <Route element={<ProtectedRoutes />}>
+            <Route path="/ledgerview" element={
+              <div>
+                <Navbar />
+                <LedgerView />
+              </div>
+            } />
+          </Route>
+
+          <Route element={<ProtectedRoutes />}>
+            <Route path="/bulkpaid" element={
+              <div>
+                <Navbar />
+                <Report />
+              </div>
+            } />
+          </Route>
+
+          <Route element={<ProtectedRoutes />}>
+            <Route path="/continuouslynotpaid" element={
+              <div>
+                <Navbar />
+                <ContinuouslyNotPaid />
+              </div>
+            } />
+          </Route>
+
+          <Route element={<ProtectedRoutes />}>
+            <Route path="/ordernumber" element={
+              <div>
+                <Navbar />
+                <OrderNumber />
+              </div>
+            } />
+          </Route>
+
+          <Route element={<ProtectedRoutes />}>
+            <Route path="/lineboyordernumber" element={
+              <div>
+                <LineBoyNavbar />
+                <OrderNumber />
+              </div>
+            } />
+          </Route>
+
+          <Route element={<ProtectedRoutes />}>
+            <Route path="/report" element={
+              <div>
+                <Navbar />
+                <Report />
+              </div>
+            } />
+          </Route>
+
+          <Route element={<ProtectedRoutes />}>
+            <Route path="/monthlybillpaid" element={
+              <div>
+                <Navbar />
+                <MonthlyBill />
+              </div>
+            } />
+          </Route>
+
+          <Route element={<ProtectedRoutes />}>
+            <Route path="/monthlyloanamount" element={
+              <div>
+                <Navbar />
+                <MonthlyLoan />
+              </div>
+            } />
+          </Route>
+
+          <Route element={<ProtectedRoutes />}>
+            <Route path="/closedparty" element={
+              <div>
+                <Navbar />
+                <ClosedParty />
+              </div>
+            } />
+          </Route>
+
+          <Route element={<ProtectedRoutes />}>
+            <Route path="/addloan" element={
+              <div>
+                <Navbar />
+                <AddLoan />
+              </div>
+            } />
+          </Route>
+
+          <Route element={<ProtectedRoutes />}>
+            <Route path="/lineboyclosedparty" element={
+              <div>
+                <LineBoyNavbar />
+                <ClosedParty />
+              </div>
+            } />
+          </Route>
+
+          <Route element={<ProtectedRoutes />}>
+            <Route path="/pastloanview" element={
+              <div>
+                <Navbar />
+                <ViewPastLoan />
+              </div>
+            } />
+          </Route>
+
+          <Route element={<ProtectedRoutes />}>
+            <Route path="/individualloanview" element={
+              <div>
+                <Navbar />
+                <IndividualView />
+              </div>
+            } />
+          </Route>
+
+          <Route element={<ProtectedRoutes />}>
+            <Route path="/openingbalance" element={
+              <div>
+                <Navbar />
+                <ThitamNav />
+                <OpeningBalance />
+              </div>
+            } />
+          </Route>
+
+          <Route element={<ProtectedRoutes />}>
+            <Route path="/thitam" element={
+              <div>
+                <Navbar />
+                <ThitamNav />
+                <Thitam />
+              </div>
+            } />
+          </Route>
+
+          <Route element={<ProtectedRoutes />}>
+            <Route path="/addhead" element={
+              <div>
+                <Navbar />
+                <ThitamNav />
+                <AddHead />
+              </div>
+            } />
+          </Route>
+
+          <Route element={<ProtectedRoutes />}>
+            <Route path="/balancesheet" element={
+              <div>
+                <Navbar />
+                <ThitamNav />
+                <BalanceSheet />
+              </div>
+            } />
+          </Route>
+
+          <Route element={<ProtectedRoutes />}>
+            <Route path="/individualhead" element={
+              <div>
+                <Navbar />
+                <ThitamNav />
+                <IndividualHead />
+              </div>
+            } />
+          </Route>
+
+          <Route element={<ProtectedRoutes />}>
+            <Route path="/outstandingbalance" element={
+              <div>
+                <Navbar />
+                <ThitamNav />
+                <OutstandingBalance />
+              </div>
+            } />
+          </Route>
+
+          <Route element={<ProtectedRoutes />}>
+            <Route path="/trailsheet" element={
+              <div>
+                <Navbar />
+                <ThitamNav />
+                <TrialSheet />
+              </div>
+            } />
+          </Route>
+
+          <Route element={<ProtectedRoutes />}>
+            <Route path="/account" element={
+              <div>
+                <Navbar />
+                <ThitamNav />
+                <Account />
+              </div>
+            } />
+          </Route>
+
+          <Route element={<ProtectedRoutes />}>
+            <Route path="/outstandingbalance" element={
+              <div>
+                <Navbar />
+                <ThitamNav />
+                <OutstandingBalance />
+              </div>
+            } />
+          </Route>
+
+          <Route element={<ProtectedRoutes />}>
+            <Route path="/todaylist" element={
+              <div>
+                <LineBoyNavbar />
+                <TodayListLB />
+              </div>
+            } />
+          </Route>
+
+          <Route element={<ProtectedRoutes />}>
+            <Route path="/directentry" element={
+              <div>
+                <LineBoyNavbar />
+                <DirectEntryLB />
+              </div>
+            } />
+          </Route>
+
         </Routes>
       </HashRouter>
     </div>

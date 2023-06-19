@@ -28,7 +28,7 @@ const BulkPaidTable = ({list}) => {
                                                 <div class="text-left font-bold "> Address</div>
                                             </th>
                                             <th class="p-2 whitespace-nowrap">
-                                                <div class="text-left font-bold ">Load Amount</div>
+                                                <div class="text-left font-bold ">Loan Amount</div>
                                             </th>
                                             <th class="p-2 whitespace-nowrap">
                                                 <div class="text-left font-bold "> Bill Amount</div>
