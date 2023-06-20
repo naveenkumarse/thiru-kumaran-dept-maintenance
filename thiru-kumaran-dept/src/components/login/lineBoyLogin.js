@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/rules-of-hooks */
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import Modal from '../modal/modal';
 import { lineboyLogin } from '../../api';
@@ -14,7 +14,6 @@ const LineBoyLogin = () => {
     const validateJWT = (token) => {
         try {
             const decodedToken = jwt_decode(token);
-
             console.log("decoded", decodedToken)
             if (decodedToken.sub == email) {
                 navigate('/lineboyhome');
@@ -23,13 +22,18 @@ const LineBoyLogin = () => {
             console.log('Token is valid:', decodedToken);
             return true;
         } catch (error) {
-            setModalOpen(true);
             console.error('Token is invalid:', error);
+            setModalOpen(true);
             return false;
         }
     };
- 
-    
+    useEffect(() => {
+        if (token != '') {
+            validateJWT(token)
+        }
+
+    }, [token])
+
     const onSubmit = async (e) => {
         e.preventDefault();
         // put the post call
@@ -39,12 +43,10 @@ const LineBoyLogin = () => {
         }
         try {
             await lineboyLogin(body, setToken);
-            setTimeout(() => {
-                console.log('This will run after 1 second!')
-              }, 1000);
-            validateJWT(token);
+            // validateJWT(token);
         } catch (error) {
             console.log(error)
+
         }
     }
 

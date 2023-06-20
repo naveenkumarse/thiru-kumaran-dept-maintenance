@@ -23,11 +23,19 @@ const DateCloseTable = ({setPreviousDate}) => {
         };
         
         fetchData();
-        setDate();
+     
     }, []);
+
+    useEffect(()=>{
+        if(lastEntries.length>0){
+            setDate();
+        }
+    },[lastEntries])
+
     const setDate =()=>{
         // console.log(lastEntries[0].date);
-        if(lastEntries[0].date){
+        if(lastEntries && lastEntries[0]?.date){
+
             setPreviousDate(lastEntries[0].date);
         }else{
             setPreviousDate("send date");

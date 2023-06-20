@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import logo from "../../assets/logo.png"
 
 function Navbar() {  
+    const navigate = useNavigate()
     let date = localStorage.getItem('date');
     let line_name = localStorage.getItem("line_name")
     return (
@@ -25,7 +26,11 @@ function Navbar() {
                             
                               <p>Date : {date}</p>
                               {line_name!=null?<p>Line name : {line_name} </p>:<></>}
-                              <li ><Link onClick={()=>localStorage.setItem("phoneNo",' ')}>Log out</Link></li>
+                              <li ><button onClick={()=>{
+                                localStorage.removeItem("phoneNo");
+                                // navigate('/');
+                                window.location.reload()
+                                }}>Log out</button></li>
                             </ul>
 
                             <div class=" xl:flex items-center space-x-5 items-center md:ml-5 sm:ml-5">

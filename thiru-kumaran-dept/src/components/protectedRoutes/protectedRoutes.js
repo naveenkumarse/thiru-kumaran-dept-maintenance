@@ -5,13 +5,18 @@ import LoginPage from "../login/login";
 
 const ProtectedRoutes = (children) => {
     const [login, setLogin] = useState(false);
-    const val = localStorage.getItem("phoneNo");
+    // const [val,setVal] = useState(localStorage.getItem("phoneNo"))
     // here set the value from cookie 
     useEffect(() => {
-        if (val !== ' ') {
-            setLogin(true);
-        }
-    }, [])
+        const storageListener = () => {
+            setLogin(Boolean(window.localStorage.getItem("phoneNo")));
+        };
+    window.addEventListener("storage", storageListener);
+    return () => {
+        window.removeEventListener("storage", storageListener)
+    }
+
+}, [])
     // if we dont want navbar remove it 
     return login? <Outlet/> : <div><Navbar/><LoginPage/></div>;
 };
