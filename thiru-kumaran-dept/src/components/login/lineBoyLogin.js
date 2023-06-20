@@ -31,7 +31,6 @@ const LineBoyLogin = () => {
         if (token != '') {
             validateJWT(token)
         }
-
     }, [token])
 
     const onSubmit = async (e) => {

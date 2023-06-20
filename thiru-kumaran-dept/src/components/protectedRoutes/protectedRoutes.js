@@ -15,7 +15,6 @@ const ProtectedRoutes = (children) => {
     return () => {
         window.removeEventListener("storage", storageListener)
     }
-
 }, [])
     // if we dont want navbar remove it 
     return login? <Outlet/> : <div><Navbar/><LoginPage/></div>;

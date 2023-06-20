@@ -105,18 +105,6 @@ function App() {
           </Route>
 
           <Route element={<ProtectedRoutes />}>
-<<<<<<< Updated upstream
-            <Route path="/line" element={
-              <div>
-                <Navbar />
-                <Line />
-              </div>
-            } />
-          </Route>
-
-          <Route element={<ProtectedRoutes />}>
-            <Route path="/admin" element={
-=======
           <Route path="/line" element={
             <div>
               <Navbar />
@@ -124,9 +112,8 @@ function App() {
             </div>
           } />
           </Route>
-          
+          <Route element={<ProtectedRoutes />}>
           <Route path="/admin" element={
->>>>>>> Stashed changes
               <div>
                 <Admin />
               </div>
@@ -140,9 +127,8 @@ function App() {
                 <UpdateAdmin />
               </div>
             } />
-<<<<<<< Updated upstream
-          </Route>
-=======
+            </Route>
+
           <Route path="/lineboy" element={
             <div>
               <LineBoy />
@@ -223,7 +209,6 @@ function App() {
               <Report />
             </div>
           } />
->>>>>>> Stashed changes
 
           <Route element={<ProtectedRoutes />}>
             <Route path="/lineboy" element={
