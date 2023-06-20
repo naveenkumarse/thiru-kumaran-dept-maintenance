@@ -21,33 +21,27 @@ const IndividualViewTable = ({individual}) => {
     useEffect(()=>{
         const loanAmount = individual.loanAmount;
         const newTotal = [];
-        const newExcess = [];
-
+        const excessList = []
+        console.log("list", list)
         for(let i = 0; i <list.length;i++){
-            newExcess[i]=0;
-            if(i===0){
-                let a = loanAmount - list[i].billAmount;
-                if(a<0){
-                    newExcess[i]=-a;
-                    a=0;
-                }
-                newTotal.push(a);
+            if (i === 0){
+                const temp = loanAmount - list[i]["billAmount"]
+                newTotal.push(temp)
             }
             else{
-            let a = newTotal[i-1] - list[i].billAmount;
-            if(a<0){
-                newExcess[i]=-a;
-                a=0;
+                const temp = newTotal[i-1] - list[i]["billAmount"]
+                newTotal.push(temp);
             }
-            newTotal.push(0);
+            if (newTotal[i] < 0) {
+                excessList.push(-newTotal[i]);
+                newTotal[i] = 0;
+            }else{
+                excessList.push(0);
             }
-            // if(newTotal<0){
-            //     newTotal=0;
-            // }
-            console.log(newTotal);
+         
         }
+        setExcess(excessList)
         setTotal(newTotal)
-        setExcess(newExcess)
     },[list])
     return (
         <>
