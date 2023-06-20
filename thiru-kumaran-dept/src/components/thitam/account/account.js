@@ -148,7 +148,7 @@ const Account = () => {
                         </div>
                     </form>
                     </div>
-                    <AccountTable accountlist={accountlist} />
+                    <AccountTable className="mb-5" accountlist={accountlist} />
                 </div>
             </div>
         </>

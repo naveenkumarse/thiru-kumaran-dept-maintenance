@@ -5,6 +5,8 @@ import React, { useEffect, useState } from "react";
 
 const TrialSheetTable = () => {
     const [trailList, setTrailList] = useState([]);
+    const [credit, setCredit] = useState(0);
+    const [debit, setDebit] = useState(0);
     useEffect(()=>{
         const fetchData = async () => {
             try {
@@ -16,6 +18,13 @@ const TrialSheetTable = () => {
       
           fetchData();
     },[trailList]);
+
+    useEffect(()=>{
+        let creditSum = trailList.reduce((accumulator, obj) => accumulator + obj['credit'], 0);
+        let debitSum = trailList.reduce((accumulator, obj) => accumulator + obj['debit'], 0);
+        setCredit(creditSum);
+        setDebit(debitSum);
+    }, [trailList])
     return (
         <>
             <section class="antialiased bg-gray-100 text-gray-600 px-4 bg-red-400 my-20">
@@ -65,11 +74,28 @@ const TrialSheetTable = () => {
                                     </thead>
                                     <tbody class="text-sm divide-y divide-gray-100">
                                         
-                                            {trailList.map((res,i) => {
+                                        {trailList.map((res,i) => {
                                                 return <TrialSheetList key={res.id} index={i} res={res} />
-                                            })}
+                                        })}
 
-                                     
+                                    <tr>
+                                        <td class="p-2 whitespace-nowrap">
+                                            <div class="flex items-center">
+                                                <div class="text-left"></div>
+                                            </div>
+                                        </td>
+                                        <td class="p-2 whitespace-nowrap">
+                                            <div class="flex items-center font-bold">
+                                                <div class="text-left">Total</div>
+                                            </div>
+                                        </td>
+                                        <td class="p-2 whitespace-nowrap">
+                                            <div class="text-left text-lime-600 font-bold	">{credit}</div>
+                                        </td>
+                                        <td class="p-2 whitespace-nowrap">
+                                            <div class="text-left text-amber-700  font-bold">{debit}</div>
+                                        </td>
+                                    </tr>
                                     </tbody>
                                 </table>
                             </div>

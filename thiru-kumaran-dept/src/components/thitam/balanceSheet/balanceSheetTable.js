@@ -1,8 +1,15 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import BalanceSheetList from "./balanceSheetList";
 const BalanceSheetTable = ({balanceList}) => {
-
+    const [credit, setCredit] = useState(0);
+    const [debit, setDebit] = useState(0);
+    useEffect(()=>{
+        let creditSum = balanceList.reduce((accumulator, obj) => accumulator + obj['credit'], 0);
+        let debitSum = balanceList.reduce((accumulator, obj) => accumulator + obj['debit'], 0);
+        setCredit(creditSum);
+        setDebit(debitSum);
+    }, [balanceList])
     return (
         <>
 
@@ -55,7 +62,24 @@ const BalanceSheetTable = ({balanceList}) => {
                                       {balanceList && balanceList.length>0 && balanceList.map((res, i)=>{
                                         return  <BalanceSheetList key={res.id} index={i} res={res}/>
                                       })} 
-                                
+                                      <tr>
+                                        <td class="p-2 whitespace-nowrap">
+                                            <div class="flex items-center">
+                                                <div class="text-left"></div>
+                                            </div>
+                                        </td>
+                                        <td class="p-2 whitespace-nowrap">
+                                            <div class="flex items-center font-bold">
+                                                <div class="text-left">Total</div>
+                                            </div>
+                                        </td>
+                                        <td class="p-2 whitespace-nowrap">
+                                            <div class="text-left text-lime-600 font-bold	">{credit}</div>
+                                        </td>
+                                        <td class="p-2 whitespace-nowrap">
+                                            <div class="text-left text-amber-700  font-bold">{debit}</div>
+                                        </td>
+                                    </tr>
                                 </tbody>
                             </table>
                         </div>

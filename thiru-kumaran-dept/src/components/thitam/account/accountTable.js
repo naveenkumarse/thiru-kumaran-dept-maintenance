@@ -10,7 +10,7 @@ const AccountTable = ({ accountlist }) => {
         <>
             <section class="antialiased bg-gray-100 text-gray-600 px-4 bg-red-400 my-20">
                 <div class="flex flex-col justify-center h-full">
-                    <div class="w-full pt-5 mx-auto bg-white shadow-lg rounded-sm border border-gray-200 ">
+                    <div class="w-full pt-5 mx-auto bg-white shadow-lg rounded-sm border border-gray-200 mb-10">
 
                         <div className="flex inline lg:justify-between">
                             <header class="px-5 py-4 border-b border-gray-100 ">

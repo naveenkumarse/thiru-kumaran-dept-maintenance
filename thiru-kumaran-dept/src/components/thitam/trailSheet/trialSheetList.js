@@ -1,10 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 
 
 const TrialSheetList = ({res,index}) => {
-    const [amount, setAmount] = useState(0);
     return (
-        <>
         <tr>
          <td class="p-2 whitespace-nowrap">
                 <div class="flex items-center">
@@ -23,7 +21,6 @@ const TrialSheetList = ({res,index}) => {
                 <div class="text-left">{res.debit}</div>
             </td>
             </tr>
-        </>
     )
 }
 

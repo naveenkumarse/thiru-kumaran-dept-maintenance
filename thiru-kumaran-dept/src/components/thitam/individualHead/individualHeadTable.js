@@ -1,8 +1,15 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import IndividualHeadList from "./individualHeadList";
 
 const IndividualHeadTable = ({ individualHeadList }) => {
-
+    const [credit, setCredit] = useState(0);
+    const [debit, setDebit] = useState(0);
+    useEffect(()=>{
+        let creditSum = individualHeadList.reduce((accumulator, obj) => accumulator + obj['credit'], 0);
+        let debitSum = individualHeadList.reduce((accumulator, obj) => accumulator + obj['debit'], 0);
+        setCredit(creditSum);
+        setDebit(debitSum);
+    }, [individualHeadList])
     return (
         <>
             <div class="flex flex-col justify-center h-full">
@@ -56,8 +63,29 @@ const IndividualHeadTable = ({ individualHeadList }) => {
                                     {individualHeadList.map((res,i) => {
                                         return <IndividualHeadList key={res.id} res={res} index={i}/>
                                     })}
-
-
+                                    <tr>
+                                        <td class="p-2 whitespace-nowrap">
+                                            <div class="flex items-center">
+                                                <div class="text-left"></div>
+                                            </div>
+                                        </td>
+                                        <td class="p-2 whitespace-nowrap">
+                                            <div class="flex items-center">
+                                                <div class="text-left"></div>
+                                            </div>
+                                        </td>
+                                        <td class="p-2 whitespace-nowrap">
+                                            <div class="flex items-center font-bold">
+                                                <div class="text-left">Total</div>
+                                            </div>
+                                        </td>
+                                        <td class="p-2 whitespace-nowrap">
+                                            <div class="text-left text-lime-600 font-bold	">{credit}</div>
+                                        </td>
+                                        <td class="p-2 whitespace-nowrap">
+                                            <div class="text-left text-amber-700  font-bold">{debit}</div>
+                                        </td>
+                                    </tr>
                                 </tbody>
                             </table>
                         </div>
