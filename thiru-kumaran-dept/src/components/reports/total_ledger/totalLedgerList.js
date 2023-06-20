@@ -1,6 +1,6 @@
 import React from "react";
 
-const TotalLedgerList = ({loan}) => {
+const TotalLedgerList = ({loan, total}) => {
 
     return (
         <tr>
@@ -35,6 +35,9 @@ const TotalLedgerList = ({loan}) => {
             </td>
             <td class="p-2 whitespace-nowrap">
                 <div class="text-left">{loan.paydayss}</div>
+            </td>
+            <td class="p-2 whitespace-nowrap">
+                <div class="text-left">{total}</div>
             </td>
         </tr>
     )

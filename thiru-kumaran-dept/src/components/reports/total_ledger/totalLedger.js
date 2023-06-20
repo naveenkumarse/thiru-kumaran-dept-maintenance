@@ -10,6 +10,7 @@ const TotalLedger = () => {
     const [value, setValue] = useState("all");
     const [list, setList] = useState({});
     const [query, setQuery] = useState("");
+    const [total, setTotal] = useState([]);
 
     useEffect(() => {
         const body = {
@@ -18,12 +19,28 @@ const TotalLedger = () => {
         }
         try {
             getTotalLedgerBelow120(body, setList)
-            console.log(list);
             settotalCount(list.loanCount);
         } catch (error) {
             console.log("error in fetching ledger report data")
         }
     }, [list.loanCount, value])
+
+    useEffect(()=>{
+        let sum = [];
+        for(let i = 0; i <= list['loanData'].length-1; i++){
+        console.log("sum",i);
+            if (i===0){
+                sum.push(list['loanData'][i]['balance'])
+            }
+            else{
+                const temp = sum[i-1] + list['loanData'][i]['balance'] 
+                sum.push(temp);
+            }
+        }
+        setTotal(sum);
+        console.log("sum",sum);
+    }, [list])
+
     return (
         <>
             <div className="">
@@ -129,7 +146,7 @@ const TotalLedger = () => {
                                             } else if (post.name.toLowerCase().includes(query.toLowerCase())) {
                                                 return post;
                                             }
-                                        }).map((loan, i) => <TotalLedgerList loan={loan} key={i} />)}
+                                        }).map((loan, i) => <TotalLedgerList loan={loan} key={i} total={total[i]} />)}
                                     </tbody>
                                 </table>
                             </div>
