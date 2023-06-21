@@ -34,9 +34,6 @@ const TotalLedgerList = ({loan, total}) => {
                 <div class="text-left">{loan.paidAmount}</div>
             </td>
             <td class="p-2 whitespace-nowrap">
-                <div class="text-left">{loan.paydayss}</div>
-            </td>
-            <td class="p-2 whitespace-nowrap">
                 <div class="text-left">{total}</div>
             </td>
         </tr>

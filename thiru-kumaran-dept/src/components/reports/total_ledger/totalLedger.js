@@ -27,7 +27,7 @@ const TotalLedger = () => {
 
     useEffect(()=>{
         let sum = [];
-        for(let i = 0; i <= list['loanData'].length-1; i++){
+        for(let i = 0;list["loanData"] && i <= list['loanData'].length-1; i++){
         console.log("sum",i);
             if (i===0){
                 sum.push(list['loanData'][i]['balance'])
