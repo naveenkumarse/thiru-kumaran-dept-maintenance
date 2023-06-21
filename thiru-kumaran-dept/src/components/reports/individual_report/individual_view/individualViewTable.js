@@ -22,7 +22,6 @@ const IndividualViewTable = ({individual}) => {
         const loanAmount = individual.loanAmount;
         const newTotal = [];
         const excessList = []
-        console.log("list", list)
         for(let i = 0; i <list.length;i++){
             if (i === 0){
                 const temp = loanAmount - list[i]["billAmount"]
