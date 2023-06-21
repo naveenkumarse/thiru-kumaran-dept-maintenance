@@ -21,7 +21,7 @@ const ProtectedRoutes = (children) => {
 
     const { phoneNumber } = useContext(AppContext)
     // if we dont want navbar remove it 
-    return phoneNumber ? <Outlet /> : <div><Navbar /><LoginPage /></div>;
+    return phoneNumber ? <Outlet /> : <div><LoginPage /></div>;
 };
 
 export default ProtectedRoutes;

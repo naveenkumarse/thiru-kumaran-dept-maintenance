@@ -60,7 +60,7 @@ function App() {
 
   const [phoneNumber, setPhoneNumber] = useState(localStorage.getItem('phoneNo'));
 
-  
+
   return (
     <div className="App">
       <AppContext.Provider value={{ phoneNumber, setPhoneNumber }}>
@@ -85,13 +85,12 @@ function App() {
               } />
             </Route>
 
-            {/* <Route element={<ProtectedRoutes />}> */}
             <Route path="/" element={
               <div>
                 <LoginPage />
               </div>
             } />
-            {/* </Route> */}
+
 
 
             <Route path="/lineboylogin" element={
