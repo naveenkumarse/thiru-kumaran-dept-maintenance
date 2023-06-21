@@ -1,23 +1,28 @@
 /* eslint-disable react-hooks/rules-of-hooks */
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import Modal from '../modal/modal';
 import { lineboyLogin } from '../../api';
 import jwt_decode from 'jwt-decode';
+import AppContext from '../../context/AppContext';
 const LineBoyLogin = () => {
     const navigate = useNavigate();
     const [token, setToken] = useState('')
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [modalOpen, setModalOpen] = useState(false);
-
+    const { setPhoneNumber } = useContext(AppContext)
     const validateJWT = (token) => {
         try {
             const decodedToken = jwt_decode(token);
-            console.log("decoded", decodedToken)
-            if (decodedToken.sub == email) {
+            // console.log("decoded", decodedToken)
+            if (decodedToken.sub === email) {
+                console.log(decodedToken.sub+"true")
+                
+                localStorage.setItem("phoneNo", decodedToken.sub);
+                setPhoneNumber(decodedToken.sub);
                 navigate('/lineboyhome');
-                localStorage.setItem("phoneNo", decodedToken.phoneNo);
+                // window.location.reload();
             }
             console.log('Token is valid:', decodedToken);
             return true;

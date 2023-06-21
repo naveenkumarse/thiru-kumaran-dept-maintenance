@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import Modal from '../modal/modal';
 // import jwtDecode from 'jwt-decode';
 import jwt_decode from "jwt-decode";
 import { adminLogin } from '../../api';
+import AppContext from '../../context/AppContext';
 // import jwt from 'jsonwebtoken';
 
 const LoginPage = () => {
@@ -13,6 +14,9 @@ const LoginPage = () => {
     const [modalOpen, setModalOpen] = useState(false);
     const [token, setToken] = useState("")
 
+    const { setPhoneNumber } = useContext(AppContext)
+
+
     // just uncomment when u r using this
     const validateJWT = (token) => {
 
@@ -21,10 +25,12 @@ const LoginPage = () => {
 
             const decodedToken = jwt_decode(token);
 
-            console.log("decoded", decodedToken.sub)
             if (decodedToken.sub == email) {
+
+                localStorage.setItem("phoneNo", decodedToken.sub);
+                setPhoneNumber(decodedToken.sub);
                 navigate('/home');
-                localStorage.setItem("phoneNo", decodedToken.phoneNo);
+            
             }
             console.log('Token is valid:', decodedToken);
             return true;
@@ -34,6 +40,11 @@ const LoginPage = () => {
             return false;
         }
     };
+    useEffect(() => {
+        if (token != '') {
+            validateJWT(token)
+        }
+    }, [token])
     const onSubmit = (e) => {
         // console.log("error")
         e.preventDefault();
@@ -45,7 +56,7 @@ const LoginPage = () => {
         try {
             adminLogin(body, setToken)
 
-            validateJWT(token)
+            // validateJWT(token)
         } catch (error) {
             console.log(error)
         }
