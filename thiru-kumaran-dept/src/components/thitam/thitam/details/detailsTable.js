@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import DetailsList from "./detailsList";
 import { createBalance, deleteAllExtraHead, getAllThittam } from "../../../../api";
-
+import { useNavigate } from "react-router-dom";
 const DetailsTable = ({setVerifiedTable}) => {
     const [data, setData] = useState({})
     const [list, setList] = useState([])
@@ -10,7 +10,7 @@ const DetailsTable = ({setVerifiedTable}) => {
     const [credit, setCredit] = useState(0);
     const [debit, setDebit] = useState(0);
     const [verify,setVerify] = useState([]);
-
+    const navigate = useNavigate();
     useEffect(()=>{
         setList(data["thittamList"])
     }, [data])
@@ -70,7 +70,6 @@ const DetailsTable = ({setVerifiedTable}) => {
     },[])
     const handleSubmit =(e) =>{
         e.preventDefault();
-        localStorage.setItem('thittamdate', data.date)
         const body ={
             "balance": balance,
             "name": "Closing Balance",
@@ -78,6 +77,7 @@ const DetailsTable = ({setVerifiedTable}) => {
         }
         try {
             createBalance(body)
+            // navigate('/home')
         } catch (error) {
             console.log("create head data error" ,error)
         }

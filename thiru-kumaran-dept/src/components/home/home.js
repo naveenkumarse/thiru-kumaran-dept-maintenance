@@ -1,7 +1,19 @@
 import React, {useEffect, useState} from "react";
 import Button from "../button/home_button";
-import { getLineFE } from "../../api";
+import { getLineFE, getThittamDate } from "../../api";
 const Home = () => {
+    const [date,setDate] = useState();
+    useEffect(()=>{
+        const fetchData = async () => {
+            try {
+              await getThittamDate(date); 
+            } catch (error) {
+              console.error("Error fetching line data:", error);
+            }
+          };
+      
+          fetchData();
+    },[])
     const [lines,setLines] = useState([
         // {
         //     "date": "2023-05-10",

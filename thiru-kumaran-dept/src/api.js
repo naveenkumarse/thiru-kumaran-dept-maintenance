@@ -919,6 +919,19 @@ export const getTrialSheet = async (setTrailList) => {
         .then((collectionData) => setTrailList(collectionData));
 }
 
+export const getThittamDate = async (body) => {
+    // head_name
+    const res = await fetch(ENDPOINT_URL + "/restservices/thittam/dateForThittam", {
+        method: "GET",
+        headers: { "content-Type": "application/json" },
+        body: JSON.stringify(body)
+    });
+    const jsonData = await res.json();
+    console.log("current date thittam endpoint", jsonData["currentDate"])
+    localStorage.setItem('thittamdate', jsonData["currentDate"])
+    return jsonData["currentDate"];
+}
+
 export const getIndividualHead = async (body, setList) =>{
     await fetch(ENDPOINT_URL + '/restservices/thittam/individualhead', {
         method: "POST",
