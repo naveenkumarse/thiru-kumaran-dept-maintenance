@@ -10,7 +10,7 @@
 
 ## About the Project <a name="about-project"></a>
 The web app is used by many local financial institutions for their fund, debit/credit management. Developed this Microservices-based web application using Spring Boot and Node for the backend servers, with PostgreSQL and MongoDB as the databases. Transformed the application into a Progressive Web App (PWA) with push notifications to enhance user experience and engagement for over 1000 daily users.
-**Note:** The backend of this application is built using Node.js and Spring Boot. And that is being sold as a product and so the code for the same is not provided in public.
+**Note:** The application's backend infrastructure is constructed utilizing Node.js and Spring Boot technologies. As it is commercial software, the underlying codebase is not publicly accessible.
 
 ## 👥 Authors <a name="authors"></a>
 
